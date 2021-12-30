@@ -81,13 +81,13 @@ analytics:
 # Site Author
 author:
   name             : "Bojian Hou"
-  avatar           : "bio_photo1.jpg"
-  bio              : "Your biography for the left-hand sidebar"
+  avatar           : "bio_photo2.jpg"
+  bio              : "Postdoctoral Researcher at Univerisity of Pennsylvania"
   location         : "Philadelphia, PA"
   employer         :
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
+  pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?user=yFVd81sAAAAJ&hl=en"
-  email            :
+  email            : "Hobo.hbj@gmail.com"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
@@ -103,13 +103,13 @@ author:
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
   linkedin         :
-  orcid            : "http://orcid.org/yourorcidurl"
+  orcid            : # "http://orcid.org/yourorcidurl"
   pinterest        :
   soundcloud       :
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
   tumblr           :
-  twitter          : "replacethistwitterhandle"
+  twitter          : # "replacethistwitterhandle"
   vine             :
   weibo            :
   xing             :
