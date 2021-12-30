@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-Hi, Welcome to my homepage! My name is Bojian Hou (also Bo-Jian Hou), a postdoctoral researcher at the [University of Pennsylvania](https://www.upenn.edu/) in the [Department of Radiology](https://www.pennmedicine.org/departments-and-centers/department-of-radiology) supervised by Professor [Yong Fan](https://www.med.upenn.edu/cbica/abili/yfan.html). Before that, I was a postdoctoral associate at Cornell University, advised by Professor [Fei Wang](https://wcm-wanglab.github.io/). I received my Ph.D and Bachelor degree at [Nanjing University](https://www.nju.edu.cn/) in the [Department of Computer Science](https://cs.nju.edu.cn/) from 2020 and 2014 seperately. I was a member of [LAMDA](http://www.lamda.nju.edu.cn/MainPage.ashx) Group led by Professor [Zhi-Hua Zhou](https://cs.nju.edu.cn/zhouzh/).
+Hi, Welcome to my homepage! My name is Bojian Hou (also Bo-Jian Hou), a postdoctoral researcher at the [University of Pennsylvania](https://www.upenn.edu/) in the [Department of Radiology](https://www.pennmedicine.org/departments-and-centers/department-of-radiology) supervised by Professor [Yong Fan](https://www.med.upenn.edu/cbica/abili/yfan.html). Before that, I was a postdoctoral associate at Cornell University, advised by Professor [Fei Wang](https://wcm-wanglab.github.io/). I received my Ph.D and Bachelor degree at [Nanjing University](https://www.nju.edu.cn/) in the [Department of Computer Science](https://cs.nju.edu.cn/) in 2020 and 2014 seperately. I was a member of [LAMDA](http://www.lamda.nju.edu.cn/MainPage.ashx) Group led by Professor [Zhi-Hua Zhou](https://cs.nju.edu.cn/zhouzh/).
 
 A data-driven personal website
 ======
