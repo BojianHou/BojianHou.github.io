@@ -14,4 +14,4 @@ By using abundant unlabeled data, semi-supervised learning approaches have been 
 
 [Download paper here](http://bojianhou.github.io/files/SFL.pdf)
 
-Recommended citation: **Bo-Jian Hou**, Lijun Zhang, and Zhi-Hua Zhou. _Storage Fit Learning with Unlabeled Data_. **In: Proceedings of the 26th International Joint Conference on Artificial Intelligence (IJCAI’17), Melbourne, Australia, 2017, 1844-1850.
+Recommended citation: **Bo-Jian Hou**, Lijun Zhang, and Zhi-Hua Zhou. _Storage Fit Learning with Unlabeled Data_. **In: Proceedings of the 26th International Joint Conference on Artificial Intelligence (IJCAI’17)**, Melbourne, Australia, 2017, 1844-1850.
