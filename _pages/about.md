@@ -22,4 +22,5 @@ I have broad interest in machine learning and data mining and their potential ap
 
 Recent Hightlights
 =====
-
+- 
+- 05-27-2020: I have successfully defended my PhD dissertation and became a PhD.
