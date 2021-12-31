@@ -12,7 +12,7 @@ Welcome to my homepage! My name is Bojian Hou (also Bo-Jian Hou), a postdoctoral
 
 I received my B.Sc. and Ph.D. degree in the [Department of Computer Science](https://cs.nju.edu.cn/) at [Nanjing University](https://www.nju.edu.cn/) in 2014 and 2020 seperately. I was a member of [LAMDA](http://www.lamda.nju.edu.cn/MainPage.ashx) Group led by Prof. [Zhi-Hua Zhou](https://cs.nju.edu.cn/zhouzh/) during my doctoral study. My Ph.D. supervisor is Prof. [Zhi-Hua Zhou](https://cs.nju.edu.cn/zhouzh/).
 
-I have broad interest in machine learning and data mining and their potential applications to biomedical data. During my doctoral study, my main research direction is **feature evolvable learning** which is a novel learning scenario where data features would evolve in open and dynamic environment. I developed a series of algorithms that can effectively deal with this scenario with theoretical guarantees. I am also interested in
+I have broad interest in machine learning, data mining and their potential applications to biomedical data. During my doctoral study, my main research direction is **feature evolvable learning** which is a novel learning scenario where data features would evolve in open and dynamic environment. I developed a series of algorithms that can effectively deal with this scenario with theoretical guarantees. I am also interested in
 - **Interpretability**: studying the interpretability of the black-box machine learning models;
 - **Semi-Supervised Learning**: learning both from labeled and unlabeled data;
 - **Online Learning**: learning models continuously from online streaming data;
