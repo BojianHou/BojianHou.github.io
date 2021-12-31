@@ -20,8 +20,9 @@ I have broad interest in machine learning and data mining and their potential ap
 - **Deep Learning**: leveraging deep neural networks to handle complex spatial and temporal data;
 - **Learnware**: towards reusable, evolvable and comprehensible machine learning models.
 
+
 Recent Hightlights
-=====
+------
 - 11-22-2021: Winning the Excellent Doctoral Dissertation Award of Jiangsu Province.
 - 09-13-2021: Winning the Excellent Doctoral Dissertation Award of Nanjing University.
 - 08-31-2021: Our paper "Online Learning in Variable Feature Spaces with Mixed Data" with Yi He, Jiaxian Dong, Yu Wang, and Fei Wang is accepted by ICDM'21.
