@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "About"
+title: "About me"
 excerpt: "About me"
 author_profile: true
 redirect_from: 
@@ -8,10 +8,14 @@ redirect_from:
   - /about.html
 ---
 
-Hi, Welcome to my homepage! My name is Bojian Hou (also Bo-Jian Hou), a postdoctoral researcher at the [University of Pennsylvania](https://www.upenn.edu/) in the [Department of Radiology](https://www.pennmedicine.org/departments-and-centers/department-of-radiology) supervised by Professor [Yong Fan](https://www.med.upenn.edu/cbica/abili/yfan.html). Before that, I was a postdoctoral associate at Cornell University, advised by Professor [Fei Wang](https://wcm-wanglab.github.io/). I received my Ph.D and Bachelor degree at [Nanjing University](https://www.nju.edu.cn/) in the [Department of Computer Science](https://cs.nju.edu.cn/) in 2020 and 2014 seperately. I was a member of [LAMDA](http://www.lamda.nju.edu.cn/MainPage.ashx) Group led by Professor [Zhi-Hua Zhou](https://cs.nju.edu.cn/zhouzh/).
+Hi, welcome to my homepage! My name is Bojian Hou (also Bo-Jian Hou), a postdoctoral researcher  in the [Department of Radiology](https://www.pennmedicine.org/departments-and-centers/department-of-radiology) at the [University of Pennsylvania](https://www.upenn.edu/) advised by Prof. [Yong Fan](https://www.med.upenn.edu/cbica/abili/yfan.html). Before that, I was a postdoctoral associate in the [Department of Poplulation Health and Science](https://phs.weill.cornell.edu/) at Cornell University, advised by Prof. [Fei Wang](https://wcm-wanglab.github.io/). 
+
+I received my Bachelor and Ph.D degree in the [Department of Computer Science](https://cs.nju.edu.cn/) at [Nanjing University](https://www.nju.edu.cn/) in 2014 and 2020 seperately. I was a member of [LAMDA](http://www.lamda.nju.edu.cn/MainPage.ashx) Group led by Prof. [Zhi-Hua Zhou](https://cs.nju.edu.cn/zhouzh/). My Ph.D supervisor is Prof. [Zhi-Hua Zhou](https://cs.nju.edu.cn/zhouzh/).
+
+I have broad interest in machine learning and data mining and their potential applications to biomedical data. I am currently working on investigating the implicit problems of Shapley value-based post-hoc explanation methods and developing practical biomedical literature mining tools by leveraging pre-trained NLP models such as BERT. During my doctoral studies, my main research direction is feature evolvable learning which is a novel learning scenario where data features would evolve in open and dynamic environment. I developed a series of algorithms that can effectively deal with this scenario with theoretical guarantees.
 
 A data-driven personal website
-======
+===
 Like many other Jekyll-based GitHub Pages templates, academicpages makes you separate the website's content from its form. The content & metadata of your website are in structured markdown files, while various other files constitute the theme, specifying how to transform that content & metadata into HTML pages. You keep these various markdown (.md), YAML (.yml), HTML, and CSS files in a public GitHub repository. Each time you commit and push an update to the repository, the [GitHub pages](https://pages.github.com/) service creates static HTML pages based on these files, which are hosted on GitHub's servers free of charge.
 
 Many of the features of dynamic content management systems (like Wordpress) can be achieved in this fashion, using a fraction of the computational resources and with far less vulnerability to hacking and DDoSing. You can also modify the theme to your heart's content without touching the content of your site. If you get to a point where you've broken something in Jekyll/HTML/CSS beyond repair, your markdown files describing your talks, publications, etc. are safe. You can rollback the changes or even delete the repository and start over -- just be sure to save the markdown files! Finally, you can also write scripts that process the structured data on the site, such as [this one](https://github.com/academicpages/academicpages.github.io/blob/master/talkmap.ipynb) that analyzes metadata in pages about talks to display [a map of every location you've given a talk](https://academicpages.github.io/talkmap.html).
