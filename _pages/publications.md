@@ -16,7 +16,7 @@ author_profile: true
 {% endfor %} -->
 
 ## Conference
-1. **Bo-Jian Hou**, Lijun Zhang, and Zhi-Hua Zhou. _Learning with Feature Evolvable Streams_. **In: Advances in Neural Information Processing Systems 30 (NIPS’17)**, Long Beach, CA, 2017, 30: 1417-1427.
+1. **Bo-Jian Hou**, Lijun Zhang, and Zhi-Hua Zhou. _Learning with Feature Evolvable Streams_. **In: Advances in Neural Information Processing Systems 30 (NIPS’17)**, Long Beach, CA, 2017, 30: 1417-1427. [[PDF]](http://bojianhou.github.io/files/SFL.pdf)
 2. **Bo-Jian Hou**, Yu-Hu Yan, Peng Zhao and Zhi-Hua Zhou. Storage Fit Learning with Feature Evolvable Streams. **In: Proceedings of the AAAI Conference on Artificial Intelligence (AAAI’21)**, Virtual Conference, 2021, 35(9), 7729-7736.
 3. **Bo-Jian Hou**, Lijun Zhang, and Zhi-Hua Zhou. Storage Fit Learning with Unlabeled Data. **In: Proceedings of the 26th International Joint Conference on Artificial Intelligence (IJCAI’17)**, Melbourne, Australia, 2017, 1844-1850.
 4. Yi He, Jiaxian Dong, **Bo-Jian Hou**, Yu Wang, and Fei Wang. Online Learning in Variable Feature Spaces with Mixed Data. **In: Proceedings of the 21st IEEE International Conference on Data Mining (ICDM’21)**, Auckland, New Zealand, 2021, in press.
