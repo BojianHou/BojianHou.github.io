@@ -23,7 +23,7 @@ author_profile: true
 5. **Bo-Jian Hou** and Yuan Jiang. _Learning Interpretability from RNN with Feature Evolving_. **In: CCF Conference on Artificial Intelligence (CCFAI’19)**, Xuzhou, China, 2019. (_This paper won the CCFAI Outstanding Student Paper Award_.)
 
 ## Journal
-6. **Bo-Jian Hou**, Lijun Zhang, and Zhi-Hua Zhou. _Prediction with Unpredictable Feature Evolution_. **IEEE Transactions on Neural Networks and Learning Systems (TNNLS)**, 2021, in press. [[ArXiv]](https://arxiv.org/abs/1904.12171) 
+6. **Bo-Jian Hou**, Lijun Zhang, and Zhi-Hua Zhou. _Prediction with Unpredictable Feature Evolution_. **IEEE Transactions on Neural Networks and Learning Systems (TNNLS)**, 2021, in press. [[ArXiv]](https://arxiv.org/abs/1904.12171) [[Code]](http://www.lamda.nju.edu.cn/code_PUFE.ashx)
 7. **Bo-Jian Hou** and Zhi-Hua Zhou. _Learning with Interpretable Structure from Gated RNN_. **IEEE Transactions on Neural Networks and Learning Systems (TNNLS)**, 2020, 31(7): 2267-2279. [[PDF]](http://bojianhou.github.io/files/LISOR.pdf) [[Code]](http://www.lamda.nju.edu.cn/code_LISOR.ashx)
 8. **Bo-Jian Hou**, Lijun Zhang, Zhi-Hua Zhou. _Learning with Feature Evolvable Streams_. **IEEE Transactions on Knowledge and Data Engineering (TKDE)**, 2019, 33(6): 2602-2615. [[PDF]](http://bojianhou.github.io/files/FESL-tkde.pdf)
 9. Jie Ren, **Bojian Hou**, and Yuan Jiang. _Deep Forest for Multiple Instance Learning_. **Journal of Computer Research and Development**, 2019, 56(8): 1670-1676. [[PDF]](http://bojianhou.github.io/files/MIDF.pdf)
