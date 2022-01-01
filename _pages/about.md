@@ -20,6 +20,8 @@ I have broad interest in machine learning, data mining and their potential appli
 - **Deep Learning**: leveraging deep neural networks to handle complex spatial and temporal data;
 - **Learnware**: towards reusable, evolvable and comprehensible machine learning models.
 
+I will use my expertise of machine learning to do research on biomedical image analysis in the future.
+
 
 Recent Hightlights
 ------

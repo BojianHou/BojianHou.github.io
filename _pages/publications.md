@@ -16,15 +16,15 @@ author_profile: true
 {% endfor %} -->
 
 ## Conference
-1. **Bo-Jian Hou**, Lijun Zhang, and Zhi-Hua Zhou. _Learning with Feature Evolvable Streams_. **In: Advances in Neural Information Processing Systems 30 (NIPS’17)**, Long Beach, CA, 2017, 30: 1417-1427. [[PDF]](http://bojianhou.github.io/files/FESL.pdf) [[Poster]](http://bojianhou.github.io/files/FESL-poster.pdf)
-2. **Bo-Jian Hou**, Yu-Hu Yan, Peng Zhao and Zhi-Hua Zhou. _Storage Fit Learning with Feature Evolvable Streams_. **In: Proceedings of the AAAI Conference on Artificial Intelligence (AAAI’21)**, Virtual Conference, 2021, 35(9), 7729-7736. [[ArXiv]](https://arxiv.org/abs/2007.11280)
-3. **Bo-Jian Hou**, Lijun Zhang, and Zhi-Hua Zhou. _Storage Fit Learning with Unlabeled Data_. **In: Proceedings of the 26th International Joint Conference on Artificial Intelligence (IJCAI’17)**, Melbourne, Australia, 2017, 1844-1850. [[PDF]](http://bojianhou.github.io/files/SFL.pdf) [[Poster]](http://bojianhou.github.io/files/SFL-poster.pdf)
+1. **Bo-Jian Hou**, Lijun Zhang, and Zhi-Hua Zhou. _Learning with Feature Evolvable Streams_. **In: Advances in Neural Information Processing Systems 30 (NIPS’17)**, Long Beach, CA, 2017, 30: 1417-1427. [[PDF]](http://bojianhou.github.io/files/FESL.pdf) [[Poster]](http://bojianhou.github.io/files/FESL-poster.pdf) [[Code]](http://www.lamda.nju.edu.cn/code_FESL.ashx)
+2. **Bo-Jian Hou**, Yu-Hu Yan, Peng Zhao and Zhi-Hua Zhou. _Storage Fit Learning with Feature Evolvable Streams_. **In: Proceedings of the AAAI Conference on Artificial Intelligence (AAAI’21)**, Virtual Conference, 2021, 35(9), 7729-7736. [[ArXiv]](https://arxiv.org/abs/2007.11280) [[Code]](http://www.lamda.nju.edu.cn/code_SF2EL.ashx)
+3. **Bo-Jian Hou**, Lijun Zhang, and Zhi-Hua Zhou. _Storage Fit Learning with Unlabeled Data_. **In: Proceedings of the 26th International Joint Conference on Artificial Intelligence (IJCAI’17)**, Melbourne, Australia, 2017, 1844-1850. [[PDF]](http://bojianhou.github.io/files/SFL.pdf) [[Poster]](http://bojianhou.github.io/files/SFL-poster.pdf) [[Code]](http://www.lamda.nju.edu.cn/code_SFL.ashx)
 4. Yi He, Jiaxian Dong, **Bo-Jian Hou**, Yu Wang, and Fei Wang. _Online Learning in Variable Feature Spaces with Mixed Data_. **In: Proceedings of the 21st IEEE International Conference on Data Mining (ICDM’21)**, Auckland, New Zealand, 2021, in press. [[PDF]](http://bojianhou.github.io/files/OVFM.pdf)
 5. **Bo-Jian Hou** and Yuan Jiang. _Learning Interpretability from RNN with Feature Evolving_. **In: CCF Conference on Artificial Intelligence (CCFAI’19)**, Xuzhou, China, 2019. (This paper won the CCFAI Outstanding Student Paper Award.)
 
 ## Journal
-6. **Bo-Jian Hou**, Lijun Zhang, and Zhi-Hua Zhou. _Prediction with Unpredictable Feature Evolution_. **IEEE Transactions on Neural Networks and Learning Systems (TNNLS)**, 2021, in press. [[ArXiv]](https://arxiv.org/abs/1904.12171)
-7. **Bo-Jian Hou** and Zhi-Hua Zhou. _Learning with Interpretable Structure from Gated RNN_. **IEEE Transactions on Neural Networks and Learning Systems (TNNLS)**, 2020, 31(7): 2267-2279. [[PDF]](http://bojianhou.github.io/files/LISOR.pdf)
+6. **Bo-Jian Hou**, Lijun Zhang, and Zhi-Hua Zhou. _Prediction with Unpredictable Feature Evolution_. **IEEE Transactions on Neural Networks and Learning Systems (TNNLS)**, 2021, in press. [[ArXiv]](https://arxiv.org/abs/1904.12171) 
+7. **Bo-Jian Hou** and Zhi-Hua Zhou. _Learning with Interpretable Structure from Gated RNN_. **IEEE Transactions on Neural Networks and Learning Systems (TNNLS)**, 2020, 31(7): 2267-2279. [[PDF]](http://bojianhou.github.io/files/LISOR.pdf) [[Code]](http://www.lamda.nju.edu.cn/code_LISOR.ashx)
 8. **Bo-Jian Hou**, Lijun Zhang, Zhi-Hua Zhou. _Learning with Feature Evolvable Streams_. **IEEE Transactions on Knowledge and Data Engineering (TKDE)**, 2019, 33(6): 2602-2615. [[PDF]](http://bojianhou.github.io/files/FESL-tkde.pdf)
 9. Jie Ren, **Bojian Hou**, and Yuan Jiang. _Deep Forest for Multiple Instance Learning_. **Journal of Computer Research and Development**, 2019, 56(8): 1670-1676. [[PDF]](http://bojianhou.github.io/files/MIDF.pdf)
 
