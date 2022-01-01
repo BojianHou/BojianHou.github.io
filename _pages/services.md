@@ -8,10 +8,10 @@ author_profile: true
 PC (Program Committee) Member or Reviewer of Conferences
 ---
 - PC Member of [NeurIPS’21](https://neurips.cc/Conferences/2021/) (The 35th Annual Conference on Neural Information Processing Systems).
-- Senior PC Member of [IJCAI’21](https://ijcai-21.org/) (The 30th International Joint Conference on Artificial Intelligence)
+- Senior PC Member of [IJCAI’21](https://ijcai-21.org/) (The 30th International Joint Conference on Artificial Intelligence).
 - PC Member of [ICML’21](https://icml.cc/Conferences/2021) (The 38th International Conference of Machine Learning).
 - PC Member of [AAAI’21](https://aaai.org/Conferences/AAAI-21/) (The 35th AAAI Conference on Artificial Intelligence). (**I was selected as the top 25% PC members in AAAI’21.**)
-- Reviewer of [KDD’20](https://www.kdd.org/kdd2020/) (The 26th ACM SIGKDD Conference on Knowledge Discovery and Data Mining)
+- Reviewer of [KDD’20](https://www.kdd.org/kdd2020/) (The 26th ACM SIGKDD Conference on Knowledge Discovery and Data Mining).
 - PC Member of [NeurIPS’20](https://neurips.cc/Conferences/2020/) (The 34th Annual Conference on Neural Information Processing Systems).
 - PC Member of [AISTATS’20](https://aistats.org/aistats2020/) (The 23rd International Conference on Artificial Intelligence and Statistics).
 - PC Member of [ICLR’20](https://iclr.cc/Conferences/2020) (The 8th International Conference on Learning Representations).
@@ -29,9 +29,9 @@ PC (Program Committee) Member or Reviewer of Conferences
 Reviewer of Journals
 --- 
 - Reviewer of [TPAMI](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34) (IEEE Transactions on Pattern Analysis and Machine Intelligence).
-- Reviewer of [TNNLS](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=5962385) (IEEE Transactions on Neural Networks and Learning Systems)
-- Reviewer of [Nature Methods](https://www.nature.com/nmeth/)
-- Reviewer of [Machine Learning](https://www.springer.com/journal/10994)
+- Reviewer of [TNNLS](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=5962385) (IEEE Transactions on Neural Networks and Learning Systems).
+- Reviewer of [Nature Methods](https://www.nature.com/nmeth/).
+- Reviewer of [Machine Learning](https://www.springer.com/journal/10994).
 - Reviewer of [TKDD](https://dl.acm.org/journal/tkdd) (ACM Transactions on Knowledge Discovery from Data).
 - Reviewer of [Scientific Reports](https://www.nature.com/srep/).
 - Reviewer of [KIS](https://www.springer.com/journal/10115) (Knowledge and Information Systems).
