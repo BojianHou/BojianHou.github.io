@@ -10,8 +10,7 @@ PC (Program Committee) Member or Reviewer of Conferences
 - PC Member of [NeurIPS’21](https://neurips.cc/Conferences/2021/) (The 35th Annual Conference on Neural Information Processing Systems).
 - SPC Member of [IJCAI’21](https://ijcai-21.org/) (The 30th International Joint Conference on Artificial Intelligence)
 - PC Member of [ICML’21](https://icml.cc/Conferences/2021) (The 38th International Conference of Machine Learning).
-- PC Member of [AAAI’21](https://aaai.org/Conferences/AAAI-21/) (The 35th AAAI Conference on Artificial Intelligence). (I was selected as
-the top 25% PC members in AAAI’21.)
+- PC Member of [AAAI’21](https://aaai.org/Conferences/AAAI-21/) (The 35th AAAI Conference on Artificial Intelligence). (**I was selected as the top 25% PC members in AAAI’21.**)
 - Reviewer of [KDD’20](https://www.kdd.org/kdd2020/) (The 26th ACM SIGKDD Conference on Knowledge Discovery and Data Mining)
 - PC Member of [NeurIPS’20](https://neurips.cc/Conferences/2020/) (The 34th Annual Conference on Neural Information Processing Systems).
 - PC Member of [AISTATS’20](https://aistats.org/aistats2020/) (The 23rd International Conference on Artificial Intelligence and Statistics).
