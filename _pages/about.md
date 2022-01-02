@@ -23,7 +23,7 @@ I have broad interest in machine learning, data mining and their potential appli
 I will use my expertise of machine learning to do research on biomedical image analysis in the future.
 
 
-Recent Hightlights
+Recent Highlights
 ------
 - 11-22-2021: Winning the Excellent Doctoral Dissertation Award of Jiangsu Province.
 - 09-13-2021: Winning the Excellent Doctoral Dissertation Award of Nanjing University.
