@@ -29,7 +29,9 @@
       text-decoration: none;
     }
   }
+
   &.sticky {
+    @include container;
     @include clearfix();
     position: -webkit-sticky;
     position: sticky;
