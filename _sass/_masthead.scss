@@ -31,13 +31,13 @@
     }
   }
   
-  // &.sticky {
-  //   @include clearfix();
-  //   position: -webkit-sticky;
-  //   position: sticky;
-  //   top: 0em;
-  //   float: left;
-  // }
+  &.sticky {
+    @include clearfix();
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0em;
+    float: left;
+  }
 }
 
   
