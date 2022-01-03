@@ -29,6 +29,13 @@
       text-decoration: none;
     }
   }
+  &.sticky {
+    @include clearfix();
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0em;
+    float: right;
+  }
 }
 
 .masthead__menu {
