@@ -30,8 +30,7 @@
       text-decoration: none;
     }
   }
-}
-
+  
   &.sticky {
     @include clearfix();
     position: -webkit-sticky;
@@ -39,6 +38,9 @@
     top: 0em;
     float: left;
   }
+}
+
+  
 
 .site-subtitle {
   display: block;
