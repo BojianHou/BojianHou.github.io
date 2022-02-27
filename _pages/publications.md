@@ -30,7 +30,7 @@ author_profile: true
 
 ## Manuscript
 1. **Bojian Hou**, Hao Zhang, Gur Ladizhinsky, Ali Kayyal, Stephen Yang, Volodymyr Kuleshov, Fei Wang and Qian Yang. _Clinical Evidence Engine: Proof-of-Concept For a Clinical-Domain-Agnostic Decision Support Infrastructure_. Submitted to **the annual ACM Conference on Intelligent User Interfaces (ACM IUI’22)**. [[Arxiv]](https://arxiv.org/abs/2111.00621)
-#1. **Bo-Jian Hou**, Yu-Cheng He, Mengshuo Wang, Wei-Wei Tu, Isabelle Guyon, and Qiang Yang. _Environment Learning for Decision Optimization: A Survey_. Submitted to **IEEE Transactions on Knowledge and Data Engineering (TKDE)**.
+<!--1. **Bo-Jian Hou**, Yu-Cheng He, Mengshuo Wang, Wei-Wei Tu, Isabelle Guyon, and Qiang Yang. _Environment Learning for Decision Optimization: A Survey_. Submitted to **IEEE Transactions on Knowledge and Data Engineering (TKDE)**.-->
 1. Mingquan Lin, **Bojian Hou**, Lei Liu, Mae Gordon, Michael Kass, Fei Wang, Sarah H. Van Tassel, Yifan Peng. _GlaucomaNet: A Deep-Learning Algorithm for the Diagnosis of Primary Open-Angle Glaucoma from Fundus Photographs_. Submitted to **Scientific Report**.
 1. Jing-Xiao Liao, **Bo-Jian Hou**, Hang-Cheng Dong, Hao Zhang, Jianwei Ma, Jinwei Sun, Shiping Zhang, Feng-Lei Fan. _Heterogeneous Autoencoder Empowered by Quadratic Neurons_. Submitted to **the 31st International Joint Conference on Artificial Intelligence (IJCAI'22)**.
 1. Dayang Wang, Feng-Lei Fan, **Bo-Jian Hou**, Hao Zhang, Rongjie Lai, Hengyong Yu, Fei Wang.
