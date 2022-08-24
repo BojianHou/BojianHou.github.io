@@ -15,10 +15,11 @@ I received my B.Sc. and Ph.D. degree in the [Department of Computer Science](htt
 
 I have broad interests in machine learning and data mining, and their potential applications to
 biomedical data such as medical images, medical literature, and electronic health records (EHR).
+
 During my doctoral studies, I developed a novel learning scenario known as feature evolvable learning,
 where data features would evolve in an open and dynamic environment. The goal was to keep optimal
 online learning performance in dynamic feature space. I also studied semi-supervised learning and
-interpretability problems, such as storage-t learning with unlabeled data and learning the interpretable
+interpretability problems, such as storage-fit learning with unlabeled data and learning the interpretable
 structure from RNNs, respectively.
 
 At my postdoctoral position, I mainly conducted multimodal survival analysis for medical images and
@@ -27,18 +28,20 @@ the potential issues of the interpretability methodologies for medical data.
 
 <!-- I have broad interest in machine learning, data mining and their potential applications to biomedical data. During my doctoral study, my main research direction is **feature evolvable learning** which is a novel learning scenario where data features would evolve in open and dynamic environment. I developed a series of algorithms that can effectively deal with this scenario with theoretical guarantees. I am also interested in -->
 In summary, my research interests include:
-- **Interpretability**: studying the interpretability of the black-box machine learning models;
-- **Semi-Supervised Learning**: learning both from labeled and unlabeled data;
-- **Online Learning**: learning models continuously from online streaming data;
-- **Natural Language Processing**: leveraging pre-trained model to understand natural language;
-- **Deep Learning**: leveraging deep neural networks to handle complex spatial and temporal data;
+- **Interpretability**: studying the interpretability of the black-box machine learning models.
+- **Feature Evolvable Learning**: studying learning scenarios where data features evolve.
+- **Semi-Supervised Learning**: learning models from both labeled and unlabeled data.
+- **Online Learning**: learning models continuously from online streaming data.
+- **Natural Language Processing**: utilizing pre-trained model to understand natural language.
+- **Deep Learning**: using deep neural networks to handle complex spatial and temporal data.
 - **Learnware**: towards reusable, evolvable and comprehensible machine learning models.
 
-# I will use my expertise of machine learning to do research on biomedical image analysis and survival analysis in the future.
+<!-- I will use my expertise of machine learning to do research on biomedical image analysis and survival analysis in the future. -->
 
 
 Recent Highlights
 ------
+- 
 - 11-22-2021: Winning the Excellent Doctoral Dissertation Award of Jiangsu Province.
 - 09-13-2021: Winning the Excellent Doctoral Dissertation Award of Nanjing University.
 - 08-31-2021: Our paper "Online Learning in Variable Feature Spaces with Mixed Data" with Yi He, Jiaxian Dong, Yu Wang, and Fei Wang is accepted by ICDM'21.
