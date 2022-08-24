@@ -41,7 +41,7 @@ In summary, my research interests include:
 
 Recent Highlights
 ------
-- 
+- 06-29-2022: Our paper "Online Deep Learning from Doubly-Streaming Data" with Heng Lian, John Scovil Atwood, Jian Wu and Yi He is accepted by ACMMM'22.
 - 11-22-2021: Winning the Excellent Doctoral Dissertation Award of Jiangsu Province.
 - 09-13-2021: Winning the Excellent Doctoral Dissertation Award of Nanjing University.
 - 08-31-2021: Our paper "Online Learning in Variable Feature Spaces with Mixed Data" with Yi He, Jiaxian Dong, Yu Wang, and Fei Wang is accepted by ICDM'21.
