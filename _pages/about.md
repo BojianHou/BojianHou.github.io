@@ -41,13 +41,13 @@ In summary, my research interests include:
 
 Recent Highlights
 ------
-- 06-29-2022: Our paper "Online Deep Learning from Doubly-Streaming Data" with Heng Lian, John Scovil Atwood, Jian Wu and Yi He is accepted by ACMMM'22.
+- 06-29-2022: Our paper "Online Deep Learning from Doubly-Streaming Data" with Heng Lian, John Scovil Atwood, Jian Wu and Yi He was accepted by ACMMM'22.
 - 11-22-2021: Winning the Excellent Doctoral Dissertation Award of Jiangsu Province.
 - 09-13-2021: Winning the Excellent Doctoral Dissertation Award of Nanjing University.
-- 08-31-2021: Our paper "Online Learning in Variable Feature Spaces with Mixed Data" with Yi He, Jiaxian Dong, Yu Wang, and Fei Wang is accepted by ICDM'21.
-- 04-01-2021: Our paper "Prediction with Unpredictable Feature Evolution" with Prof. Lijun Zhang and Prof. Zhi-Hua Zhou is accepted by IEEE Transactions on Neural Networks and Learning Systems.
+- 08-31-2021: Our paper "Online Learning in Variable Feature Spaces with Mixed Data" with Yi He, Jiaxian Dong, Yu Wang, and Fei Wang was accepted by ICDM'21.
+- 04-01-2021: Our paper "Prediction with Unpredictable Feature Evolution" with Prof. Lijun Zhang and Prof. Zhi-Hua Zhou was accepted by IEEE Transactions on Neural Networks and Learning Systems.
 - 12-24-2020: Winning the JSAI Excellent Doctoral Dissertation Award. 
-- 12-02-2020: Our paper "Storage Fit Learning with Feature Evolvable Streams" with Yu-Hu Yan, Peng Zhao and Zhi-Hua Zhou got accepted by AAAI'21.
+- 12-02-2020: Our paper "Storage Fit Learning with Feature Evolvable Streams" with Yu-Hu Yan, Peng Zhao and Zhi-Hua Zhou was accepted by AAAI'21.
 - 06-18-2020: Winning the CS Excellent Doctoral Dissertation Award of Nanjing University.
 - 05-27-2020: I have successfully defended my PhD dissertation and became a Ph.D.
 - 04-21-2020: Winning the Outstanding Graduate Student Award of Nanjing University.
