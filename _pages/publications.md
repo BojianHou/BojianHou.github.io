@@ -27,11 +27,12 @@ author_profile: true
 1. **Bo-Jian Hou** and Zhi-Hua Zhou. _Learning with Interpretable Structure from Gated RNN_. **IEEE Transactions on Neural Networks and Learning Systems (TNNLS)**, 2020, 31(7): 2267-2279. [[PDF]](http://bojianhou.github.io/files/LISOR.pdf) [[Code]](http://www.lamda.nju.edu.cn/code_LISOR.ashx)
 1. **Bo-Jian Hou**, Lijun Zhang, Zhi-Hua Zhou. _Learning with Feature Evolvable Streams_. **IEEE Transactions on Knowledge and Data Engineering (TKDE)**, 2019, 33(6): 2602-2615. [[PDF]](http://bojianhou.github.io/files/FESL-tkde.pdf)
 1. Jie Ren, **Bojian Hou**, and Yuan Jiang. _Deep Forest for Multiple Instance Learning_. **Journal of Computer Research and Development**, 2019, 56(8): 1670-1676. [[PDF]](http://bojianhou.github.io/files/MIDF.pdf)
+1. Mingquan Lin, **Bojian Hou**, Lei Liu, Mae Gordon, Michael Kass, Fei Wang, Sarah H. Van Tassel, Yifan Peng. _GlaucomaNet: A Deep-Learning Algorithm for the Diagnosis of Primary Open-Angle Glaucoma from Fundus Photographs_. **Scientific Report**, 2022, in press.
 
 ## Manuscript
 1. **Bojian Hou**, Hao Zhang, Gur Ladizhinsky, Ali Kayyal, Stephen Yang, Volodymyr Kuleshov, Fei Wang and Qian Yang. _Clinical Evidence Engine: Proof-of-Concept For a Clinical-Domain-Agnostic Decision Support Infrastructure_. Submitted to **the annual ACM Conference on Intelligent User Interfaces (ACM IUI’22)**. [[Arxiv]](https://arxiv.org/abs/2111.00621)
 <!--1. **Bo-Jian Hou**, Yu-Cheng He, Mengshuo Wang, Wei-Wei Tu, Isabelle Guyon, and Qiang Yang. _Environment Learning for Decision Optimization: A Survey_. Submitted to **IEEE Transactions on Knowledge and Data Engineering (TKDE)**.-->
-1. Mingquan Lin, **Bojian Hou**, Lei Liu, Mae Gordon, Michael Kass, Fei Wang, Sarah H. Van Tassel, Yifan Peng. _GlaucomaNet: A Deep-Learning Algorithm for the Diagnosis of Primary Open-Angle Glaucoma from Fundus Photographs_. Submitted to **Scientific Report**.
+
 1. Jing-Xiao Liao, **Bo-Jian Hou**, Hang-Cheng Dong, Hao Zhang, Jianwei Ma, Jinwei Sun, Shiping Zhang, Feng-Lei Fan. _Heterogeneous Autoencoder Empowered by Quadratic Neurons_. Submitted to **the 31st International Joint Conference on Artificial Intelligence (IJCAI'22)**.
 1. Dayang Wang, Feng-Lei Fan, **Bo-Jian Hou**, Hao Zhang, Rongjie Lai, Hengyong Yu, Fei Wang.
 _Manifoldron: Direct Space Partition via Manifold Discovery_. Submitted to **the 31st Interna- tional Joint Conference on Artificial Intelligence (IJCAI’22)**. [[Arxiv]](https://arxiv.org/abs/2201.05279)
