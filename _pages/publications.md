@@ -27,7 +27,7 @@ author_profile: true
 1. **Bo-Jian Hou** and Zhi-Hua Zhou. _Learning with Interpretable Structure from Gated RNN_. **IEEE Transactions on Neural Networks and Learning Systems (TNNLS)**, 2020, 31(7): 2267-2279. [[PDF]](http://bojianhou.github.io/files/LISOR.pdf) [[Code]](http://www.lamda.nju.edu.cn/code_LISOR.ashx)
 1. **Bo-Jian Hou**, Lijun Zhang, Zhi-Hua Zhou. _Learning with Feature Evolvable Streams_. **IEEE Transactions on Knowledge and Data Engineering (TKDE)**, 2019, 33(6): 2602-2615. [[PDF]](http://bojianhou.github.io/files/FESL-tkde.pdf)
 1. Jie Ren, **Bojian Hou**, and Yuan Jiang. _Deep Forest for Multiple Instance Learning_. **Journal of Computer Research and Development**, 2019, 56(8): 1670-1676. [[PDF]](http://bojianhou.github.io/files/MIDF.pdf)
-1. Mingquan Lin, **Bojian Hou**, Lei Liu, Mae Gordon, Michael Kass, Fei Wang, Sarah H. Van Tassel, Yifan Peng. _GlaucomaNet: A Deep-Learning Algorithm for the Diagnosis of Primary Open-Angle Glaucoma from Fundus Photographs_. **Scientific Report**, 2022, in press.
+1. Mingquan Lin, **Bojian Hou**, Lei Liu, Mae Gordon, Michael Kass, Fei Wang, Sarah H. Van Tassel, Yifan Peng. _Automated diagnosing primary open-angle glaucoma from fundus image by simulating human’s grading with deep learning_. **Scientific Report**, 2022, 12(1): 1-10. [[PDF]](https://www.nature.com/articles/s41598-022-17753-4)
 
 ## Manuscript
 1. **Bojian Hou**, Hao Zhang, Gur Ladizhinsky, Ali Kayyal, Stephen Yang, Volodymyr Kuleshov, Fei Wang and Qian Yang. _Clinical Evidence Engine: Proof-of-Concept For a Clinical-Domain-Agnostic Decision Support Infrastructure_. Submitted to **the annual ACM Conference on Intelligent User Interfaces (ACM IUI’22)**. [[Arxiv]](https://arxiv.org/abs/2111.00621)
