@@ -8,13 +8,17 @@ redirect_from:
   - /about.html
 ---
 
-Welcome to my homepage! My name is Bojian Hou (also Bo-Jian Hou), a postdoctoral researcher of [CBICA](https://www.med.upenn.edu/cbica/) (The Center for Biomedical Image Computing and Analytics) at the [University of Pennsylvania](https://www.upenn.edu/) advised by Prof. [Yong Fan](https://www.med.upenn.edu/cbica/abili/yfan.html). Before that, I was a postdoctoral associate in the [Department of Poplulation Health and Science](https://phs.weill.cornell.edu/) at [Cornell University](https://www.cornell.edu/), advised by Prof. [Fei Wang](https://wcm-wanglab.github.io/). 
+Welcome to my homepage! My name is Bojian Hou (also Bo-Jian Hou), a postdoctoral researcher of [Department of Biostatistics, Epidemiology and Informatics](https://www.dbei.med.upenn.edu/) at the [University of Pennsylvania](https://www.upenn.edu/) advised by Prof. [Li Shen](https://www.dbei.med.upenn.edu/bio/li-shen-phd-faimbe).
+
+<!-- Before that, I was a postdoctoral associate in the [Department of Poplulation Health and Science](https://phs.weill.cornell.edu/) at [Cornell University](https://www.cornell.edu/), advised by Prof. [Fei Wang](https://wcm-wanglab.github.io/). --> 
+
+<!--[CBICA](https://www.med.upenn.edu/cbica/) (The Center for Biomedical Image Computing and Analytics) at the [University of Pennsylvania](https://www.upenn.edu/) advised by Prof. [Yong Fan](https://www.med.upenn.edu/cbica/abili/yfan.html). -->
 
 I received my B.Sc. and Ph.D. degree in the [Department of Computer Science](https://cs.nju.edu.cn/) at [Nanjing University](https://www.nju.edu.cn/) in 2014 and 2020 separately. I was a member of [LAMDA](http://www.lamda.nju.edu.cn/MainPage.ashx) Group led by Prof. [Zhi-Hua Zhou](https://cs.nju.edu.cn/zhouzh/) during my doctoral study. My Ph.D. supervisor is Prof. [Zhi-Hua Zhou](https://cs.nju.edu.cn/zhouzh/).
 
 
 I have broad interests in machine learning and data mining, and their potential applications to
-biomedical data such as medical images, medical literature, and electronic health records (EHR).
+biomedical data. <!--such as medical images, medical literature, and electronic health records (EHR). -->
 
 During my doctoral studies, I developed a novel learning scenario known as feature evolvable learning,
 where data features would evolve in an open and dynamic environment. The goal was to keep optimal
