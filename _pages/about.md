@@ -16,9 +16,11 @@ Welcome to my homepage! My name is Bojian Hou (also Bo-Jian Hou), a postdoctoral
 
 I received my B.Sc. and Ph.D. degree in the [Department of Computer Science](https://cs.nju.edu.cn/) at [Nanjing University](https://www.nju.edu.cn/) in 2014 and 2020 separately. I was a member of [LAMDA](https://www.lamda.nju.edu.cn/MainPage.ashx) Group led by Prof. [Zhi-Hua Zhou](https://cs.nju.edu.cn/zhouzh/) during my doctoral study. My Ph.D. supervisor is Prof. [Zhi-Hua Zhou](https://cs.nju.edu.cn/zhouzh/).
 
+My research interests mainly focus on trustworthy AI, optimization for AI and AI for science. Specifically, they include:
+<!-- I have broad interests in machine learning and data mining, and their potential applications to
+biomedical data including:  -->
 
-I have broad interests in machine learning and data mining, and their potential applications to
-biomedical data including: <!--such as medical images, medical literature, and electronic health records (EHR). -->
+<!--such as medical images, medical literature, and electronic health records (EHR). -->
 
 <!-- During my doctoral studies, I developed a novel learning scenario known as feature evolvable learning,
 where data features would evolve in an open and dynamic environment. The goal was to keep optimal
@@ -37,9 +39,10 @@ the potential issues of the interpretability methodologies for medical data. -->
 - **Feature Evolvable Learning**: studying learning scenarios where data features evolve.
 - **Semi-Supervised Learning**: learning models from both labeled and unlabeled data.
 - **Online Learning**: learning models continuously from online streaming data.
-- **Natural Language Processing**: utilizing pre-trained model to understand natural language.
-- **Deep Learning**: using deep neural networks to handle complex spatial and temporal data.
-- **Learnware**: towards reusable, evolvable and comprehensible machine learning models.
+- **Natural Language Processing**: studying and applying large language models.
+<!-- - **Deep Learning**: using deep neural networks to handle complex spatial and temporal data. -->
+- **Biomedical Data Mining**: applying machine learning to analyze biomedical data.
+<!-- - **Learnware**: towards reusable, evolvable and comprehensible machine learning models. -->
 
 <!-- I will use my expertise of machine learning to do research on biomedical image analysis and survival analysis in the future. -->
 
