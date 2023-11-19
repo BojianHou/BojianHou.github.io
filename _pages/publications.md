@@ -36,7 +36,7 @@ author_profile: true
 1. Jie Ren, **Bojian Hou**, and Yuan Jiang. _Deep Forest for Multiple Instance Learning_. **Journal of Computer Research and Development**, 2019, 56(8): 1670-1676. [[PDF]](https://bojianhou.github.io/files/MIDF.pdf)
 1. Mingquan Lin, **Bojian Hou**, Lei Liu, Mae Gordon, Michael Kass, Fei Wang, Sarah H. Van Tassel, Yifan Peng. _Automated diagnosing primary open-angle glaucoma from fundus image by simulating human’s grading with deep learning_. **Scientific Report**, 2022, 12(1): 1-10. [[PDF]](https://bojianhou.github.io/files/glaucoma.pdf)
 1. Mingquan Lin, **Bojian Hou**, Swati Mishra, Tianyuan Yao, Yuankai Huo, Qian Yang, Fei Wang, George Shih, Yifan Peng. _Enhancing thoracic disease detection using chest X-rays from PubMed Central Open Access_. **Computers in Biology and Medicine**, 2023: 106962. [[PDF]](https://bojianhou.github.io/files/pubmed.pdf)
-1. Heng Lian, Di Wu, **Bo-Jian Hou**, Jian Wu, and Yi He. _Online Learning from Evolving Feature Spaces with Deep Variational Models_. **IEEE Transactions on Knowledge and Data Engineering**, 2023, in press. [[PDF]](https://bojianhou.github.io/files/OLD3S.pdf)
+1. Heng Lian, Di Wu, **Bo-Jian Hou**, Jian Wu, and Yi He. _Online Learning from Evolving Feature Spaces with Deep Variational Models_. **IEEE Transactions on Knowledge and Data Engineering (TKDE)**, 2023, in press. [[PDF]](https://bojianhou.github.io/files/OLD3S.pdf)
 
 ## Manuscript
 1. **Bojian Hou**, Hao Zhang, Gur Ladizhinsky, Ali Kayyal, Stephen Yang, Volodymyr Kuleshov, Fei Wang and Qian Yang. _Clinical Evidence Engine: Proof-of-Concept For a Clinical-Domain-Agnostic Decision Support Infrastructure_. [[Arxiv]](https://arxiv.org/abs/2111.00621)
