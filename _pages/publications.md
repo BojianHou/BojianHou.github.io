@@ -24,15 +24,10 @@ author_profile: true
 1. **Bo-Jian Hou** and Yuan Jiang. _Learning Interpretability from RNN with Feature Evolving_. **In: CCF Conference on Artificial Intelligence (CCFAI’19), Xuzhou, China**, 2019. (_This paper won the CCFAI Outstanding Student Paper Award_.)
 1. Mingquan Lin, Yuyun Xiao, **Bojian Hou**, Tingyi Wanyan, Mohit Manoj Sharma,
 Zhangyang Wang, Fei Wang, Sarah Van Tassel, Yifan Peng. _Evaluate Underdiagnosis and Overdiagnosis Bias of Deep Learning Model on Primary Open-Angle Glaucoma Diagnosis in Under-Served Populations_. **In: Proceedings of the AMIA 2023 Informatics Summit, Seattle, WA**, 2023, 370.
-
 1. **Bojian Hou**, Hongming Li, Zhicheng Jiao, Zhen Zhou, Hao Zhang, Yong Fan. _Deep Clustering Survival Machines with Interpretable Expert Distributions_. **In: Proceedings of the IEEE International Symposium on Biomedical Imaging (ISBI'23), Cartagena de Indias, Colombia**, 2023, in press.
-
 1. Davoud Ataee Tarzanagh*, **Bojian Hou***, Boning Tong, Qi Long, Li Shen. _Fairness-Aware Class Imbalanced Learning on Multiple Subgroups_. **In: Proceedings of the 39th Conference on Uncertainty in Artificial Intelligence (UAI'23), Pittsburgh, PA**, 2023, in press. (* means equal contribution or co-first authors)
-
 1. Boning Tong, Zhuoping Zhou, Davoud Ataee Tarzanagh, **Bojian Hou**, Andrew J. Saykin, Jason Moore, Marylyn Ritchie, Li Shen. _Class-Balanced Deep Learning with Adaptive Vector Scaling Loss for Dementia Stage Detection_. **In: Proceedings of the 14th International Workshop on Machine Learning in Medical Imaging (MLMI'23), Vancouver, Canada**, 2023, in press.
-
 1. Zhuoping Zhou, Boning Tong, Davoud Ataee Tarzanagh, **Bojian Hou**, Andrew J. Saykin, Qi Long, Li Shen. _Multi-Group Tensor Canonical Correlation Analysis_. **In: Proceedings of the 14th ACM Conference on Bioinformatics, Computational Biology, and Health Informatics (ACM BCB, 2023), Houston, TX**, 2023, in press.
-
 1. Zhuoping Zhou*, Davoud Ataee Tarzanagh*, **Bojian Hou***, Boning Tong, Jia Xu, Yanbo Feng, Qi Long, Li Shen. _Fair Canonical Correlation Analysis_. **In: Proceedings of the 37th Annual Conference on Neural Information Processing Systems (NeurIPS'23), New Orleans, LA**, 2023, in press. (* means equal contribution or co-first authors)
 
 ## Journal
@@ -42,13 +37,11 @@ Zhangyang Wang, Fei Wang, Sarah Van Tassel, Yifan Peng. _Evaluate Underdiagnosis
 1. Jie Ren, **Bojian Hou**, and Yuan Jiang. _Deep Forest for Multiple Instance Learning_. **Journal of Computer Research and Development**, 2019, 56(8): 1670-1676. [[PDF]](https://bojianhou.github.io/files/MIDF.pdf)
 1. Mingquan Lin, **Bojian Hou**, Lei Liu, Mae Gordon, Michael Kass, Fei Wang, Sarah H. Van Tassel, Yifan Peng. _Automated diagnosing primary open-angle glaucoma from fundus image by simulating human’s grading with deep learning_. **Scientific Report**, 2022, 12(1): 1-10. [[PDF]](https://bojianhou.github.io/files/glaucoma.pdf)
 1. Mingquan Lin, **Bojian Hou**, Swati Mishra, Tianyuan Yao, Yuankai Huo, Qian Yang, Fei Wang, George Shih, Yifan Peng. _Enhancing thoracic disease detection using chest X-rays from PubMed Central Open Access_. **Computers in Biology and Medicine**, 2023: 106962. [[PDF]](https://bojianhou.github.io/files/pubmed.pdf)
+1. Heng Lian, Di Wu, **Bo-Jian Hou**, Jian Wu, and Yi He. _Online Learning from Evolving Feature Spaces with Deep Variational Models_. **IEEE Transactions on Knowledge and Data Engineering**, 2023, in press. [[PDF]](https://bojianhou.github.io/files/OLD3S.pdf)
 
 ## Manuscript
-1. **Bojian Hou**, Hao Zhang, Gur Ladizhinsky, Ali Kayyal, Stephen Yang, Volodymyr Kuleshov, Fei Wang and Qian Yang. _Clinical Evidence Engine: Proof-of-Concept For a Clinical-Domain-Agnostic Decision Support Infrastructure_. Submitted to **the annual ACM Conference on Intelligent User Interfaces (ACM IUI’22)**. [[Arxiv]](https://arxiv.org/abs/2111.00621)
+1. **Bojian Hou**, Hao Zhang, Gur Ladizhinsky, Ali Kayyal, Stephen Yang, Volodymyr Kuleshov, Fei Wang and Qian Yang. _Clinical Evidence Engine: Proof-of-Concept For a Clinical-Domain-Agnostic Decision Support Infrastructure_. [[Arxiv]](https://arxiv.org/abs/2111.00621)
+1. Jing-Xiao Liao, **Bo-Jian Hou**, Hang-Cheng Dong, Hao Zhang, Jianwei Ma, Jinwei Sun, Shiping Zhang, Feng-Lei Fan. _Heterogeneous Autoencoder Empowered by Quadratic Neurons_. [[Arxiv]](https://arxiv.org/abs/2204.01707)
+1. Dayang Wang, Feng-Lei Fan, **Bo-Jian Hou**, Hao Zhang, Rongjie Lai, Hengyong Yu, Fei Wang. _Manifoldron: Direct Space Partition via Manifold Discovery_. [[Arxiv]](https://arxiv.org/abs/2201.05279)
 <!--1. **Bo-Jian Hou**, Yu-Cheng He, Mengshuo Wang, Wei-Wei Tu, Isabelle Guyon, and Qiang Yang. _Environment Learning for Decision Optimization: A Survey_. Submitted to **IEEE Transactions on Knowledge and Data Engineering (TKDE)**.-->
-
-1. Jing-Xiao Liao, **Bo-Jian Hou**, Hang-Cheng Dong, Hao Zhang, Jianwei Ma, Jinwei Sun, Shiping Zhang, Feng-Lei Fan. _Heterogeneous Autoencoder Empowered by Quadratic Neurons_. Submitted to **the 31st International Joint Conference on Artificial Intelligence (IJCAI'22)**.
-1. Dayang Wang, Feng-Lei Fan, **Bo-Jian Hou**, Hao Zhang, Rongjie Lai, Hengyong Yu, Fei Wang.
-_Manifoldron: Direct Space Partition via Manifold Discovery_. Submitted to **the 31st Interna- tional Joint Conference on Artificial Intelligence (IJCAI’22)**. [[Arxiv]](https://arxiv.org/abs/2201.05279)
-
 
