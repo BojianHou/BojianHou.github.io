@@ -14,7 +14,7 @@ Welcome to my homepage! My name is Bojian Hou (also Bo-Jian Hou), a postdoctoral
 
 <!--[CBICA](https://www.med.upenn.edu/cbica/) (The Center for Biomedical Image Computing and Analytics) at the [University of Pennsylvania](https://www.upenn.edu/) advised by Prof. [Yong Fan](https://www.med.upenn.edu/cbica/abili/yfan.html). -->
 
-I received my B.Sc. and Ph.D. degree in the [Department of Computer Science](https://cs.nju.edu.cn/) at [Nanjing University](https://www.nju.edu.cn/) in 2014 and 2020 separately. I was a member of [LAMDA](http://www.lamda.nju.edu.cn/MainPage.ashx) Group led by Prof. [Zhi-Hua Zhou](https://cs.nju.edu.cn/zhouzh/) during my doctoral study. My Ph.D. supervisor is Prof. [Zhi-Hua Zhou](https://cs.nju.edu.cn/zhouzh/).
+I received my B.Sc. and Ph.D. degree in the [Department of Computer Science](https://cs.nju.edu.cn/) at [Nanjing University](https://www.nju.edu.cn/) in 2014 and 2020 separately. I was a member of [LAMDA](https://www.lamda.nju.edu.cn/MainPage.ashx) Group led by Prof. [Zhi-Hua Zhou](https://cs.nju.edu.cn/zhouzh/) during my doctoral study. My Ph.D. supervisor is Prof. [Zhi-Hua Zhou](https://cs.nju.edu.cn/zhouzh/).
 
 
 I have broad interests in machine learning and data mining, and their potential applications to

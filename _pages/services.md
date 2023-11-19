@@ -16,9 +16,9 @@ PC (Program Committee) Member or Reviewer of Conferences
 - PC Member of [AISTATS’20](https://aistats.org/aistats2020/) (The 23rd International Conference on Artificial Intelligence and Statistics).
 - PC Member of [ICLR’20](https://iclr.cc/Conferences/2020) (The 8th International Conference on Learning Representations).
 - PC Member of [AAAI’20](https://aaai.org/Conferences/AAAI-20/) (The 34th AAAI Conference on Artificial Intelligence).
-- PC Member of [DFM’19](http://www.escience.cn/people/chenpinghou/icdm19workshopDFM.html?from=timeline) (The 1st ICDM Workshop on Dynamic Feature Mining).
+- PC Member of [DFM’19](https://www.escience.cn/people/chenpinghou/icdm19workshopDFM.html?from=timeline) (The 1st ICDM Workshop on Dynamic Feature Mining).
 - Reviewer of [PRICAI’19](https://pricai.org/2019/) (The 16th Pacific Rim International Conference on Artificial Intelligence).
-- PC Member of [CCML’19](http://bdiri.gzu.edu.cn/ccml2019/paper.html) (The 17th China Conference on Machine Learning).
+- PC Member of [CCML’19](https://bdiri.gzu.edu.cn/ccml2019/paper.html) (The 17th China Conference on Machine Learning).
 - PC Member of [NeurIPS’19](https://neurips.cc/Conferences/2019/) (The 33rd Annual Conference on Neural Information Processing Systems).
 - PC Member of [ICML’19](https://www.aistats.org/) (The 36th International Conference of Machine Learning).
 - PC Member of [AISTATS’19](https://www.aistats.org/) (The 22nd International Conference onArtificial Intelligence and Statistics).
@@ -39,7 +39,7 @@ Reviewer of Journals
 
 Other Services
 ---
-- Web Chair of [MLA’16](http://www.lamda.nju.edu.cn/conf/mla16/) (The 14th Chinese Workshop on Machine Learning and Applications).
-- Web Chair of [MLA’15](http://www.lamda.nju.edu.cn/conf/mla15/) (The 13rd Chinese Workshop on Machine Learning and Applications).
-- Web Chair of [LAMDA](http://www.lamda.nju.edu.cn/) Group from Sept. 2014 to Sept. 2017 (Including updating each page of LAMDA
+- Web Chair of [MLA’16](https://www.lamda.nju.edu.cn/conf/mla16/) (The 14th Chinese Workshop on Machine Learning and Applications).
+- Web Chair of [MLA’15](https://www.lamda.nju.edu.cn/conf/mla15/) (The 13rd Chinese Workshop on Machine Learning and Applications).
+- Web Chair of [LAMDA](https://www.lamda.nju.edu.cn/) Group from Sept. 2014 to Sept. 2017 (Including updating each page of LAMDA
 website, maintaining mail server, maintaining course FTP etc.).
