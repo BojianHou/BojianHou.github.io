@@ -49,6 +49,7 @@ the potential issues of the interpretability methodologies for medical data. -->
 
 Recent Highlights
 ------
+- 10-10-2023: Our paper "Online Learning from Evolving Feature Spaces with Deep Variational Models" with Heng Lian, Di Wu, Jian Wu, and Yi He was accepted by **IEEE Transactions on Knowledge and Data Engineering**.
 - 09-21-2023: Our paper "Fair Canonical Correlation Analysis" with Zhuoping Zhou, Davoud Ataee Tarzanagh, Boning Tong, Jia Xu, Yanbo Feng, Qi Long and Li Shen was accepted by **NeurIPS'23**.
 - 07-24-2023: Our paper "Multi-Group Tensor Canonical Correlation Analysis" with Zhuoping Zhou, Boning Tong, Davoud Ataee Tarzanagh, Andrew J. Saykin, Qi Long and Li Shen was accepted by **ACM BCB'23**. This paper won the **best paper award**!
 - 05-08-2023: Our paper "Fairness-Aware Class Imbalanced Learning on Multiple Subgroups" with Davoud Ataee Tarzanagh, Boning Tong, Qi Long and Li Shen was accepted by **UAI'23**.
