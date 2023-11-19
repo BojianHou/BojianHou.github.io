@@ -18,9 +18,9 @@ I received my B.Sc. and Ph.D. degree in the [Department of Computer Science](htt
 
 
 I have broad interests in machine learning and data mining, and their potential applications to
-biomedical data. <!--such as medical images, medical literature, and electronic health records (EHR). -->
+biomedical data including: <!--such as medical images, medical literature, and electronic health records (EHR). -->
 
-During my doctoral studies, I developed a novel learning scenario known as feature evolvable learning,
+<!-- During my doctoral studies, I developed a novel learning scenario known as feature evolvable learning,
 where data features would evolve in an open and dynamic environment. The goal was to keep optimal
 online learning performance in dynamic feature space. I also studied semi-supervised learning and
 interpretability problems, such as storage-fit learning with unlabeled data and learning the interpretable
@@ -28,10 +28,11 @@ structure from RNNs, respectively.
 
 At my postdoctoral position, I mainly conducted multimodal survival analysis for medical images and
 clinical data, built natural language processing models to do medical literature mining, and investigated
-the potential issues of the interpretability methodologies for medical data.
+the potential issues of the interpretability methodologies for medical data. -->
 
 <!-- I have broad interest in machine learning, data mining and their potential applications to biomedical data. During my doctoral study, my main research direction is **feature evolvable learning** which is a novel learning scenario where data features would evolve in open and dynamic environment. I developed a series of algorithms that can effectively deal with this scenario with theoretical guarantees. I am also interested in -->
-In summary, my research interests include:
+<!-- In summary, my research interests include: -->
+- **Fairness Learning**: developing fair and unbiased machine learning algorithms.
 - **Interpretability**: studying the interpretability of the black-box machine learning models.
 - **Feature Evolvable Learning**: studying learning scenarios where data features evolve.
 - **Semi-Supervised Learning**: learning models from both labeled and unlabeled data.
@@ -48,8 +49,11 @@ Recent Highlights
 - 09-21-2023: Our paper "Fair Canonical Correlation Analysis" with Zhuoping Zhou, Davoud Ataee Tarzanagh, Boning Tong, Jia Xu, Yanbo Feng, Qi Long and Li Shen was accepted by NeurIPS'23.
 - 07-24-2023: Our paper "Multi-Group Tensor Canonical Correlation Analysis" with Zhuoping Zhou, Boning Tong, Davoud Ataee Tarzanagh, Andrew J. Saykin, Qi Long and Li Shen was accepted by ACM BCB'23. This paper won the best paper award!
 - 05-08-2023: Our paper "Fairness-Aware Class Imbalanced Learning on Multiple Subgroups" with Davoud Ataee Tarzanagh, Boning Tong, Qi Long and Li Shen was accepted by UAI'23.
+- 04-18-2023: Our paper "Enhancing thoracic disease detection using chest X-rays from PubMed Central Open Access" with Mingquan Lin, Swati Mishra, Tianyuan Yao, Yuankai Huo, Qian Yang, Fei Wang, George Shih, and Yifan Peng was accepted by Computers in Biology and Medicine.
 - 01-22-2023: Our paper "Deep Clustering Survival Machines with Interpretable Expert Distributions" with Hongming Li, Zhicheng Jiao, Zhen Zhou, Hao Zheng and Yong Fan was accepted by ISBI'23.
+- 12-16-2022: Our paper "Evaluate underdiagnosis and overdiagnosis bias of deep learning model on primary open-angle glaucoma diagnosis in under-served populations" with Mingquan Lin, Yunyu Xiao, Tingyi Wanyan, Mohit Manoj Sharma, Zhangyang Wang, Fei Wang, Sarah Van Tassel and Yifan Peng was accepted by AMIA 2023 Informatics Summit.
 - 06-29-2022: Our paper "Online Deep Learning from Doubly-Streaming Data" with Heng Lian, John Scovil Atwood, Jian Wu and Yi He was accepted by ACMMM'22.
+- 06-16-2022: Our paper "Automated diagnosing primary open-angle glaucoma from fundus image by simulating human’s grading with deep learning." with Mingquan Lin, Lei Liu, Mae Gordon, Michael Kass, Fei Wang, Sarah H. Van Tassel and Yifan Peng was accepted by Scientific Report.
 - 11-22-2021: Winning the Excellent Doctoral Dissertation Award of Jiangsu Province.
 - 09-13-2021: Winning the Excellent Doctoral Dissertation Award of Nanjing University.
 - 08-31-2021: Our paper "Online Learning in Variable Feature Spaces with Mixed Data" with Yi He, Jiaxian Dong, Yu Wang, and Fei Wang was accepted by ICDM'21.
