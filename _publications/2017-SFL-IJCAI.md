@@ -6,7 +6,7 @@ excerpt: ''
 
 date: 2017-04-24
 venue: ''
-paperurl: 'http://bojianhou.github.io/files/SFL.pdf'
+paperurl: [[PDF]]('http://bojianhou/files/SFL.pdf')
 citation: 'Bo-Jian Hou, Lijun Zhang, and Zhi-Hua Zhou. Storage Fit Learning with Unlabeled Data. In: Proceedings of the 26th International Joint Conference on Artificial Intelligence (IJCAI’17), Melbourne, Australia, 2017, 1844-1850.
 '
 ---
