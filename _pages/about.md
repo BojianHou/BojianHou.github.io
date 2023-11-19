@@ -46,20 +46,20 @@ the potential issues of the interpretability methodologies for medical data. -->
 
 Recent Highlights
 ------
-- 09-21-2023: Our paper "Fair Canonical Correlation Analysis" with Zhuoping Zhou, Davoud Ataee Tarzanagh, Boning Tong, Jia Xu, Yanbo Feng, Qi Long and Li Shen was accepted by NeurIPS'23.
-- 07-24-2023: Our paper "Multi-Group Tensor Canonical Correlation Analysis" with Zhuoping Zhou, Boning Tong, Davoud Ataee Tarzanagh, Andrew J. Saykin, Qi Long and Li Shen was accepted by ACM BCB'23. This paper won the best paper award!
-- 05-08-2023: Our paper "Fairness-Aware Class Imbalanced Learning on Multiple Subgroups" with Davoud Ataee Tarzanagh, Boning Tong, Qi Long and Li Shen was accepted by UAI'23.
-- 04-18-2023: Our paper "Enhancing thoracic disease detection using chest X-rays from PubMed Central Open Access" with Mingquan Lin, Swati Mishra, Tianyuan Yao, Yuankai Huo, Qian Yang, Fei Wang, George Shih, and Yifan Peng was accepted by Computers in Biology and Medicine.
-- 01-22-2023: Our paper "Deep Clustering Survival Machines with Interpretable Expert Distributions" with Hongming Li, Zhicheng Jiao, Zhen Zhou, Hao Zheng and Yong Fan was accepted by ISBI'23.
-- 12-16-2022: Our paper "Evaluate underdiagnosis and overdiagnosis bias of deep learning model on primary open-angle glaucoma diagnosis in under-served populations" with Mingquan Lin, Yunyu Xiao, Tingyi Wanyan, Mohit Manoj Sharma, Zhangyang Wang, Fei Wang, Sarah Van Tassel and Yifan Peng was accepted by AMIA 2023 Informatics Summit.
-- 06-29-2022: Our paper "Online Deep Learning from Doubly-Streaming Data" with Heng Lian, John Scovil Atwood, Jian Wu and Yi He was accepted by ACMMM'22.
-- 06-16-2022: Our paper "Automated diagnosing primary open-angle glaucoma from fundus image by simulating human’s grading with deep learning." with Mingquan Lin, Lei Liu, Mae Gordon, Michael Kass, Fei Wang, Sarah H. Van Tassel and Yifan Peng was accepted by Scientific Report.
-- 11-22-2021: Winning the Excellent Doctoral Dissertation Award of Jiangsu Province.
-- 09-13-2021: Winning the Excellent Doctoral Dissertation Award of Nanjing University.
-- 08-31-2021: Our paper "Online Learning in Variable Feature Spaces with Mixed Data" with Yi He, Jiaxian Dong, Yu Wang, and Fei Wang was accepted by ICDM'21.
-- 04-01-2021: Our paper "Prediction with Unpredictable Feature Evolution" with Prof. Lijun Zhang and Prof. Zhi-Hua Zhou was accepted by IEEE Transactions on Neural Networks and Learning Systems.
-- 12-24-2020: Winning the JSAI Excellent Doctoral Dissertation Award. 
-- 12-02-2020: Our paper "Storage Fit Learning with Feature Evolvable Streams" with Yu-Hu Yan, Peng Zhao and Zhi-Hua Zhou was accepted by AAAI'21.
-- 06-18-2020: Winning the CS Excellent Doctoral Dissertation Award of Nanjing University.
-- 05-27-2020: I have successfully defended my PhD dissertation and became a Ph.D.
-- 04-21-2020: Winning the Outstanding Graduate Student Award of Nanjing University.
+- 09-21-2023: Our paper "Fair Canonical Correlation Analysis" with Zhuoping Zhou, Davoud Ataee Tarzanagh, Boning Tong, Jia Xu, Yanbo Feng, Qi Long and Li Shen was accepted by **NeurIPS'23**.
+- 07-24-2023: Our paper "Multi-Group Tensor Canonical Correlation Analysis" with Zhuoping Zhou, Boning Tong, Davoud Ataee Tarzanagh, Andrew J. Saykin, Qi Long and Li Shen was accepted by **ACM BCB'23**. This paper won the **best paper award**!
+- 05-08-2023: Our paper "Fairness-Aware Class Imbalanced Learning on Multiple Subgroups" with Davoud Ataee Tarzanagh, Boning Tong, Qi Long and Li Shen was accepted by **UAI'23**.
+- 04-18-2023: Our paper "Enhancing thoracic disease detection using chest X-rays from PubMed Central Open Access" with Mingquan Lin, Swati Mishra, Tianyuan Yao, Yuankai Huo, Qian Yang, Fei Wang, George Shih, and Yifan Peng was accepted by **Computers in Biology and Medicine**.
+- 01-22-2023: Our paper "Deep Clustering Survival Machines with Interpretable Expert Distributions" with Hongming Li, Zhicheng Jiao, Zhen Zhou, Hao Zheng and Yong Fan was accepted by **ISBI'23**.
+- 12-16-2022: Our paper "Evaluate underdiagnosis and overdiagnosis bias of deep learning model on primary open-angle glaucoma diagnosis in under-served populations" with Mingquan Lin, Yunyu Xiao, Tingyi Wanyan, Mohit Manoj Sharma, Zhangyang Wang, Fei Wang, Sarah Van Tassel and Yifan Peng was accepted by **AMIA 2023 Informatics Summit**.
+- 06-29-2022: Our paper "Online Deep Learning from Doubly-Streaming Data" with Heng Lian, John Scovil Atwood, Jian Wu and Yi He was accepted by **ACMMM'22**.
+- 06-16-2022: Our paper "Automated diagnosing primary open-angle glaucoma from fundus image by simulating human’s grading with deep learning." with Mingquan Lin, Lei Liu, Mae Gordon, Michael Kass, Fei Wang, Sarah H. Van Tassel and Yifan Peng was accepted by **Scientific Report**.
+- 11-22-2021: Winning the **Excellent Doctoral Dissertation Award** of Jiangsu Province.
+- 09-13-2021: Winning the **Excellent Doctoral Dissertation Award** of Nanjing University.
+- 08-31-2021: Our paper "Online Learning in Variable Feature Spaces with Mixed Data" with Yi He, Jiaxian Dong, Yu Wang, and Fei Wang was accepted by **ICDM'21**.
+- 04-01-2021: Our paper "Prediction with Unpredictable Feature Evolution" with Prof. Lijun Zhang and Prof. Zhi-Hua Zhou was accepted by **IEEE Transactions on Neural Networks and Learning Systems**.
+- 12-24-2020: Winning the **JSAI Excellent Doctoral Dissertation Award**. 
+- 12-02-2020: Our paper "Storage Fit Learning with Feature Evolvable Streams" with Yu-Hu Yan, Peng Zhao and Zhi-Hua Zhou was accepted by **AAAI'21**.
+- 06-18-2020: Winning the **CS Excellent Doctoral Dissertation Award** of Nanjing University.
+- 05-27-2020: **I have successfully defended my PhD dissertation and became a Ph.D**.
+- 04-21-2020: Winning the **Outstanding Graduate Student Award** of Nanjing University.
