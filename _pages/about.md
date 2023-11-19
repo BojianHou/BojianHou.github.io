@@ -45,6 +45,10 @@ In summary, my research interests include:
 
 Recent Highlights
 ------
+- 09-21-2023: Our paper "Fair Canonical Correlation Analysis" with Zhuoping Zhou, Davoud Ataee Tarzanagh, Boning Tong, Jia Xu, Yanbo Feng, Qi Long and Li Shen was accepted by NeurIPS'23.
+- 07-24-2023: Our paper "Multi-Group Tensor Canonical Correlation Analysis" with Zhuoping Zhou, Boning Tong, Davoud Ataee Tarzanagh, Andrew J. Saykin, Qi Long and Li Shen was accepted by ACM BCB'23. This paper won the best paper award!
+- 05-08-2023: Our paper "Fairness-Aware Class Imbalanced Learning on Multiple Subgroups" with Davoud Ataee Tarzanagh, Boning Tong, Qi Long and Li Shen was accepted by UAI'23.
+- 01-22-2023: Our paper "Deep Clustering Survival Machines with Interpretable Expert Distributions" with Hongming Li, Zhicheng Jiao, Zhen Zhou, Hao Zheng and Yong Fan was accepted by ISBI'23.
 - 06-29-2022: Our paper "Online Deep Learning from Doubly-Streaming Data" with Heng Lian, John Scovil Atwood, Jian Wu and Yi He was accepted by ACMMM'22.
 - 11-22-2021: Winning the Excellent Doctoral Dissertation Award of Jiangsu Province.
 - 09-13-2021: Winning the Excellent Doctoral Dissertation Award of Nanjing University.
