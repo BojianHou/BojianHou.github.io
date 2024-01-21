@@ -49,6 +49,7 @@ the potential issues of the interpretability methodologies for medical data. -->
 
 Recent Highlights
 ------
+- 01-19-2024: Our paper "Online Bilevel Optimization: Regret Analysis of Online Alternating Gradient Methods" with Davoud Ataee Tarzanagh, Parvin Nazari, Li Shen and Laura Balzano was accepted by **AISTATS'24**.
 - 12-21-2023: Our paper "PFERM: A Fair Empirical Risk Minimization Approach with Prior Knowledge" with Andrés Mondragón, Davoud Ataee Tarzanagh, Zhuoping Zhou, Andrew J Saykin, Jason H Moore, Marylyn D Ritchie, Qi Long, and Li Shen was accepted by **AMIA 2024 Informatics Summit**.
 - 12-21-2023: Our paper "Interpretability Study for Long Interview Transcripts from Behavior Intervention Sessions for Family Caregivers of Dementia Patients" with Weiqing He, Bojian Hou, George Demiris, and Li Shen was accepted by **AMIA 2024 Informatics Summit**.
 - 12-21-2023: Our paper "Cluster Analysis of Cortical Amyloid Burden for Identifying Imaging-driven Subtypes in Mild Cognitive Impairment" with Ruiming Wu, Bing He, Bojian Hou, Andrew J Saykin, Jingwen Yan, and Li Shen was accepted by **AMIA 2024 Informatics Summit**.
