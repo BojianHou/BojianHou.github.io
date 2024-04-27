@@ -39,9 +39,9 @@ the potential issues of the interpretability methodologies for medical data. -->
 - **Feature Evolvable Learning**: studying learning scenarios where data features evolve.
 - **Semi-Supervised Learning**: learning models from both labeled and unlabeled data.
 - **Online Learning**: learning models continuously from online streaming data.
-- **Natural Language Processing**: studying and applying large language models.
+- **Natural Language Processing**: developing and applying large language models.
 <!-- - **Deep Learning**: using deep neural networks to handle complex spatial and temporal data. -->
-- **Biomedical Data Mining**: applying machine learning to analyze biomedical data.
+- **Biomedical Data Mining**: developing and applying machine methods learning to analyze biomedical data.
 <!-- - **Learnware**: towards reusable, evolvable and comprehensible machine learning models. -->
 
 <!-- I will use my expertise of machine learning to do research on biomedical image analysis and survival analysis in the future. -->
@@ -49,12 +49,12 @@ the potential issues of the interpretability methodologies for medical data. -->
 
 Recent Highlights
 ------
-- 04-24-2024: Our paper "Quadratic Neuron-empowered Heterogeneous Autoencoder for Unsupervised Anomaly Detection" with Jing-Xiao Liao, Hang-Cheng Dong, Hao Zhang, Jinwei Sun, Shiping Zhang, Feng-Lei Fan was accepted by **IEEE TAI**.
+- 04-24-2024: Our paper "Quadratic Neuron-empowered Heterogeneous Autoencoder for Unsupervised Anomaly Detection" with Jing-Xiao Liao, Hang-Cheng Dong, Hao Zhang, Jinwei Sun, Shiping Zhang, Feng-Lei Fan was accepted by **IEEE Transactions on Artificial Intelligence (TAI)**.
 - 01-19-2024: Our paper "Online Bilevel Optimization: Regret Analysis of Online Alternating Gradient Methods" with Davoud Ataee Tarzanagh, Parvin Nazari, Li Shen and Laura Balzano was accepted by **AISTATS'24**.
 - 12-21-2023: Our paper "PFERM: A Fair Empirical Risk Minimization Approach with Prior Knowledge" with Andrés Mondragón, Davoud Ataee Tarzanagh, Zhuoping Zhou, Andrew J Saykin, Jason H Moore, Marylyn D Ritchie, Qi Long, and Li Shen was accepted by **AMIA 2024 Informatics Summit**.
 - 12-21-2023: Our paper "Interpretability Study for Long Interview Transcripts from Behavior Intervention Sessions for Family Caregivers of Dementia Patients" with Weiqing He, Bojian Hou, George Demiris, and Li Shen was accepted by **AMIA 2024 Informatics Summit**.
 - 12-21-2023: Our paper "Cluster Analysis of Cortical Amyloid Burden for Identifying Imaging-driven Subtypes in Mild Cognitive Impairment" with Ruiming Wu, Bing He, Bojian Hou, Andrew J Saykin, Jingwen Yan, and Li Shen was accepted by **AMIA 2024 Informatics Summit**.
-- 10-10-2023: Our paper "Online Learning from Evolving Feature Spaces with Deep Variational Models" with Heng Lian, Di Wu, Jian Wu, and Yi He was accepted by **IEEE Transactions on Knowledge and Data Engineering**.
+- 10-10-2023: Our paper "Online Learning from Evolving Feature Spaces with Deep Variational Models" with Heng Lian, Di Wu, Jian Wu, and Yi He was accepted by **IEEE Transactions on Knowledge and Data Engineering (TKDE)**.
 - 09-21-2023: Our paper "Fair Canonical Correlation Analysis" with Zhuoping Zhou, Davoud Ataee Tarzanagh, Boning Tong, Jia Xu, Yanbo Feng, Qi Long and Li Shen was accepted by **NeurIPS'23**.
 - 07-24-2023: Our paper "Multi-Group Tensor Canonical Correlation Analysis" with Zhuoping Zhou, Boning Tong, Davoud Ataee Tarzanagh, Andrew J. Saykin, Qi Long and Li Shen was accepted by **ACM BCB'23**. This paper won the **best paper award**!
 - 05-08-2023: Our paper "Fairness-Aware Class Imbalanced Learning on Multiple Subgroups" with Davoud Ataee Tarzanagh, Boning Tong, Qi Long and Li Shen was accepted by **UAI'23**.
