@@ -49,6 +49,7 @@ the potential issues of the interpretability methodologies for medical data. -->
 
 Recent Highlights
 ------
+- 06-03-2024: Our paper "Interpretable Deep Clustering Survival Machines for Alzheimer's Disease Subtype Discovery" with Zixuan Wen, Jingxuan Bao, Richard Zhang, Boning Tong, Shu Yang, Junhao Wen, Yuhan Cui, Jason H Moore, Andrew J. Saykin, Heng Huang, Paul M. Thompson, Marylyn D. Ritchie, Christos Davatzikos, Li Shen was accepted by **Medical Image Analysis**.
 - 04-24-2024: Our paper "Quadratic Neuron-empowered Heterogeneous Autoencoder for Unsupervised Anomaly Detection" with Jing-Xiao Liao, Hang-Cheng Dong, Hao Zhang, Jinwei Sun, Shiping Zhang, Feng-Lei Fan was accepted by **IEEE Transactions on Artificial Intelligence (TAI)**.
 - 01-19-2024: Our paper "Online Bilevel Optimization: Regret Analysis of Online Alternating Gradient Methods" with Davoud Ataee Tarzanagh, Parvin Nazari, Li Shen and Laura Balzano was accepted by **AISTATS'24**.
 - 12-21-2023: Our paper "PFERM: A Fair Empirical Risk Minimization Approach with Prior Knowledge" with Andrés Mondragón, Davoud Ataee Tarzanagh, Zhuoping Zhou, Andrew J Saykin, Jason H Moore, Marylyn D Ritchie, Qi Long, and Li Shen was accepted by **AMIA 2024 Informatics Summit**.
