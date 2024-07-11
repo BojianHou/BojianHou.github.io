@@ -49,6 +49,9 @@ the potential issues of the interpretability methodologies for medical data. -->
 
 Recent Highlights
 ------
+- 06-29-2024: Our paper "Analyzing Dementia Caregivers' Experiences on Twitter: A Term-Weighted Topic Modeling Approach" with Yanbo Feng, Ari Klein, Karen O'Connor, Jiong Chen, Andrés Mondragón, Shu Yang, Graciela Gonzalez-Hernandez, Li Shen was accepted by **AMIA 2024 Annual Symposium**.
+- 06-29-2024: Our paper "Ensuring Fairness in Detecting Mild Cognitive Impairment with MRI" with Boning Tong, Travyse Edwards, Shu Yang, Davoud Ataee Tarzanagh, Ryan J. Urbanowicz, Jason H. Moore, Marylyn D. Ritchie, Christos Davatzikos, Li Shen was accepted by **AMIA 2024 Annual Symposium**.
+- 06-29-2024: Our paper "MentalGPT: Harnessing AD for compassionate mental health support" with Jia Xu, Tianyi Wei, Patryk Orzechowski, Shu Yang, George Demiris, Li Shen was accepted by **AMIA 2024 Annual Symposium**.
 - 06-03-2024: Our paper "Interpretable Deep Clustering Survival Machines for Alzheimer's Disease Subtype Discovery" with Zixuan Wen, Jingxuan Bao, Richard Zhang, Boning Tong, Shu Yang, Junhao Wen, Yuhan Cui, Jason H Moore, Andrew J. Saykin, Heng Huang, Paul M. Thompson, Marylyn D. Ritchie, Christos Davatzikos, Li Shen was accepted by **Medical Image Analysis**.
 - 04-24-2024: Our paper "Quadratic Neuron-empowered Heterogeneous Autoencoder for Unsupervised Anomaly Detection" with Jing-Xiao Liao, Hang-Cheng Dong, Hao Zhang, Jinwei Sun, Shiping Zhang, Feng-Lei Fan was accepted by **IEEE Transactions on Artificial Intelligence (TAI)**.
 - 01-19-2024: Our paper "Online Bilevel Optimization: Regret Analysis of Online Alternating Gradient Methods" with Davoud Ataee Tarzanagh, Parvin Nazari, Li Shen and Laura Balzano was accepted by **AISTATS'24**.
