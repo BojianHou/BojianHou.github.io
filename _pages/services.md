@@ -7,6 +7,8 @@ author_profile: true
 
 PC (Program Committee) Member or Reviewer of Conferences
 ---
+- PC Member of [NeurIPS’24](https://neurips.cc/Conferences/2024/) (The 38th Annual Conference on Neural Information Processing Systems)
+- PC Member of [ICML’24](https://icml.cc/Conferences/2024) (The 41th International Conference of Machine Learning)
 - PC Member of [NeurIPS’23](https://neurips.cc/Conferences/2023/) (The 37th Annual Conference on Neural Information Processing Systems)
 - PC Member of [NeurIPS’22](https://neurips.cc/Conferences/2022/) (The 36th Annual Conference on Neural Information Processing Systems)
 - PC Member of [ICML’22](https://icml.cc/Conferences/2022) (The 39th International Conference of Machine Learning)
