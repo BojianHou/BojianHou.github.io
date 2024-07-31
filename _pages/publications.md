@@ -56,7 +56,10 @@ author_profile: true
 
 ## Manuscript
 1. **Bojian Hou**, Hao Zhang, Gur Ladizhinsky, Ali Kayyal, Stephen Yang, Volodymyr Kuleshov, Fei Wang and Qian Yang. _Clinical Evidence Engine: Proof-of-Concept For a Clinical-Domain-Agnostic Decision Support Infrastructure_. [[Arxiv]](https://arxiv.org/abs/2111.00621)
-1. Jing-Xiao Liao, **Bo-Jian Hou**, Hang-Cheng Dong, Hao Zhang, Jianwei Ma, Jinwei Sun, Shiping Zhang, Feng-Lei Fan. _Heterogeneous Autoencoder Empowered by Quadratic Neurons_. [[Arxiv]](https://arxiv.org/abs/2204.01707)
 1. Dayang Wang, Feng-Lei Fan, **Bo-Jian Hou**, Hao Zhang, Rongjie Lai, Hengyong Yu, Fei Wang. _Manifoldron: Direct Space Partition via Manifold Discovery_. [[Arxiv]](https://arxiv.org/abs/2201.05279)
+1. Yan Ma, Weicong Liang, Yiduo Hao, **Bojian Hou**, Xiangyu Yue, Chao Zhang, and Yuhui Yuan. _Revisiting DETR Pre-training for Object Detection_. [[Arxiv]](https://arxiv.org/abs/2308.01300)
+1. Dawei Li, Shu Yang, Zhen Tan, Jae Young Baik, Sukwon Yun, Joseph Lee, Aaron Chacko, **Bojian Hou**, Duy Duong-Tran, Ying Ding, Huan Liu, Li Shen, Tianlong Chen. _DALK: Dynamic Co-Augmentation of LLMs and KG to answer Alzheimer's Disease Questions with Scientific Literature_. [[Arxiv]](https://arxiv.org/abs/2405.04819)
+1. Ruochen Jin, **Bojian Hou**, Jiancong Xiao, Weijie Su, Li Shen. _Fine-Tuning Linear Layers Only Is a Simple yet Effective Way for Task Arithmetic_. [[Arxiv]](https://arxiv.org/abs/2407.07089)
+
 <!--1. **Bo-Jian Hou**, Yu-Cheng He, Mengshuo Wang, Wei-Wei Tu, Isabelle Guyon, and Qiang Yang. _Environment Learning for Decision Optimization: A Survey_. Submitted to **IEEE Transactions on Knowledge and Data Engineering (TKDE)**.-->
 
