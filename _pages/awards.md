@@ -5,6 +5,7 @@ permalink: /awards/
 author_profile: true
 ---
 
+- PennAITech Innovation Fellow. 2024
 - Best Paper Award in The 14th ACM Conference on Bioinformatics, Computational Biology, and Health Informatics. 2023
 - Excellent Doctoral Dissertation Award of Jiangsu Province. 2021
 - Excellent Doctoral Dissertation Award of Nanjing University. 2021
