@@ -41,7 +41,9 @@ the potential issues of the interpretability methodologies for medical data. -->
 - **Online Learning**: learning models continuously from online streaming data.
 - **Natural Language Processing**: developing and applying large language models.
 <!-- - **Deep Learning**: using deep neural networks to handle complex spatial and temporal data. -->
-- **Biomedical Data Mining**: developing machine learning methods to analyze biomedical data.
+- **Biomedical Data Mining**: developing machine learning methods to analyze biomedical data (especially about Alzheimer's disease and related dementia (ADRD)).
+
+<span style="color:red">I will be on the job market this year (2024-2025) to pursue a PI job. I am open to the opportunities in computer science, data science, bioinfomatics etc. Feel free to reach out to me if you are interested.</span>
 <!-- - **Learnware**: towards reusable, evolvable and comprehensible machine learning models. -->
 
 <!-- I will use my expertise of machine learning to do research on biomedical image analysis and survival analysis in the future. -->
