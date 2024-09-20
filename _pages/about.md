@@ -49,6 +49,8 @@ the potential issues of the interpretability methodologies for medical data. -->
 
 Recent Highlights
 ------
+- 09-20-2024: Our paper "DALK: Dynamic Co-Augmentation of LLMs and KG to answer Alzheimer’s Disease Questions with Scientific Literature" with Dawei Li, Shu Yang, Zhen Tan, Jae Young Baik, Sukwon Yun, Joseph Lee, Aaron Chacko, Duy Duong-Tran, Ying Ding, huan liu, Li Shen, Tianlong Chen was accepted by **EMNLP 2024**.
+- 09-10-2024: Our paper "Uncovering Important Diagnostic Features for Alzheimer’s, Parkinson’s and Other Dementias Using Interpretable Association Mining Methods" with Kazi Noshin, Mary Regina Boland, Victoria Lu, Carol Manning, Li Shen and Aidong Zhang was accepted by **Pacific Symposium on Biocomputing (PSB)**.
 - 06-29-2024: Our paper "Analyzing Dementia Caregivers' Experiences on Twitter: A Term-Weighted Topic Modeling Approach" with Yanbo Feng, Ari Klein, Karen O'Connor, Jiong Chen, Andrés Mondragón, Shu Yang, Graciela Gonzalez-Hernandez, Li Shen was accepted by **AMIA 2024 Annual Symposium**.
 - 06-29-2024: Our paper "Ensuring Fairness in Detecting Mild Cognitive Impairment with MRI" with Boning Tong, Travyse Edwards, Shu Yang, Davoud Ataee Tarzanagh, Ryan J. Urbanowicz, Jason H. Moore, Marylyn D. Ritchie, Christos Davatzikos, Li Shen was accepted by **AMIA 2024 Annual Symposium**.
 - 06-29-2024: Our paper "MentalGPT: Harnessing AD for compassionate mental health support" with Jia Xu, Tianyi Wei, Patryk Orzechowski, Shu Yang, George Demiris, Li Shen was accepted by **AMIA 2024 Annual Symposium**.
