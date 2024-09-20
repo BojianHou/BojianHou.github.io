@@ -17,6 +17,8 @@ author_profile: true
 
 ## Conference
 
+1. Kazi Noshin\*, Mary Regina Boland\*, **Bojian Hou**, Victoria Lu, Carol Manning, Li Shen, Aidong Zhang. _Uncovering Important Diagnostic Features for Alzheimer’s, Parkinson’s and Other Dementias Using Interpretable Association Mining Methods_. **In: Proceedings of Pacific Symposium on Biocomputing (PSB) 2025, The Big Island of Hawaii, Hawaii**, 2025, in press.
+1. Dawei Li, Shu Yang, Zhen Tan, Jae Young Baik, Sukwon Yun, Joseph Lee, Aaron Chacko, **Bojian Hou**, Duy Duong-Tran, Ying Ding, Huan Liu, Li Shen, Tianlong Chen. _DALK: Dynamic Co-Augmentation of LLMs and KG to answer Alzheimer’s Disease Questions with Scientific Literature_. **In: Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing, Miami, FL**, 2024, in press.
 1. Jia Xu\*, Tianyi Wei\*, **Bojian Hou**\*, Patryk Orzechowski, Shu Yang, George Demiris, Li Shen. _MentalGPT: Harnessing AI for Compassionate Mental Health Support_. **In: Proceedings of AMIA 2024 Annual Symposium, San Francisco, LA**, 2024, in press. (* means equal contribution or co-first authors) 
 1. Yanbo Feng\*, **Bojian Hou**\*, Ari Klein, Karen O'Connor, Jiong Chen, Andrés Mondragón, Shu Yang, Graciela Gonzalez-Hernandez, Li Shen. _Analyzing Dementia Caregivers' Experiences on Twitter: A Term-Weighted Topic Modeling Approach_. **In: Proceedings of AMIA 2024 Annual Symposium, San Francisco, LA**, 2024, in press. (* means equal contribution or co-first authors) 
 1. Boning Tong, Travyse Edwards, Shu Yang, **Bojian Hou**, Davoud Ataee Tarzanagh, Ryan J. Urbanowicz, Jason H. Moore, Marylyn D. Ritchie, Christos Davatzikos, Li Shen. _Ensuring Fairness in Detecting Mild Cognitive Impairment with MRI_. **In: Proceedings of AMIA 2024 Annual Symposium, San Francisco, LA**, 2024, in press.
@@ -58,8 +60,9 @@ author_profile: true
 1. **Bojian Hou**, Hao Zhang, Gur Ladizhinsky, Ali Kayyal, Stephen Yang, Volodymyr Kuleshov, Fei Wang and Qian Yang. _Clinical Evidence Engine: Proof-of-Concept For a Clinical-Domain-Agnostic Decision Support Infrastructure_. [[Arxiv]](https://arxiv.org/abs/2111.00621)
 1. Dayang Wang, Feng-Lei Fan, **Bo-Jian Hou**, Hao Zhang, Rongjie Lai, Hengyong Yu, Fei Wang. _Manifoldron: Direct Space Partition via Manifold Discovery_. [[Arxiv]](https://arxiv.org/abs/2201.05279)
 1. Yan Ma, Weicong Liang, Yiduo Hao, **Bojian Hou**, Xiangyu Yue, Chao Zhang, and Yuhui Yuan. _Revisiting DETR Pre-training for Object Detection_. [[Arxiv]](https://arxiv.org/abs/2308.01300)
-1. Dawei Li, Shu Yang, Zhen Tan, Jae Young Baik, Sukwon Yun, Joseph Lee, Aaron Chacko, **Bojian Hou**, Duy Duong-Tran, Ying Ding, Huan Liu, Li Shen, Tianlong Chen. _DALK: Dynamic Co-Augmentation of LLMs and KG to answer Alzheimer's Disease Questions with Scientific Literature_. [[Arxiv]](https://arxiv.org/abs/2405.04819)
 1. Ruochen Jin, **Bojian Hou**, Jiancong Xiao, Weijie Su, Li Shen. _Fine-Tuning Linear Layers Only Is a Simple yet Effective Way for Task Arithmetic_. [[Arxiv]](https://arxiv.org/abs/2407.07089)
 
 <!--1. **Bo-Jian Hou**, Yu-Cheng He, Mengshuo Wang, Wei-Wei Tu, Isabelle Guyon, and Qiang Yang. _Environment Learning for Decision Optimization: A Survey_. Submitted to **IEEE Transactions on Knowledge and Data Engineering (TKDE)**.-->
 
+
+<!-- 1. Dawei Li, Shu Yang, Zhen Tan, Jae Young Baik, Sukwon Yun, Joseph Lee, Aaron Chacko, **Bojian Hou**, Duy Duong-Tran, Ying Ding, Huan Liu, Li Shen, Tianlong Chen. _DALK: Dynamic Co-Augmentation of LLMs and KG to answer Alzheimer's Disease Questions with Scientific Literature_. [[Arxiv]](https://arxiv.org/abs/2405.04819) -->
