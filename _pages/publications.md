@@ -17,6 +17,7 @@ author_profile: true
 
 ## Conference
 
+1. Zhuoping Zhou\*, Davoud Ataee Tarzanagh\*, **Bojian Hou**\*, Qi Long, Li Shen. _Fairness-Aware Estimation of Graphical Models._ **In: Proceedings of the 38th Annual Conference on Neural Information Processing Systems (NeurIPS'24), Vancouver, Canada**, 2024, in press. (\* means equal contribution or co-first authors)
 1. Kazi Noshin\*, Mary Regina Boland\*, **Bojian Hou**, Victoria Lu, Carol Manning, Li Shen, Aidong Zhang. _Uncovering Important Diagnostic Features for Alzheimer’s, Parkinson’s and Other Dementias Using Interpretable Association Mining Methods_. **In: Proceedings of Pacific Symposium on Biocomputing (PSB) 2025, The Big Island of Hawaii, Hawaii**, 2025, in press.
 1. Dawei Li, Shu Yang, Zhen Tan, Jae Young Baik, Sukwon Yun, Joseph Lee, Aaron Chacko, **Bojian Hou**, Duy Duong-Tran, Ying Ding, Huan Liu, Li Shen, Tianlong Chen. _DALK: Dynamic Co-Augmentation of LLMs and KG to answer Alzheimer’s Disease Questions with Scientific Literature_. **In: Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing, Miami, FL**, 2024, in press.
 1. Jia Xu\*, Tianyi Wei\*, **Bojian Hou**\*, Patryk Orzechowski, Shu Yang, George Demiris, Li Shen. _MentalGPT: Harnessing AI for Compassionate Mental Health Support_. **In: Proceedings of AMIA 2024 Annual Symposium, San Francisco, LA**, 2024, in press. (* means equal contribution or co-first authors) 
@@ -43,6 +44,7 @@ author_profile: true
 
 
 ## Journal
+1. Zhuoping Zhou, Boning Tong, Davoud Ataee Tarzanagh, **Bojian Hou**, Qi Long, and Li Shen. _MG-TCCA: Tensor Canonical Correlation Analysis across Multiple Groups_. **IEEE/ACM Transactions on Computational Biology and Bioinformatics** in press, 2024.
 1. **Bojian Hou**\*, Zixuan Wen\*, Jingxuan Bao, Richard Zhang, Boning Tong, Shu Yang, Junhao Wen, Yuhan Cui, Jason H Moore, Andrew J. Saykin, Heng Huang, Paul M. Thompson, Marylyn D. Ritchie, Christos Davatzikos, and Li Shen. _Interpretable Deep Clustering Survival Machines for Alzheimer’s Disease Subtypes Discovery_. **Medical Image Analysis**, 2024, 97:103231. [[PDF]](https://www-sciencedirect-com.proxy.library.upenn.edu/science/article/pii/S1361841524001567) [[Code]](https://github.com/PennShenLab/DCSM/) (Impact factor: 10.7, * means equal contribution or co-first authors)
 1. Jing-Xiao Liao, **Bo-Jian Hou**, Hang-Cheng Dong, Hao Zhang, Jinwei Sun, Shiping Zhang, and Feng-Lei Fan. _Quadratic Neuron-empowered Heterogeneous Autoencoder for Unsupervised Anomaly Detection_. **IEEE Transactions on Artificial Intelligence** in press, 2024. [[PDF]](https://ieeexplore-ieee-org.proxy.library.upenn.edu/document/10510400) (Impact factor: 4.9)
 1. Zexuan Wang, Qipeng Zhan, Boning Tong, Shu Yang, **Bojian Hou**, Heng Huang, Andrew J. Saykin, Paul M. Thompson, Christos Davatzikos, and Li Shen. _Distance-weighted Sinkhorn loss for Alzheimer's disease classification_. **iScience**, 2024, 27(3): 109212. [[PDF]](https://pubmed.ncbi.nlm.nih.gov/38433927/) (Impact factor: 4.6)
