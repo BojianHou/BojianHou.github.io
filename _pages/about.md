@@ -51,7 +51,7 @@ the potential issues of the interpretability methodologies for medical data. -->
 
 Recent Highlights
 ------
-- 09-25-2024: Our paper "Fairness-Aware Estimation of Graphical Models" with Zhuoping Zhou, Davoud Ataee Tarzanagh, Qi Long, Li Shen was accepted by **NeurIPS 2024**.
+- 09-25-2024: Our paper "Fairness-Aware Estimation of Graphical Models" with Zhuoping Zhou, Davoud Ataee Tarzanagh, Andrew J. Saykin, Qi Long, Li Shen was accepted by **NeurIPS 2024**.
 - 09-21-2024: Our paper "MG-TCCA: Tensor Canonical Correlation Analysis across Multiple Groups" with Zhuoping Zhou, Boning Tong, Davoud Ataee Tarzanagh, Qi Long, Li Shen was accepted by **IEEE/ACM Transactions on Computational Biology and Bioinformatics**.
 - 09-20-2024: Our paper "DALK: Dynamic Co-Augmentation of LLMs and KG to answer Alzheimer’s Disease Questions with Scientific Literature" with Dawei Li, Shu Yang, Zhen Tan, Jae Young Baik, Sukwon Yun, Joseph Lee, Aaron Chacko, Duy Duong-Tran, Ying Ding, huan liu, Li Shen, Tianlong Chen was accepted by **EMNLP 2024**.
 - 09-10-2024: Our paper "Uncovering Important Diagnostic Features for Alzheimer’s, Parkinson’s and Other Dementias Using Interpretable Association Mining Methods" with Kazi Noshin, Mary Regina Boland, Victoria Lu, Carol Manning, Li Shen and Aidong Zhang was accepted by **Pacific Symposium on Biocomputing (PSB)**.
