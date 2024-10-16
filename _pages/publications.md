@@ -44,6 +44,7 @@ author_profile: true
 
 
 ## Journal
+1. Dayang Wang, Feng-Lei Fan, **Bo-Jian Hou**, Hao Zhang, Rongjie Lai, Hengyong Yu, Fei Wang. _Manifoldron: Direct Space Partition via Manifold Discovery_. **IEEE Transactions on Neural Networks and Learning Systems (TNNLS)** in press, 2024. [[Arxiv]](https://arxiv.org/abs/2201.05279)
 1. Zhuoping Zhou, Boning Tong, Davoud Ataee Tarzanagh, **Bojian Hou**, Andrew J. Saykin, Qi Long, and Li Shen. _MG-TCCA: Tensor Canonical Correlation Analysis across Multiple Groups_. **IEEE/ACM Transactions on Computational Biology and Bioinformatics** in press, 2024.
 1. **Bojian Hou**\*, Zixuan Wen\*, Jingxuan Bao, Richard Zhang, Boning Tong, Shu Yang, Junhao Wen, Yuhan Cui, Jason H Moore, Andrew J. Saykin, Heng Huang, Paul M. Thompson, Marylyn D. Ritchie, Christos Davatzikos, and Li Shen. _Interpretable Deep Clustering Survival Machines for Alzheimer’s Disease Subtypes Discovery_. **Medical Image Analysis**, 2024, 97:103231. [[PDF]](https://www-sciencedirect-com.proxy.library.upenn.edu/science/article/pii/S1361841524001567) [[Code]](https://github.com/PennShenLab/DCSM/) (Impact factor: 10.7, * means equal contribution or co-first authors)
 1. Jing-Xiao Liao, **Bo-Jian Hou**, Hang-Cheng Dong, Hao Zhang, Jinwei Sun, Shiping Zhang, and Feng-Lei Fan. _Quadratic Neuron-empowered Heterogeneous Autoencoder for Unsupervised Anomaly Detection_. **IEEE Transactions on Artificial Intelligence** in press, 2024. [[PDF]](https://ieeexplore-ieee-org.proxy.library.upenn.edu/document/10510400) (Impact factor: 4.9)
@@ -60,7 +61,6 @@ author_profile: true
 
 ## Manuscript
 1. **Bojian Hou**, Hao Zhang, Gur Ladizhinsky, Ali Kayyal, Stephen Yang, Volodymyr Kuleshov, Fei Wang and Qian Yang. _Clinical Evidence Engine: Proof-of-Concept For a Clinical-Domain-Agnostic Decision Support Infrastructure_. [[Arxiv]](https://arxiv.org/abs/2111.00621)
-1. Dayang Wang, Feng-Lei Fan, **Bo-Jian Hou**, Hao Zhang, Rongjie Lai, Hengyong Yu, Fei Wang. _Manifoldron: Direct Space Partition via Manifold Discovery_. [[Arxiv]](https://arxiv.org/abs/2201.05279)
 1. Yan Ma, Weicong Liang, Yiduo Hao, **Bojian Hou**, Xiangyu Yue, Chao Zhang, and Yuhui Yuan. _Revisiting DETR Pre-training for Object Detection_. [[Arxiv]](https://arxiv.org/abs/2308.01300)
 1. Ruochen Jin, **Bojian Hou**, Jiancong Xiao, Weijie Su, Li Shen. _Fine-Tuning Linear Layers Only Is a Simple yet Effective Way for Task Arithmetic_. [[Arxiv]](https://arxiv.org/abs/2407.07089)
 
