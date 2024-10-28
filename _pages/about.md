@@ -51,6 +51,7 @@ the potential issues of the interpretability methodologies for medical data. -->
 
 Recent Highlights
 ------
+- 10-26-2024: Our paper "SEFD: Semantic-Enhanced Framework for Detecting LLM-Generated Text" with Weiqing He, Tianqi Shang, Davoud Ataee Tarzanagh, Qi Long, and Li Shen was accepted by **2024 IEEE International Conference on Big Data (IEEE BigData 2024)**.
 - 10-13-2024: Our paper "Manifoldron: Direct Space Partition via Manifold Discovery" with Dayang Wang, Feng-Lei Fan, Hao Zhang, Rongjie Lai, Hengyong Yu and Fei Wang was accepted by **IEEE Transactions on Neural Networks and Learning Systems (TNNLS)**.
 - 09-25-2024: Our paper "Fairness-Aware Estimation of Graphical Models" with Zhuoping Zhou, Davoud Ataee Tarzanagh, Qi Long, Li Shen was accepted by **NeurIPS 2024**.
 - 09-21-2024: Our paper "MG-TCCA: Tensor Canonical Correlation Analysis across Multiple Groups" with Zhuoping Zhou, Boning Tong, Davoud Ataee Tarzanagh, Andrew J. Saykin, Qi Long, Li Shen was accepted by **IEEE/ACM Transactions on Computational Biology and Bioinformatics**.
