@@ -17,6 +17,7 @@ author_profile: true
 
 ## Conference
 
+1. Weiqing He\*, **Bojian Hou**\*, Tianqi Shang\*, Davoud Ataee Tarzanagh, Qi Long, Li Shen. _SEFD: Semantic-Enhanced Framework for Detecting LLM-Generated Text._ **In: 2024 IEEE International Conference on Big Data (IEEE BigData 2024)**, 2024, in press.  (\* means equal contribution or co-first authors)
 1. Zhuoping Zhou\*, Davoud Ataee Tarzanagh\*, **Bojian Hou**\*, Qi Long, Li Shen. _Fairness-Aware Estimation of Graphical Models._ **In: Proceedings of the 38th Annual Conference on Neural Information Processing Systems (NeurIPS'24), Vancouver, Canada**, 2024, in press. (\* means equal contribution or co-first authors)
 1. Kazi Noshin\*, Mary Regina Boland\*, **Bojian Hou**, Victoria Lu, Carol Manning, Li Shen, Aidong Zhang. _Uncovering Important Diagnostic Features for Alzheimer’s, Parkinson’s and Other Dementias Using Interpretable Association Mining Methods_. **In: Proceedings of Pacific Symposium on Biocomputing (PSB) 2025, The Big Island of Hawaii, Hawaii**, 2025, in press.
 1. Dawei Li, Shu Yang, Zhen Tan, Jae Young Baik, Sukwon Yun, Joseph Lee, Aaron Chacko, **Bojian Hou**, Duy Duong-Tran, Ying Ding, Huan Liu, Li Shen, Tianlong Chen. _DALK: Dynamic Co-Augmentation of LLMs and KG to answer Alzheimer’s Disease Questions with Scientific Literature_. **In: Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing, Miami, FL**, 2024, in press.
