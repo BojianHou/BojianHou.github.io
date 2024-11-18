@@ -4,7 +4,7 @@ title: "Awards"
 permalink: /awards/
 author_profile: true
 ---
-
+- Distinguished Paper Award in AMIA 2024 Annual Symposium. 2024
 - PennAITech Innovation Fellow. 2024
 - Best Paper Award in The 14th ACM Conference on Bioinformatics, Computational Biology, and Health Informatics. 2023
 - Excellent Doctoral Dissertation Award of Jiangsu Province. 2021
