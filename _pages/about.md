@@ -51,6 +51,9 @@ the potential issues of the interpretability methodologies for medical data. -->
 
 Recent Highlights
 ------
+- 11-27-2024: Our paper "Knowledge-Driven Feature Selection and Engineering for Genotype Data with Large Language Models" with Joseph Lee, Shu Yang, Jae Young Baik, Xiaoxi Liu, Zhen Tan, Dawei Li, Zixuan Wen, Duy Duong-Tran, Tianlong Chen, and Li Shen was accepted by **AMIA 2025 Informatics Summit**.
+- 11-27-2024: Our paper "Leveraging Social Determinants of Health in Alzheimer’s Research Using LLM-Augmented Literature Mining and Knowledge Graphs" with Tianqi Shang, Shu Yang, Weiqing He, Tianhua Zhai, Dawei Li, Tianlong Chen, Jason H. Moore, Marylyn D. Ritchie, and Li Shen was accepted by **AMIA 2025 Informatics Summit**.
+- 11-27-2024: Our paper "Understanding the Clinical Modalities Important in NeuroDegenerative Disorders, Alzheimer's Disease, and Risk of Patient Injury Using Machine Learning and Survival Analysis" with Kazi Noshin, Mary Regina Boland, Weiqing He, Victoria Lu, Carol Manning, Li Shen, and Aidong Zhang was accepted by **AMIA 2025 Informatics Summit**.
 - 10-26-2024: Our paper "SEFD: Semantic-Enhanced Framework for Detecting LLM-Generated Text" with Weiqing He, Tianqi Shang, Davoud Ataee Tarzanagh, Qi Long, and Li Shen was accepted by **2024 IEEE International Conference on Big Data (IEEE BigData 2024)**.
 - 10-13-2024: Our paper "Manifoldron: Direct Space Partition via Manifold Discovery" with Dayang Wang, Feng-Lei Fan, Hao Zhang, Rongjie Lai, Hengyong Yu and Fei Wang was accepted by **IEEE Transactions on Neural Networks and Learning Systems (TNNLS)**.
 - 09-25-2024: Our paper "Fairness-Aware Estimation of Graphical Models" with Zhuoping Zhou, Davoud Ataee Tarzanagh, Qi Long, Li Shen was accepted by **NeurIPS 2024**.
