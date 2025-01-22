@@ -51,6 +51,7 @@ the potential issues of the interpretability methodologies for medical data. -->
 
 Recent Highlights
 ------
+- 01-22-2025: Our paper "Fine-Tuning Attention Modules Only: Enhancing Weight Disentanglement in Task Arithmetic" with Ruochen Jin, Jiancong Xiao, Weijie Su and Li Shen was accepted by **ICLR 2025**.
 - 11-27-2024: Our paper "Knowledge-Driven Feature Selection and Engineering for Genotype Data with Large Language Models" with Joseph Lee, Shu Yang, Jae Young Baik, Xiaoxi Liu, Zhen Tan, Dawei Li, Zixuan Wen, Duy Duong-Tran, Tianlong Chen, and Li Shen was accepted by **AMIA 2025 Informatics Summit**.
 - 11-27-2024: Our paper "Leveraging Social Determinants of Health in Alzheimer’s Research Using LLM-Augmented Literature Mining and Knowledge Graphs" with Tianqi Shang, Shu Yang, Weiqing He, Tianhua Zhai, Dawei Li, Tianlong Chen, Jason H. Moore, Marylyn D. Ritchie, and Li Shen was accepted by **AMIA 2025 Informatics Summit**.
 - 11-27-2024: Our paper "Understanding the Clinical Modalities Important in NeuroDegenerative Disorders, Alzheimer's Disease, and Risk of Patient Injury Using Machine Learning and Survival Analysis" with Kazi Noshin, Mary Regina Boland, Weiqing He, Victoria Lu, Carol Manning, Li Shen, and Aidong Zhang was accepted by **AMIA 2025 Informatics Summit**.
