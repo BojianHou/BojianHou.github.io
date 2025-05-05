@@ -34,9 +34,10 @@ the potential issues of the interpretability methodologies for medical data. -->
 
 <!-- I have broad interest in machine learning, data mining and their potential applications to biomedical data. During my doctoral study, my main research direction is **feature evolvable learning** which is a novel learning scenario where data features would evolve in open and dynamic environment. I developed a series of algorithms that can effectively deal with this scenario with theoretical guarantees. I am also interested in -->
 <!-- In summary, my research interests include: -->
-- **Fairness Learning**: developing fair and unbiased machine learning algorithms.
+
 - **Interpretability**: studying the interpretability of the black-box machine learning models.
 - **Feature Evolvable Learning**: studying learning scenarios where data features evolve.
+- **Fairness Learning**: developing fair and unbiased machine learning algorithms.
 - **Semi-Supervised Learning**: learning models from both labeled and unlabeled data.
 - **Online Learning**: learning models continuously from online streaming data.
 - **Large Language Models**: developing and applying large language models.
@@ -51,6 +52,7 @@ the potential issues of the interpretability methodologies for medical data. -->
 
 Recent Highlights
 ------
+- 05-01-2025: Our paper "Restoring Calibration for Aligned Large Language Models: A Calibration-Aware Fine-Tuning Approach" with Jiancong Xiao, Zhanliang Wang, Ruochen Jin, Weijie Su, Qi Long, Li Shen was accepted by **ICML 2025**.
 - 01-22-2025: Our paper "Fine-Tuning Attention Modules Only: Enhancing Weight Disentanglement in Task Arithmetic" with Ruochen Jin, Jiancong Xiao, Weijie Su and Li Shen was accepted by **ICLR 2025**.
 - 11-27-2024: Our paper "Knowledge-Driven Feature Selection and Engineering for Genotype Data with Large Language Models" with Joseph Lee, Shu Yang, Jae Young Baik, Xiaoxi Liu, Zhen Tan, Dawei Li, Zixuan Wen, Duy Duong-Tran, Tianlong Chen, and Li Shen was accepted by **AMIA 2025 Informatics Summit**.
 - 11-27-2024: Our paper "Leveraging Social Determinants of Health in Alzheimer’s Research Using LLM-Augmented Literature Mining and Knowledge Graphs" with Tianqi Shang, Shu Yang, Weiqing He, Tianhua Zhai, Dawei Li, Tianlong Chen, Jason H. Moore, Marylyn D. Ritchie, and Li Shen was accepted by **AMIA 2025 Informatics Summit**.
