@@ -52,7 +52,7 @@ the potential issues of the interpretability methodologies for medical data. -->
 
 Recent Highlights
 ------
-- 05-15-2025: Our paper "MentalChat16K: A Benchmark Dataset for Conversational Mental Health Assistance" with Jia Xu, Tianyi Wei, Patryk Orzechowski, Shu Yang, Ruochen Jin, Rachael Paulbeck, Joost Wagenaar, George Demiris, Li Shen was accepted by **KDD 2025 <span style="color:red">(oral)</span>**.
+- 05-15-2025: Our paper "MentalChat16K: A Benchmark Dataset for Conversational Mental Health Assistance" with Jia Xu, Tianyi Wei, Patryk Orzechowski, Shu Yang, Ruochen Jin, Rachael Paulbeck, Joost Wagenaar, George Demiris, Li Shen was accepted by **KDD 2025** <span style="color:red">(oral)</span>.
 - 05-01-2025: Our paper "Restoring Calibration for Aligned Large Language Models: A Calibration-Aware Fine-Tuning Approach" with Jiancong Xiao, Zhanliang Wang, Ruochen Jin, Weijie Su, Qi Long, Li Shen was accepted by **ICML 2025**.
 - 01-22-2025: Our paper "Fine-Tuning Attention Modules Only: Enhancing Weight Disentanglement in Task Arithmetic" with Ruochen Jin, Jiancong Xiao, Weijie Su and Li Shen was accepted by **ICLR 2025**.
 - 11-27-2024: Our paper "Knowledge-Driven Feature Selection and Engineering for Genotype Data with Large Language Models" with Joseph Lee, Shu Yang, Jae Young Baik, Xiaoxi Liu, Zhen Tan, Dawei Li, Zixuan Wen, Duy Duong-Tran, Tianlong Chen, and Li Shen was accepted by **AMIA 2025 Informatics Summit**.
