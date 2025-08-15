@@ -40,7 +40,11 @@
 @import "vendor/magnific-popup/magnific-popup";
 @import "print";
 
-/* Custom CSS for wider about page layout */
+/* Custom CSS for wider about page layout and better typography */
+html {
+  font-size: 14px; /* Reduce base font size from 16px to 14px for more compact text */
+}
+
 @media (min-width: 768px) {
   #main {
     max-width: 1400px; /* Increase from default 1280px */
