@@ -59,39 +59,47 @@ html {
   font-size: 14px !important;
 }
 
-/* Make overall container wider */
+/* Fix main container issues */
 @media (min-width: 925px) {
   #main {
     max-width: 1400px !important;
-    padding-left: 2em !important;
-    padding-right: 2em !important;
+    margin-top: 1em !important; /* Reduce from 2em to 1em */
+    padding-left: 1.5em !important;
+    padding-right: 1.5em !important;
   }
 }
 
 @media (min-width: 1200px) {
   #main {
     max-width: 1600px !important;
+    padding-left: 2em !important;
+    padding-right: 2em !important;
   }
 }
 
-/* Improve sidebar positioning */
+/* Fix sidebar positioning - add proper left margin */
 @media (min-width: 925px) {
   .sidebar {
-    padding-left: 1em !important;
+    margin-left: 1em !important; /* Add left margin so it's not touching edge */
+    padding-left: 0.5em !important;
   }
   
-  /* Make page content use more width while respecting sidebar */
-  .page {
-    width: 75% !important; /* Increase from default ~70% */
-    margin-left: 20% !important; /* Account for sidebar */
+  /* Fix page content layout for both single pages and archive pages */
+  .page, .archive {
+    width: 72% !important; /* Slightly less width to fix spacing */
+    margin-left: 22% !important; /* More space from sidebar */
     float: none !important;
   }
 }
 
 @media (min-width: 1200px) {
-  .page {
-    width: 78% !important; /* Even more width on large screens */
-    margin-left: 18% !important; /* Smaller sidebar proportion */
+  .sidebar {
+    margin-left: 1.5em !important; /* More left margin on large screens */
+  }
+  
+  .page, .archive {
+    width: 75% !important; /* More width on large screens */
+    margin-left: 20% !important; /* Proportional adjustment */
   }
 }
 </style>
