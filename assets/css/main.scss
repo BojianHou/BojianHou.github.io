@@ -47,24 +47,24 @@ $doc-font-size: 14;
 
 @media (min-width: 768px) {
   #main {
-    max-width: 1400px; /* Increase from default 1280px */
+    max-width: 1400px !important; /* Increase from default 1280px */
   }
   
   .page {
-    @include span(11 of 12 last); /* Use more space (was 10 of 12) */
-    @include prefix(0.5 of 12);
-    @include suffix(0.5 of 12); /* Reduce right margin (was 2 of 12) */
+    width: 85% !important; /* Use more width instead of SASS mixins */
+    margin-left: auto !important;
+    margin-right: auto !important;
+    float: none !important;
   }
 }
 
 @media (min-width: 1200px) {
   #main {
-    max-width: 1600px; /* Even wider on large screens */
+    max-width: 1600px !important; /* Even wider on large screens */
   }
   
   .page {
-    @include span(11.5 of 12 last); /* Use even more space on large screens */
-    @include prefix(0.25 of 12);
-    @include suffix(0.25 of 12);
+    width: 90% !important; /* Use even more width on large screens */
+    max-width: 1400px !important;
   }
 }
