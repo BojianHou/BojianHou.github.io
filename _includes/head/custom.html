@@ -59,17 +59,12 @@ html {
   font-size: 14px !important;
 }
 
-/* Make page wider on desktop and tablets */
-@media (min-width: 768px) {
+/* Make overall container wider */
+@media (min-width: 925px) {
   #main {
     max-width: 1400px !important;
-  }
-  
-  .page {
-    width: 85% !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    float: none !important;
+    padding-left: 2em !important;
+    padding-right: 2em !important;
   }
 }
 
@@ -77,10 +72,26 @@ html {
   #main {
     max-width: 1600px !important;
   }
+}
+
+/* Improve sidebar positioning */
+@media (min-width: 925px) {
+  .sidebar {
+    padding-left: 1em !important;
+  }
   
+  /* Make page content use more width while respecting sidebar */
   .page {
-    width: 90% !important;
-    max-width: 1400px !important;
+    width: 75% !important; /* Increase from default ~70% */
+    margin-left: 20% !important; /* Account for sidebar */
+    float: none !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .page {
+    width: 78% !important; /* Even more width on large screens */
+    margin-left: 18% !important; /* Smaller sidebar proportion */
   }
 }
 </style>
