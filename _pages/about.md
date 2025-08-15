@@ -75,6 +75,9 @@ the potential issues of the interpretability methodologies for medical data. -->
 
 Recent Highlights
 ------
+
+<div style="height: 400px; overflow-y: auto; border: 1px solid #ddd; padding: 15px; border-radius: 5px; background-color: #fafafa;">
+
 - 05-15-2025: Our paper "MentalChat16K: A Benchmark Dataset for Conversational Mental Health Assistance" with Jia Xu, Tianyi Wei, Patryk Orzechowski, Shu Yang, Ruochen Jin, Rachael Paulbeck, Joost Wagenaar, George Demiris, Li Shen was accepted by **KDD 2025** <span style="color:red">(oral)</span>.
 - 05-01-2025: Our paper "Restoring Calibration for Aligned Large Language Models: A Calibration-Aware Fine-Tuning Approach" with Jiancong Xiao, Zhanliang Wang, Ruochen Jin, Weijie Su, Qi Long, Li Shen was accepted by **ICML 2025**.
 - 01-22-2025: Our paper "Fine-Tuning Attention Modules Only: Enhancing Weight Disentanglement in Task Arithmetic" with Ruochen Jin, Jiancong Xiao, Weijie Su and Li Shen was accepted by **ICLR 2025**.
@@ -114,3 +117,5 @@ Recent Highlights
 - 06-18-2020: Winning the **CS Excellent Doctoral Dissertation Award** of Nanjing University.
 - 05-27-2020: **I have successfully defended my PhD dissertation and became a Ph.D**.
 - 04-21-2020: Winning the **Outstanding Graduate Student Award** of Nanjing University.
+
+</div>
