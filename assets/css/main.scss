@@ -10,9 +10,6 @@
  *
 */
 
-// Override font size before importing variables
-$doc-font-size: 14;
-
 @import "vendor/breakpoint/breakpoint"; // media query mixins
 @import "variables";
 @import "mixins";
@@ -43,28 +40,3 @@ $doc-font-size: 14;
 @import "vendor/magnific-popup/magnific-popup";
 @import "print";
 
-/* Custom CSS for wider about page layout */
-
-@media (min-width: 768px) {
-  #main {
-    max-width: 1400px !important; /* Increase from default 1280px */
-  }
-  
-  .page {
-    width: 85% !important; /* Use more width instead of SASS mixins */
-    margin-left: auto !important;
-    margin-right: auto !important;
-    float: none !important;
-  }
-}
-
-@media (min-width: 1200px) {
-  #main {
-    max-width: 1600px !important; /* Even wider on large screens */
-  }
-  
-  .page {
-    width: 90% !important; /* Use even more width on large screens */
-    max-width: 1400px !important;
-  }
-}

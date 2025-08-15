@@ -52,5 +52,37 @@
 <meta name="msapplication-config" content="/assets/favicon/browserconfig.xml">
 <meta name="theme-color" content="#ffffff">
 
+<!-- Custom CSS for wider layout and smaller font -->
+<style>
+/* Reduce font size across the site */
+html {
+  font-size: 14px !important;
+}
+
+/* Make page wider on desktop and tablets */
+@media (min-width: 768px) {
+  #main {
+    max-width: 1400px !important;
+  }
+  
+  .page {
+    width: 85% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    float: none !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  #main {
+    max-width: 1600px !important;
+  }
+  
+  .page {
+    width: 90% !important;
+    max-width: 1400px !important;
+  }
+}
+</style>
 
 <!-- end custom head snippets -->
