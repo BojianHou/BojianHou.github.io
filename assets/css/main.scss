@@ -10,6 +10,9 @@
  *
 */
 
+// Override font size before importing variables
+$doc-font-size: 14;
+
 @import "vendor/breakpoint/breakpoint"; // media query mixins
 @import "variables";
 @import "mixins";
@@ -40,10 +43,7 @@
 @import "vendor/magnific-popup/magnific-popup";
 @import "print";
 
-/* Custom CSS for wider about page layout and better typography */
-html {
-  font-size: 14px; /* Reduce base font size from 16px to 14px for more compact text */
-}
+/* Custom CSS for wider about page layout */
 
 @media (min-width: 768px) {
   #main {
