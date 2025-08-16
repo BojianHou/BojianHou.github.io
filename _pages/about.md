@@ -10,7 +10,7 @@ redirect_from:
 
 Welcome to my homepage! My name is Bojian Hou (also Bo-Jian Hou), an **AI Research Scientist** at **Meta**, with a focus on large-scale machine learning and artificial intelligence systems. My current work centers on **ranking**, **recommendation**, and **retrieval**, as well as **large language models (LLMs)** and **multimodal generative AI**.
 
-Before joining Meta, I was a postdoctoral researcher in the [Department of Biostatistics, Epidemiology and Informatics](https://www.dbei.med.upenn.edu/) at the [University of Pennsylvania](https://www.upenn.edu/), advised by Prof. [Li Shen](https://www.dbei.med.upenn.edu/bio/li-shen-phd-faimbe).  
+Before joining Meta, I was a postdoctoral researcher in the [Department of Biostatistics, Epidemiology and Informatics](https://www.dbei.med.upenn.edu/) at the [University of Pennsylvania](https://www.upenn.edu/), where I had the privilege of being advised by Prof. [Li Shen](https://www.dbei.med.upenn.edu/bio/li-shen-phd-faimbe).  
 <!-- I was also affiliated with [CBICA](https://www.med.upenn.edu/cbica/) and previously held a postdoctoral position at [Weill Cornell Medicine](https://phs.weill.cornell.edu/) with Prof. [Fei Wang](https://wcm-wanglab.github.io/). -->
 
 I received my B.Sc. and Ph.D. degrees in the [Department of Computer Science](https://cs.nju.edu.cn/) at [Nanjing University](https://www.nju.edu.cn/) in 2014 and 2020, respectively. I was fortunate to be supervised by Prof. [Zhi-Hua Zhou](https://cs.nju.edu.cn/zhouzh/) in the [LAMDA](https://www.lamda.nju.edu.cn/MainPage.ashx) Group.
