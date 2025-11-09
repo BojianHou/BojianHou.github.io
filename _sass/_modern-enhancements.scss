@@ -1,0 +1,373 @@
+/* ==========================================================================
+   Modern Enhancements - Tech-Forward Design
+   ========================================================================== */
+
+/* Improved content width and spacing */
+.page__content {
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+
+  p {
+    margin-bottom: 1.2em;
+    font-size: 1em;
+    color: #1C1E21;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    margin-top: 1.5em;
+    margin-bottom: 0.75em;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+  }
+
+  h1 { font-weight: 700; }
+  h2 { margin-top: 2em; }
+}
+
+/* Modern card-style highlights section */
+.highlights-container {
+  background: linear-gradient(135deg, #F0F2F5 0%, #FAFBFC 100%);
+  border: 1px solid #E4E6EB;
+  border-radius: 12px;
+  padding: 24px;
+  margin: 2em 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  max-height: 500px;
+  overflow-y: auto;
+  transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Custom scrollbar */
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #F0F2F5;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #BCC0C4;
+    border-radius: 4px;
+
+    &:hover {
+      background: #8E9196;
+    }
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    margin-bottom: 8px;
+    padding: 12px 16px;
+    border-bottom: 1px solid #E4E6EB;
+    transition: all 0.2s ease;
+    border-radius: 6px;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.8);
+      transform: translateX(4px);
+      border-left: 3px solid #0866FF;
+      padding-left: 13px;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    strong {
+      color: #65676B;
+      font-weight: 600;
+      font-size: 0.875em;
+    }
+  }
+}
+
+/* Enhanced link styles */
+a {
+  text-decoration: none;
+  transition: all 0.2s ease;
+
+  &:hover {
+    text-decoration: none;
+    transform: translateY(-1px);
+  }
+}
+
+/* Smooth hover effects for navigation */
+.greedy-nav {
+  a {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+}
+
+/* Modern button styles */
+.btn {
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
+/* Enhanced author sidebar */
+.author__avatar {
+  img {
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+  }
+}
+
+.author__urls {
+  li {
+    transition: all 0.2s ease;
+
+    a {
+      transition: all 0.2s ease;
+
+      &:hover {
+        color: #0866FF !important;
+        transform: translateX(4px);
+      }
+    }
+  }
+}
+
+/* Modern archive items (publications, etc.) */
+.archive__item {
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  background: white;
+  border: 1px solid #E4E6EB;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+    border-color: #0866FF;
+  }
+}
+
+.archive__item-title {
+  margin-top: 0;
+
+  a {
+    &:hover {
+      color: #0866FF;
+    }
+  }
+}
+
+/* Improved code blocks */
+code {
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 0.9em;
+  background: #F6F8FA;
+  border: 1px solid #E1E4E8;
+}
+
+pre {
+  border-radius: 8px;
+  padding: 16px;
+  background: #F6F8FA;
+  border: 1px solid #E1E4E8;
+  overflow-x: auto;
+}
+
+/* Enhanced masthead */
+.masthead {
+  border-bottom: 1px solid #E4E6EB;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s ease;
+}
+
+/* Improved footer */
+.page__footer {
+  background: #F0F2F5;
+  border-top: 1px solid #E4E6EB;
+
+  a {
+    &:hover {
+      color: #0866FF;
+    }
+  }
+}
+
+/* Responsive design enhancements */
+@media (max-width: 768px) {
+  .highlights-container {
+    padding: 16px;
+    border-radius: 8px;
+    max-height: 400px;
+
+    li {
+      padding: 10px 12px;
+      font-size: 0.9em;
+    }
+  }
+
+  .page__content {
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.2em;
+      margin-bottom: 0.6em;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .highlights-container {
+    padding: 12px;
+    max-height: 350px;
+
+    li {
+      padding: 8px 10px;
+      font-size: 0.85em;
+
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+}
+
+/* Subtle gradient accents */
+.page__hero {
+  background: linear-gradient(135deg, #0866FF 0%, #0095F6 100%);
+}
+
+/* Enhanced image styling */
+img {
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+}
+
+/* Loading animation for smooth transitions */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page__content > * {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Focus states for accessibility */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+  outline: 2px solid #0866FF;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Improved table styling */
+table {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #E4E6EB;
+
+  th {
+    background: linear-gradient(135deg, #F0F2F5 0%, #FAFBFC 100%);
+    font-weight: 600;
+    color: #1C1E21;
+  }
+
+  tr {
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: #FAFBFC;
+    }
+  }
+}
+
+/* Enhanced social share buttons */
+.page__share {
+  a {
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      transform: translateY(-3px) scale(1.05);
+    }
+  }
+}
+
+/* Award badge styling */
+.award-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #F7B500 0%, #F89406 100%);
+  color: white;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.85em;
+  font-weight: 600;
+  margin-left: 6px;
+  box-shadow: 0 2px 4px rgba(247, 181, 0, 0.3);
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(247, 181, 0, 0.4);
+  }
+}
+
+/* Oral presentation badge */
+.oral-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #0866FF 0%, #0095F6 100%);
+  color: white;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.85em;
+  font-weight: 600;
+  margin-left: 6px;
+  box-shadow: 0 2px 4px rgba(8, 102, 255, 0.3);
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(8, 102, 255, 0.4);
+  }
+}
