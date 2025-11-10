@@ -7,8 +7,10 @@ author_profile: true
 
 PC (Program Committee) Member or Reviewer of Conferences
 ---
-- PC Member of [NeurIPS’24](https://neurips.cc/Conferences/2024/) (The 38th Annual Conference on Neural Information Processing Systems)
-- PC Member of [ICML’24](https://icml.cc/Conferences/2024) (The 41th International Conference of Machine Learning)
+- PC Member of [NeurIPS'25](https://neurips.cc/Conferences/2025/) (The 39th Annual Conference on Neural Information Processing Systems)
+- PC Member of [ICML'25](https://icml.cc/Conferences/2025) (The 42nd International Conference of Machine Learning)
+- PC Member of [NeurIPS'24](https://neurips.cc/Conferences/2024/) (The 38th Annual Conference on Neural Information Processing Systems)
+- PC Member of [ICML'24](https://icml.cc/Conferences/2024) (The 41th International Conference of Machine Learning)
 - PC Member of [NeurIPS’23](https://neurips.cc/Conferences/2023/) (The 37th Annual Conference on Neural Information Processing Systems)
 - PC Member of [NeurIPS’22](https://neurips.cc/Conferences/2022/) (The 36th Annual Conference on Neural Information Processing Systems)
 - PC Member of [ICML’22](https://icml.cc/Conferences/2022) (The 39th International Conference of Machine Learning)
@@ -47,7 +49,8 @@ Reviewer of Journals
 
 Other Services
 ---
-- Web Chair of [MLA’16](https://www.lamda.nju.edu.cn/conf/mla16/) (The 14th Chinese Workshop on Machine Learning and Applications).
+- Program Chair of [VADH'25](https://sites.google.com/view/vadh25/home) (Vision-Based AI for Digital Health: From Pixels to Practice) workshop at ICCV 2025.
+- Web Chair of [MLA'16](https://www.lamda.nju.edu.cn/conf/mla16/) (The 14th Chinese Workshop on Machine Learning and Applications).
 - Web Chair of [MLA’15](https://www.lamda.nju.edu.cn/conf/mla15/) (The 13rd Chinese Workshop on Machine Learning and Applications).
 - Web Chair of [LAMDA](https://www.lamda.nju.edu.cn/) Group from Sept. 2014 to Sept. 2017 (Including updating each page of LAMDA
 website, maintaining mail server, maintaining course FTP etc.).
