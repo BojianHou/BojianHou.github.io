@@ -115,15 +115,15 @@ Recent Highlights
 <li><strong>12-16-2022:</strong> Our paper <span class="paper-title">"Evaluate underdiagnosis and overdiagnosis bias of deep learning model on primary open-angle glaucoma diagnosis in under-served populations"</span> with <span class="paper-authors">Mingquan Lin, Yunyu Xiao, Tingyi Wanyan, Mohit Manoj Sharma, Zhangyang Wang, Fei Wang, Sarah Van Tassel and Yifan Peng</span> was accepted by <strong>AMIA 2023 Informatics Summit</strong>.</li>
 <li><strong>06-29-2022:</strong> Our paper <span class="paper-title">"Online Deep Learning from Doubly-Streaming Data"</span> with <span class="paper-authors">Heng Lian, John Scovil Atwood, Jian Wu and Yi He</span> was accepted by <strong>ACMMM'22</strong>.</li>
 <li><strong>06-16-2022:</strong> Our paper <span class="paper-title">"Automated diagnosing primary open-angle glaucoma from fundus image by simulating human's grading with deep learning."</span> with <span class="paper-authors">Mingquan Lin, Lei Liu, Mae Gordon, Michael Kass, Fei Wang, Sarah H. Van Tassel and Yifan Peng</span> was accepted by <strong>Scientific Report</strong>.</li>
-<li><strong>11-22-2021:</strong> Winning the <strong>Excellent Doctoral Dissertation Award</strong> of Jiangsu Province.</li>
-<li><strong>09-13-2021:</strong> Winning the <strong>Excellent Doctoral Dissertation Award</strong> of Nanjing University.</li>
+<li><strong>11-22-2021:</strong> Winning the <span class="award-badge">Excellent Doctoral Dissertation Award</span> of Jiangsu Province.</li>
+<li><strong>09-13-2021:</strong> Winning the <span class="award-badge">Excellent Doctoral Dissertation Award</span> of Nanjing University.</li>
 <li><strong>08-31-2021:</strong> Our paper <span class="paper-title">"Online Learning in Variable Feature Spaces with Mixed Data"</span> with <span class="paper-authors">Yi He, Jiaxian Dong, Yu Wang, and Fei Wang</span> was accepted by <strong>ICDM'21</strong>.</li>
 <li><strong>04-01-2021:</strong> Our paper <span class="paper-title">"Prediction with Unpredictable Feature Evolution"</span> with <span class="paper-authors">Prof. Lijun Zhang and Prof. Zhi-Hua Zhou</span> was accepted by <strong>IEEE Transactions on Neural Networks and Learning Systems</strong>.</li>
-<li><strong>12-24-2020:</strong> Winning the <strong>JSAI Excellent Doctoral Dissertation Award</strong>.</li> 
+<li><strong>12-24-2020:</strong> Winning the <span class="award-badge">JSAI Excellent Doctoral Dissertation Award</span>.</li> 
 <li><strong>12-02-2020:</strong> Our paper <span class="paper-title">"Storage Fit Learning with Feature Evolvable Streams"</span> with <span class="paper-authors">Yu-Hu Yan, Peng Zhao and Zhi-Hua Zhou</span> was accepted by <strong>AAAI'21</strong>.</li>
-<li><strong>06-18-2020:</strong> Winning the <strong>CS Excellent Doctoral Dissertation Award</strong> of Nanjing University.</li>
+<li><strong>06-18-2020:</strong> Winning the <span class="award-badge">CS Excellent Doctoral Dissertation Award</span> of Nanjing University.</li>
 <li><strong>05-27-2020:</strong> <strong>I have successfully defended my PhD dissertation and became a Ph.D</strong>.</li>
-<li><strong>04-21-2020:</strong> Winning the <strong>Outstanding Graduate Student Award</strong> of Nanjing University.</li>
+<li><strong>04-21-2020:</strong> Winning the <span class="award-badge">Outstanding Graduate Student Award</span> of Nanjing University.</li>
 
 </ul>
 </div>
