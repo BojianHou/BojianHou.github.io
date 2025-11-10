@@ -4,6 +4,7 @@ title: "Awards"
 permalink: /awards/
 author_profile: true
 ---
+- Best Paper Award in The 16th ACM Conference on Bioinformatics, Computational Biology, and Health Informatics. 2025
 - Distinguished Paper Award in AMIA 2024 Annual Symposium. 2024
 - PennAITech Innovation Fellow. 2024
 - Best Paper Award in The 14th ACM Conference on Bioinformatics, Computational Biology, and Health Informatics. 2023
