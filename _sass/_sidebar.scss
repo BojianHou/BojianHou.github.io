@@ -27,8 +27,8 @@
   &.sticky {
     @include breakpoint($large) {
       position: fixed !important;
-      top: 140px !important;
-      max-height: calc(100vh - 160px) !important;
+      top: 110px !important;
+      max-height: calc(100vh - 130px) !important;
       overflow-y: auto;
     }
   }
