@@ -15,6 +15,23 @@ Before joining Meta, I was a postdoctoral researcher in the [Department of Biost
 
 I received my B.Sc. and Ph.D. degrees in the [Department of Computer Science](https://cs.nju.edu.cn/) at [Nanjing University](https://www.nju.edu.cn/) in 2014 and 2020, respectively. I was fortunate to be supervised by Prof. [Zhi-Hua Zhou](https://cs.nju.edu.cn/zhouzh/) in the [LAMDA](https://www.lamda.nju.edu.cn/MainPage.ashx) Group.
 
+Research Interests
+------
+
+As a **machine learning researcher**, I am interested in both the theoretical foundations and real-world applications of AI. My research spans:
+
+- **Interpretability**: studying and improving transparency of black-box machine learning models  
+- **Fairness Learning**: developing fair and unbiased machine learning algorithms  
+- **Feature Evolvable Learning**: learning with dynamic and shifting feature spaces  
+- **Large Language Models**: calibration, uncertainty estimation, and response control  
+- **Multimodal Learning**: vision-language modeling and cross-modal retrieval  
+- **Recommendation Systems**: multi-stage ranking, retrieval, and user modeling  
+- **Semi-Supervised Learning**: learning models from both labeled and unlabeled data  
+- **Online Learning**: learning models continuously from streaming data  
+- **Biomedical Data Mining**: developing machine learning methods for Alzheimer's disease, dementia, and mental health
+
+I am passionate about bridging **fundamental ML research** with **real-world deployment**, and designing AI systems that are not only **technically rigorous**, but also **trustworthy and socially responsible**.
+
 Recent Highlights
 ------
 
@@ -69,23 +86,6 @@ Recent Highlights
 
 </ul>
 </div>
-
-Research Interests
-------
-
-As a **machine learning researcher**, I am interested in both the theoretical foundations and real-world applications of AI. My research spans:
-
-- **Interpretability**: studying and improving transparency of black-box machine learning models  
-- **Fairness Learning**: developing fair and unbiased machine learning algorithms  
-- **Feature Evolvable Learning**: learning with dynamic and shifting feature spaces  
-- **Large Language Models**: calibration, uncertainty estimation, and response control  
-- **Multimodal Learning**: vision-language modeling and cross-modal retrieval  
-- **Recommendation Systems**: multi-stage ranking, retrieval, and user modeling  
-- **Semi-Supervised Learning**: learning models from both labeled and unlabeled data  
-- **Online Learning**: learning models continuously from streaming data  
-- **Biomedical Data Mining**: developing machine learning methods for Alzheimer's disease, dementia, and mental health
-
-I am passionate about bridging **fundamental ML research** with **real-world deployment**, and designing AI systems that are not only **technically rigorous**, but also **trustworthy and socially responsible**.
 
 
 <!-- Welcome to my homepage! My name is Bojian Hou (also Bo-Jian Hou), a postdoctoral researcher of [Department of Biostatistics, Epidemiology and Informatics](https://www.dbei.med.upenn.edu/) at the [University of Pennsylvania](https://www.upenn.edu/) advised by Prof. [Li Shen](https://www.dbei.med.upenn.edu/bio/li-shen-phd-faimbe). -->
