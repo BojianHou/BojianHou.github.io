@@ -20,15 +20,11 @@ Research Interests
 
 As a **machine learning researcher**, I am interested in both the theoretical foundations and real-world applications of AI. My research spans:
 
-- **Interpretability**: studying and improving transparency of black-box machine learning models  
-- **Fairness Learning**: developing fair and unbiased machine learning algorithms  
-- **Feature Evolvable Learning**: learning with dynamic and shifting feature spaces  
-- **Large Language Models**: calibration, uncertainty estimation, and response control  
-- **Multimodal Learning**: vision-language modeling and cross-modal retrieval  
-- **Recommendation Systems**: multi-stage ranking, retrieval, and user modeling  
-- **Semi-Supervised Learning**: learning models from both labeled and unlabeled data  
-- **Online Learning**: learning models continuously from streaming data  
-- **Biomedical Data Mining**: developing machine learning methods for Alzheimer's disease, dementia, and mental health
+**Core ML Research**: Fairness Learning, Interpretability, Feature Evolvable Learning, Semi-Supervised Learning, Online Learning
+
+**AI Systems & Applications**: Large Language Models (calibration, uncertainty estimation), Multimodal Learning, Recommendation Systems (ranking, retrieval, user modeling)
+
+**Domain Applications**: Biomedical Data Mining for Alzheimer's disease, dementia, and mental health
 
 I am passionate about bridging **fundamental ML research** with **real-world deployment**, and designing AI systems that are not only **technically rigorous**, but also **trustworthy and socially responsible**.
 
