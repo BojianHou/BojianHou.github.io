@@ -24,6 +24,14 @@
     }
   }
 
+  &.sticky {
+    @include breakpoint($large) {
+      position: fixed !important;
+      top: 140px !important;
+      max-height: calc(100vh - 160px) !important;
+      overflow-y: auto;
+    }
+  }
 
   @include breakpoint($x-large) {
     padding-right: 0;
