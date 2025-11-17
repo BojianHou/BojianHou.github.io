@@ -18,6 +18,10 @@
     opacity: 1;
     -webkit-transition: opacity 0.2s ease-in-out;
             transition: opacity 0.2s ease-in-out;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 80px;
+    align-self: flex-start;
 
     &:hover {
       opacity: 1;
