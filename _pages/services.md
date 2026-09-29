@@ -7,6 +7,7 @@ author_profile: true
 
 PC (Program Committee) Member or Reviewer of Conferences
 ---
+- Reviewer of [KDD'26](https://kdd2026.kdd.org/) (The 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining)
 - PC Member of [NeurIPS'25](https://neurips.cc/Conferences/2025/) (The 39th Annual Conference on Neural Information Processing Systems)
 - PC Member of [ICML'25](https://icml.cc/Conferences/2025) (The 42nd International Conference of Machine Learning)
 - PC Member of [NeurIPS'24](https://neurips.cc/Conferences/2024/) (The 38th Annual Conference on Neural Information Processing Systems)

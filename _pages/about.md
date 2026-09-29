@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-Welcome to my homepage! My name is Bojian Hou (also Bo-Jian Hou), an **AI Research Scientist** at **Meta**, with a focus on large-scale machine learning and artificial intelligence systems. My current work centers on **ranking**, **recommendation**, and **retrieval**, as well as **large language models (LLMs)** and **multimodal generative AI**.
+Welcome to my homepage! My name is Bojian Hou (also Bo-Jian Hou), an **AI Research Scientist** at **Meta** on the Meta Recommendation Systems team, working on large-scale machine learning and artificial intelligence systems. My current work centers on **scaling laws and model architecture for massive-scale recommendation and ranking**, **representation learning**, and bringing **large language model (LLM) post-training** methods into recommendation. I also continue my research on **trustworthy LLMs**, especially **calibration and uncertainty estimation**.
 
 Before joining Meta, I was a postdoctoral researcher in the [Department of Biostatistics, Epidemiology and Informatics](https://www.dbei.med.upenn.edu/) at the [University of Pennsylvania](https://www.upenn.edu/), where I had the privilege of being advised by Prof. [Li Shen](https://www.dbei.med.upenn.edu/bio/li-shen-phd-faimbe).  
 <!-- I was also affiliated with [CBICA](https://www.med.upenn.edu/cbica/) and previously held a postdoctoral position at [Weill Cornell Medicine](https://phs.weill.cornell.edu/) with Prof. [Fei Wang](https://wcm-wanglab.github.io/). -->
@@ -21,7 +21,7 @@ Research Interests
 As a **machine learning researcher**, I am interested in both the theoretical foundations and real-world applications of AI. My research spans:
 
 - **Core ML Research**: Fairness Learning, Interpretability, Feature Evolvable Learning, Semi-Supervised Learning, Online Learning
-- **AI Systems & Applications**: Large Language Models (calibration, uncertainty estimation), Multimodal Learning, Recommendation Systems (ranking, retrieval, user modeling)
+- **AI Systems & Applications**: Recommendation Systems (scaling laws, ranking, retrieval, representation learning), Large Language Models (post-training, calibration, uncertainty estimation, evaluation), Multimodal Learning
 - **Domain Applications**: Biomedical Data Mining for Alzheimer's disease, dementia, and mental health
 
 I am passionate about bridging **fundamental ML research** with **real-world deployment**, and designing AI systems that are not only **technically rigorous**, but also **trustworthy and socially responsible**.
@@ -31,6 +31,9 @@ Recent Highlights
 
 <div class="highlights-container">
 <ul>
+<li><strong>09-24-2026:</strong> Our paper <span class="paper-title">"A Semantic-Sampling Framework for Evaluating Calibration in Open-Ended Question Answering"</span> with <span class="paper-authors">Zhanliang Wang, Jiancong Xiao, Ruochen Jin, Shu Yang, and Li Shen</span> was accepted by <span class="paper-venue">NeurIPS 2026</span>.</li>
+<li><strong>07-08-2026:</strong> Our paper <span class="paper-title">"Beyond Post-Hoc Temperature Scaling: Bilevel Optimization for LLM Calibration"</span> with <span class="paper-authors">Ruochen Jin, Zhanliang Wang, Zongyu Dai, and Jiancong Xiao</span> was accepted by <span class="paper-venue">COLM 2026</span>. [<a href="https://arxiv.org/abs/2608.07419" target="_blank">arXiv</a>] [<a href="https://github.com/BojianHou/calm" target="_blank">Code</a>]</li>
+<li><strong>07-04-2026:</strong> Our paper <span class="paper-title">"Kunlun: Establishing Scaling Laws for Massive-Scale Recommendation Systems through Unified Architecture Design"</span> with <span class="paper-authors">Xiaolong Liu, Xiaoyi Liu, Jiaqi Xu, Yasmine Badr, Mengyue Hang, and colleagues at Meta</span> was accepted by <span class="paper-venue">KDD 2026 (ADS Track)</span> and presented in Jeju, Korea in August 2026. Kunlun is deployed in major Meta Ads models. [<a href="https://arxiv.org/abs/2602.10016" target="_blank">arXiv</a>]</li>
 <li><strong>10-23-2025:</strong> Our paper <span class="paper-title">"IRIS: Interpretable Risk Clustering Intelligence for Survival Analysis"</span> with <span class="paper-authors">Kazi Noshin, Mary Regina Boland, Zixuan Wen, Boning Tong, Li Shen, and Aidong Zhang</span> was accepted by <span class="paper-venue">IEEE BigData 2025</span>.</li>
 <li><strong>10-22-2025:</strong> Our paper <span class="paper-title">"Advanced Topic Modeling with Large Language Models: Analyzing Social Media Content from Dementia Caregivers"</span> with <span class="paper-authors">Weiqing He, Amy Zheng, Yanbo Feng, Ari Klein, Karen O'Connor, Shu Yang, Tianqi Shang, George Demiris, Graciela Gonzalez-Hernandez, and Li Shen</span> was accepted by <span class="paper-venue">Innovation in Aging</span>.</li>
 <li><strong>09-18-2025:</strong> Our paper <span class="paper-title">"Stochastic Regret Guarantees for Online Zeroth- and First-Order Bilevel Optimization"</span> with <span class="paper-authors">Parvin Nazari, Davoud Ataee Tarzanagh, Li Shen and George Michailidis</span> was accepted by <span class="paper-venue">NeurIPS 2025</span>.</li>
