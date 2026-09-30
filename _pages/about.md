@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-Welcome to my homepage! My name is Bojian Hou (also Bo-Jian Hou), an **AI Research Scientist** at **Meta** on the Meta Recommendation Systems team, working on large-scale machine learning and artificial intelligence systems. My current work centers on **scaling laws and model architecture for massive-scale recommendation and ranking**, **representation learning**, and bringing **large language model (LLM) post-training** methods into recommendation. I also continue my research on **trustworthy LLMs**, especially **calibration and uncertainty estimation**.
+Welcome to my homepage! My name is Bojian Hou (also Bo-Jian Hou), an **AI Research Scientist** at **Meta** in Monetization and Meta Recommendation Systems (MRS). My work centers on **LLM-style model architectures and scaling laws for massive-scale ads ranking** (e.g., [Kunlun](https://arxiv.org/abs/2602.10016), KDD 2026) and **representation learning** that connects organic and ads signals for ranking and retrieval. I also continue my research on **trustworthy large language models (LLMs)**, especially **calibration, uncertainty estimation, and preference alignment**.
 
 Before joining Meta, I was a postdoctoral researcher in the [Department of Biostatistics, Epidemiology and Informatics](https://www.dbei.med.upenn.edu/) at the [University of Pennsylvania](https://www.upenn.edu/), where I had the privilege of being advised by Prof. [Li Shen](https://www.dbei.med.upenn.edu/bio/li-shen-phd-faimbe).  
 <!-- I was also affiliated with [CBICA](https://www.med.upenn.edu/cbica/) and previously held a postdoctoral position at [Weill Cornell Medicine](https://phs.weill.cornell.edu/) with Prof. [Fei Wang](https://wcm-wanglab.github.io/). -->
@@ -21,7 +21,7 @@ Research Interests
 As a **machine learning researcher**, I am interested in both the theoretical foundations and real-world applications of AI. My research spans:
 
 - **Core ML Research**: Fairness Learning, Interpretability, Feature Evolvable Learning, Semi-Supervised Learning, Online Learning
-- **AI Systems & Applications**: Recommendation Systems (scaling laws, ranking, retrieval, representation learning), Large Language Models (post-training, calibration, uncertainty estimation, evaluation), Multimodal Learning
+- **AI Systems & Applications**: Recommendation Systems (scaling laws, ranking, retrieval, representation learning), Large Language Models (fine-tuning and preference alignment, calibration, uncertainty estimation, evaluation), Multimodal Learning
 - **Domain Applications**: Biomedical Data Mining for Alzheimer's disease, dementia, and mental health
 
 I am passionate about bridging **fundamental ML research** with **real-world deployment**, and designing AI systems that are not only **technically rigorous**, but also **trustworthy and socially responsible**.
