@@ -99,8 +99,10 @@ def figure_region(page, cap):
         x0, x1 = pr.width * 0.48, pr.width * 0.96
     # top boundary: lowest body-text block above the caption in the same column
     top = pr.height * 0.05
+    # text beside a wrapped figure does not overlap the caption horizontally, so it does not set the top
     for r, _ in body_blocks(page):
-        if r.y1 <= cap.y0 - 2 and overlap_x(r, x0, x1) > 0.5 * min(r.width, x1 - x0):
+        if (r.y1 <= cap.y0 - 2 and overlap_x(r, x0, x1) > 0.5 * min(r.width, x1 - x0)
+                and overlap_x(r, cap.x0, cap.x1) > 0.5 * min(r.width, cap.width)):
             top = max(top, r.y1)
     g = [r for r in graphics_rects(page)
          if r.y0 >= top - 2 and r.y1 <= cap.y0 + 3 and overlap_x(r, x0, x1) > 0.3 * max(r.width, 1)]

@@ -20,7 +20,8 @@ and every paper is shown.
 <section class="pub-year" aria-labelledby="y{{ g.name }}">
   <h2 class="pub-year-h" id="y{{ g.name }}">{{ g.name }}</h2>
   {%- for pub in g.items %}
-  {% include pub-row.html pub=pub variant="list" %}
+  {%- assign eager = false -%}{%- if forloop.parentloop.first and forloop.index <= 3 -%}{%- assign eager = true -%}{%- endif %}
+  {% include pub-row.html pub=pub variant="list" eager=eager %}
   {%- endfor %}
 </section>
 {%- endfor %}

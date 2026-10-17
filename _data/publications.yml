@@ -19,8 +19,8 @@
   links:
   - name: arXiv
     url: https://arxiv.org/abs/2605.08432
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/sem-ece-neurips26.webp
+  teaser_alt: 'Figure 2 from the paper: pooled Sem1-ECE and Sem2-ECE as functions of the per-question sample budget'
   tldr: Sem-ECE evaluates LLM calibration in open-ended QA by sampling answers, grouping them into semantic classes, and using class frequencies as confidence; two estimators are analyzed and tested on five commercial LLMs.
   _sources:
     arxiv: '2605.08432'
@@ -61,8 +61,8 @@
     url: https://arxiv.org/abs/2608.07419
   - name: Code
     url: https://github.com/BojianHou/calm
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/bilevel-calibration-colm26.webp
+  teaser_alt: 'Figure 1 from the paper: Classwise reliability diagrams on Mistral-7B (OOD): (a) DPO baseline, (b) Temperature Scaling'
   tldr: Replaces post-hoc temperature scaling with a bilevel objective that maximizes predictive entropy, solved by a first-order method that scales to LLMs; calibration gains are strongest out of domain.
   _sources:
     arxiv: '2608.07419'
@@ -80,10 +80,12 @@
   lead: true
   award: ''
   links:
+  - name: Paper
+    url: https://doi.org/10.1145/3770855.3818438
   - name: arXiv
     url: https://arxiv.org/abs/2602.10016
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/kunlun-kdd26.webp
+  teaser_alt: 'Figure 1 from the paper: Overview of the Kunlun architecture'
   tldr: 'A recommendation architecture designed for predictable power-law scaling: it raises model FLOPs utilization from 17% to 37% on NVIDIA B200 GPUs, doubles scaling efficiency, and is deployed in major Meta Ads models.'
   _sources:
     arxiv: '2602.10016'
@@ -105,8 +107,8 @@
     url: https://doi.org/10.1038/s41746-026-03257-2
   - name: medRxiv
     url: https://www.medrxiv.org/content/10.1101/2025.07.03.25330654v4.full
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/ct-vlm-npjdm26.webp
+  teaser_alt: Figure 1 from the paper
   tldr: Percival, a CT vision-language model trained on over 400,000 CT-report pairs from the Penn Medicine BioBank, learns representations that track clinical, physiological, and longitudinal variation across patients.
   _sources:
     pdf: https://www.nature.com/articles/s41746-026-03257-2.pdf
@@ -133,8 +135,8 @@
     url: https://arxiv.org/abs/2603.17191
   - name: Code
     url: https://github.com/sophie-kearney/TAP-GPT
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/tabular-llm-multimodal-ad-arxiv26.webp
+  teaser_alt: 'Figure 1 from the paper: Overview of the TAP-GPT framework'
   tldr: TAP-GPT fine-tunes a tabular LLM for few-shot Alzheimer's disease classification from multimodal biomarker tables, with interpretable outputs, across four ADNI-derived datasets.
   _sources:
     arxiv: '2603.17191'
@@ -157,7 +159,7 @@
     url: https://doi.org/10.1109/BigData66926.2025.11402028
   - name: PMC
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12971063/
-  teaser: ''
+  teaser: /images/pubs/iris-bigdata25.webp
   teaser_alt: 'Figure 1 from the paper: illustration of the IRIS model and its modules'
   tldr: IRIS learns patient risk clusters directly from data while estimating feature contributions, trading a modest loss in time-to-event accuracy for interpretable risk stratification.
   _sources:
@@ -181,8 +183,8 @@
     url: https://proceedings.neurips.cc/paper_files/paper/2025/hash/d899eabc6c8fefd0d4064762aba407e2-Abstract-Conference.html
   - name: arXiv
     url: https://arxiv.org/abs/2511.01126
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/online-bilevel-regret-neurips25.webp
+  teaser_alt: Figure from the paper
   tldr: First- and zeroth-order stochastic online bilevel algorithms that achieve sublinear stochastic bilevel regret without window smoothing, using a new search direction and fewer oracle calls.
   _sources:
     arxiv: '2511.01126'
@@ -205,8 +207,8 @@
     url: https://doi.org/10.1145/3765612.3767229
   - name: arXiv
     url: https://arxiv.org/abs/2507.23227
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/tabular-llm-ad-bcb25.webp
+  teaser_alt: 'Figure 1 from the paper: Overview of the TAP-GPT framework'
   tldr: Adapts TableGPT2 with few-shot tabular prompts and qLoRA fine-tuning to diagnose Alzheimer's disease from small structured biomarker datasets.
   _sources:
     arxiv: '2507.23227'
@@ -231,8 +233,8 @@
     url: https://arxiv.org/abs/2507.09382
   - name: Code
     url: https://github.com/ZhanliangAaronWang/FR-CCA-ADNI
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/fair-cca-adni-bcb25.webp
+  teaser_alt: 'Figure 1 from the paper: Illustration of FR-CCA with the sensitive attribute sex as an example (female and male)'
   tldr: A fair CCA method whose projected features are independent of sensitive attributes, improving fairness in downstream classification on ADNI neuroimaging data while keeping correlation performance.
   _sources:
     arxiv: '2507.09382'
@@ -259,14 +261,14 @@
     url: https://github.com/ChiaPatricia/MentalChat16K
   - name: Dataset
     url: https://huggingface.co/datasets/ShenLab/MentalChat16K
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/mentalchat16k-kdd25.webp
+  teaser_alt: 'Figure 1 from the paper: Overall architecture of our approach'
   tldr: A benchmark that combines synthetic counseling dialogues with anonymized coach and caregiver session transcripts, for building and evaluating conversational mental health assistants.
   _sources:
     arxiv: '2503.13509'
 - id: calibration-aligned-llm-icml25
   title: 'Restoring Calibration for Aligned Large Language Models: A Calibration-Aware Fine-Tuning Approach'
-  authors: Jiancong Xiao*, Bojian Hou*, Zhanliang Wang*, Ruochen Jin, Weijie Su, Qi Long, Li Shen
+  authors: Jiancong Xiao*, Bojian Hou*, Zhanliang Wang*, Ruochen Jin, Qi Long, Weijie J. Su, Li Shen
   venue: ICML 2025
   venue_group: ICML
   year: 2025
@@ -278,12 +280,14 @@
   lead: true
   award: ''
   links:
+  - name: Paper
+    url: https://proceedings.mlr.press/v267/xiao25b.html
   - name: arXiv
     url: https://arxiv.org/abs/2505.01997
   - name: OpenReview
     url: https://openreview.net/forum?id=51tMpvPNSm
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/calibration-aligned-llm-icml25.webp
+  teaser_alt: 'Figure 1 from the paper: Calibration performance comparison between DPO and our approach on Llama3.1-8B-Tulu (a'
   tldr: Links post-alignment overconfidence to preference collapse and restores calibration with calibration-aware fine-tuning plus an EM-based ECE regularizer.
   _sources:
     arxiv: '2505.01997'
@@ -307,8 +311,8 @@
     url: https://openreview.net/forum?id=dj0TktJcVI
   - name: Code
     url: https://github.com/kyrie-23/linear_task_arithmetic
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/attention-task-arithmetic-iclr25.webp
+  teaser_alt: 'Figure 1 from the paper: Illustration of the concepts of task arithmetic and weight disentanglement'
   tldr: Fine-tuning only the attention modules improves weight disentanglement for model merging by task arithmetic, without the extra training cost of NTK linearization.
   _sources:
     arxiv: '2407.07089'
@@ -333,8 +337,8 @@
     url: https://github.com/PennShenLab/FREEFORM
   - name: PMC
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12150712/
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/genotype-feature-selection-amia25.webp
+  teaser_alt: 'Figure 1 from the paper: overview of the FREEFORM framework'
   tldr: FREEFORM uses chain-of-thought reasoning and ensembling to let LLMs select and engineer genotype features, outperforming data-driven methods especially in low-shot settings.
   _sources:
     arxiv: '2410.01795'
@@ -358,7 +362,7 @@
     url: https://github.com/hwq0726/SDoHenPKG
   - name: PMC
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12150755/
-  teaser: ''
+  teaser: /images/pubs/sdoh-kg-amia25.webp
   teaser_alt: 'Figure 1 from the paper: overview of the framework for building an AD-related SDoH knowledge graph'
   tldr: Mines social determinants of health from literature with LLMs and merges them with Alzheimer's disease entities from PrimeKG, evaluated by link prediction with graph neural networks.
   _sources:
@@ -380,7 +384,7 @@
   links:
   - name: PMC
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12150751/
-  teaser: ''
+  teaser: /images/pubs/clinical-modalities-amia25.webp
   teaser_alt: 'Figure 4 from the paper: hazard ratios of NDD types and sensitive variables'
   tldr: Survival analysis on EHR data from 29,045 older patients examines how medications, laboratory tests, and sensitive attributes affect fall and injury risk in neurodegenerative disorders.
   _sources:
@@ -401,12 +405,14 @@
   lead: false
   award: ''
   links:
+  - name: Paper
+    url: https://doi.org/10.1142/9789819807024_0045
   - name: PDF
     url: https://psb.stanford.edu/psb-online/proceedings/psb25/noshin.pdf
   - name: PMC
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC11649014/
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/association-mining-psb25.webp
+  teaser_alt: 'Figure 1 from the paper: Venn Diagram of Patients Diagnosed with PD, AD and OD'
   tldr: Compares univariate and multivariate machine learning methods on EHR data from 70,420 patients to identify risk features for Alzheimer's, Parkinson's, and other dementias.
   _sources:
     pdf: https://psb.stanford.edu/psb-online/proceedings/psb25/noshin.pdf
@@ -430,7 +436,7 @@
     url: https://doi.org/10.1093/geroni/igaf120
   - name: PMC
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12742845/
-  teaser: ''
+  teaser: /images/pubs/llm-topic-modeling-innovaging25.webp
   teaser_alt: 'Figure 1 from the paper: illustration of the two-stage topic modeling framework'
   tldr: A two-stage LLM topic modeling approach for 231,870 dementia caregiver tweets, compared against 11 baselines including LDA, GSDMM, and BERTopic.
   _sources:
@@ -478,8 +484,8 @@
     url: https://arxiv.org/abs/2504.10851
   - name: PMC
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12893625/
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/icafs-tai25.webp
+  teaser_alt: 'Figure 1 from the paper: VFL feature selection architecture comparison between Intra-Client FS and Inter-Client FS'
   tldr: A multi-stage ensemble feature selection method for vertical federated learning that accounts for feature interactions across clients using conditional feature synthesis.
   _sources:
     arxiv: '2504.10851'
@@ -502,7 +508,7 @@
     url: https://doi.org/10.1093/geroni/igaf102
   - name: PMC
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12742847/
-  teaser: ''
+  teaser: /images/pubs/sdoh-ehr-kg-innovaging25.webp
   teaser_alt: Figure 1 from the paper
   tldr: Builds a knowledge graph of about 92k triplets linking social determinants from literature and EHR to Alzheimer's disease biology, evaluated by link prediction and validated with multimodal biological data.
   _sources:
@@ -524,8 +530,8 @@
   links:
   - name: Paper
     url: https://openaccess.thecvf.com/content/ICCV2025W/VADH/html/Chen_Adapting_Vision-Language_Models_for_3D_CTMRI_Understanding_on_PMBB_via_ICCVW_2025_paper.html
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/pmbb-vlm-iccvw25.webp
+  teaser_alt: 'Figure 1 from the paper: Architecture pipeline for adapting 2D vision-language models to 3D medical scans'
   tldr: Adapts 2D medical vision-language models to 3D CT and MRI through slice selection and instruction tuning; selecting about half of the slices gave the best accuracy while cutting training cost by over 40%.
   _sources:
     pdf: https://openaccess.thecvf.com/content/ICCV2025W/VADH/papers/Chen_Adapting_Vision-Language_Models_for_3D_CTMRI_Understanding_on_PMBB_via_ICCVW_2025_paper.pdf
@@ -544,10 +550,10 @@
   lead: false
   award: ''
   links:
-  - name: Proceedings
-    url: https://openaccess.thecvf.com/ICCV2025_workshops/VADH
-  teaser: ''
-  teaser_alt: ''
+  - name: Paper
+    url: https://doi.org/10.1109/ICCVW69036.2025.00239
+  teaser: /images/pubs/multimodal-dcsm-iccvw25.webp
+  teaser_alt: 'Figure 2 from the paper: Illustration of the survival information for 5 subjects'
   tldr: Fuses modality-specific encoders with a mixture of Weibull experts to discover patient subtypes and predict Alzheimer's conversion risk in a cohort of 382 MCI patients.
   _sources:
     cvf_index: https://openaccess.thecvf.com/ICCV2025_workshops/VADH
@@ -570,8 +576,8 @@
   links:
   - name: Paper
     url: https://proceedings.mlr.press/v281/noshin25a.html
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/sdoh-dcsm-aimedhealth25.webp
+  teaser_alt: 'Figure 1 from the paper: DeepCox roll-out and SHAP-DeepExplainer Intersection'
   tldr: Adding social determinants of health to multi-modal deep clustering survival models improved injury and fall risk prediction for patients with Alzheimer's and related dementias.
   _sources:
     pdf: https://proceedings.mlr.press/v281/noshin25a/noshin25a.pdf
@@ -593,8 +599,8 @@
     url: https://proceedings.mlr.press/v281/nguyen25a.html
   - name: arXiv
     url: https://arxiv.org/abs/2412.14999
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/esn-topology-aimedhealth25.webp
+  teaser_alt: 'Figure 1 from the paper: Overview of the pipeline'
   tldr: A pipeline to embed brain sub-circuits derived from functional MRI into echo state networks and evaluate how the embedded topology affects processing and memorization tasks.
   _sources:
     arxiv: '2412.14999'
@@ -615,8 +621,8 @@
   links:
   - name: arXiv
     url: https://arxiv.org/abs/2501.04056
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/rna-structure-survey-arxiv25.webp
+  teaser_alt: 'Figure 1 from the paper: An example of RNA secondary structures'
   tldr: A review of computational RNA secondary structure prediction, RNA modification identification, how the two interact, and the data sources available.
   _sources:
     arxiv: '2501.04056'
@@ -634,10 +640,12 @@
   lead: true
   award: ''
   links:
+  - name: Paper
+    url: https://doi.org/10.1109/BigData62323.2024.10825110
   - name: arXiv
     url: https://arxiv.org/abs/2411.12764
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/sefd-bigdata24.webp
+  teaser_alt: 'Figure 1 from the paper: A brief version of SEFD structure'
   tldr: Combines retrieval with existing detectors to detect LLM-generated text more reliably when it has been paraphrased.
   _sources:
     arxiv: '2411.12764'
@@ -659,8 +667,8 @@
     url: https://proceedings.neurips.cc/paper_files/paper/2024/hash/1fd2b71226c67013756d318d70c40eee-Abstract.html
   - name: arXiv
     url: https://arxiv.org/abs/2408.17396
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/fair-graphical-models-neurips24.webp
+  teaser_alt: 'Figure 1 from the paper: Illustration of a GM and its fair variant'
   tldr: Fair estimation of Gaussian, covariance, and Ising graphical models by jointly minimizing a pairwise graph disparity error and the model loss.
   _sources:
     arxiv: '2408.17396'
@@ -685,8 +693,8 @@
     url: https://arxiv.org/abs/2405.04819
   - name: Code
     url: https://github.com/David-Li0406/DALK
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/dalk-emnlp24.webp
+  teaser_alt: 'Figure 1 from the paper: The overview pipeline of DALK'
   tldr: Co-augments an LLM and a knowledge graph built from Alzheimer's disease literature, retrieving knowledge from the graph to improve question answering on a new ADQA benchmark.
   _sources:
     arxiv: '2405.04819'
@@ -708,7 +716,7 @@
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12099380/
   - name: PubMed
     url: https://pubmed.ncbi.nlm.nih.gov/40417464/
-  teaser: ''
+  teaser: /images/pubs/caregivers-twitter-amia24.webp
   teaser_alt: 'Figure 1 from the paper: overview of the work, from tweet collection to topic analysis'
   tldr: Term-weighted GSDMM topic modeling of tweets from dementia caregivers, with topics interpreted using ChatGPT 4 and two human experts.
   _sources:
@@ -733,7 +741,7 @@
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12099326/
   - name: PubMed
     url: https://pubmed.ncbi.nlm.nih.gov/40417489/
-  teaser: ''
+  teaser: /images/pubs/fair-mci-mri-amia24.webp
   teaser_alt: 'Figure 1 from the paper: flowchart of the study process'
   tldr: A fairness-aware method for label-imbalanced MRI classification of mild cognitive impairment, built on FACIMS and evaluated across five sensitive attributes.
   _sources:
@@ -759,8 +767,8 @@
     url: https://arxiv.org/abs/2207.02829
   - name: Code
     url: https://github.com/BojianHou/OAGD
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/online-bilevel-aistats24.webp
+  teaser_alt: 'Figure 1 from the paper: Performance of OAGD in online hyperparameter learning over five runs'
   tldr: Introduces online bilevel optimization, defines bilevel regret, and gives regret bounds for an online alternating time-averaged gradient method.
   _sources:
     arxiv: '2207.02829'
@@ -781,7 +789,7 @@
   links:
   - name: PMC
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC11141819/
-  teaser: ''
+  teaser: /images/pubs/interview-interpretability-amia24.webp
   teaser_alt: 'Figure 1 from the paper: illustration of the framework'
   tldr: Classifies long therapist-caregiver interview transcripts and uses Shapley values to find the sentences that drive the predictions.
   _sources:
@@ -806,7 +814,7 @@
     url: https://github.com/BojianHou/PFERM
   - name: PMC
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC11141835/
-  teaser: ''
+  teaser: /images/pubs/pferm-amia24.webp
   teaser_alt: 'Figure 1 from the paper: accuracy versus prevalence ratio for FERM on synthetic data'
   tldr: Fair empirical risk minimization that builds group prevalence ratios into the fairness constraint, balancing accuracy and fairness.
   _sources:
@@ -828,7 +836,7 @@
   links:
   - name: PMC
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC11141862/
-  teaser: ''
+  teaser: /images/pubs/amyloid-subtypes-amia24.webp
   teaser_alt: 'Figure 2 from the paper: t-SNE visualization of 68 amyloid features'
   tldr: Clusters patients with mild cognitive impairment into two subtypes from 68 cortical amyloid PET features.
   _sources:
@@ -836,7 +844,7 @@
     img: https://cdn.ncbi.nlm.nih.gov/pmc/blobs/2f25/11141862/ac318eeaffb5/2297f2.jpg
 - id: manifoldron-tnnls24
   title: 'Manifoldron: Direct Space Partition via Manifold Discovery'
-  authors: Dayang Wang, Feng-Lei Fan, Bo-Jian Hou, Hao Zhang, Rongjie Lai, Hengyong Yu, Fei Wang
+  authors: Dayang Wang, Feng-Lei Fan, Bo-Jian Hou, Hao Zhang, Zhen Jia, Boce Zhang, Rongjie Lai, Hengyong Yu, Fei Wang
   venue: IEEE TNNLS 2024
   venue_group: IEEE TNNLS
   year: 2024
@@ -848,12 +856,14 @@
   lead: false
   award: ''
   links:
+  - name: Paper
+    url: https://doi.org/10.1109/TNNLS.2024.3486252
   - name: arXiv
     url: https://arxiv.org/abs/2201.05279
   - name: Code
     url: https://github.com/wdayang/Manifoldron
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/manifoldron-tnnls24.webp
+  teaser_alt: 'Figure 1 from the paper: The pipeline of the proposed Manifoldron'
   tldr: A model that derives decision boundaries directly from data by discovering its manifold structure, instead of a parameterized partition of the sample space.
   _sources:
     arxiv: '2201.05279'
@@ -875,7 +885,7 @@
     url: https://doi.org/10.1109/TCBB.2024.3471930
   - name: PMC
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC11954983/
-  teaser: ''
+  teaser: /images/pubs/mg-tcca-tcbb24.webp
   teaser_alt: 'Figure from the paper: effect of the brain mask on brain image cross-sections'
   tldr: Multi-group tensor CCA with a dual sparsity structure that jointly analyzes subgroups of brain imaging data to find shared and group-specific signals.
   _sources:
@@ -900,7 +910,7 @@
     url: https://doi.org/10.1016/j.media.2024.103231
   - name: Code
     url: https://github.com/PennShenLab/DCSM/
-  teaser: ''
+  teaser: /images/pubs/interpretable-dcsm-media24.webp
   teaser_alt: 'Figure from the paper: mechanism of Deep Clustering Survival Machines'
   tldr: Deep Clustering Survival Machines model survival times as a mixture of expert distributions weighted per patient, used to cluster MCI patients into subgroups with different risks of converting to Alzheimer's disease.
   _sources:
@@ -910,7 +920,7 @@
     img: https://cdn.ncbi.nlm.nih.gov/pmc/blobs/f47c/11365808/8dcbec23bed8/nihms-2003650-f0003.jpg
 - id: quadratic-autoencoder-tai24
   title: Quadratic Neuron-empowered Heterogeneous Autoencoder for Unsupervised Anomaly Detection
-  authors: Jing-Xiao Liao, Bo-Jian Hou, Hang-Cheng Dong, Hao Zhang, Jinwei Sun, Shiping Zhang, Feng-Lei Fan
+  authors: Jing-Xiao Liao, Bo-Jian Hou, Hang-Cheng Dong, Hao Zhang, Xiaoge Zhang, Jinwei Sun, Shiping Zhang, Feng-Lei Fan
   venue: IEEE TAI 2024
   venue_group: ''
   year: 2024
@@ -923,9 +933,11 @@
   award: ''
   links:
   - name: Paper
-    url: https://ieeexplore.ieee.org/document/10510400
-  teaser: ''
-  teaser_alt: ''
+    url: https://doi.org/10.1109/TAI.2024.3394795
+  - name: arXiv
+    url: https://arxiv.org/abs/2204.01707
+  teaser: /images/pubs/quadratic-autoencoder-tai24.webp
+  teaser_alt: 'Figure 1 from the paper: Fourier transforms of a radial function and an inner-product based function'
   tldr: An autoencoder that mixes conventional and quadratic neurons, motivated by an approximation result for heterogeneous networks, applied to unsupervised anomaly detection.
   _sources:
     arxiv: '2204.01707'
@@ -947,7 +959,7 @@
     url: https://doi.org/10.1016/j.isci.2024.109212
   - name: PubMed
     url: https://pubmed.ncbi.nlm.nih.gov/38433927/
-  teaser: ''
+  teaser: /images/pubs/sinkhorn-iscience24.webp
   teaser_alt: 'Figure 1 from the paper: schematic of the distance-weighted Sinkhorn loss'
   tldr: A distance-weighted Sinkhorn loss that penalizes misclassified samples by their distance to the true class distribution, applied to Alzheimer's disease stage classification.
   _sources:
@@ -973,8 +985,8 @@
     url: https://arxiv.org/abs/2309.15809
   - name: Code
     url: https://github.com/PennShenLab/Fair_CCA
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/fair-cca-neurips23.webp
+  teaser_alt: 'Figure 1 from the paper: Illustration of CCA and F-CCA, with the sensitive attribute being sex (female and male)'
   tldr: Learns global CCA projections that close the gap in correlation across protected groups with little loss of accuracy.
   _sources:
     arxiv: '2309.15809'
@@ -997,7 +1009,7 @@
     url: https://doi.org/10.1145/3584371.3612962
   - name: PMC
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC10593155/
-  teaser: ''
+  teaser: /images/pubs/mg-tcca-bcb23.webp
   teaser_alt: 'Figure from the paper: illustration of TCCA and MG-TCCA'
   tldr: Multi-group tensor CCA that jointly analyzes subgroups of tensor data, such as brain imaging from different sexes or races, to find consistent signals.
   _sources:
@@ -1021,7 +1033,7 @@
     url: https://doi.org/10.1007/978-3-031-45676-3_15
   - name: PMC
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC10924683/
-  teaser: ''
+  teaser: /images/pubs/avs-loss-mlmi23.webp
   teaser_alt: 'Figure 1 from the paper: VS-Opt-Net integrates the VS loss into the STREAMLINE pipeline'
   tldr: VS-Opt-Net adds the vector-scaling loss and Bayesian hyperparameter optimization to the STREAMLINE pipeline to improve balanced accuracy when classifying dementia stages from MRI features.
   _sources:
@@ -1045,8 +1057,8 @@
     url: https://proceedings.mlr.press/v216/tarzanagh23a.html
   - name: Code
     url: https://github.com/PennShenLab/FACIMS
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/facims-uai23.webp
+  teaser_alt: 'Figure 1 from the paper: An illustration of the FACIMS model defined in (7)'
   tldr: A tri-level optimization framework with sharpness-aware minimization for fair and class-balanced learning when subgroups are imbalanced and small.
   _sources:
     pdf: https://proceedings.mlr.press/v216/tarzanagh23a/tarzanagh23a.pdf
@@ -1065,12 +1077,14 @@
   lead: true
   award: ''
   links:
+  - name: Paper
+    url: https://doi.org/10.1109/ISBI53787.2023.10230844
   - name: arXiv
     url: https://arxiv.org/abs/2301.11826
   - name: Code
     url: https://github.com/BojianHou/DCSM
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/dcsm-isbi23.webp
+  teaser_alt: 'Figure 1 from the paper: The model structure of the proposed DCSM'
   tldr: Models survival times as a mixture of expert distributions whose weights are learned per instance, yielding interpretable subgroups alongside predictions.
   _sources:
     arxiv: '2301.11826'
@@ -1091,8 +1105,8 @@
   links:
   - name: PDF
     url: /files/glaucoma_bias.pdf
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/glaucoma-bias-amia23.webp
+  teaser_alt: 'Figure 1 from the paper: The experimental design'
   tldr: Measures how a widely used deep learning model underdiagnoses or overdiagnoses glaucoma across demographic groups in the OHTS study.
   _sources:
     pdf: /files/glaucoma_bias.pdf
@@ -1110,10 +1124,12 @@
   lead: false
   award: ''
   links:
+  - name: Paper
+    url: https://doi.org/10.1109/TKDE.2023.3326365
   - name: PDF
     url: /files/OLD3S.pdf
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/old3s-tkde23.webp
+  teaser_alt: 'Figure 1 from the paper: Illustration of doubly-streaming data'
   tldr: Online learning from doubly-streaming data, where new features emerge and old ones fade, using deep variational models to relate the two feature spaces.
   _sources:
     pdf: /files/OLD3S.pdf
@@ -1131,10 +1147,12 @@
   lead: false
   award: ''
   links:
+  - name: Paper
+    url: https://doi.org/10.1016/j.compbiomed.2023.106962
   - name: PDF
     url: /files/pubmed.pdf
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/chest-xray-cbm23.webp
+  teaser_alt: 'Figure 1 from the paper: pipeline for collecting chest X-rays from PubMed Central'
   tldr: Builds a weakly labeled chest X-ray database from PubMed Central articles and shows that adding it to training improves detection of several thoracic diseases.
   _sources:
     pdf: /files/pubmed.pdf
@@ -1154,8 +1172,8 @@
   links:
   - name: arXiv
     url: https://arxiv.org/abs/2308.01300
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/detr-pretraining-arxiv23.webp
+  teaser_alt: 'Figure 1 from the paper: distribution of parameters and GFLOPs within Deformable-DETR'
   tldr: Shows that DETReg pre-training does not help strong DETR-based detectors with full data, and that simple self-training with an improved box predictor and Objects365 does.
   _sources:
     arxiv: '2308.01300'
@@ -1177,8 +1195,8 @@
     url: https://doi.org/10.1145/3503161.3548355
   - name: arXiv
     url: https://arxiv.org/abs/2204.11793
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/doubly-streaming-mm22.webp
+  teaser_alt: 'Figure 1 from the paper: Illustration of doubly-streaming data'
   tldr: OLD³S learns a shared latent space linking old and new features in doubly-streaming data and adapts model depth and size online to the data.
   _sources:
     arxiv: '2204.11793'
@@ -1196,12 +1214,14 @@
   lead: false
   award: ''
   links:
+  - name: Paper
+    url: https://doi.org/10.1038/s41598-022-17753-4
   - name: PDF
     url: /files/glaucoma.pdf
   - name: Code
     url: https://github.com/bionlplab/GlaucomaNet
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/glaucoma-scirep22.webp
+  teaser_alt: 'Figure 2 from the paper: The architecture of the proposed GlaucomaNet'
   tldr: GlaucomaNet uses two CNNs that mimic human grading to diagnose glaucoma from fundus photographs, evaluated on OHTS and LAG.
   _sources:
     pdf: /files/glaucoma.pdf
@@ -1219,12 +1239,14 @@
   lead: true
   award: ''
   links:
+  - name: Paper
+    url: https://doi.org/10.1609/aaai.v35i9.16944
   - name: arXiv
     url: https://arxiv.org/abs/2007.11280
   - name: Code
     url: https://www.lamda.nju.edu.cn/code_SF2EL.ashx
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/sf2el-aaai21.webp
+  teaser_alt: 'Figure 1 from the paper: Illustration of how data stream comes'
   tldr: Feature-evolvable streaming learning with rarely provided labels, using manifold regularization over a buffer that fits the device's storage budget.
   _sources:
     arxiv: '2007.11280'
@@ -1242,10 +1264,12 @@
   lead: false
   award: ''
   links:
+  - name: Paper
+    url: https://doi.org/10.1109/ICDM51629.2021.00028
   - name: PDF
     url: /files/OVFM.pdf
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/ovfm-icdm21.webp
+  teaser_alt: 'Figure 1 from the paper: illustration of the optimization process over continuous and ordinal variables'
   tldr: Online learning over feature spaces that change with time and mix Boolean, ordinal, and continuous variables, modeled with a Gaussian copula fitted by online EM.
   _sources:
     pdf: /files/OVFM.pdf
@@ -1263,12 +1287,14 @@
   lead: true
   award: ''
   links:
+  - name: Paper
+    url: https://doi.org/10.1109/TNNLS.2021.3071311
   - name: arXiv
     url: https://arxiv.org/abs/1904.12171
   - name: Code
     url: https://www.lamda.nju.edu.cn/code_PUFE.ashx
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/pufe-tnnls21.webp
+  teaser_alt: 'Figure 1 from the paper: Illustration of how data streams come in FESL'
   tldr: 'Learning when features vanish or emerge unpredictably: the incomplete overlap period is filled by matrix completion, with a bound on the observations needed.'
   _sources:
     arxiv: '1904.12171'
@@ -1289,8 +1315,8 @@
   links:
   - name: arXiv
     url: https://arxiv.org/abs/2111.00621
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/clinical-evidence-engine-arxiv21.webp
+  teaser_alt: 'Figure 1 from the paper: Clinical Evidence Engine system architecture'
   tldr: A proof-of-concept system that uses Clinical BioBERT to retrieve clinical trial reports relevant to long clinical questions, across three medical domains.
   _sources:
     arxiv: '2111.00621'
@@ -1308,12 +1334,14 @@
   lead: true
   award: ''
   links:
+  - name: Paper
+    url: https://doi.org/10.1109/TNNLS.2020.2967051
   - name: PDF
     url: /files/LISOR.pdf
   - name: Code
     url: https://www.lamda.nju.edu.cn/code_LISOR.ashx
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/lisor-tnnls20.webp
+  teaser_alt: 'Figure 2 from the paper: The illustration of the framework of the proposed algorithm'
   tldr: Learns finite state automata from gated RNNs as an interpretable structure and studies how the number of gates affects performance.
   _sources:
     pdf: /files/LISOR.pdf
@@ -1335,8 +1363,8 @@
   links:
   - name: PDF
     url: /files/CCFAI19.pdf
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/rnn-interpretability-ccfai19.webp
+  teaser_alt: 'Figure from the paper: gated RNN cell structures'
   tldr: Learns finite state automata from RNNs when input features change, and studies how feature changes and the number of gates affect performance.
   _sources:
     pdf: /files/CCFAI19.pdf
@@ -1356,8 +1384,8 @@
   links:
   - name: PDF
     url: /files/FESL-tkde.pdf
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/fesl-tkde19.webp
+  teaser_alt: 'Figure 1 from the paper: Illustration that how data stream comes'
   tldr: 'Journal version of feature evolvable streaming learning: recovers vanished features from the overlap period and combines models with theoretical guarantees.'
   _sources:
     pdf: /files/FESL-tkde.pdf
@@ -1377,8 +1405,8 @@
   links:
   - name: PDF
     url: /files/MIDF.pdf
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/deep-forest-mil-jcrd19.webp
+  teaser_alt: 'Figure 1 from the paper: illustration of class vector generation'
   tldr: Multiple instance deep forest (MIDF), a deep forest structure adapted to multi-instance learning.
   _sources:
     pdf: /files/MIDF.pdf
@@ -1402,8 +1430,8 @@
     url: https://www.lamda.nju.edu.cn/code_FESL.ashx
   - name: Poster
     url: /files/FESL-poster.pdf
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/fesl-nips17.webp
+  teaser_alt: 'Figure 1 from the paper: Illustration that how data stream comes'
   tldr: Introduces learning when old features vanish and new ones appear, using an overlap period to keep reusing the old model, with theoretical guarantees.
   _sources:
     pdf: /files/FESL.pdf
@@ -1421,14 +1449,16 @@
   lead: true
   award: ''
   links:
+  - name: Paper
+    url: https://doi.org/10.24963/ijcai.2017/256
   - name: PDF
     url: /files/SFL.pdf
   - name: Code
     url: https://www.lamda.nju.edu.cn/code_SFL.ashx
   - name: Poster
     url: /files/SFL-poster.pdf
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/sfl-ijcai17.webp
+  teaser_alt: 'Figure 1 from the paper: comparison of methods under different storage budgets'
   tldr: Graph-based semi-supervised learning that adapts to a storage budget through low-rank approximation of the similarity matrix.
   _sources:
     pdf: /files/SFL.pdf
