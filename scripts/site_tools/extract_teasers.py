@@ -12,6 +12,7 @@ import json
 import os
 import re
 import sys
+import unicodedata
 
 import pymupdf
 import yaml
@@ -26,8 +27,9 @@ DEST = os.path.join(ROOT, 'images', 'pubs')
 W, H = 640, 400
 
 
-def cap_re(n):
-    return re.compile(r'^\s*(?:Figure|Fig\.?|FIGURE|FIG\.?|图)\s*' + str(n) + r'(?!\d)\s*[:.|：\s]', re.U)
+def cap_re(n, strict=True):
+    tail = r'\s*[:.|]' if strict else r'\s*[:.|\s]'
+    return re.compile(r'^\s*(?:(?:Figure|Fig\.?|FIGURE|FIG\.?)\s*' + str(n) + r'(?!\d)' + tail + r'|图\s*' + str(n) + r'(?!\d))', re.U)
 
 
 def block_text(b):
@@ -35,15 +37,17 @@ def block_text(b):
 
 
 def find_caption(doc, n, max_pages=40):
-    rx = cap_re(n)
-    for pno in range(min(len(doc), max_pages)):
-        page = doc[pno]
-        for b in page.get_text('dict')['blocks']:
-            if b.get('type') != 0:
-                continue
-            t = block_text(b)
-            if rx.match(t):
-                return pno, pymupdf.Rect(b['bbox']), t
+    # strict pass ("Figure 1:" / "Fig. 1.") first, so in-text references like "Fig. 1 shows" are skipped
+    for strict in (True, False):
+        rx = cap_re(n, strict)
+        for pno in range(min(len(doc), max_pages)):
+            page = doc[pno]
+            for b in page.get_text('dict')['blocks']:
+                if b.get('type') != 0:
+                    continue
+                t = unicodedata.normalize('NFKC', block_text(b))
+                if rx.match(t):
+                    return pno, pymupdf.Rect(b['bbox']), t
     return None
 
 
@@ -84,7 +88,9 @@ def overlap_x(a, x0, x1):
 
 def figure_region(page, cap):
     pr = page.rect
-    full = cap.width > pr.width * 0.55
+    # a caption that crosses the page centre is not inside a column (single-column layout or a wide figure)
+    single_column = any(r.width > pr.width * 0.6 for r, _ in body_blocks(page))
+    full = single_column or cap.width > pr.width * 0.55 or (cap.x0 < pr.width * 0.45 and cap.x1 > pr.width * 0.55)
     if full:
         x0, x1 = pr.width * 0.04, pr.width * 0.96
     elif cap.x1 <= pr.width * 0.55:
@@ -99,9 +105,18 @@ def figure_region(page, cap):
     g = [r for r in graphics_rects(page)
          if r.y0 >= top - 2 and r.y1 <= cap.y0 + 3 and overlap_x(r, x0, x1) > 0.3 * max(r.width, 1)]
     if g:
+        # grow a cluster upward from the graphic nearest the caption; stray drawings far above are ignored
+        g.sort(key=lambda r: -r.y1)
         reg = pymupdf.Rect(g[0])
-        for r in g[1:]:
-            reg |= r
+        used = {0}
+        changed = True
+        while changed:
+            changed = False
+            for i, r in enumerate(g):
+                if i not in used and r.y1 >= reg.y0 - 30 and r.y0 <= reg.y1 + 30:
+                    reg |= r
+                    used.add(i)
+                    changed = True
         # include text labels inside the graphic area
         reg = pymupdf.Rect(max(reg.x0, x0 - 4), max(reg.y0, top), min(reg.x1, x1 + 4), min(reg.y1, cap.y0))
         # a figure wrapped by body text (text column beside it): cut the region at that text
@@ -254,6 +269,26 @@ def main(only=None):
         report[pid] = info
         items.append((pid, img))
         print(pid, info.get('method'), info.get('page', ''), flush=True)
+    # caption inventory, to choose overrides for papers where Figure 1 was not found or is not representative
+    inv = {}
+    for p in pubs:
+        pdf = os.path.join(OUT, 'pdfs', p['id'] + '.pdf')
+        if not os.path.exists(pdf):
+            continue
+        try:
+            doc = pymupdf.open(pdf)
+        except Exception:  # noqa: BLE001
+            continue
+        caps = []
+        for pno in range(min(len(doc), 40)):
+            for b in doc[pno].get_text('dict')['blocks']:
+                if b.get('type') == 0:
+                    t = block_text(b)
+                    if re.match(r'^\s*(Figure|Fig\.?|FIGURE|图)', t):
+                        caps.append([pno + 1, t[:90]])
+        inv[p['id']] = caps[:12]
+    with open(out_path('teasers', 'captions.json'), 'w', encoding='utf-8') as f:
+        json.dump(inv, f, ensure_ascii=False, indent=1)
     for k in range(0, len(items), 16):
         contact_sheet(items[k:k + 16], out_path('teasers', f'contact_sheet_{k // 16 + 1}.png'))
     with open(out_path('teasers', 'report.json'), 'w', encoding='utf-8') as f:

@@ -119,6 +119,14 @@ def candidates(p):
     for l in p.get('links') or []:
         if l['url'].lower().endswith('.pdf') and l['url'] not in c:
             c.append(l['url'])
+    # PMLR landing pages: take the PDF link listed on the page
+    for l in p.get('links') or []:
+        if 'proceedings.mlr.press' in l['url'] and l['url'].endswith('.html'):
+            st, final, body, _ = http_get(l['url'])
+            if st == 200:
+                m = re.search(r'href="([^"]+\.pdf)"', body.decode('utf-8', 'ignore'))
+                if m:
+                    c.append(urllib.parse.urljoin(final, m.group(1)))
     return c
 
 

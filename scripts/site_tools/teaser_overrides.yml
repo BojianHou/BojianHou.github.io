@@ -1,3 +1,8 @@
-# Manual fixes for extract_teasers.py
+# Manual fixes for extract_teasers.py (chosen after reviewing out/teasers/alt/)
 # <id>: {figure: 2} | {page: 3, clip: [x0, y0, x1, y1]} | {skip: true}
-{}
+lisor-tnnls20: {figure: 2}          # Figure 2 shows the RNN -> clustering -> FSA pipeline
+multimodal-dcsm-iccvw25: {figure: 2}
+sem-ece-neurips26: {figure: 2}
+chest-xray-cbm23: {page: 3, clip: [38, 56, 379, 153]}   # Figure 1 has a side caption
+glaucoma-scirep22: {figure: 2}      # GlaucomaNet architecture
+sfl-ijcai17: {page: 5, clip: [54, 55, 256, 149]}   # only figure is a row of plots; show the first two

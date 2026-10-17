@@ -5,7 +5,7 @@ News items from _data/news.yml. Param: limit (optional). With a limit, items pas
 {%- assign items = site.data.news -%}
 <ul class="news-list"{% if include.limit %} data-limit="{{ include.limit }}"{% endif %}>
   {%- for n in items %}
-  <li class="news-item">
+  <li class="news-item{% if include.limit and forloop.index > include.limit %} is-extra{% endif %}">
     <time datetime="{{ n.date | date: '%Y-%m' }}">{{ n.date | date: "%b %Y" }}</time>
     <span class="news-text">{{ n.text }}
       {%- if n.pubs %}

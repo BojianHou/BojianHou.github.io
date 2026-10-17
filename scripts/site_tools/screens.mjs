@@ -47,10 +47,10 @@ for (const vp of viewports) {
       await page.screenshot({ path: path.join(out, 'screens', `publications-${vp.name}-filter-llm.png`), fullPage: false });
       report.push({ check: 'filter #topic=llm', viewport: vp.name, visible });
       await page.goto(base + '/', { waitUntil: 'networkidle' });
-      const before = await page.evaluate(() => document.querySelectorAll('.news-item:not([hidden])').length);
+      const before = await page.evaluate(() => [...document.querySelectorAll('.news-item')].filter((e) => e.offsetParent !== null).length);
       const btn = await page.$('.news-toggle');
       if (btn) await btn.click();
-      const after = await page.evaluate(() => document.querySelectorAll('.news-item:not([hidden])').length);
+      const after = await page.evaluate(() => [...document.querySelectorAll('.news-item')].filter((e) => e.offsetParent !== null).length);
       report.push({ check: 'news toggle', viewport: vp.name, before, after });
     }
     await ctx.close();

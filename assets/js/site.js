@@ -38,9 +38,8 @@
       });
       if (countN) countN.textContent = shown;
       if (countLabel) countLabel.textContent = label;
-      if (updateHash) {
-        var h = key === 'all' ? ' ' : '#topic=' + key;
-        if (history.replaceState) history.replaceState(null, '', h === ' ' ? location.pathname : h);
+      if (updateHash && history.replaceState) {
+        history.replaceState(null, '', key === 'all' ? location.pathname : '#topic=' + key);
       }
     };
 
@@ -72,7 +71,7 @@
     if (!limit || items.length <= limit || !btn || !btn.classList.contains('news-toggle')) return;
     var expanded = false;
     var render = function () {
-      Array.prototype.forEach.call(items, function (li, i) { li.hidden = !expanded && i >= limit; });
+      list.classList.toggle('is-expanded', expanded);
       btn.textContent = expanded ? btn.getAttribute('data-less') : btn.getAttribute('data-more');
       btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
     };

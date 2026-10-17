@@ -21,7 +21,7 @@
     url: https://arxiv.org/abs/2605.08432
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: Sem-ECE evaluates LLM calibration in open-ended QA by sampling answers, grouping them into semantic classes, and using class frequencies as confidence; two estimators are analyzed and tested on five commercial LLMs.
   _sources:
     arxiv: '2605.08432'
 - id: 3d-vlm-report-mlmi26
@@ -63,7 +63,7 @@
     url: https://github.com/BojianHou/calm
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: Replaces post-hoc temperature scaling with a bilevel objective that maximizes predictive entropy, solved by a first-order method that scales to LLMs; calibration gains are strongest out of domain.
   _sources:
     arxiv: '2608.07419'
 - id: kunlun-kdd26
@@ -84,12 +84,12 @@
     url: https://arxiv.org/abs/2602.10016
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: 'A recommendation architecture designed for predictable power-law scaling: it raises model FLOPs utilization from 17% to 37% on NVIDIA B200 GPUs, doubles scaling efficiency, and is deployed in major Meta Ads models.'
   _sources:
     arxiv: '2602.10016'
 - id: ct-vlm-npjdm26
   title: Generalizable CT Vision-Language Modeling for Population Health and Disease Risk
-  authors: C. A. Beeche, J. Kim, H. Tavolinejad, B. Zhao, J. Dong, R. Sharma, J. T. Duda, ... (Bojian Hou is 12th, between Colleen Morse, Li Shen)
+  authors: Cameron A. Beeche, Joonghyun Kim, Hamed Tavolinejad, Bingxin Zhao, Jessie Dong, Rakesh Sharma, Jeffrey T. Duda, James Gee, Farouk Dako, Anurag Verma, Colleen Morse, Bojian Hou, Li Shen, Hersh Sagreiya, Christos Davatzikos, Scott M. Damrauer, Rohan Shad, Marylyn D. Ritchie, Daniel Rader, Qi Long, Eric Eaton, Gengwei Zhang, Tianlong Chen, Charles E. Kahn, Julio A. Chirinos, Walter R. Witschey
   venue: npj Digital Medicine 2026
   venue_group: npj Digital Medicine
   year: 2026
@@ -107,17 +107,16 @@
     url: https://www.medrxiv.org/content/10.1101/2025.07.03.25330654v4.full
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: Percival, a CT vision-language model trained on over 400,000 CT-report pairs from the Penn Medicine BioBank, learns representations that track clinical, physiological, and longitudinal variation across patients.
   _sources:
     pdf: https://www.nature.com/articles/s41746-026-03257-2.pdf
     doi: 10.1038/s41746-026-03257-2
     pdf_alt:
     - https://www.medrxiv.org/content/10.1101/2025.07.03.25330654v4.full.pdf
     img: https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41746-026-03257-2/MediaObjects/41746_2026_3257_Fig1_HTML.png
-  _authors_todo: true
 - id: tabular-llm-multimodal-ad-arxiv26
   title: Tabular LLMs for Interpretable Few-Shot Alzheimer's Disease Prediction with Multimodal Biomedical Data
-  authors: 'S. Kearney, S. Yang, Z. Wen, W. Lyu, B. Hou, D. Duong-Tran, T. Chen, '
+  authors: Sophie Kearney*, Shu Yang*, Zixuan Wen, Weimin Lyu, Bojian Hou, Duy Duong-Tran, Tianlong Chen, Jason H. Moore, Marylyn D. Ritchie, Chao Chen, Li Shen†
   venue: arXiv 2026
   venue_group: ''
   year: 2026
@@ -132,12 +131,13 @@
   links:
   - name: arXiv
     url: https://arxiv.org/abs/2603.17191
+  - name: Code
+    url: https://github.com/sophie-kearney/TAP-GPT
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: TAP-GPT fine-tunes a tabular LLM for few-shot Alzheimer's disease classification from multimodal biomarker tables, with interpretable outputs, across four ADNI-derived datasets.
   _sources:
     arxiv: '2603.17191'
-  _authors_todo: true
 - id: iris-bigdata25
   title: 'IRIS: Interpretable Risk Clustering Intelligence for Survival Analysis'
   authors: Kazi Noshin*, Bojian Hou*, Mary Regina Boland, Zixuan Wen, Boning Tong, Li Shen, Aidong Zhang
@@ -158,10 +158,11 @@
   - name: PMC
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12971063/
   teaser: ''
-  teaser_alt: ''
-  tldr: ''
+  teaser_alt: 'Figure 1 from the paper: illustration of the IRIS model and its modules'
+  tldr: IRIS learns patient risk clusters directly from data while estimating feature contributions, trading a modest loss in time-to-event accuracy for interpretable risk stratification.
   _sources:
     pmcid: PMC12971063
+    img: https://cdn.ncbi.nlm.nih.gov/pmc/blobs/069f/12971063/ed1877f50ec1/nihms-2136804-f0001.jpg
 - id: online-bilevel-regret-neurips25
   title: Stochastic Regret Guarantees for Online Zeroth- and First-Order Bilevel Optimization
   authors: Parvin Nazari, Bojian Hou, Davoud Ataee Tarzanagh, Li Shen, George Michailidis
@@ -182,7 +183,7 @@
     url: https://arxiv.org/abs/2511.01126
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: First- and zeroth-order stochastic online bilevel algorithms that achieve sublinear stochastic bilevel regret without window smoothing, using a new search direction and fewer oracle calls.
   _sources:
     arxiv: '2511.01126'
 - id: tabular-llm-ad-bcb25
@@ -206,7 +207,7 @@
     url: https://arxiv.org/abs/2507.23227
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: Adapts TableGPT2 with few-shot tabular prompts and qLoRA fine-tuning to diagnose Alzheimer's disease from small structured biomarker datasets.
   _sources:
     arxiv: '2507.23227'
 - id: fair-cca-adni-bcb25
@@ -228,9 +229,11 @@
     url: https://doi.org/10.1145/3765612.3767215
   - name: arXiv
     url: https://arxiv.org/abs/2507.09382
+  - name: Code
+    url: https://github.com/ZhanliangAaronWang/FR-CCA-ADNI
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: A fair CCA method whose projected features are independent of sensitive attributes, improving fairness in downstream classification on ADNI neuroimaging data while keeping correlation performance.
   _sources:
     arxiv: '2507.09382'
 - id: mentalchat16k-kdd25
@@ -252,9 +255,13 @@
     url: https://doi.org/10.1145/3711896.3737393
   - name: arXiv
     url: https://arxiv.org/abs/2503.13509
+  - name: Code
+    url: https://github.com/ChiaPatricia/MentalChat16K
+  - name: Dataset
+    url: https://huggingface.co/datasets/ShenLab/MentalChat16K
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: A benchmark that combines synthetic counseling dialogues with anonymized coach and caregiver session transcripts, for building and evaluating conversational mental health assistants.
   _sources:
     arxiv: '2503.13509'
 - id: calibration-aligned-llm-icml25
@@ -277,7 +284,7 @@
     url: https://openreview.net/forum?id=51tMpvPNSm
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: Links post-alignment overconfidence to preference collapse and restores calibration with calibration-aware fine-tuning plus an EM-based ECE regularizer.
   _sources:
     arxiv: '2505.01997'
 - id: attention-task-arithmetic-iclr25
@@ -302,7 +309,7 @@
     url: https://github.com/kyrie-23/linear_task_arithmetic
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: Fine-tuning only the attention modules improves weight disentanglement for model merging by task arithmetic, without the extra training cost of NTK linearization.
   _sources:
     arxiv: '2407.07089'
 - id: genotype-feature-selection-amia25
@@ -322,11 +329,13 @@
   links:
   - name: arXiv
     url: https://arxiv.org/abs/2410.01795
+  - name: Code
+    url: https://github.com/PennShenLab/FREEFORM
   - name: PMC
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12150712/
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: FREEFORM uses chain-of-thought reasoning and ensembling to let LLMs select and engineer genotype features, outperforming data-driven methods especially in low-shot settings.
   _sources:
     arxiv: '2410.01795'
     pmcid: PMC12150712
@@ -345,13 +354,16 @@
   lead: false
   award: ''
   links:
+  - name: Code
+    url: https://github.com/hwq0726/SDoHenPKG
   - name: PMC
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12150755/
   teaser: ''
-  teaser_alt: ''
-  tldr: ''
+  teaser_alt: 'Figure 1 from the paper: overview of the framework for building an AD-related SDoH knowledge graph'
+  tldr: Mines social determinants of health from literature with LLMs and merges them with Alzheimer's disease entities from PrimeKG, evaluated by link prediction with graph neural networks.
   _sources:
     pmcid: PMC12150755
+    img: https://cdn.ncbi.nlm.nih.gov/pmc/blobs/9a25/12150755/3a92ca81334e/6556f1.jpg
 - id: clinical-modalities-amia25
   title: Determining the Importance of Clinical Modalities for NeuroDegenerative Disorders and Risk of Patient Injury Using Machine Learning and Survival Analysis
   authors: Kazi Noshin, Mary Regina Boland, Bojian Hou, Weiqing He, Victoria Lu, Carol Manning, Li Shen, Aidong Zhang
@@ -369,10 +381,11 @@
   - name: PMC
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12150751/
   teaser: ''
-  teaser_alt: ''
-  tldr: ''
+  teaser_alt: 'Figure 4 from the paper: hazard ratios of NDD types and sensitive variables'
+  tldr: Survival analysis on EHR data from 29,045 older patients examines how medications, laboratory tests, and sensitive attributes affect fall and injury risk in neurodegenerative disorders.
   _sources:
     pmcid: PMC12150751
+    img: https://cdn.ncbi.nlm.nih.gov/pmc/blobs/f533/12150751/ea7b93ba5e88/6058f4.jpg
 - id: association-mining-psb25
   title: Uncovering Important Diagnostic Features for Alzheimer’s, Parkinson’s and Other Dementias Using Interpretable Association Mining Methods
   authors: Kazi Noshin*, Mary Regina Boland*, Bojian Hou, Victoria Lu, Carol Manning, Li Shen, Aidong Zhang
@@ -394,7 +407,7 @@
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC11649014/
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: Compares univariate and multivariate machine learning methods on EHR data from 70,420 patients to identify risk features for Alzheimer's, Parkinson's, and other dementias.
   _sources:
     pdf: https://psb.stanford.edu/psb-online/proceedings/psb25/noshin.pdf
     pmcid: PMC11649014
@@ -418,13 +431,14 @@
   - name: PMC
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12742845/
   teaser: ''
-  teaser_alt: ''
-  tldr: ''
+  teaser_alt: 'Figure 1 from the paper: illustration of the two-stage topic modeling framework'
+  tldr: A two-stage LLM topic modeling approach for 231,870 dementia caregiver tweets, compared against 11 baselines including LDA, GSDMM, and BERTopic.
   _sources:
     pmcid: PMC12742845
+    img: https://cdn.ncbi.nlm.nih.gov/pmc/blobs/f266/12742845/e32e2aca46ae/igaf120f1.jpg
 - id: fair-multimodal-cca-amia25
   title: 'Fair Multi-modal Canonical Correlation Analysis: A Neuroimaging Study of Alzheimer''s Disease'
-  authors: Z. Zhou, B. Tong, B. Hou, C. Davatzikos, Q. Long, L. Shen
+  authors: Zhuoping Zhou, Boning Tong, Bojian Hou, Christos Davatzikos, Qi Long, Li Shen
   venue: AMIA 2025
   venue_group: ''
   year: 2025
@@ -441,13 +455,12 @@
     url: https://pubmed.ncbi.nlm.nih.gov/41726413/
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: Fair multi-modal CCA optimizes correlation and demographic fairness jointly, improving fairness metrics on ADNI neuroimaging data with little loss in correlation.
   _sources:
     pmid: '41726413'
-  _authors_todo: true
 - id: icafs-tai25
   title: 'ICAFS: Inter-Client-Aware Feature Selection for Vertical Federated Learning'
-  authors: 'R. Jin, B. Tong, S. Yang, B. Hou, L. Shen, '
+  authors: Ruochen Jin, Boning Tong, Shu Yang, Bojian Hou†, Li Shen†
   venue: IEEE TAI 2025
   venue_group: ''
   year: 2025
@@ -456,7 +469,7 @@
   tags:
   - other
   selected: false
-  lead: false
+  lead: true
   award: ''
   links:
   - name: Paper
@@ -467,13 +480,12 @@
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12893625/
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: A multi-stage ensemble feature selection method for vertical federated learning that accounts for feature interactions across clients using conditional feature synthesis.
   _sources:
     arxiv: '2504.10851'
-  _authors_todo: true
 - id: sdoh-ehr-kg-innovaging25
   title: A Novel Computational Analysis Integrating Social Determinants Information from EHR and Literature with Alzheimer's Disease Biological Knowledge through Large Language Models and Knowledge Graphs
-  authors: 'T. Shang, S. Yang, T. Zhai, W. He, E. Mamourian, J. Zhang, B. Hou, J. Lee, '
+  authors: Tianqi Shang, Shu Yang, Tianhua Zhai, Weiqing He, Elizabeth Mamourian, Jiayu Zhang, Bojian Hou, Joseph Lee, Duy Duong-Tran, Jason H. Moore, Marylyn D. Ritchie, Li Shen
   venue: Innovation in Aging 2025
   venue_group: ''
   year: 2025
@@ -491,14 +503,14 @@
   - name: PMC
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12742847/
   teaser: ''
-  teaser_alt: ''
-  tldr: ''
+  teaser_alt: Figure 1 from the paper
+  tldr: Builds a knowledge graph of about 92k triplets linking social determinants from literature and EHR to Alzheimer's disease biology, evaluated by link prediction and validated with multimodal biological data.
   _sources:
     pmcid: PMC12742847
-  _authors_todo: true
+    img: https://cdn.ncbi.nlm.nih.gov/pmc/blobs/7f53/12742847/c6f635237dd9/igaf102f1.jpg
 - id: pmbb-vlm-iccvw25
   title: Adapting Vision-Language Models for 3D CT/MRI Understanding on PMBB via Slice Selection and Explanation Analysis
-  authors: 'H. Chen, R. Shukla, R. Wu, S. Yang, D. Duong-Tran, D. M. H. Nguyen, '
+  authors: Hongzhuo Chen*, Rahul Shukla*, Ruiming Wu, Shu Yang, Duy Duong-Tran, Duy Minh Ho Nguyen, Mathias Niepert, Cameron Beeche, James Gee, Jeffrey Duda, Rakesh Sharma, Christos Davatzikos, Walter Witschey, Bojian Hou†, Li Shen†
   venue: ICCV 2025 Workshop (VADH)
   venue_group: ''
   year: 2025
@@ -507,20 +519,19 @@
   tags:
   - health
   selected: false
-  lead: false
+  lead: true
   award: ''
   links:
   - name: Paper
     url: https://openaccess.thecvf.com/content/ICCV2025W/VADH/html/Chen_Adapting_Vision-Language_Models_for_3D_CTMRI_Understanding_on_PMBB_via_ICCVW_2025_paper.html
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: Adapts 2D medical vision-language models to 3D CT and MRI through slice selection and instruction tuning; selecting about half of the slices gave the best accuracy while cutting training cost by over 40%.
   _sources:
     pdf: https://openaccess.thecvf.com/content/ICCV2025W/VADH/papers/Chen_Adapting_Vision-Language_Models_for_3D_CTMRI_Understanding_on_PMBB_via_ICCVW_2025_paper.pdf
-  _authors_todo: true
 - id: multimodal-dcsm-iccvw25
   title: Multi-Modal Deep Clustering Survival Machines for Alzheimer's Disease Subtype Discovery
-  authors: 'Z. Wen, B. Hou, W. He, S. Yang, J. Moore, A. Saykin, H. Huang, P. Thompson, '
+  authors: Zixuan Wen, Bojian Hou, Weiqing He, Shu Yang, Jason H. Moore, Andrew J. Saykin, Heng Huang, Paul M. Thompson, Marylyn D. Ritchie, Christos Davatzikos, Li Shen
   venue: ICCV 2025 Workshop (VADH)
   venue_group: ''
   year: 2025
@@ -537,16 +548,15 @@
     url: https://openaccess.thecvf.com/ICCV2025_workshops/VADH
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: Fuses modality-specific encoders with a mixture of Weibull experts to discover patient subtypes and predict Alzheimer's conversion risk in a cohort of 382 MCI patients.
   _sources:
     cvf_index: https://openaccess.thecvf.com/ICCV2025_workshops/VADH
     cvf_match: Multi-Modal Deep Clustering
     pdf_alt:
     - https://openaccess.thecvf.com/content/ICCV2025W/VADH/papers/Wen_Multi-Modal_Deep_Clustering_Survival_Machines_for_Alzheimers_Disease_Subtype_Discovery_ICCVW_2025_paper.pdf
-  _authors_todo: true
 - id: sdoh-dcsm-aimedhealth25
   title: Integrating Social Determinants of Health in a Multi-Modal Deep Clustering Survival Model for Injury-Risk in Alzheimer's and Related Dementia Patients
-  authors: K. Noshin, M. R. Boland, B. Hou, W. He, V. Lu, L. Shen, A. Zhang
+  authors: Kazi Noshin, Mary Regina Boland, Bojian Hou, Weiqing He, Victoria Lu, Li Shen, Aidong Zhang
   venue: AIMedHealth 2025 (PMLR 281)
   venue_group: ''
   year: 2025
@@ -562,13 +572,12 @@
     url: https://proceedings.mlr.press/v281/noshin25a.html
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: Adding social determinants of health to multi-modal deep clustering survival models improved injury and fall risk prediction for patients with Alzheimer's and related dementias.
   _sources:
     pdf: https://proceedings.mlr.press/v281/noshin25a/noshin25a.pdf
-  _authors_todo: true
 - id: esn-topology-aimedhealth25
   title: Evaluating Topological Fitness of Human Brain-Inspired Sub-Circuits in Echo State Networks
-  authors: B. V. Nguyen, T. Chen, S. Yang, B. Hou, L. Shen, D. Duong-Tran
+  authors: Bach Nguyen, Tianlong Chen, Shu Yang, Bojian Hou, Li Shen, Duy Duong-Tran†
   venue: AIMedHealth 2025 (PMLR 281)
   venue_group: ''
   year: 2025
@@ -586,14 +595,13 @@
     url: https://arxiv.org/abs/2412.14999
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: A pipeline to embed brain sub-circuits derived from functional MRI into echo state networks and evaluate how the embedded topology affects processing and memorization tasks.
   _sources:
     arxiv: '2412.14999'
     pdf: https://proceedings.mlr.press/v281/nguyen25a/nguyen25a.pdf
-  _authors_todo: true
 - id: rna-structure-survey-arxiv25
   title: 'Advances in RNA Secondary Structure Prediction and RNA Modifications: Methods, Data, and Applications'
-  authors: 'S. Yang, N. T. Pham, Z. Li, J. Y. Baik, J. Lee, T. Zhai, W. Yu, B. Hou, T. Shang, '
+  authors: Shu Yang*, Nhat Truong Pham*, Ziyang Li*, Jae Young Baik*, Joseph Lee, Tianhua Zhai, Weicheng Yu, Bojian Hou, Tianqi Shang, Weiqing He, Duy Duong-Tran†, Mayur Naik†, Li Shen†
   venue: arXiv 2025
   venue_group: ''
   year: 2025
@@ -609,10 +617,9 @@
     url: https://arxiv.org/abs/2501.04056
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: A review of computational RNA secondary structure prediction, RNA modification identification, how the two interact, and the data sources available.
   _sources:
     arxiv: '2501.04056'
-  _authors_todo: true
 - id: sefd-bigdata24
   title: 'SEFD: Semantic-Enhanced Framework for Detecting LLM-Generated Text'
   authors: Weiqing He*, Bojian Hou*, Tianqi Shang*, Davoud Ataee Tarzanagh, Qi Long, Li Shen
@@ -631,7 +638,7 @@
     url: https://arxiv.org/abs/2411.12764
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: Combines retrieval with existing detectors to detect LLM-generated text more reliably when it has been paraphrased.
   _sources:
     arxiv: '2411.12764'
 - id: fair-graphical-models-neurips24
@@ -654,7 +661,7 @@
     url: https://arxiv.org/abs/2408.17396
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: Fair estimation of Gaussian, covariance, and Ising graphical models by jointly minimizing a pairwise graph disparity error and the model loss.
   _sources:
     arxiv: '2408.17396'
 - id: dalk-emnlp24
@@ -676,9 +683,11 @@
     url: https://aclanthology.org/2024.findings-emnlp.119/
   - name: arXiv
     url: https://arxiv.org/abs/2405.04819
+  - name: Code
+    url: https://github.com/David-Li0406/DALK
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: Co-augments an LLM and a knowledge graph built from Alzheimer's disease literature, retrieving knowledge from the graph to improve question answering on a new ADQA benchmark.
   _sources:
     arxiv: '2405.04819'
 - id: caregivers-twitter-amia24
@@ -700,10 +709,11 @@
   - name: PubMed
     url: https://pubmed.ncbi.nlm.nih.gov/40417464/
   teaser: ''
-  teaser_alt: ''
-  tldr: ''
+  teaser_alt: 'Figure 1 from the paper: overview of the work, from tweet collection to topic analysis'
+  tldr: Term-weighted GSDMM topic modeling of tweets from dementia caregivers, with topics interpreted using ChatGPT 4 and two human experts.
   _sources:
     pmcid: PMC12099380
+    img: https://cdn.ncbi.nlm.nih.gov/pmc/blobs/9ee8/12099380/4ad7dc58e5b6/5629f1.jpg
 - id: fair-mci-mri-amia24
   title: Ensuring Fairness in Detecting Mild Cognitive Impairment with MRI
   authors: Boning Tong, Travyse Edwards, Shu Yang, Bojian Hou, Davoud Ataee Tarzanagh, Ryan J. Urbanowicz, Jason H. Moore, Marylyn D. Ritchie, Christos Davatzikos, Li Shen
@@ -724,10 +734,11 @@
   - name: PubMed
     url: https://pubmed.ncbi.nlm.nih.gov/40417489/
   teaser: ''
-  teaser_alt: ''
-  tldr: ''
+  teaser_alt: 'Figure 1 from the paper: flowchart of the study process'
+  tldr: A fairness-aware method for label-imbalanced MRI classification of mild cognitive impairment, built on FACIMS and evaluated across five sensitive attributes.
   _sources:
     pmcid: PMC12099326
+    img: https://cdn.ncbi.nlm.nih.gov/pmc/blobs/d1ad/12099326/706e9e44796f/5191f1.jpg
 - id: online-bilevel-aistats24
   title: 'Online Bilevel Optimization: Regret Analysis of Online Alternating Gradient Methods'
   authors: Davoud Ataee Tarzanagh, Parvin Nazari, Bojian Hou, Li Shen, Laura Balzano
@@ -750,7 +761,7 @@
     url: https://github.com/BojianHou/OAGD
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: Introduces online bilevel optimization, defines bilevel regret, and gives regret bounds for an online alternating time-averaged gradient method.
   _sources:
     arxiv: '2207.02829'
 - id: interview-interpretability-amia24
@@ -771,10 +782,11 @@
   - name: PMC
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC11141819/
   teaser: ''
-  teaser_alt: ''
-  tldr: ''
+  teaser_alt: 'Figure 1 from the paper: illustration of the framework'
+  tldr: Classifies long therapist-caregiver interview transcripts and uses Shapley values to find the sentences that drive the predictions.
   _sources:
     pmcid: PMC11141819
+    img: https://cdn.ncbi.nlm.nih.gov/pmc/blobs/1978/11141819/94dd933b0ca7/2124f1.jpg
 - id: pferm-amia24
   title: 'PFERM: A Fair Empirical Risk Minimization Approach with Prior Knowledge'
   authors: Bojian Hou, Andrés Mondragón, Davoud Ataee Tarzanagh, Zhuoping Zhou, Andrew J Saykin, Jason H Moore, Marylyn D Ritchie, Qi Long, Li Shen
@@ -795,10 +807,11 @@
   - name: PMC
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC11141835/
   teaser: ''
-  teaser_alt: ''
-  tldr: ''
+  teaser_alt: 'Figure 1 from the paper: accuracy versus prevalence ratio for FERM on synthetic data'
+  tldr: Fair empirical risk minimization that builds group prevalence ratios into the fairness constraint, balancing accuracy and fairness.
   _sources:
     pmcid: PMC11141835
+    img: https://cdn.ncbi.nlm.nih.gov/pmc/blobs/7e86/11141835/344b09c98e59/2420f1.jpg
 - id: amyloid-subtypes-amia24
   title: Cluster Analysis of Cortical Amyloid Burden for Identifying Imaging-driven Subtypes in Mild Cognitive Impairment
   authors: Ruiming Wu, Bing He, Bojian Hou, Andrew J Saykin, Jingwen Yan, Li Shen
@@ -816,10 +829,11 @@
   - name: PMC
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC11141862/
   teaser: ''
-  teaser_alt: ''
-  tldr: ''
+  teaser_alt: 'Figure 2 from the paper: t-SNE visualization of 68 amyloid features'
+  tldr: Clusters patients with mild cognitive impairment into two subtypes from 68 cortical amyloid PET features.
   _sources:
     pmcid: PMC11141862
+    img: https://cdn.ncbi.nlm.nih.gov/pmc/blobs/2f25/11141862/ac318eeaffb5/2297f2.jpg
 - id: manifoldron-tnnls24
   title: 'Manifoldron: Direct Space Partition via Manifold Discovery'
   authors: Dayang Wang, Feng-Lei Fan, Bo-Jian Hou, Hao Zhang, Rongjie Lai, Hengyong Yu, Fei Wang
@@ -836,9 +850,11 @@
   links:
   - name: arXiv
     url: https://arxiv.org/abs/2201.05279
+  - name: Code
+    url: https://github.com/wdayang/Manifoldron
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: A model that derives decision boundaries directly from data by discovering its manifold structure, instead of a parameterized partition of the sample space.
   _sources:
     arxiv: '2201.05279'
 - id: mg-tcca-tcbb24
@@ -860,10 +876,11 @@
   - name: PMC
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC11954983/
   teaser: ''
-  teaser_alt: ''
-  tldr: ''
+  teaser_alt: 'Figure from the paper: effect of the brain mask on brain image cross-sections'
+  tldr: Multi-group tensor CCA with a dual sparsity structure that jointly analyzes subgroups of brain imaging data to find shared and group-specific signals.
   _sources:
     pmcid: PMC11954983
+    img: https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4e11/11954983/cb903bd10d55/nihms-2056156-f0012.jpg
 - id: interpretable-dcsm-media24
   title: Interpretable Deep Clustering Survival Machines for Alzheimer's Disease Subtype Discovery
   authors: Bojian Hou*, Zixuan Wen*, Jingxuan Bao, Richard Zhang, Boning Tong, Shu Yang, Junhao Wen, Yuhan Cui, Jason H Moore, Andrew J. Saykin, Heng Huang, Paul M. Thompson, Marylyn D. Ritchie, Christos Davatzikos, Li Shen
@@ -884,9 +901,13 @@
   - name: Code
     url: https://github.com/PennShenLab/DCSM/
   teaser: ''
-  teaser_alt: ''
-  tldr: ''
-  _sources: {}
+  teaser_alt: 'Figure from the paper: mechanism of Deep Clustering Survival Machines'
+  tldr: Deep Clustering Survival Machines model survival times as a mixture of expert distributions weighted per patient, used to cluster MCI patients into subgroups with different risks of converting to Alzheimer's disease.
+  _sources:
+    pdf: https://par.nsf.gov/servlets/purl/10525276
+    pdf_alt:
+    - https://www.medrxiv.org/content/10.1101/2023.10.13.23296985.full.pdf
+    img: https://cdn.ncbi.nlm.nih.gov/pmc/blobs/f47c/11365808/8dcbec23bed8/nihms-2003650-f0003.jpg
 - id: quadratic-autoencoder-tai24
   title: Quadratic Neuron-empowered Heterogeneous Autoencoder for Unsupervised Anomaly Detection
   authors: Jing-Xiao Liao, Bo-Jian Hou, Hang-Cheng Dong, Hao Zhang, Jinwei Sun, Shiping Zhang, Feng-Lei Fan
@@ -905,7 +926,7 @@
     url: https://ieeexplore.ieee.org/document/10510400
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: An autoencoder that mixes conventional and quadratic neurons, motivated by an approximation result for heterogeneous networks, applied to unsupervised anomaly detection.
   _sources:
     arxiv: '2204.01707'
 - id: sinkhorn-iscience24
@@ -927,10 +948,11 @@
   - name: PubMed
     url: https://pubmed.ncbi.nlm.nih.gov/38433927/
   teaser: ''
-  teaser_alt: ''
-  tldr: ''
+  teaser_alt: 'Figure 1 from the paper: schematic of the distance-weighted Sinkhorn loss'
+  tldr: A distance-weighted Sinkhorn loss that penalizes misclassified samples by their distance to the true class distribution, applied to Alzheimer's disease stage classification.
   _sources:
     pmid: '38433927'
+    img: https://cdn.ncbi.nlm.nih.gov/pmc/blobs/b481/10906516/bed37e1cd1f2/gr1.jpg
 - id: fair-cca-neurips23
   title: Fair Canonical Correlation Analysis
   authors: Zhuoping Zhou*, Davoud Ataee Tarzanagh*, Bojian Hou*, Boning Tong, Jia Xu, Yanbo Feng, Qi Long, Li Shen
@@ -953,7 +975,7 @@
     url: https://github.com/PennShenLab/Fair_CCA
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: Learns global CCA projections that close the gap in correlation across protected groups with little loss of accuracy.
   _sources:
     arxiv: '2309.15809'
 - id: mg-tcca-bcb23
@@ -976,10 +998,11 @@
   - name: PMC
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC10593155/
   teaser: ''
-  teaser_alt: ''
-  tldr: ''
+  teaser_alt: 'Figure from the paper: illustration of TCCA and MG-TCCA'
+  tldr: Multi-group tensor CCA that jointly analyzes subgroups of tensor data, such as brain imaging from different sexes or races, to find consistent signals.
   _sources:
     pmcid: PMC10593155
+    img: https://cdn.ncbi.nlm.nih.gov/pmc/blobs/6522/10593155/01088ba4c78a/nihms-1937793-f0002.jpg
 - id: avs-loss-mlmi23
   title: Class-Balanced Deep Learning with Adaptive Vector Scaling Loss for Dementia Stage Detection
   authors: Boning Tong, Zhuoping Zhou, Davoud Ataee Tarzanagh, Bojian Hou, Andrew J. Saykin, Jason Moore, Marylyn Ritchie, Li Shen
@@ -996,10 +1019,14 @@
   links:
   - name: Paper
     url: https://doi.org/10.1007/978-3-031-45676-3_15
+  - name: PMC
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC10924683/
   teaser: ''
-  teaser_alt: ''
-  tldr: ''
-  _sources: {}
+  teaser_alt: 'Figure 1 from the paper: VS-Opt-Net integrates the VS loss into the STREAMLINE pipeline'
+  tldr: VS-Opt-Net adds the vector-scaling loss and Bayesian hyperparameter optimization to the STREAMLINE pipeline to improve balanced accuracy when classifying dementia stages from MRI features.
+  _sources:
+    pmcid: PMC10924683
+    img: https://cdn.ncbi.nlm.nih.gov/pmc/blobs/a7b8/10924683/bc3018654648/nihms-1972101-f0001.jpg
 - id: facims-uai23
   title: Fairness-Aware Class Imbalanced Learning on Multiple Subgroups
   authors: Davoud Ataee Tarzanagh*, Bojian Hou*, Boning Tong*, Qi Long, Li Shen
@@ -1020,12 +1047,12 @@
     url: https://github.com/PennShenLab/FACIMS
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: A tri-level optimization framework with sharpness-aware minimization for fair and class-balanced learning when subgroups are imbalanced and small.
   _sources:
     pdf: https://proceedings.mlr.press/v216/tarzanagh23a/tarzanagh23a.pdf
 - id: dcsm-isbi23
   title: Deep Clustering Survival Machines with Interpretable Expert Distributions
-  authors: Bojian Hou, Hongming Li, Zhicheng Jiao, Zhen Zhou, Hao Zhang, Yong Fan
+  authors: Bojian Hou, Hongming Li, Zhicheng Jiao, Zhen Zhou, Hao Zheng, Yong Fan
   venue: ISBI 2023
   venue_group: ''
   year: 2023
@@ -1044,7 +1071,7 @@
     url: https://github.com/BojianHou/DCSM
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: Models survival times as a mixture of expert distributions whose weights are learned per instance, yielding interpretable subgroups alongside predictions.
   _sources:
     arxiv: '2301.11826'
 - id: glaucoma-bias-amia23
@@ -1066,7 +1093,7 @@
     url: /files/glaucoma_bias.pdf
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: Measures how a widely used deep learning model underdiagnoses or overdiagnoses glaucoma across demographic groups in the OHTS study.
   _sources:
     pdf: /files/glaucoma_bias.pdf
 - id: old3s-tkde23
@@ -1087,7 +1114,7 @@
     url: /files/OLD3S.pdf
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: Online learning from doubly-streaming data, where new features emerge and old ones fade, using deep variational models to relate the two feature spaces.
   _sources:
     pdf: /files/OLD3S.pdf
 - id: chest-xray-cbm23
@@ -1108,12 +1135,12 @@
     url: /files/pubmed.pdf
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: Builds a weakly labeled chest X-ray database from PubMed Central articles and shows that adding it to training improves detection of several thoracic diseases.
   _sources:
     pdf: /files/pubmed.pdf
 - id: detr-pretraining-arxiv23
   title: Revisiting DETR Pre-training for Object Detection
-  authors: Yan Ma, Weicong Liang, Yiduo Hao, Bojian Hou, Xiangyu Yue, Chao Zhang, Yuhui Yuan
+  authors: Yan Ma, Weicong Liang, Bohan Chen, Yiduo Hao, Bojian Hou, Xiangyu Yue, Chao Zhang, Yuhui Yuan
   venue: arXiv 2023
   venue_group: ''
   year: 2023
@@ -1129,7 +1156,7 @@
     url: https://arxiv.org/abs/2308.01300
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: Shows that DETReg pre-training does not help strong DETR-based detectors with full data, and that simple self-training with an improved box predictor and Objects365 does.
   _sources:
     arxiv: '2308.01300'
 - id: doubly-streaming-mm22
@@ -1148,10 +1175,13 @@
   links:
   - name: Paper
     url: https://doi.org/10.1145/3503161.3548355
+  - name: arXiv
+    url: https://arxiv.org/abs/2204.11793
   teaser: ''
   teaser_alt: ''
-  tldr: ''
-  _sources: {}
+  tldr: OLD³S learns a shared latent space linking old and new features in doubly-streaming data and adapts model depth and size online to the data.
+  _sources:
+    arxiv: '2204.11793'
 - id: glaucoma-scirep22
   title: Automated diagnosing primary open-angle glaucoma from fundus image by simulating human’s grading with deep learning
   authors: Mingquan Lin, Bojian Hou, Lei Liu, Mae Gordon, Michael Kass, Fei Wang, Sarah H. Van Tassel, Yifan Peng
@@ -1168,9 +1198,11 @@
   links:
   - name: PDF
     url: /files/glaucoma.pdf
+  - name: Code
+    url: https://github.com/bionlplab/GlaucomaNet
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: GlaucomaNet uses two CNNs that mimic human grading to diagnose glaucoma from fundus photographs, evaluated on OHTS and LAG.
   _sources:
     pdf: /files/glaucoma.pdf
 - id: sf2el-aaai21
@@ -1193,7 +1225,7 @@
     url: https://www.lamda.nju.edu.cn/code_SF2EL.ashx
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: Feature-evolvable streaming learning with rarely provided labels, using manifold regularization over a buffer that fits the device's storage budget.
   _sources:
     arxiv: '2007.11280'
 - id: ovfm-icdm21
@@ -1214,7 +1246,7 @@
     url: /files/OVFM.pdf
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: Online learning over feature spaces that change with time and mix Boolean, ordinal, and continuous variables, modeled with a Gaussian copula fitted by online EM.
   _sources:
     pdf: /files/OVFM.pdf
 - id: pufe-tnnls21
@@ -1237,7 +1269,7 @@
     url: https://www.lamda.nju.edu.cn/code_PUFE.ashx
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: 'Learning when features vanish or emerge unpredictably: the incomplete overlap period is filled by matrix completion, with a bound on the observations needed.'
   _sources:
     arxiv: '1904.12171'
 - id: clinical-evidence-engine-arxiv21
@@ -1259,7 +1291,7 @@
     url: https://arxiv.org/abs/2111.00621
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: A proof-of-concept system that uses Clinical BioBERT to retrieve clinical trial reports relevant to long clinical questions, across three medical domains.
   _sources:
     arxiv: '2111.00621'
 - id: lisor-tnnls20
@@ -1282,7 +1314,7 @@
     url: https://www.lamda.nju.edu.cn/code_LISOR.ashx
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: Learns finite state automata from gated RNNs as an interpretable structure and studies how the number of gates affects performance.
   _sources:
     pdf: /files/LISOR.pdf
     arxiv: '1810.10708'
@@ -1305,7 +1337,7 @@
     url: /files/CCFAI19.pdf
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: Learns finite state automata from RNNs when input features change, and studies how feature changes and the number of gates affect performance.
   _sources:
     pdf: /files/CCFAI19.pdf
 - id: fesl-tkde19
@@ -1326,7 +1358,7 @@
     url: /files/FESL-tkde.pdf
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: 'Journal version of feature evolvable streaming learning: recovers vanished features from the overlap period and combines models with theoretical guarantees.'
   _sources:
     pdf: /files/FESL-tkde.pdf
 - id: deep-forest-mil-jcrd19
@@ -1347,7 +1379,7 @@
     url: /files/MIDF.pdf
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: Multiple instance deep forest (MIDF), a deep forest structure adapted to multi-instance learning.
   _sources:
     pdf: /files/MIDF.pdf
 - id: fesl-nips17
@@ -1372,7 +1404,7 @@
     url: /files/FESL-poster.pdf
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: Introduces learning when old features vanish and new ones appear, using an overlap period to keep reusing the old model, with theoretical guarantees.
   _sources:
     pdf: /files/FESL.pdf
 - id: sfl-ijcai17
@@ -1397,6 +1429,6 @@
     url: /files/SFL-poster.pdf
   teaser: ''
   teaser_alt: ''
-  tldr: ''
+  tldr: Graph-based semi-supervised learning that adapts to a storage budget through low-rank approximation of the similarity matrix.
   _sources:
     pdf: /files/SFL.pdf
