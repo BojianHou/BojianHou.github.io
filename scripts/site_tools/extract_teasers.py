@@ -34,7 +34,7 @@ def block_text(b):
     return ' '.join(s['text'] for l in b.get('lines', []) for s in l.get('spans', [])).strip()
 
 
-def find_caption(doc, n, max_pages=8):
+def find_caption(doc, n, max_pages=40):
     rx = cap_re(n)
     for pno in range(min(len(doc), max_pages)):
         page = doc[pno]
@@ -104,6 +104,13 @@ def figure_region(page, cap):
             reg |= r
         # include text labels inside the graphic area
         reg = pymupdf.Rect(max(reg.x0, x0 - 4), max(reg.y0, top), min(reg.x1, x1 + 4), min(reg.y1, cap.y0))
+        # a figure wrapped by body text (text column beside it): cut the region at that text
+        for r, _ in body_blocks(page):
+            ov = max(0, min(r.y1, reg.y1) - max(r.y0, reg.y0))
+            if ov > 0.3 * r.height and r.x0 > reg.x0 + 0.3 * reg.width:
+                reg.x1 = min(reg.x1, r.x0 - 2)
+            elif ov > 0.3 * r.height and r.x1 < reg.x1 - 0.3 * reg.width:
+                reg.x0 = max(reg.x0, r.x1 + 2)
         if reg.height > 30 and reg.width > 60:
             return reg, 'graphics'
     reg = pymupdf.Rect(x0, top, x1, cap.y0 - 1)
@@ -174,6 +181,26 @@ def process(pid, pdf):
     return None, {'method': 'none'}
 
 
+def alternates(pid, pdf):
+    """Save crops of Figures 1-3 for review (out/teasers/alt/<id>-f<n>.png)."""
+    try:
+        doc = pymupdf.open(pdf)
+    except Exception:  # noqa: BLE001
+        return
+    for n in (1, 2, 3):
+        found = find_caption(doc, n)
+        if not found:
+            continue
+        pno, cap, _ = found
+        reg, _ = figure_region(doc[pno], cap)
+        if reg is None:
+            continue
+        try:
+            fit(trim(render(doc[pno], reg))).save(out_path('teasers', 'alt', f'{pid}-f{n}.png'))
+        except Exception:  # noqa: BLE001
+            pass
+
+
 def contact_sheet(items, path):
     cols, tw, th, lab = 4, 320, 200, 34
     rows = (len(items) + cols - 1) // cols
@@ -203,9 +230,20 @@ def main(only=None):
             continue
         pdf = os.path.join(OUT, 'pdfs', pid + '.pdf')
         if not os.path.exists(pdf):
+            figs = [f for f in os.listdir(os.path.join(OUT, 'figs'))] if os.path.isdir(os.path.join(OUT, 'figs')) else []
+            fig = next((f for f in figs if f.rsplit('.', 1)[0] == pid), None)
+            if fig and not (OVR.get(pid) or {}).get('skip'):
+                img = fit(trim(Image.open(os.path.join(OUT, 'figs', fig)).convert('RGB')))
+                img.save(os.path.join(DEST, pid + '.webp'), 'WEBP', quality=82, method=6)
+                img.save(out_path('teasers', pid + '.png'))
+                report[pid] = {'method': 'pmc-figure-image', 'file': fig}
+                items.append((pid, img))
+                print(pid, 'pmc-figure-image', flush=True)
+                continue
             report[pid] = {'method': 'no-pdf'}
             items.append((pid, None))
             continue
+        alternates(pid, pdf)
         try:
             img, info = process(pid, pdf)
         except Exception as e:  # noqa: BLE001

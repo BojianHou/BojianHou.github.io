@@ -65,6 +65,20 @@ def crossref(doi):
     }
 
 
+def crossref_title(title):
+    j = get_json('https://api.crossref.org/works?rows=3&query.bibliographic=' + q(title))
+    if not j:
+        return None
+    norm = lambda t: re.sub(r'[^a-z0-9]', '', t.lower())
+    for m in j['message'].get('items', []):
+        t = ' '.join((m.get('title') or [''])[0].split())
+        if norm(t) == norm(title):
+            authors = [' '.join(x for x in [a.get('given'), a.get('family')] if x) for a in m.get('author', [])]
+            return {'source': 'crossref-title', 'title': t, 'authors': authors, 'doi': m.get('DOI'),
+                    'container': (m.get('container-title') or [''])[0], 'abstract': re.sub(r'<[^>]+>', '', m.get('abstract', '') or '')}
+    return None
+
+
 def main():
     pubs = load_pubs()
     arx = sorted({p['_sources']['arxiv'] for p in pubs if p.get('_sources', {}).get('arxiv')})
@@ -94,6 +108,10 @@ def main():
             r = crossref(d)
             if r:
                 r['doi'] = d
+                rec['records'].append(r)
+        if not any(r['source'].startswith('crossref') for r in rec['records']):
+            r = crossref_title(p['title'])
+            if r:
                 rec['records'].append(r)
         if not rec['records']:
             # last resort: Europe PMC title search

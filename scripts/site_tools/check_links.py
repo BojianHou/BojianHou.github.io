@@ -1,6 +1,6 @@
 """Check every publication link: HTTP status, final URL and page title. Writes out/link_report.md and out/link_report.json.
 
-A link passes when it returns 200 (or a PDF). Pages that refuse automated clients (403 from DOI publishers that
+A link passes when it returns any 2xx status. Pages that refuse automated clients (403 from DOI publishers that
 block bots) are reported as 'blocked' rather than broken; check those in a browser.
 """
 import html
@@ -29,8 +29,8 @@ def main():
                 rows.append({'id': p['id'], 'name': l['name'], 'url': u, 'status': 200 if ok else 404, 'final': u, 'title': '(local file)', 'verdict': 'ok' if ok else 'BROKEN'})
                 continue
             st, final, body, ctype = http_get(u, timeout=45, retries=1)
-            t = title_of(body or b'', ctype) if st == 200 else ''
-            verdict = 'ok' if st == 200 else ('blocked' if st in (401, 403, 418, 429) else 'BROKEN')
+            t = title_of(body or b'', ctype) if 200 <= st < 300 else ''
+            verdict = 'ok' if 200 <= st < 300 else ('blocked' if st in (401, 403, 418, 429) else 'BROKEN')
             rows.append({'id': p['id'], 'name': l['name'], 'url': u, 'status': st, 'final': final, 'title': t, 'verdict': verdict})
             print(st, p['id'], l['name'], u, flush=True)
     with open(out_path('link_report.json'), 'w', encoding='utf-8') as f:
