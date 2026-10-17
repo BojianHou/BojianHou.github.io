@@ -10,6 +10,8 @@ Branch `redesign-2026`. Nothing here is live until this branch is merged into `m
 - **Data files are the single source:** `_data/publications.yml`, `news.yml`, `awards.yml`, `service.yml`, `research.yml`, `topics.yml`, `site.yml`. To add a paper, add one entry to `publications.yml`; the homepage counts, filters and lists update themselves.
 - **Removed AcademicPages leftovers:** sample posts, talks, teaching, portfolio, demo pages and images, `files/paper1-3.pdf`, the sample `_data/authors.yml`, the talkmap and markdown generator.
 - **SEO:** real site description, Open Graph image, JSON-LD `Person`, page titles like "Publications | Bojian Hou". The dead `google-universal` analytics block is switched off.
+- **Experience and education follow the résumé:** Meta (Monetization and MRS), Penn (Postdoctoral Fellow), Cornell, 4Paradigm (Research Scientist, 2020 to 2021, new on the site), Nanjing University Ph.D. 2014 to 2020 and B.Sc. 2010 to 2014. The bio now says "postdoctoral fellow" and mentions 4Paradigm.
+- **Quality checks (latest preview build):** Jekyll builds cleanly with the GitHub Pages gem set; 125 publication links checked, 0 broken (10 publisher pages refuse bots and are marked "blocked"); no horizontal scrolling at 390 px; Lighthouse mobile: home 93 / 100 / 100 / 100, publications 90 / 100 / 100 / 100 (performance / accessibility / best practices / SEO).
 - **Files:** `files/CCFAI'19.pdf` renamed to `files/CCFAI19.pdf` (apostrophes break links).
 
 ## Publications: decisions applied

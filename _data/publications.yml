@@ -184,7 +184,7 @@
   - name: arXiv
     url: https://arxiv.org/abs/2511.01126
   teaser: /images/pubs/online-bilevel-regret-neurips25.webp
-  teaser_alt: Figure from the paper
+  teaser_alt: 'Figure 1 from the paper: smoothly and rapidly changing objective functions in online bilevel optimization'
   tldr: First- and zeroth-order stochastic online bilevel algorithms that achieve sublinear stochastic bilevel regret without window smoothing, using a new search direction and fewer oracle calls.
   _sources:
     arxiv: '2511.01126'
