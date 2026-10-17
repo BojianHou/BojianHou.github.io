@@ -24,8 +24,12 @@ Branch `redesign-2026`. Nothing here is live until this branch is merged into `m
 
 ## Please check
 
-1. **Author lists you know better than the papers' metadata.** In particular the ICML 2025 paper: arXiv lists Qi Long before Weijie J. Su; the site keeps your old order (Weijie Su, Qi Long, Li Shen). Tell me which is right.
-2. **Manifoldron (TNNLS 2024) and the quadratic-neuron autoencoder (TAI 2024):** the arXiv versions list extra authors (Zhen Jia, Boce Zhou; Xiaoge Zhang). The site keeps the author lists from your old page, which may match the published versions. Please confirm.
+1. **Author lists changed to match the published versions** (your old page differed):
+    - ICML 2025: PMLR lists "... Ruochen Jin, Qi Long, Weijie J. Su, Li Shen" (old page had Weijie Su before Qi Long).
+    - IEEE TAI 2024: the published paper includes Xiaoge Zhang (5th author).
+    - IEEE TNNLS 2024 (Manifoldron): the published paper includes Zhen Jia and Boce Zhang (Crossref spells "Boce Zhang"; arXiv spells "Boce Zhou").
+    - Kunlun keeps "et al." after six authors (the paper has 28).
+2. **Kunlun now links to the ACM DL page** (doi.org/10.1145/3770855.3818438) as well as arXiv.
 3. **Thumbnails.** All figures are cropped from the papers. A few use a figure other than Figure 1 because Figure 1 was a results table or a cohort flowchart; see `scripts/site_tools/teaser_overrides.yml`.
 4. **One-sentence summaries** are paraphrased from each abstract (no numbers or claims beyond the abstract). Skim them on `/publications/`.
 5. **Still without a public version:** MLMI 2026 (in press; shows "In press"). Fair multi-modal CCA (AMIA 2025) links to PubMed only.
