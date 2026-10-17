@@ -1,0 +1,45 @@
+# `home: true` items appear on the homepage; the awards page lists everything.
+- year: 2025
+  name: Best Paper Award, ACM Conference on Bioinformatics, Computational Biology, and Health Informatics (ACM BCB)
+  short: Best Paper Award, ACM BCB
+  home: true
+- year: 2024
+  name: Distinguished Paper Award, AMIA 2024 Annual Symposium
+  short: Distinguished Paper Award, AMIA Annual Symposium
+  home: true
+- year: 2024
+  name: PennAITech Innovation Fellow
+  home: true
+- year: 2023
+  name: Best Paper Award, ACM Conference on Bioinformatics, Computational Biology, and Health Informatics (ACM BCB)
+  short: Best Paper Award, ACM BCB
+  home: true
+- year: 2021
+  name: Excellent Doctoral Dissertation Award of Jiangsu Province
+  home: true
+- year: 2021
+  name: Excellent Doctoral Dissertation Award of Nanjing University
+  home: true
+- year: 2020
+  name: JSAI Excellent Doctoral Dissertation Award
+  home: true
+- year: 2020
+  name: CS Excellent Doctoral Dissertation Award of Nanjing University
+- year: 2020
+  name: Outstanding Graduate Student Award of Nanjing University
+- year: 2019
+  name: CCFAI Outstanding Student Paper Award
+  home: true
+- year: 2019
+  name: The Program A for Outstanding PhD Candidate of Nanjing University
+- year: 2017
+  name: National Scholarship for Ph.D.
+  home: true
+- year: 2017
+  name: NeurIPS Volunteer Award
+- year: 2017
+  name: IJCAI Travel Award
+- year: 2014
+  name: Outstanding Undergraduate Student Award of Nanjing University
+- year: 2012
+  name: National Endeavor Scholarship

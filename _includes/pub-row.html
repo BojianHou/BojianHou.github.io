@@ -1,0 +1,45 @@
+{%- comment -%}
+One publication. Params: pub (an entry of site.data.publications), variant ("home" or "list").
+{%- endcomment -%}
+{%- assign pub = include.pub -%}
+{%- assign variant = include.variant | default: "list" -%}
+{%- assign primary = "" -%}
+{%- if pub.links.size > 0 -%}{%- assign primary = pub.links[0].url | relative_url -%}{%- endif -%}
+<article class="pub pub--{{ variant }}" id="{% if variant == 'home' %}home-{% endif %}{{ pub.id }}" data-tags="{{ pub.tags | join: ' ' }}" data-selected="{{ pub.selected }}" data-lead="{{ pub.lead }}">
+  {%- assign has_teaser = false -%}
+  {%- if pub.teaser and pub.teaser != "" -%}
+    {%- assign tf = site.static_files | where: "path", pub.teaser | first -%}
+    {%- if tf -%}{%- assign has_teaser = true -%}{%- endif -%}
+  {%- endif %}
+  <div class="pub-thumb">
+    {%- if has_teaser %}
+    <img src="{{ pub.teaser | relative_url }}" alt="{{ pub.teaser_alt | escape }}" width="640" height="400" {% if include.eager %}fetchpriority="high"{% else %}loading="lazy" decoding="async"{% endif %}>
+    {%- else %}
+    <div class="pub-thumb-ph" aria-hidden="true"><span>{{ pub.venue }}</span></div>
+    {%- endif %}
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title">{% if primary != "" %}<a href="{{ primary }}">{{ pub.title }}</a>{% else %}{{ pub.title }}{% endif %}</h3>
+    <p class="pub-authors">{{ pub.authors | replace: "Bojian Hou", "<strong>Bojian Hou</strong>" | replace: "Bo-Jian Hou", "<strong>Bo-Jian Hou</strong>" }}</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">{{ pub.venue }}</span>
+      {%- if pub.award and pub.award != "" %}
+      <span class="badge badge-award">{{ pub.award }}</span>
+      {%- endif %}
+      {%- if variant == "list" %}
+      <span class="pub-topics">{% for t in pub.tags %}{% assign tt = site.data.topics | where: "id", t | first %}{{ tt.label }}{% unless forloop.last %} · {% endunless %}{% endfor %}</span>
+      {%- endif %}
+    </p>
+    {%- if pub.tldr and pub.tldr != "" %}
+    <p class="pub-tldr">{{ pub.tldr }}</p>
+    {%- endif %}
+    <p class="pub-links">
+      {%- for l in pub.links %}
+      <a href="{{ l.url | relative_url }}">{{ l.name }}</a>
+      {%- endfor %}
+      {%- if pub.links.size == 0 %}
+      <span class="muted">In press; link added on publication</span>
+      {%- endif %}
+    </p>
+  </div>
+</article>

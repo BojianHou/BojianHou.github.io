@@ -1,0 +1,27 @@
+{%- comment -%}
+All publications grouped by year, with topic filter chips (assets/js/site.js). Without JavaScript the chips stay hidden
+and every paper is shown.
+{%- endcomment -%}
+{%- assign pubs = site.data.publications -%}
+{%- assign n_selected = pubs | where: "selected", true | size -%}
+{%- assign n_lead = pubs | where: "lead", true | size -%}
+<div class="pub-filters" role="group" aria-label="Filter publications by topic" hidden>
+  <button type="button" class="chip" data-filter="all" aria-pressed="true">All <span class="chip-n">{{ pubs.size }}</span></button>
+  <button type="button" class="chip" data-filter="selected" aria-pressed="false">Selected <span class="chip-n">{{ n_selected }}</span></button>
+  <button type="button" class="chip" data-filter="lead" aria-pressed="false">Lead-authored <span class="chip-n">{{ n_lead }}</span></button>
+  {%- for t in site.data.topics %}
+  {%- assign n = pubs | where_exp: "p", "p.tags contains t.id" | size %}
+  <button type="button" class="chip" data-filter="{{ t.id }}" aria-pressed="false">{{ t.label }} <span class="chip-n">{{ n }}</span></button>
+  {%- endfor %}
+</div>
+<p class="pub-count" aria-live="polite"><span class="pub-count-n">{{ pubs.size }}</span> papers<span class="pub-count-label"></span></p>
+{%- assign groups = pubs | group_by: "year" %}
+{%- for g in groups %}
+<section class="pub-year" aria-labelledby="y{{ g.name }}">
+  <h2 class="pub-year-h" id="y{{ g.name }}">{{ g.name }}</h2>
+  {%- for pub in g.items %}
+  {%- assign eager = false -%}{%- if forloop.parentloop.first and forloop.index <= 3 -%}{%- assign eager = true -%}{%- endif %}
+  {% include pub-row.html pub=pub variant="list" eager=eager %}
+  {%- endfor %}
+</section>
+{%- endfor %}

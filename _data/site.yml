@@ -1,0 +1,22 @@
+# Venue groups listed under "Published at" on the homepage, in this order. Counts come from publications.yml.
+venues_shown: [NeurIPS, ICML, ICLR, KDD, COLM, AAAI, IJCAI, UAI, AISTATS, EMNLP Findings, IEEE TNNLS, IEEE TKDE, Medical Image Analysis, npj Digital Medicine]
+recognition:
+  - Best Paper Award, ACM BCB 2025 and 2023
+  - Distinguished Paper Award, AMIA 2024
+  - Oral, KDD 2025
+  - Excellent Doctoral Dissertation Award, Jiangsu Province
+nav:
+  - title: About
+    url: /
+  - title: Publications
+    url: /publications/
+  - title: News
+    url: /news/
+  - title: Awards
+    url: /awards/
+  - title: Service
+    url: /services/
+  - title: Resume
+    url: /resume/
+# Homepage "Selected Publications", in this order.
+selected_order: [kunlun-kdd26, sem-ece-neurips26, bilevel-calibration-colm26, calibration-aligned-llm-icml25, attention-task-arithmetic-iclr25, mentalchat16k-kdd25, fair-graphical-models-neurips24, fair-cca-neurips23, fesl-nips17]

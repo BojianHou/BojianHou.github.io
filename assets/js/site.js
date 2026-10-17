@@ -1,0 +1,92 @@
+/* Publication topic filters and the news "Show all" toggle. Without this script every paper and news item shows. */
+(function () {
+  'use strict';
+
+  // ----- Publication filters -----
+  var bar = document.querySelector('.pub-filters');
+  if (bar) {
+    var chips = Array.prototype.slice.call(bar.querySelectorAll('.chip'));
+    var pubs = Array.prototype.slice.call(document.querySelectorAll('.pub--list'));
+    var years = Array.prototype.slice.call(document.querySelectorAll('.pub-year'));
+    var countN = document.querySelector('.pub-count-n');
+    var countLabel = document.querySelector('.pub-count-label');
+
+    var matches = function (pub, key) {
+      if (key === 'all') return true;
+      if (key === 'selected') return pub.getAttribute('data-selected') === 'true';
+      if (key === 'lead') return pub.getAttribute('data-lead') === 'true';
+      return (' ' + pub.getAttribute('data-tags') + ' ').indexOf(' ' + key + ' ') !== -1;
+    };
+
+    var apply = function (key, updateHash) {
+      var valid = chips.some(function (c) { return c.getAttribute('data-filter') === key; });
+      if (!valid) key = 'all';
+      var shown = 0;
+      pubs.forEach(function (p) {
+        var ok = matches(p, key);
+        p.hidden = !ok;
+        if (ok) shown += 1;
+      });
+      years.forEach(function (y) {
+        y.hidden = !y.querySelector('.pub--list:not([hidden])');
+      });
+      var label = '';
+      chips.forEach(function (c) {
+        var on = c.getAttribute('data-filter') === key;
+        c.setAttribute('aria-pressed', on ? 'true' : 'false');
+        if (on && key !== 'all') label = ' · ' + c.firstChild.textContent.trim();
+      });
+      // keep the active chip visible when the chip bar scrolls sideways (phones)
+      chips.forEach(function (c) {
+        if (c.getAttribute('aria-pressed') === 'true' && bar.scrollWidth > bar.clientWidth) {
+          bar.scrollLeft = Math.max(0, c.offsetLeft - bar.offsetLeft - 16);
+        }
+      });
+      if (countN) countN.textContent = shown;
+      if (countLabel) countLabel.textContent = label;
+      if (updateHash && history.replaceState) {
+        history.replaceState(null, '', key === 'all' ? location.pathname : '#topic=' + key);
+      }
+    };
+
+    var fromHash = function () {
+      var m = /^#topic=([\w-]+)$/.exec(location.hash);
+      if (m) { apply(m[1], false); return true; }
+      return false;
+    };
+
+    chips.forEach(function (c) {
+      c.addEventListener('click', function () { apply(c.getAttribute('data-filter'), true); });
+    });
+    bar.hidden = false;
+    if (!fromHash()) {
+      // A link to a single paper (#paper-id) keeps everything visible so the target is on the page.
+      apply('all', false);
+    }
+    window.addEventListener('hashchange', function () {
+      if (!fromHash() && location.hash.length > 1) apply('all', false);
+    });
+  }
+
+  // ----- News "Show all" -----
+  var lists = document.querySelectorAll('.news-list[data-limit]');
+  Array.prototype.forEach.call(lists, function (list) {
+    var limit = parseInt(list.getAttribute('data-limit'), 10) || 0;
+    var items = list.querySelectorAll('.news-item');
+    var btn = list.nextElementSibling;
+    if (!limit || items.length <= limit || !btn || !btn.classList.contains('news-toggle')) return;
+    var expanded = false;
+    var render = function () {
+      list.classList.toggle('is-expanded', expanded);
+      btn.textContent = expanded ? btn.getAttribute('data-less') : btn.getAttribute('data-more');
+      btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    };
+    btn.hidden = false;
+    btn.addEventListener('click', function () {
+      expanded = !expanded;
+      render();
+      if (!expanded) list.scrollIntoView({ block: 'start' });
+    });
+    render();
+  });
+})();

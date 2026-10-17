@@ -1,0 +1,120 @@
+# Maintenance tools for the homepage. Never runs on master pushes.
+#  - "tools": collect paper metadata, download PDFs, crop Figure 1 thumbnails, check every publication link.
+#  - "preview": build the site with the GitHub Pages gem set, take screenshots, run Lighthouse.
+# Trigger from the Actions tab (workflow_dispatch), or push to a non-master branch with [tools] or [preview]
+# in the commit message. Outputs are pushed to the branches site-tools-output / site-preview-output.
+name: site-tools
+
+on:
+  workflow_dispatch:
+    inputs:
+      job:
+        description: "tools or preview"
+        required: true
+        default: preview
+  push:
+    branches-ignore: [master, site-tools-output, site-preview-output]
+
+permissions:
+  contents: write
+
+jobs:
+  tools:
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.job == 'tools' || github.event_name == 'push' && contains(github.event.head_commit.message, '[tools]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      SITE_TOOLS_OUT: ${{ github.workspace }}/_tools_out
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pymupdf pillow pyyaml
+      - name: Paper metadata (arXiv, Europe PMC, Crossref)
+        run: python scripts/site_tools/collect_metadata.py
+        continue-on-error: true
+      - name: Download PDFs
+        run: python scripts/site_tools/fetch_pdfs.py
+        continue-on-error: true
+      - name: Crop Figure 1 thumbnails
+        run: python scripts/site_tools/extract_teasers.py
+        continue-on-error: true
+      - name: Check links
+        run: python scripts/site_tools/check_links.py
+        continue-on-error: true
+      - name: Collect outputs
+        if: always()
+        run: |
+          mkdir -p "$SITE_TOOLS_OUT/webp" "$SITE_TOOLS_OUT/pdf_text"
+          cp images/pubs/*.webp "$SITE_TOOLS_OUT/webp/" 2>/dev/null || true
+          python - <<'EOF'
+          import os, pymupdf
+          out = os.environ['SITE_TOOLS_OUT']
+          for f in sorted(os.listdir(os.path.join(out, 'pdfs'))):
+              if f.endswith('.pdf'):
+                  doc = pymupdf.open(os.path.join(out, 'pdfs', f))
+                  txt = ''.join(doc[i].get_text() for i in range(min(2, len(doc))))
+                  open(os.path.join(out, 'pdf_text', f[:-4] + '.txt'), 'w').write(txt[:12000])
+          EOF
+          rm -rf "$SITE_TOOLS_OUT/pdfs/"*.pdf
+      - name: Publish outputs
+        if: always()
+        run: |
+          cd "$SITE_TOOLS_OUT"
+          echo "${GITHUB_SHA}" > SOURCE_COMMIT
+          git init -q && git config user.name site-tools && git config user.email actions@users.noreply.github.com
+          git checkout -q -b site-tools-output && git add -A && git commit -qm "tools output for ${GITHUB_SHA}"
+          git push -qf "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git" site-tools-output
+
+  preview:
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.job == 'preview' || github.event_name == 'push' && contains(github.event.head_commit.message, '[preview]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      OUT: ${{ github.workspace }}/_preview_out
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+      - name: Build (GitHub Pages gem set, local URL)
+        run: |
+          mkdir -p "$OUT"
+          set -o pipefail
+          bundle exec jekyll build --trace --config _config.yml,_config.dev.yml 2>&1 | tee "$OUT/build.log"
+      - name: Build with production config (must also succeed)
+        run: |
+          set -o pipefail
+          bundle exec jekyll build --destination _site_prod 2>&1 | tee "$OUT/build_prod.log"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Screenshots
+        run: |
+          (cd _site && python3 -m http.server 4000 >/dev/null 2>&1 &)
+          sleep 2
+          npm i --no-save playwright@1.48.2 >/dev/null
+          npx playwright install --with-deps chromium >/dev/null
+          node scripts/site_tools/screens.mjs "$OUT"
+      - name: Lighthouse (mobile)
+        continue-on-error: true
+        run: |
+          export CHROME_PATH=$(node -e "console.log(require('playwright').chromium.executablePath())")
+          for p in "" "publications/"; do
+            n=$( [ -z "$p" ] && echo home || echo publications )
+            npx -y lighthouse@12 "http://localhost:4000/$p" --quiet --chrome-flags="--headless=new --no-sandbox" \
+              --only-categories=performance,accessibility,best-practices,seo --output=json --output-path="$OUT/lh-$n.json" || true
+            python3 -c "import json,sys; d=json.load(open('$OUT/lh-$n.json')); print('$n', {k: round(v['score']*100) for k,v in d['categories'].items()})" | tee -a "$OUT/lighthouse.txt" || true
+            python3 -c "import json; d=json.load(open('$OUT/lh-$n.json')); [print(a['id'], a.get('score'), a['title']) for a in d['audits'].values() if a.get('score') is not None and a['score'] < 0.9 and a.get('scoreDisplayMode') in ('binary','numeric')]" >> "$OUT/lighthouse_failing_$n.txt" || true
+            rm -f "$OUT/lh-$n.json"
+          done
+      - name: Publish outputs
+        if: always()
+        run: |
+          mkdir -p "$OUT" && cd "$OUT"
+          echo "${GITHUB_SHA}" > SOURCE_COMMIT
+          git init -q && git config user.name site-tools && git config user.email actions@users.noreply.github.com
+          git checkout -q -b site-preview-output && git add -A && git commit -qm "preview output for ${GITHUB_SHA}"
+          git push -qf "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git" site-preview-output

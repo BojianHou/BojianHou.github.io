@@ -1,2 +1,10 @@
 _site/
 
+
+# site tools
+scripts/site_tools/out/
+_tools_out/
+_preview_out/
+_site_prod/
+node_modules/
+__pycache__/

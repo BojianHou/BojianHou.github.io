@@ -1,0 +1,15 @@
+---
+layout: rd
+title: Awards
+permalink: /awards/
+body_class: page-awards
+description: "Honors and awards of Bojian Hou."
+---
+<header class="page-head">
+  <h1>Honors and Awards</h1>
+</header>
+<ul class="timeline timeline-compact">
+  {%- for a in site.data.awards %}
+  <li><span class="when">{{ a.year }}</span><span>{{ a.name }}</span></li>
+  {%- endfor %}
+</ul>

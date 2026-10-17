@@ -1,17 +1,14 @@
-# main links links
+# Legacy theme navigation (pages now use _data/site.yml nav).
 main:
   - title: "About"
-    url: /about/
-
+    url: /
   - title: "Publications"
     url: /publications/
-
-  - title: "Services"
-    url: /services/
-        
+  - title: "News"
+    url: /news/
   - title: "Awards"
     url: /awards/
-    
+  - title: "Service"
+    url: /services/
   - title: "Resume"
     url: /resume/
-    
