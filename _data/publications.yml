@@ -1,0 +1,1331 @@
+- id: sem-ece-neurips26
+  title: A Semantic-Sampling Framework for Evaluating Calibration in Open-Ended Question Answering
+  authors: Zhanliang Wang*, Jiancong Xiao*, Ruochen Jin, Shu Yang, Bojian Hou†, Li Shen†
+  venue: NeurIPS 2026
+  year: 2026
+  type: conference
+  status: published
+  tags:
+  - llm
+  selected: true
+  lead: true
+  award: ''
+  links:
+  - name: arXiv
+    url: https://arxiv.org/abs/2605.08432
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    arxiv: '2605.08432'
+- id: 3d-vlm-report-mlmi26
+  title: A Unified 3D Vision-Language Framework for Structured Multi-Study Volumetric Report Generation
+  authors: Rahul Shukla, Ruiming Wu, Hongzhuo Chen, Shu Yang, Duy Duong-Tran, Duy Minh Ho Nguyen, Mathias Niepert, Cameron Beeche, James C. Gee, Jeffrey T. Duda, Rakesh Sharma, Christos Davatzikos, Walter R. Witschey, Bojian Hou†, Li Shen†
+  venue: MLMI 2026
+  year: 2026
+  type: conference
+  status: in-press
+  tags:
+  - health
+  selected: false
+  lead: true
+  award: ''
+  links: []
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources: {}
+- id: bilevel-calibration-colm26
+  title: 'Beyond Post-Hoc Temperature Scaling: Bilevel Optimization for LLM Calibration'
+  authors: Ruochen Jin*, Zhanliang Wang*, Zongyu Dai, Jiancong Xiao†, Bojian Hou†
+  venue: COLM 2026
+  year: 2026
+  type: conference
+  status: published
+  tags:
+  - llm
+  - optimization
+  selected: true
+  lead: true
+  award: ''
+  links:
+  - name: arXiv
+    url: https://arxiv.org/abs/2608.07419
+  - name: Code
+    url: https://github.com/BojianHou/calm
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    arxiv: '2608.07419'
+- id: kunlun-kdd26
+  title: 'Kunlun: Establishing Scaling Laws for Massive-Scale Recommendation Systems through Unified Architecture Design'
+  authors: Bojian Hou, Xiaolong Liu, Xiaoyi Liu, Jiaqi Xu, Yasmine Badr, Mengyue Hang, et al.
+  venue: KDD 2026 (ADS)
+  year: 2026
+  type: conference
+  status: published
+  tags:
+  - recsys
+  selected: true
+  lead: true
+  award: ''
+  links:
+  - name: arXiv
+    url: https://arxiv.org/abs/2602.10016
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    arxiv: '2602.10016'
+- id: ct-vlm-npjdm26
+  title: Generalizable CT Vision-Language Modeling for Population Health and Disease Risk
+  authors: C. A. Beeche, J. Kim, H. Tavolinejad, B. Zhao, J. Dong, R. Sharma, J. T. Duda, ... (Bojian Hou is 12th, between Colleen Morse, Li Shen)
+  venue: npj Digital Medicine 2026
+  year: 2026
+  type: journal
+  status: in-press
+  tags:
+  - health
+  selected: false
+  lead: false
+  award: ''
+  links:
+  - name: Paper
+    url: https://doi.org/10.1038/s41746-026-03257-2
+  - name: medRxiv
+    url: https://www.medrxiv.org/content/10.1101/2025.07.03.25330654v4.full
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    pdf: https://www.nature.com/articles/s41746-026-03257-2.pdf
+    doi: 10.1038/s41746-026-03257-2
+  _authors_todo: true
+- id: tabular-llm-multimodal-ad-arxiv26
+  title: Tabular LLMs for Interpretable Few-Shot Alzheimer's Disease Prediction with Multimodal Biomedical Data
+  authors: 'S. Kearney, S. Yang, Z. Wen, W. Lyu, B. Hou, D. Duong-Tran, T. Chen, '
+  venue: arXiv 2026
+  year: 2026
+  type: preprint
+  status: published
+  tags:
+  - llm
+  - health
+  selected: false
+  lead: false
+  award: ''
+  links:
+  - name: arXiv
+    url: https://arxiv.org/abs/2603.17191
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    arxiv: '2603.17191'
+  _authors_todo: true
+- id: iris-bigdata25
+  title: 'IRIS: Interpretable Risk Clustering Intelligence for Survival Analysis'
+  authors: Kazi Noshin*, Bojian Hou*, Mary Regina Boland, Zixuan Wen, Boning Tong, Li Shen, Aidong Zhang
+  venue: IEEE BigData 2025
+  year: 2025
+  type: conference
+  status: published
+  tags:
+  - interpretability
+  - health
+  selected: false
+  lead: true
+  award: ''
+  links:
+  - name: Paper
+    url: https://doi.org/10.1109/BigData66926.2025.11402028
+  - name: PMC
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12971063/
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    pmcid: PMC12971063
+- id: online-bilevel-regret-neurips25
+  title: Stochastic Regret Guarantees for Online Zeroth- and First-Order Bilevel Optimization
+  authors: Parvin Nazari, Bojian Hou, Davoud Ataee Tarzanagh, Li Shen, George Michailidis
+  venue: NeurIPS 2025
+  year: 2025
+  type: conference
+  status: published
+  tags:
+  - optimization
+  selected: false
+  lead: false
+  award: ''
+  links:
+  - name: Paper
+    url: https://proceedings.neurips.cc/paper_files/paper/2025/hash/d899eabc6c8fefd0d4064762aba407e2-Abstract-Conference.html
+  - name: arXiv
+    url: https://arxiv.org/abs/2511.01126
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    arxiv: '2511.01126'
+- id: tabular-llm-ad-bcb25
+  title: Enabling Few-Shot Alzheimer's Disease Diagnosis on Biomarker Data with Tabular LLMs
+  authors: Sophie Kearney, Shu Yang, Zixuan Wen, Bojian Hou, Duy Duong-Tran, Tianlong Chen, Jason Moore, Marylyn Ritchie, Li Shen
+  venue: ACM BCB 2025
+  year: 2025
+  type: conference
+  status: published
+  tags:
+  - llm
+  - health
+  selected: false
+  lead: false
+  award: Best Paper Award
+  links:
+  - name: Paper
+    url: https://doi.org/10.1145/3765612.3767229
+  - name: arXiv
+    url: https://arxiv.org/abs/2507.23227
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    arxiv: '2507.23227'
+- id: fair-cca-adni-bcb25
+  title: 'Fair CCA for Fair Representation Learning: An ADNI Study'
+  authors: Bojian Hou*, Zhanliang Wang*, Zhuoping Zhou, Boning Tong, Zexuan Wang, Jingxuan Bao, Duy Duong-Tran, Qi Long, Li Shen
+  venue: ACM BCB 2025
+  year: 2025
+  type: conference
+  status: published
+  tags:
+  - fairness
+  - health
+  selected: false
+  lead: true
+  award: ''
+  links:
+  - name: Paper
+    url: https://doi.org/10.1145/3765612.3767215
+  - name: arXiv
+    url: https://arxiv.org/abs/2507.09382
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    arxiv: '2507.09382'
+- id: mentalchat16k-kdd25
+  title: 'MentalChat16K: A Benchmark Dataset for Conversational Mental Health Assistance'
+  authors: Jia Xu*, Tianyi Wei*, Bojian Hou*, Patryk Orzechowski, Shu Yang, Ruochen Jin, Rachael Paulbeck, Joost Wagenaar, George Demiris, Li Shen
+  venue: KDD 2025
+  year: 2025
+  type: conference
+  status: published
+  tags:
+  - llm
+  - health
+  selected: true
+  lead: true
+  award: Oral
+  links:
+  - name: Paper
+    url: https://doi.org/10.1145/3711896.3737393
+  - name: arXiv
+    url: https://arxiv.org/abs/2503.13509
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    arxiv: '2503.13509'
+- id: calibration-aligned-llm-icml25
+  title: 'Restoring Calibration for Aligned Large Language Models: A Calibration-Aware Fine-Tuning Approach'
+  authors: Jiancong Xiao*, Bojian Hou*, Zhanliang Wang*, Ruochen Jin, Weijie Su, Qi Long, Li Shen
+  venue: ICML 2025
+  year: 2025
+  type: conference
+  status: published
+  tags:
+  - llm
+  selected: true
+  lead: true
+  award: ''
+  links:
+  - name: arXiv
+    url: https://arxiv.org/abs/2505.01997
+  - name: OpenReview
+    url: https://openreview.net/forum?id=51tMpvPNSm
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    arxiv: '2505.01997'
+- id: attention-task-arithmetic-iclr25
+  title: 'Fine-Tuning Attention Modules Only: Enhancing Weight Disentanglement in Task Arithmetic'
+  authors: Ruochen Jin*, Bojian Hou*, Jiancong Xiao*, Weijie Su, Li Shen
+  venue: ICLR 2025
+  year: 2025
+  type: conference
+  status: published
+  tags:
+  - llm
+  selected: true
+  lead: true
+  award: ''
+  links:
+  - name: arXiv
+    url: https://arxiv.org/abs/2407.07089
+  - name: OpenReview
+    url: https://openreview.net/forum?id=dj0TktJcVI
+  - name: Code
+    url: https://github.com/kyrie-23/linear_task_arithmetic
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    arxiv: '2407.07089'
+- id: genotype-feature-selection-amia25
+  title: Knowledge-Driven Feature Selection and Engineering for Genotype Data with Large Language Models
+  authors: Joseph Lee, Shu Yang, Jae Young Baik, Xiaoxi Liu, Zhen Tan, Dawei Li, Zixuan Wen, Bojian Hou, Duy Duong-Tran, Tianlong Chen, Li Shen
+  venue: AMIA Summit 2025
+  year: 2025
+  type: conference
+  status: published
+  tags:
+  - llm
+  - health
+  selected: false
+  lead: false
+  award: ''
+  links:
+  - name: arXiv
+    url: https://arxiv.org/abs/2410.01795
+  - name: PMC
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12150712/
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    arxiv: '2410.01795'
+    pmcid: PMC12150712
+- id: sdoh-kg-amia25
+  title: Leveraging Social Determinants of Health in Alzheimer’s Research Using LLM-Augmented Literature Mining and Knowledge Graphs
+  authors: Tianqi Shang, Shu Yang, Weiqing He, Tianhua Zhai, Dawei Li, Bojian Hou, Tianlong Chen, Jason H. Moore, Marylyn D. Ritchie, Li Shen
+  venue: AMIA Summit 2025
+  year: 2025
+  type: conference
+  status: published
+  tags:
+  - llm
+  - health
+  selected: false
+  lead: false
+  award: ''
+  links:
+  - name: PMC
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12150755/
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    pmcid: PMC12150755
+- id: clinical-modalities-amia25
+  title: Determining the Importance of Clinical Modalities for NeuroDegenerative Disorders and Risk of Patient Injury Using Machine Learning and Survival Analysis
+  authors: Kazi Noshin, Mary Regina Boland, Bojian Hou, Weiqing He, Victoria Lu, Carol Manning, Li Shen, Aidong Zhang
+  venue: AMIA Summit 2025
+  year: 2025
+  type: conference
+  status: published
+  tags:
+  - health
+  selected: false
+  lead: false
+  award: ''
+  links:
+  - name: PMC
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12150751/
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    pmcid: PMC12150751
+- id: association-mining-psb25
+  title: Uncovering Important Diagnostic Features for Alzheimer’s, Parkinson’s and Other Dementias Using Interpretable Association Mining Methods
+  authors: Kazi Noshin*, Mary Regina Boland*, Bojian Hou, Victoria Lu, Carol Manning, Li Shen, Aidong Zhang
+  venue: PSB 2025
+  year: 2025
+  type: conference
+  status: published
+  tags:
+  - interpretability
+  - health
+  selected: false
+  lead: false
+  award: ''
+  links:
+  - name: PDF
+    url: https://psb.stanford.edu/psb-online/proceedings/psb25/noshin.pdf
+  - name: PMC
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC11649014/
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    pdf: https://psb.stanford.edu/psb-online/proceedings/psb25/noshin.pdf
+    pmcid: PMC11649014
+- id: llm-topic-modeling-innovaging25
+  title: 'Advanced Topic Modeling with Large Language Models: Analyzing Social Media Content from Dementia Caregivers'
+  authors: Weiqing He*, Bojian Hou*, Amy Zheng, Yanbo Feng, Ari Klein, Karen O'Connor, Shu Yang, Tianqi Shang, George Demiris, Graciela Gonzalez-Hernandez, Li Shen
+  venue: Innovation in Aging 2025
+  year: 2025
+  type: journal
+  status: published
+  tags:
+  - llm
+  - health
+  selected: false
+  lead: true
+  award: ''
+  links:
+  - name: Paper
+    url: https://doi.org/10.1093/geroni/igaf120
+  - name: PMC
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12742845/
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    pmcid: PMC12742845
+- id: fair-multimodal-cca-amia25
+  title: 'Fair Multi-modal Canonical Correlation Analysis: A Neuroimaging Study of Alzheimer''s Disease'
+  authors: Z. Zhou, B. Tong, B. Hou, C. Davatzikos, Q. Long, L. Shen
+  venue: AMIA 2025
+  year: 2025
+  type: conference
+  status: published
+  tags:
+  - fairness
+  - health
+  selected: false
+  lead: false
+  award: ''
+  links:
+  - name: PubMed
+    url: https://pubmed.ncbi.nlm.nih.gov/41726413/
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    pmid: '41726413'
+  _authors_todo: true
+- id: icafs-tai25
+  title: 'ICAFS: Inter-Client-Aware Feature Selection for Vertical Federated Learning'
+  authors: 'R. Jin, B. Tong, S. Yang, B. Hou, L. Shen, '
+  venue: IEEE TAI 2025
+  year: 2025
+  type: journal
+  status: published
+  tags:
+  - other
+  selected: false
+  lead: false
+  award: ''
+  links:
+  - name: Paper
+    url: https://doi.org/10.1109/TAI.2025.3647596
+  - name: arXiv
+    url: https://arxiv.org/abs/2504.10851
+  - name: PMC
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12893625/
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    arxiv: '2504.10851'
+  _authors_todo: true
+- id: sdoh-ehr-kg-innovaging25
+  title: A Novel Computational Analysis Integrating Social Determinants Information from EHR and Literature with Alzheimer's Disease Biological Knowledge through Large Language Models and Knowledge Graphs
+  authors: 'T. Shang, S. Yang, T. Zhai, W. He, E. Mamourian, J. Zhang, B. Hou, J. Lee, '
+  venue: Innovation in Aging 2025
+  year: 2025
+  type: journal
+  status: published
+  tags:
+  - llm
+  - health
+  selected: false
+  lead: false
+  award: ''
+  links:
+  - name: Paper
+    url: https://doi.org/10.1093/geroni/igaf102
+  - name: PMC
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12742847/
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    pmcid: PMC12742847
+  _authors_todo: true
+- id: pmbb-vlm-iccvw25
+  title: Adapting Vision-Language Models for 3D CT/MRI Understanding on PMBB via Slice Selection and Explanation Analysis
+  authors: 'H. Chen, R. Shukla, R. Wu, S. Yang, D. Duong-Tran, D. M. H. Nguyen, '
+  venue: ICCV 2025 Workshop (VADH)
+  year: 2025
+  type: workshop
+  status: published
+  tags:
+  - health
+  selected: false
+  lead: false
+  award: ''
+  links:
+  - name: Paper
+    url: https://openaccess.thecvf.com/content/ICCV2025W/VADH/html/Chen_Adapting_Vision-Language_Models_for_3D_CTMRI_Understanding_on_PMBB_via_ICCVW_2025_paper.html
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    pdf: https://openaccess.thecvf.com/content/ICCV2025W/VADH/papers/Chen_Adapting_Vision-Language_Models_for_3D_CTMRI_Understanding_on_PMBB_via_ICCVW_2025_paper.pdf
+  _authors_todo: true
+- id: multimodal-dcsm-iccvw25
+  title: Multi-Modal Deep Clustering Survival Machines for Alzheimer's Disease Subtype Discovery
+  authors: 'Z. Wen, B. Hou, W. He, S. Yang, J. Moore, A. Saykin, H. Huang, P. Thompson, '
+  venue: ICCV 2025 Workshop (VADH)
+  year: 2025
+  type: workshop
+  status: published
+  tags:
+  - interpretability
+  - health
+  selected: false
+  lead: false
+  award: ''
+  links:
+  - name: Proceedings
+    url: https://openaccess.thecvf.com/ICCV2025_workshops/VADH
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    cvf_index: https://openaccess.thecvf.com/ICCV2025_workshops/VADH
+    cvf_match: Multi-Modal Deep Clustering
+  _authors_todo: true
+- id: sdoh-dcsm-aimedhealth25
+  title: Integrating Social Determinants of Health in a Multi-Modal Deep Clustering Survival Model for Injury-Risk in Alzheimer's and Related Dementia Patients
+  authors: K. Noshin, M. R. Boland, B. Hou, W. He, V. Lu, L. Shen, A. Zhang
+  venue: AIMedHealth 2025 (PMLR 281)
+  year: 2025
+  type: conference
+  status: published
+  tags:
+  - health
+  selected: false
+  lead: false
+  award: ''
+  links:
+  - name: Paper
+    url: https://proceedings.mlr.press/v281/noshin25a.html
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    pdf: https://proceedings.mlr.press/v281/noshin25a/noshin25a.pdf
+  _authors_todo: true
+- id: esn-topology-aimedhealth25
+  title: Evaluating Topological Fitness of Human Brain-Inspired Sub-Circuits in Echo State Networks
+  authors: B. V. Nguyen, T. Chen, S. Yang, B. Hou, L. Shen, D. Duong-Tran
+  venue: AIMedHealth 2025 (PMLR 281)
+  year: 2025
+  type: conference
+  status: published
+  tags:
+  - other
+  selected: false
+  lead: false
+  award: ''
+  links:
+  - name: Paper
+    url: https://proceedings.mlr.press/v281/nguyen25a.html
+  - name: arXiv
+    url: https://arxiv.org/abs/2412.14999
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    arxiv: '2412.14999'
+    pdf: https://proceedings.mlr.press/v281/nguyen25a/nguyen25a.pdf
+  _authors_todo: true
+- id: rna-structure-survey-arxiv25
+  title: 'Advances in RNA Secondary Structure Prediction and RNA Modifications: Methods, Data, and Applications'
+  authors: 'S. Yang, N. T. Pham, Z. Li, J. Y. Baik, J. Lee, T. Zhai, W. Yu, B. Hou, T. Shang, '
+  venue: arXiv 2025
+  year: 2025
+  type: preprint
+  status: published
+  tags:
+  - other
+  selected: false
+  lead: false
+  award: ''
+  links:
+  - name: arXiv
+    url: https://arxiv.org/abs/2501.04056
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    arxiv: '2501.04056'
+  _authors_todo: true
+- id: sefd-bigdata24
+  title: 'SEFD: Semantic-Enhanced Framework for Detecting LLM-Generated Text'
+  authors: Weiqing He*, Bojian Hou*, Tianqi Shang*, Davoud Ataee Tarzanagh, Qi Long, Li Shen
+  venue: IEEE BigData 2024
+  year: 2024
+  type: conference
+  status: published
+  tags:
+  - llm
+  selected: false
+  lead: true
+  award: ''
+  links:
+  - name: arXiv
+    url: https://arxiv.org/abs/2411.12764
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    arxiv: '2411.12764'
+- id: fair-graphical-models-neurips24
+  title: Fairness-Aware Estimation of Graphical Models
+  authors: Zhuoping Zhou*, Davoud Ataee Tarzanagh*, Bojian Hou*, Qi Long, Li Shen
+  venue: NeurIPS 2024
+  year: 2024
+  type: conference
+  status: published
+  tags:
+  - fairness
+  selected: true
+  lead: true
+  award: ''
+  links:
+  - name: Paper
+    url: https://proceedings.neurips.cc/paper_files/paper/2024/hash/1fd2b71226c67013756d318d70c40eee-Abstract.html
+  - name: arXiv
+    url: https://arxiv.org/abs/2408.17396
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    arxiv: '2408.17396'
+- id: dalk-emnlp24
+  title: 'DALK: Dynamic Co-Augmentation of LLMs and KG to answer Alzheimer’s Disease Questions with Scientific Literature'
+  authors: Dawei Li, Shu Yang, Zhen Tan, Jae Young Baik, Sukwon Yun, Joseph Lee, Aaron Chacko, Bojian Hou, Duy Duong-Tran, Ying Ding, Huan Liu, Li Shen, Tianlong Chen
+  venue: EMNLP 2024 Findings
+  year: 2024
+  type: conference
+  status: published
+  tags:
+  - llm
+  - health
+  selected: false
+  lead: false
+  award: ''
+  links:
+  - name: Paper
+    url: https://aclanthology.org/2024.findings-emnlp.119/
+  - name: arXiv
+    url: https://arxiv.org/abs/2405.04819
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    arxiv: '2405.04819'
+- id: caregivers-twitter-amia24
+  title: 'Analyzing Dementia Caregivers'' Experiences on Twitter: A Term-Weighted Topic Modeling Approach'
+  authors: Yanbo Feng*, Bojian Hou*, Ari Klein, Karen O'Connor, Jiong Chen, Andrés Mondragón, Shu Yang, Graciela Gonzalez-Hernandez, Li Shen
+  venue: AMIA 2024
+  year: 2024
+  type: conference
+  status: published
+  tags:
+  - health
+  selected: false
+  lead: true
+  award: ''
+  links:
+  - name: PMC
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12099380/
+  - name: PubMed
+    url: https://pubmed.ncbi.nlm.nih.gov/40417464/
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    pmcid: PMC12099380
+- id: fair-mci-mri-amia24
+  title: Ensuring Fairness in Detecting Mild Cognitive Impairment with MRI
+  authors: Boning Tong, Travyse Edwards, Shu Yang, Bojian Hou, Davoud Ataee Tarzanagh, Ryan J. Urbanowicz, Jason H. Moore, Marylyn D. Ritchie, Christos Davatzikos, Li Shen
+  venue: AMIA 2024
+  year: 2024
+  type: conference
+  status: published
+  tags:
+  - fairness
+  - health
+  selected: false
+  lead: false
+  award: Distinguished Paper Award
+  links:
+  - name: PMC
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12099326/
+  - name: PubMed
+    url: https://pubmed.ncbi.nlm.nih.gov/40417489/
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    pmcid: PMC12099326
+- id: online-bilevel-aistats24
+  title: 'Online Bilevel Optimization: Regret Analysis of Online Alternating Gradient Methods'
+  authors: Davoud Ataee Tarzanagh, Parvin Nazari, Bojian Hou, Li Shen, Laura Balzano
+  venue: AISTATS 2024
+  year: 2024
+  type: conference
+  status: published
+  tags:
+  - optimization
+  selected: false
+  lead: false
+  award: ''
+  links:
+  - name: Paper
+    url: https://proceedings.mlr.press/v238/ataee-tarzanagh24a.html
+  - name: arXiv
+    url: https://arxiv.org/abs/2207.02829
+  - name: Code
+    url: https://github.com/BojianHou/OAGD
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    arxiv: '2207.02829'
+- id: interview-interpretability-amia24
+  title: Interpretability Study for Long Interview Transcripts from Behavior Intervention Sessions for Family Caregivers of Dementia Patients
+  authors: Weiqing He*, Bojian Hou*, George Demiris, Li Shen
+  venue: AMIA Summit 2024
+  year: 2024
+  type: conference
+  status: published
+  tags:
+  - interpretability
+  - health
+  selected: false
+  lead: true
+  award: ''
+  links:
+  - name: PMC
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC11141819/
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    pmcid: PMC11141819
+- id: pferm-amia24
+  title: 'PFERM: A Fair Empirical Risk Minimization Approach with Prior Knowledge'
+  authors: Bojian Hou, Andrés Mondragón, Davoud Ataee Tarzanagh, Zhuoping Zhou, Andrew J Saykin, Jason H Moore, Marylyn D Ritchie, Qi Long, Li Shen
+  venue: AMIA Summit 2024
+  year: 2024
+  type: conference
+  status: published
+  tags:
+  - fairness
+  - health
+  selected: false
+  lead: true
+  award: ''
+  links:
+  - name: Code
+    url: https://github.com/BojianHou/PFERM
+  - name: PMC
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC11141835/
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    pmcid: PMC11141835
+- id: amyloid-subtypes-amia24
+  title: Cluster Analysis of Cortical Amyloid Burden for Identifying Imaging-driven Subtypes in Mild Cognitive Impairment
+  authors: Ruiming Wu, Bing He, Bojian Hou, Andrew J Saykin, Jingwen Yan, Li Shen
+  venue: AMIA Summit 2024
+  year: 2024
+  type: conference
+  status: published
+  tags:
+  - health
+  selected: false
+  lead: false
+  award: ''
+  links:
+  - name: PMC
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC11141862/
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    pmcid: PMC11141862
+- id: manifoldron-tnnls24
+  title: 'Manifoldron: Direct Space Partition via Manifold Discovery'
+  authors: Dayang Wang, Feng-Lei Fan, Bo-Jian Hou, Hao Zhang, Rongjie Lai, Hengyong Yu, Fei Wang
+  venue: IEEE TNNLS 2024
+  year: 2024
+  type: journal
+  status: published
+  tags:
+  - other
+  selected: false
+  lead: false
+  award: ''
+  links:
+  - name: arXiv
+    url: https://arxiv.org/abs/2201.05279
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    arxiv: '2201.05279'
+- id: mg-tcca-tcbb24
+  title: 'MG-TCCA: Tensor Canonical Correlation Analysis across Multiple Groups'
+  authors: Zhuoping Zhou, Boning Tong, Davoud Ataee Tarzanagh, Bojian Hou, Andrew J. Saykin, Qi Long, Li Shen
+  venue: IEEE/ACM TCBB 2024
+  year: 2024
+  type: journal
+  status: published
+  tags:
+  - health
+  selected: false
+  lead: false
+  award: ''
+  links:
+  - name: Paper
+    url: https://doi.org/10.1109/TCBB.2024.3471930
+  - name: PMC
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC11954983/
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    pmcid: PMC11954983
+- id: interpretable-dcsm-media24
+  title: Interpretable Deep Clustering Survival Machines for Alzheimer's Disease Subtype Discovery
+  authors: Bojian Hou*, Zixuan Wen*, Jingxuan Bao, Richard Zhang, Boning Tong, Shu Yang, Junhao Wen, Yuhan Cui, Jason H Moore, Andrew J. Saykin, Heng Huang, Paul M. Thompson, Marylyn D. Ritchie, Christos Davatzikos, Li Shen
+  venue: Medical Image Analysis 2024
+  year: 2024
+  type: journal
+  status: published
+  tags:
+  - interpretability
+  - health
+  selected: false
+  lead: true
+  award: ''
+  links:
+  - name: Paper
+    url: https://doi.org/10.1016/j.media.2024.103231
+  - name: Code
+    url: https://github.com/PennShenLab/DCSM/
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources: {}
+- id: quadratic-autoencoder-tai24
+  title: Quadratic Neuron-empowered Heterogeneous Autoencoder for Unsupervised Anomaly Detection
+  authors: Jing-Xiao Liao, Bo-Jian Hou, Hang-Cheng Dong, Hao Zhang, Jinwei Sun, Shiping Zhang, Feng-Lei Fan
+  venue: IEEE TAI 2024
+  year: 2024
+  type: journal
+  status: published
+  tags:
+  - other
+  selected: false
+  lead: false
+  award: ''
+  links:
+  - name: Paper
+    url: https://ieeexplore.ieee.org/document/10510400
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    arxiv: '2204.01707'
+- id: sinkhorn-iscience24
+  title: Distance-weighted Sinkhorn loss for Alzheimer's disease classification
+  authors: Zexuan Wang, Qipeng Zhan, Boning Tong, Shu Yang, Bojian Hou, Heng Huang, Andrew J. Saykin, Paul M. Thompson, Christos Davatzikos, Li Shen
+  venue: iScience 2024
+  year: 2024
+  type: journal
+  status: published
+  tags:
+  - health
+  selected: false
+  lead: false
+  award: ''
+  links:
+  - name: Paper
+    url: https://doi.org/10.1016/j.isci.2024.109212
+  - name: PubMed
+    url: https://pubmed.ncbi.nlm.nih.gov/38433927/
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    pmid: '38433927'
+- id: fair-cca-neurips23
+  title: Fair Canonical Correlation Analysis
+  authors: Zhuoping Zhou*, Davoud Ataee Tarzanagh*, Bojian Hou*, Boning Tong, Jia Xu, Yanbo Feng, Qi Long, Li Shen
+  venue: NeurIPS 2023
+  year: 2023
+  type: conference
+  status: published
+  tags:
+  - fairness
+  selected: true
+  lead: true
+  award: ''
+  links:
+  - name: Paper
+    url: https://proceedings.neurips.cc/paper_files/paper/2023/file/0b8e4c8468273ee3bafb288229c0acbc-Paper-Conference.pdf
+  - name: arXiv
+    url: https://arxiv.org/abs/2309.15809
+  - name: Code
+    url: https://github.com/PennShenLab/Fair_CCA
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    arxiv: '2309.15809'
+- id: mg-tcca-bcb23
+  title: Multi-Group Tensor Canonical Correlation Analysis
+  authors: Zhuoping Zhou, Boning Tong, Davoud Ataee Tarzanagh, Bojian Hou, Andrew J. Saykin, Qi Long, Li Shen
+  venue: ACM BCB 2023
+  year: 2023
+  type: conference
+  status: published
+  tags:
+  - fairness
+  - health
+  selected: false
+  lead: false
+  award: Best Paper Award
+  links:
+  - name: Paper
+    url: https://doi.org/10.1145/3584371.3612962
+  - name: PMC
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC10593155/
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    pmcid: PMC10593155
+- id: avs-loss-mlmi23
+  title: Class-Balanced Deep Learning with Adaptive Vector Scaling Loss for Dementia Stage Detection
+  authors: Boning Tong, Zhuoping Zhou, Davoud Ataee Tarzanagh, Bojian Hou, Andrew J. Saykin, Jason Moore, Marylyn Ritchie, Li Shen
+  venue: MLMI 2023
+  year: 2023
+  type: conference
+  status: published
+  tags:
+  - health
+  selected: false
+  lead: false
+  award: ''
+  links:
+  - name: Paper
+    url: https://doi.org/10.1007/978-3-031-45676-3_15
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources: {}
+- id: facims-uai23
+  title: Fairness-Aware Class Imbalanced Learning on Multiple Subgroups
+  authors: Davoud Ataee Tarzanagh*, Bojian Hou*, Boning Tong*, Qi Long, Li Shen
+  venue: UAI 2023
+  year: 2023
+  type: conference
+  status: published
+  tags:
+  - fairness
+  selected: false
+  lead: true
+  award: ''
+  links:
+  - name: Paper
+    url: https://proceedings.mlr.press/v216/tarzanagh23a.html
+  - name: Code
+    url: https://github.com/PennShenLab/FACIMS
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    pdf: https://proceedings.mlr.press/v216/tarzanagh23a/tarzanagh23a.pdf
+- id: dcsm-isbi23
+  title: Deep Clustering Survival Machines with Interpretable Expert Distributions
+  authors: Bojian Hou, Hongming Li, Zhicheng Jiao, Zhen Zhou, Hao Zhang, Yong Fan
+  venue: ISBI 2023
+  year: 2023
+  type: conference
+  status: published
+  tags:
+  - interpretability
+  - health
+  selected: false
+  lead: true
+  award: ''
+  links:
+  - name: arXiv
+    url: https://arxiv.org/abs/2301.11826
+  - name: Code
+    url: https://github.com/BojianHou/DCSM
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    arxiv: '2301.11826'
+- id: glaucoma-bias-amia23
+  title: Evaluate Underdiagnosis and Overdiagnosis Bias of Deep Learning Model on Primary Open-Angle Glaucoma Diagnosis in Under-Served Populations
+  authors: Mingquan Lin, Yuyun Xiao, Bojian Hou, Tingyi Wanyan, Mohit Manoj Sharma, Zhangyang Wang, Fei Wang, Sarah Van Tassel, Yifan Peng
+  venue: AMIA Summit 2023
+  year: 2023
+  type: conference
+  status: published
+  tags:
+  - fairness
+  - health
+  selected: false
+  lead: false
+  award: ''
+  links:
+  - name: PDF
+    url: /files/glaucoma_bias.pdf
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    pdf: /files/glaucoma_bias.pdf
+- id: old3s-tkde23
+  title: Online Learning from Evolving Feature Spaces with Deep Variational Models
+  authors: Heng Lian, Di Wu, Bo-Jian Hou, Jian Wu, Yi He
+  venue: IEEE TKDE 2023
+  year: 2023
+  type: journal
+  status: published
+  tags:
+  - open-env
+  selected: false
+  lead: false
+  award: ''
+  links:
+  - name: PDF
+    url: /files/OLD3S.pdf
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    pdf: /files/OLD3S.pdf
+- id: chest-xray-cbm23
+  title: Enhancing thoracic disease detection using chest X-rays from PubMed Central Open Access
+  authors: Mingquan Lin, Bojian Hou, Swati Mishra, Tianyuan Yao, Yuankai Huo, Qian Yang, Fei Wang, George Shih, Yifan Peng
+  venue: Computers in Biology and Medicine 2023
+  year: 2023
+  type: journal
+  status: published
+  tags:
+  - health
+  selected: false
+  lead: false
+  award: ''
+  links:
+  - name: PDF
+    url: /files/pubmed.pdf
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    pdf: /files/pubmed.pdf
+- id: detr-pretraining-arxiv23
+  title: Revisiting DETR Pre-training for Object Detection
+  authors: Yan Ma, Weicong Liang, Yiduo Hao, Bojian Hou, Xiangyu Yue, Chao Zhang, Yuhui Yuan
+  venue: arXiv 2023
+  year: 2023
+  type: preprint
+  status: published
+  tags:
+  - other
+  selected: false
+  lead: false
+  award: ''
+  links:
+  - name: arXiv
+    url: https://arxiv.org/abs/2308.01300
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    arxiv: '2308.01300'
+- id: doubly-streaming-mm22
+  title: Online Deep Learning from Doubly-Streaming Data
+  authors: Heng Lian, John S. Atwood, Bo-Jian Hou, Jian Wu, Yi He
+  venue: ACM MM 2022
+  year: 2022
+  type: conference
+  status: published
+  tags:
+  - open-env
+  selected: false
+  lead: false
+  award: ''
+  links:
+  - name: Paper
+    url: https://doi.org/10.1145/3503161.3548355
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources: {}
+- id: glaucoma-scirep22
+  title: Automated diagnosing primary open-angle glaucoma from fundus image by simulating human’s grading with deep learning
+  authors: Mingquan Lin, Bojian Hou, Lei Liu, Mae Gordon, Michael Kass, Fei Wang, Sarah H. Van Tassel, Yifan Peng
+  venue: Scientific Reports 2022
+  year: 2022
+  type: journal
+  status: published
+  tags:
+  - health
+  selected: false
+  lead: false
+  award: ''
+  links:
+  - name: PDF
+    url: /files/glaucoma.pdf
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    pdf: /files/glaucoma.pdf
+- id: sf2el-aaai21
+  title: Storage Fit Learning with Feature Evolvable Streams
+  authors: Bo-Jian Hou, Yu-Hu Yan, Peng Zhao, Zhi-Hua Zhou
+  venue: AAAI 2021
+  year: 2021
+  type: conference
+  status: published
+  tags:
+  - open-env
+  selected: false
+  lead: true
+  award: ''
+  links:
+  - name: arXiv
+    url: https://arxiv.org/abs/2007.11280
+  - name: Code
+    url: https://www.lamda.nju.edu.cn/code_SF2EL.ashx
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    arxiv: '2007.11280'
+- id: ovfm-icdm21
+  title: Online Learning in Variable Feature Spaces with Mixed Data
+  authors: Yi He, Jiaxian Dong, Bo-Jian Hou, Yu Wang, Fei Wang
+  venue: ICDM 2021
+  year: 2021
+  type: conference
+  status: published
+  tags:
+  - open-env
+  selected: false
+  lead: false
+  award: ''
+  links:
+  - name: PDF
+    url: /files/OVFM.pdf
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    pdf: /files/OVFM.pdf
+- id: pufe-tnnls21
+  title: Prediction with Unpredictable Feature Evolution
+  authors: Bo-Jian Hou, Lijun Zhang, Zhi-Hua Zhou
+  venue: IEEE TNNLS 2021
+  year: 2021
+  type: journal
+  status: published
+  tags:
+  - open-env
+  selected: false
+  lead: true
+  award: ''
+  links:
+  - name: arXiv
+    url: https://arxiv.org/abs/1904.12171
+  - name: Code
+    url: https://www.lamda.nju.edu.cn/code_PUFE.ashx
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    arxiv: '1904.12171'
+- id: clinical-evidence-engine-arxiv21
+  title: 'Clinical Evidence Engine: Proof-of-Concept For a Clinical-Domain-Agnostic Decision Support Infrastructure'
+  authors: Bojian Hou, Hao Zhang, Gur Ladizhinsky, Ali Kayyal, Stephen Yang, Volodymyr Kuleshov, Fei Wang, Qian Yang
+  venue: arXiv 2021
+  year: 2021
+  type: preprint
+  status: published
+  tags:
+  - llm
+  - health
+  selected: false
+  lead: true
+  award: ''
+  links:
+  - name: arXiv
+    url: https://arxiv.org/abs/2111.00621
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    arxiv: '2111.00621'
+- id: lisor-tnnls20
+  title: Learning with Interpretable Structure from Gated RNN
+  authors: Bo-Jian Hou, Zhi-Hua Zhou
+  venue: IEEE TNNLS 2020
+  year: 2020
+  type: journal
+  status: published
+  tags:
+  - interpretability
+  selected: false
+  lead: true
+  award: ''
+  links:
+  - name: PDF
+    url: /files/LISOR.pdf
+  - name: Code
+    url: https://www.lamda.nju.edu.cn/code_LISOR.ashx
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    pdf: /files/LISOR.pdf
+    arxiv: '1810.10708'
+- id: rnn-interpretability-ccfai19
+  title: Learning Interpretability from RNN with Feature Changing
+  authors: Bo-Jian Hou, Yuan Jiang
+  venue: CCFAI 2019
+  year: 2019
+  type: conference
+  status: published
+  tags:
+  - interpretability
+  - open-env
+  selected: false
+  lead: true
+  award: Outstanding Student Paper Award
+  links:
+  - name: PDF
+    url: /files/CCFAI19.pdf
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    pdf: /files/CCFAI19.pdf
+- id: fesl-tkde19
+  title: Learning with Feature Evolvable Streams
+  authors: Bo-Jian Hou, Lijun Zhang, Zhi-Hua Zhou
+  venue: IEEE TKDE 2019
+  year: 2019
+  type: journal
+  status: published
+  tags:
+  - open-env
+  selected: false
+  lead: true
+  award: ''
+  links:
+  - name: PDF
+    url: /files/FESL-tkde.pdf
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    pdf: /files/FESL-tkde.pdf
+- id: deep-forest-mil-jcrd19
+  title: Deep Forest for Multiple Instance Learning
+  authors: Jie Ren, Bojian Hou, Yuan Jiang
+  venue: J. Computer Research and Development 2019
+  year: 2019
+  type: journal
+  status: published
+  tags:
+  - other
+  selected: false
+  lead: false
+  award: ''
+  links:
+  - name: PDF
+    url: /files/MIDF.pdf
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    pdf: /files/MIDF.pdf
+- id: fesl-nips17
+  title: Learning with Feature Evolvable Streams
+  authors: Bo-Jian Hou, Lijun Zhang, Zhi-Hua Zhou
+  venue: NIPS 2017
+  year: 2017
+  type: conference
+  status: published
+  tags:
+  - open-env
+  selected: true
+  lead: true
+  award: ''
+  links:
+  - name: PDF
+    url: /files/FESL.pdf
+  - name: Code
+    url: https://www.lamda.nju.edu.cn/code_FESL.ashx
+  - name: Poster
+    url: /files/FESL-poster.pdf
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    pdf: /files/FESL.pdf
+- id: sfl-ijcai17
+  title: Storage Fit Learning with Unlabeled Data
+  authors: Bo-Jian Hou, Lijun Zhang, Zhi-Hua Zhou
+  venue: IJCAI 2017
+  year: 2017
+  type: conference
+  status: published
+  tags:
+  - open-env
+  selected: false
+  lead: true
+  award: ''
+  links:
+  - name: PDF
+    url: /files/SFL.pdf
+  - name: Code
+    url: https://www.lamda.nju.edu.cn/code_SFL.ashx
+  - name: Poster
+    url: /files/SFL-poster.pdf
+  teaser: ''
+  teaser_alt: ''
+  tldr: ''
+  _sources:
+    pdf: /files/SFL.pdf
