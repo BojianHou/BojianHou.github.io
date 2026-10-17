@@ -36,6 +36,12 @@
         c.setAttribute('aria-pressed', on ? 'true' : 'false');
         if (on && key !== 'all') label = ' · ' + c.firstChild.textContent.trim();
       });
+      // keep the active chip visible when the chip bar scrolls sideways (phones)
+      chips.forEach(function (c) {
+        if (c.getAttribute('aria-pressed') === 'true' && bar.scrollWidth > bar.clientWidth) {
+          bar.scrollLeft = Math.max(0, c.offsetLeft - bar.offsetLeft - 16);
+        }
+      });
       if (countN) countN.textContent = shown;
       if (countLabel) countLabel.textContent = label;
       if (updateHash && history.replaceState) {

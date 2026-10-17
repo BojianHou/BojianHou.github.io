@@ -210,7 +210,7 @@ main.container { padding-top: 48px; }
   .pub-filters::-webkit-scrollbar { display: none; }
   .chip { flex: 0 0 auto; }
   .nav { gap: 4px 16px; padding-top: 12px; padding-bottom: 12px; }
-  .nav-links { gap: 2px 14px; font-size: 14px; }
+  .nav-links { gap: 2px 12px; font-size: 13px; }
 }
 
 @media (prefers-reduced-motion: no-preference) {
