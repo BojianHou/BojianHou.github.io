@@ -1,0 +1,16 @@
+<header class="site-header">
+  <nav class="container nav" aria-label="Main">
+    <a class="brand" href="{{ '/' | relative_url }}">Bojian Hou</a>
+    <ul class="nav-links">
+      {%- for item in site.data.site.nav %}
+      {%- assign active = false -%}
+      {%- if item.url == "/" -%}
+        {%- if page.url == "/" -%}{%- assign active = true -%}{%- endif -%}
+      {%- elsif page.url contains item.url -%}
+        {%- assign active = true -%}
+      {%- endif %}
+      <li><a href="{{ item.url | relative_url }}"{% if active %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+      {%- endfor %}
+    </ul>
+  </nav>
+</header>

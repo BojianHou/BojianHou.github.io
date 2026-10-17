@@ -1,7 +1,13 @@
+# Publications, newest first. Source of truth for the homepage and /publications/.
+# Matches Google Scholar (one entry per paper; preprint and published versions merged), plus CCFAI 2019.
+# authors: exactly as published, with * (equal contribution) and † (corresponding).
+# tags: see _data/topics.yml. lead: first, co-first or corresponding author.
+# _sources: used only by scripts/site_tools to fetch metadata and PDFs.
 - id: sem-ece-neurips26
   title: A Semantic-Sampling Framework for Evaluating Calibration in Open-Ended Question Answering
   authors: Zhanliang Wang*, Jiancong Xiao*, Ruochen Jin, Shu Yang, Bojian Hou†, Li Shen†
   venue: NeurIPS 2026
+  venue_group: NeurIPS
   year: 2026
   type: conference
   status: published
@@ -22,6 +28,7 @@
   title: A Unified 3D Vision-Language Framework for Structured Multi-Study Volumetric Report Generation
   authors: Rahul Shukla, Ruiming Wu, Hongzhuo Chen, Shu Yang, Duy Duong-Tran, Duy Minh Ho Nguyen, Mathias Niepert, Cameron Beeche, James C. Gee, Jeffrey T. Duda, Rakesh Sharma, Christos Davatzikos, Walter R. Witschey, Bojian Hou†, Li Shen†
   venue: MLMI 2026
+  venue_group: ''
   year: 2026
   type: conference
   status: in-press
@@ -39,6 +46,7 @@
   title: 'Beyond Post-Hoc Temperature Scaling: Bilevel Optimization for LLM Calibration'
   authors: Ruochen Jin*, Zhanliang Wang*, Zongyu Dai, Jiancong Xiao†, Bojian Hou†
   venue: COLM 2026
+  venue_group: COLM
   year: 2026
   type: conference
   status: published
@@ -62,6 +70,7 @@
   title: 'Kunlun: Establishing Scaling Laws for Massive-Scale Recommendation Systems through Unified Architecture Design'
   authors: Bojian Hou, Xiaolong Liu, Xiaoyi Liu, Jiaqi Xu, Yasmine Badr, Mengyue Hang, et al.
   venue: KDD 2026 (ADS)
+  venue_group: KDD
   year: 2026
   type: conference
   status: published
@@ -82,6 +91,7 @@
   title: Generalizable CT Vision-Language Modeling for Population Health and Disease Risk
   authors: C. A. Beeche, J. Kim, H. Tavolinejad, B. Zhao, J. Dong, R. Sharma, J. T. Duda, ... (Bojian Hou is 12th, between Colleen Morse, Li Shen)
   venue: npj Digital Medicine 2026
+  venue_group: npj Digital Medicine
   year: 2026
   type: journal
   status: in-press
@@ -106,6 +116,7 @@
   title: Tabular LLMs for Interpretable Few-Shot Alzheimer's Disease Prediction with Multimodal Biomedical Data
   authors: 'S. Kearney, S. Yang, Z. Wen, W. Lyu, B. Hou, D. Duong-Tran, T. Chen, '
   venue: arXiv 2026
+  venue_group: ''
   year: 2026
   type: preprint
   status: published
@@ -128,6 +139,7 @@
   title: 'IRIS: Interpretable Risk Clustering Intelligence for Survival Analysis'
   authors: Kazi Noshin*, Bojian Hou*, Mary Regina Boland, Zixuan Wen, Boning Tong, Li Shen, Aidong Zhang
   venue: IEEE BigData 2025
+  venue_group: ''
   year: 2025
   type: conference
   status: published
@@ -151,6 +163,7 @@
   title: Stochastic Regret Guarantees for Online Zeroth- and First-Order Bilevel Optimization
   authors: Parvin Nazari, Bojian Hou, Davoud Ataee Tarzanagh, Li Shen, George Michailidis
   venue: NeurIPS 2025
+  venue_group: NeurIPS
   year: 2025
   type: conference
   status: published
@@ -173,6 +186,7 @@
   title: Enabling Few-Shot Alzheimer's Disease Diagnosis on Biomarker Data with Tabular LLMs
   authors: Sophie Kearney, Shu Yang, Zixuan Wen, Bojian Hou, Duy Duong-Tran, Tianlong Chen, Jason Moore, Marylyn Ritchie, Li Shen
   venue: ACM BCB 2025
+  venue_group: ''
   year: 2025
   type: conference
   status: published
@@ -196,6 +210,7 @@
   title: 'Fair CCA for Fair Representation Learning: An ADNI Study'
   authors: Bojian Hou*, Zhanliang Wang*, Zhuoping Zhou, Boning Tong, Zexuan Wang, Jingxuan Bao, Duy Duong-Tran, Qi Long, Li Shen
   venue: ACM BCB 2025
+  venue_group: ''
   year: 2025
   type: conference
   status: published
@@ -219,6 +234,7 @@
   title: 'MentalChat16K: A Benchmark Dataset for Conversational Mental Health Assistance'
   authors: Jia Xu*, Tianyi Wei*, Bojian Hou*, Patryk Orzechowski, Shu Yang, Ruochen Jin, Rachael Paulbeck, Joost Wagenaar, George Demiris, Li Shen
   venue: KDD 2025
+  venue_group: KDD
   year: 2025
   type: conference
   status: published
@@ -242,6 +258,7 @@
   title: 'Restoring Calibration for Aligned Large Language Models: A Calibration-Aware Fine-Tuning Approach'
   authors: Jiancong Xiao*, Bojian Hou*, Zhanliang Wang*, Ruochen Jin, Weijie Su, Qi Long, Li Shen
   venue: ICML 2025
+  venue_group: ICML
   year: 2025
   type: conference
   status: published
@@ -264,6 +281,7 @@
   title: 'Fine-Tuning Attention Modules Only: Enhancing Weight Disentanglement in Task Arithmetic'
   authors: Ruochen Jin*, Bojian Hou*, Jiancong Xiao*, Weijie Su, Li Shen
   venue: ICLR 2025
+  venue_group: ICLR
   year: 2025
   type: conference
   status: published
@@ -288,6 +306,7 @@
   title: Knowledge-Driven Feature Selection and Engineering for Genotype Data with Large Language Models
   authors: Joseph Lee, Shu Yang, Jae Young Baik, Xiaoxi Liu, Zhen Tan, Dawei Li, Zixuan Wen, Bojian Hou, Duy Duong-Tran, Tianlong Chen, Li Shen
   venue: AMIA Summit 2025
+  venue_group: ''
   year: 2025
   type: conference
   status: published
@@ -312,6 +331,7 @@
   title: Leveraging Social Determinants of Health in Alzheimer’s Research Using LLM-Augmented Literature Mining and Knowledge Graphs
   authors: Tianqi Shang, Shu Yang, Weiqing He, Tianhua Zhai, Dawei Li, Bojian Hou, Tianlong Chen, Jason H. Moore, Marylyn D. Ritchie, Li Shen
   venue: AMIA Summit 2025
+  venue_group: ''
   year: 2025
   type: conference
   status: published
@@ -333,6 +353,7 @@
   title: Determining the Importance of Clinical Modalities for NeuroDegenerative Disorders and Risk of Patient Injury Using Machine Learning and Survival Analysis
   authors: Kazi Noshin, Mary Regina Boland, Bojian Hou, Weiqing He, Victoria Lu, Carol Manning, Li Shen, Aidong Zhang
   venue: AMIA Summit 2025
+  venue_group: ''
   year: 2025
   type: conference
   status: published
@@ -353,6 +374,7 @@
   title: Uncovering Important Diagnostic Features for Alzheimer’s, Parkinson’s and Other Dementias Using Interpretable Association Mining Methods
   authors: Kazi Noshin*, Mary Regina Boland*, Bojian Hou, Victoria Lu, Carol Manning, Li Shen, Aidong Zhang
   venue: PSB 2025
+  venue_group: ''
   year: 2025
   type: conference
   status: published
@@ -377,6 +399,7 @@
   title: 'Advanced Topic Modeling with Large Language Models: Analyzing Social Media Content from Dementia Caregivers'
   authors: Weiqing He*, Bojian Hou*, Amy Zheng, Yanbo Feng, Ari Klein, Karen O'Connor, Shu Yang, Tianqi Shang, George Demiris, Graciela Gonzalez-Hernandez, Li Shen
   venue: Innovation in Aging 2025
+  venue_group: ''
   year: 2025
   type: journal
   status: published
@@ -400,6 +423,7 @@
   title: 'Fair Multi-modal Canonical Correlation Analysis: A Neuroimaging Study of Alzheimer''s Disease'
   authors: Z. Zhou, B. Tong, B. Hou, C. Davatzikos, Q. Long, L. Shen
   venue: AMIA 2025
+  venue_group: ''
   year: 2025
   type: conference
   status: published
@@ -422,6 +446,7 @@
   title: 'ICAFS: Inter-Client-Aware Feature Selection for Vertical Federated Learning'
   authors: 'R. Jin, B. Tong, S. Yang, B. Hou, L. Shen, '
   venue: IEEE TAI 2025
+  venue_group: ''
   year: 2025
   type: journal
   status: published
@@ -447,6 +472,7 @@
   title: A Novel Computational Analysis Integrating Social Determinants Information from EHR and Literature with Alzheimer's Disease Biological Knowledge through Large Language Models and Knowledge Graphs
   authors: 'T. Shang, S. Yang, T. Zhai, W. He, E. Mamourian, J. Zhang, B. Hou, J. Lee, '
   venue: Innovation in Aging 2025
+  venue_group: ''
   year: 2025
   type: journal
   status: published
@@ -471,6 +497,7 @@
   title: Adapting Vision-Language Models for 3D CT/MRI Understanding on PMBB via Slice Selection and Explanation Analysis
   authors: 'H. Chen, R. Shukla, R. Wu, S. Yang, D. Duong-Tran, D. M. H. Nguyen, '
   venue: ICCV 2025 Workshop (VADH)
+  venue_group: ''
   year: 2025
   type: workshop
   status: published
@@ -492,6 +519,7 @@
   title: Multi-Modal Deep Clustering Survival Machines for Alzheimer's Disease Subtype Discovery
   authors: 'Z. Wen, B. Hou, W. He, S. Yang, J. Moore, A. Saykin, H. Huang, P. Thompson, '
   venue: ICCV 2025 Workshop (VADH)
+  venue_group: ''
   year: 2025
   type: workshop
   status: published
@@ -515,6 +543,7 @@
   title: Integrating Social Determinants of Health in a Multi-Modal Deep Clustering Survival Model for Injury-Risk in Alzheimer's and Related Dementia Patients
   authors: K. Noshin, M. R. Boland, B. Hou, W. He, V. Lu, L. Shen, A. Zhang
   venue: AIMedHealth 2025 (PMLR 281)
+  venue_group: ''
   year: 2025
   type: conference
   status: published
@@ -536,6 +565,7 @@
   title: Evaluating Topological Fitness of Human Brain-Inspired Sub-Circuits in Echo State Networks
   authors: B. V. Nguyen, T. Chen, S. Yang, B. Hou, L. Shen, D. Duong-Tran
   venue: AIMedHealth 2025 (PMLR 281)
+  venue_group: ''
   year: 2025
   type: conference
   status: published
@@ -560,6 +590,7 @@
   title: 'Advances in RNA Secondary Structure Prediction and RNA Modifications: Methods, Data, and Applications'
   authors: 'S. Yang, N. T. Pham, Z. Li, J. Y. Baik, J. Lee, T. Zhai, W. Yu, B. Hou, T. Shang, '
   venue: arXiv 2025
+  venue_group: ''
   year: 2025
   type: preprint
   status: published
@@ -581,6 +612,7 @@
   title: 'SEFD: Semantic-Enhanced Framework for Detecting LLM-Generated Text'
   authors: Weiqing He*, Bojian Hou*, Tianqi Shang*, Davoud Ataee Tarzanagh, Qi Long, Li Shen
   venue: IEEE BigData 2024
+  venue_group: ''
   year: 2024
   type: conference
   status: published
@@ -601,6 +633,7 @@
   title: Fairness-Aware Estimation of Graphical Models
   authors: Zhuoping Zhou*, Davoud Ataee Tarzanagh*, Bojian Hou*, Qi Long, Li Shen
   venue: NeurIPS 2024
+  venue_group: NeurIPS
   year: 2024
   type: conference
   status: published
@@ -623,6 +656,7 @@
   title: 'DALK: Dynamic Co-Augmentation of LLMs and KG to answer Alzheimer’s Disease Questions with Scientific Literature'
   authors: Dawei Li, Shu Yang, Zhen Tan, Jae Young Baik, Sukwon Yun, Joseph Lee, Aaron Chacko, Bojian Hou, Duy Duong-Tran, Ying Ding, Huan Liu, Li Shen, Tianlong Chen
   venue: EMNLP 2024 Findings
+  venue_group: EMNLP Findings
   year: 2024
   type: conference
   status: published
@@ -646,6 +680,7 @@
   title: 'Analyzing Dementia Caregivers'' Experiences on Twitter: A Term-Weighted Topic Modeling Approach'
   authors: Yanbo Feng*, Bojian Hou*, Ari Klein, Karen O'Connor, Jiong Chen, Andrés Mondragón, Shu Yang, Graciela Gonzalez-Hernandez, Li Shen
   venue: AMIA 2024
+  venue_group: ''
   year: 2024
   type: conference
   status: published
@@ -668,6 +703,7 @@
   title: Ensuring Fairness in Detecting Mild Cognitive Impairment with MRI
   authors: Boning Tong, Travyse Edwards, Shu Yang, Bojian Hou, Davoud Ataee Tarzanagh, Ryan J. Urbanowicz, Jason H. Moore, Marylyn D. Ritchie, Christos Davatzikos, Li Shen
   venue: AMIA 2024
+  venue_group: ''
   year: 2024
   type: conference
   status: published
@@ -691,6 +727,7 @@
   title: 'Online Bilevel Optimization: Regret Analysis of Online Alternating Gradient Methods'
   authors: Davoud Ataee Tarzanagh, Parvin Nazari, Bojian Hou, Li Shen, Laura Balzano
   venue: AISTATS 2024
+  venue_group: AISTATS
   year: 2024
   type: conference
   status: published
@@ -715,6 +752,7 @@
   title: Interpretability Study for Long Interview Transcripts from Behavior Intervention Sessions for Family Caregivers of Dementia Patients
   authors: Weiqing He*, Bojian Hou*, George Demiris, Li Shen
   venue: AMIA Summit 2024
+  venue_group: ''
   year: 2024
   type: conference
   status: published
@@ -736,6 +774,7 @@
   title: 'PFERM: A Fair Empirical Risk Minimization Approach with Prior Knowledge'
   authors: Bojian Hou, Andrés Mondragón, Davoud Ataee Tarzanagh, Zhuoping Zhou, Andrew J Saykin, Jason H Moore, Marylyn D Ritchie, Qi Long, Li Shen
   venue: AMIA Summit 2024
+  venue_group: ''
   year: 2024
   type: conference
   status: published
@@ -759,6 +798,7 @@
   title: Cluster Analysis of Cortical Amyloid Burden for Identifying Imaging-driven Subtypes in Mild Cognitive Impairment
   authors: Ruiming Wu, Bing He, Bojian Hou, Andrew J Saykin, Jingwen Yan, Li Shen
   venue: AMIA Summit 2024
+  venue_group: ''
   year: 2024
   type: conference
   status: published
@@ -779,6 +819,7 @@
   title: 'Manifoldron: Direct Space Partition via Manifold Discovery'
   authors: Dayang Wang, Feng-Lei Fan, Bo-Jian Hou, Hao Zhang, Rongjie Lai, Hengyong Yu, Fei Wang
   venue: IEEE TNNLS 2024
+  venue_group: IEEE TNNLS
   year: 2024
   type: journal
   status: published
@@ -799,6 +840,7 @@
   title: 'MG-TCCA: Tensor Canonical Correlation Analysis across Multiple Groups'
   authors: Zhuoping Zhou, Boning Tong, Davoud Ataee Tarzanagh, Bojian Hou, Andrew J. Saykin, Qi Long, Li Shen
   venue: IEEE/ACM TCBB 2024
+  venue_group: ''
   year: 2024
   type: journal
   status: published
@@ -821,6 +863,7 @@
   title: Interpretable Deep Clustering Survival Machines for Alzheimer's Disease Subtype Discovery
   authors: Bojian Hou*, Zixuan Wen*, Jingxuan Bao, Richard Zhang, Boning Tong, Shu Yang, Junhao Wen, Yuhan Cui, Jason H Moore, Andrew J. Saykin, Heng Huang, Paul M. Thompson, Marylyn D. Ritchie, Christos Davatzikos, Li Shen
   venue: Medical Image Analysis 2024
+  venue_group: Medical Image Analysis
   year: 2024
   type: journal
   status: published
@@ -843,6 +886,7 @@
   title: Quadratic Neuron-empowered Heterogeneous Autoencoder for Unsupervised Anomaly Detection
   authors: Jing-Xiao Liao, Bo-Jian Hou, Hang-Cheng Dong, Hao Zhang, Jinwei Sun, Shiping Zhang, Feng-Lei Fan
   venue: IEEE TAI 2024
+  venue_group: ''
   year: 2024
   type: journal
   status: published
@@ -863,6 +907,7 @@
   title: Distance-weighted Sinkhorn loss for Alzheimer's disease classification
   authors: Zexuan Wang, Qipeng Zhan, Boning Tong, Shu Yang, Bojian Hou, Heng Huang, Andrew J. Saykin, Paul M. Thompson, Christos Davatzikos, Li Shen
   venue: iScience 2024
+  venue_group: ''
   year: 2024
   type: journal
   status: published
@@ -885,6 +930,7 @@
   title: Fair Canonical Correlation Analysis
   authors: Zhuoping Zhou*, Davoud Ataee Tarzanagh*, Bojian Hou*, Boning Tong, Jia Xu, Yanbo Feng, Qi Long, Li Shen
   venue: NeurIPS 2023
+  venue_group: NeurIPS
   year: 2023
   type: conference
   status: published
@@ -909,6 +955,7 @@
   title: Multi-Group Tensor Canonical Correlation Analysis
   authors: Zhuoping Zhou, Boning Tong, Davoud Ataee Tarzanagh, Bojian Hou, Andrew J. Saykin, Qi Long, Li Shen
   venue: ACM BCB 2023
+  venue_group: ''
   year: 2023
   type: conference
   status: published
@@ -932,6 +979,7 @@
   title: Class-Balanced Deep Learning with Adaptive Vector Scaling Loss for Dementia Stage Detection
   authors: Boning Tong, Zhuoping Zhou, Davoud Ataee Tarzanagh, Bojian Hou, Andrew J. Saykin, Jason Moore, Marylyn Ritchie, Li Shen
   venue: MLMI 2023
+  venue_group: ''
   year: 2023
   type: conference
   status: published
@@ -951,6 +999,7 @@
   title: Fairness-Aware Class Imbalanced Learning on Multiple Subgroups
   authors: Davoud Ataee Tarzanagh*, Bojian Hou*, Boning Tong*, Qi Long, Li Shen
   venue: UAI 2023
+  venue_group: UAI
   year: 2023
   type: conference
   status: published
@@ -973,6 +1022,7 @@
   title: Deep Clustering Survival Machines with Interpretable Expert Distributions
   authors: Bojian Hou, Hongming Li, Zhicheng Jiao, Zhen Zhou, Hao Zhang, Yong Fan
   venue: ISBI 2023
+  venue_group: ''
   year: 2023
   type: conference
   status: published
@@ -996,6 +1046,7 @@
   title: Evaluate Underdiagnosis and Overdiagnosis Bias of Deep Learning Model on Primary Open-Angle Glaucoma Diagnosis in Under-Served Populations
   authors: Mingquan Lin, Yuyun Xiao, Bojian Hou, Tingyi Wanyan, Mohit Manoj Sharma, Zhangyang Wang, Fei Wang, Sarah Van Tassel, Yifan Peng
   venue: AMIA Summit 2023
+  venue_group: ''
   year: 2023
   type: conference
   status: published
@@ -1017,6 +1068,7 @@
   title: Online Learning from Evolving Feature Spaces with Deep Variational Models
   authors: Heng Lian, Di Wu, Bo-Jian Hou, Jian Wu, Yi He
   venue: IEEE TKDE 2023
+  venue_group: IEEE TKDE
   year: 2023
   type: journal
   status: published
@@ -1037,6 +1089,7 @@
   title: Enhancing thoracic disease detection using chest X-rays from PubMed Central Open Access
   authors: Mingquan Lin, Bojian Hou, Swati Mishra, Tianyuan Yao, Yuankai Huo, Qian Yang, Fei Wang, George Shih, Yifan Peng
   venue: Computers in Biology and Medicine 2023
+  venue_group: ''
   year: 2023
   type: journal
   status: published
@@ -1057,6 +1110,7 @@
   title: Revisiting DETR Pre-training for Object Detection
   authors: Yan Ma, Weicong Liang, Yiduo Hao, Bojian Hou, Xiangyu Yue, Chao Zhang, Yuhui Yuan
   venue: arXiv 2023
+  venue_group: ''
   year: 2023
   type: preprint
   status: published
@@ -1077,6 +1131,7 @@
   title: Online Deep Learning from Doubly-Streaming Data
   authors: Heng Lian, John S. Atwood, Bo-Jian Hou, Jian Wu, Yi He
   venue: ACM MM 2022
+  venue_group: ''
   year: 2022
   type: conference
   status: published
@@ -1096,6 +1151,7 @@
   title: Automated diagnosing primary open-angle glaucoma from fundus image by simulating human’s grading with deep learning
   authors: Mingquan Lin, Bojian Hou, Lei Liu, Mae Gordon, Michael Kass, Fei Wang, Sarah H. Van Tassel, Yifan Peng
   venue: Scientific Reports 2022
+  venue_group: ''
   year: 2022
   type: journal
   status: published
@@ -1116,6 +1172,7 @@
   title: Storage Fit Learning with Feature Evolvable Streams
   authors: Bo-Jian Hou, Yu-Hu Yan, Peng Zhao, Zhi-Hua Zhou
   venue: AAAI 2021
+  venue_group: AAAI
   year: 2021
   type: conference
   status: published
@@ -1138,6 +1195,7 @@
   title: Online Learning in Variable Feature Spaces with Mixed Data
   authors: Yi He, Jiaxian Dong, Bo-Jian Hou, Yu Wang, Fei Wang
   venue: ICDM 2021
+  venue_group: ''
   year: 2021
   type: conference
   status: published
@@ -1158,6 +1216,7 @@
   title: Prediction with Unpredictable Feature Evolution
   authors: Bo-Jian Hou, Lijun Zhang, Zhi-Hua Zhou
   venue: IEEE TNNLS 2021
+  venue_group: IEEE TNNLS
   year: 2021
   type: journal
   status: published
@@ -1180,6 +1239,7 @@
   title: 'Clinical Evidence Engine: Proof-of-Concept For a Clinical-Domain-Agnostic Decision Support Infrastructure'
   authors: Bojian Hou, Hao Zhang, Gur Ladizhinsky, Ali Kayyal, Stephen Yang, Volodymyr Kuleshov, Fei Wang, Qian Yang
   venue: arXiv 2021
+  venue_group: ''
   year: 2021
   type: preprint
   status: published
@@ -1201,6 +1261,7 @@
   title: Learning with Interpretable Structure from Gated RNN
   authors: Bo-Jian Hou, Zhi-Hua Zhou
   venue: IEEE TNNLS 2020
+  venue_group: IEEE TNNLS
   year: 2020
   type: journal
   status: published
@@ -1224,6 +1285,7 @@
   title: Learning Interpretability from RNN with Feature Changing
   authors: Bo-Jian Hou, Yuan Jiang
   venue: CCFAI 2019
+  venue_group: ''
   year: 2019
   type: conference
   status: published
@@ -1245,6 +1307,7 @@
   title: Learning with Feature Evolvable Streams
   authors: Bo-Jian Hou, Lijun Zhang, Zhi-Hua Zhou
   venue: IEEE TKDE 2019
+  venue_group: IEEE TKDE
   year: 2019
   type: journal
   status: published
@@ -1265,6 +1328,7 @@
   title: Deep Forest for Multiple Instance Learning
   authors: Jie Ren, Bojian Hou, Yuan Jiang
   venue: J. Computer Research and Development 2019
+  venue_group: ''
   year: 2019
   type: journal
   status: published
@@ -1285,6 +1349,7 @@
   title: Learning with Feature Evolvable Streams
   authors: Bo-Jian Hou, Lijun Zhang, Zhi-Hua Zhou
   venue: NIPS 2017
+  venue_group: NeurIPS
   year: 2017
   type: conference
   status: published
@@ -1309,6 +1374,7 @@
   title: Storage Fit Learning with Unlabeled Data
   authors: Bo-Jian Hou, Lijun Zhang, Zhi-Hua Zhou
   venue: IJCAI 2017
+  venue_group: IJCAI
   year: 2017
   type: conference
   status: published

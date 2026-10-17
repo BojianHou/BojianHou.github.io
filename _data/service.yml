@@ -1,0 +1,9 @@
+# Grouped summary shown on the homepage and at the top of /services/.
+- group: Organizing
+  text: 'Program Chair, <a href="https://sites.google.com/view/vadh25/home">VADH Workshop</a> at ICCV 2025'
+- group: Senior PC
+  text: IJCAI 2021 · Top 25% PC member, AAAI 2021
+- group: PC member or reviewer
+  text: NeurIPS (2018 to 2025), ICML (2019, 2021, 2022, 2024, 2025), ICLR (2019, 2020), KDD (2020, 2026), AAAI (2019 to 2021), AISTATS (2019, 2020)
+- group: Journal reviewer
+  text: TPAMI, TNNLS, Nature Methods, Medical Image Analysis, Machine Learning, TKDD, Scientific Reports

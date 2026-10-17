@@ -1,0 +1,125 @@
+# Newest first. `pubs` lists publication ids (see publications.yml) linked from the item.
+- date: 2026-09-24
+  text: "Our paper on evaluating calibration in open-ended question answering was accepted at NeurIPS 2026."
+  pubs: [sem-ece-neurips26]
+- date: 2026-08-01  # month only (KDD 2026 was held in August)
+  text: "Presented Kunlun at KDD 2026 in Jeju, Korea."
+  pubs: [kunlun-kdd26]
+- date: 2026-08-08
+  text: "Our 3D vision-language framework for multi-study CT/MRI report generation was accepted at MLMI 2026."
+  pubs: [3d-vlm-report-mlmi26]
+- date: 2026-07-08
+  text: "Our bilevel optimization approach to LLM calibration was accepted at COLM 2026."
+  pubs: [bilevel-calibration-colm26]
+- date: 2026-07-04
+  text: "Kunlun, on scaling laws for massive-scale recommendation systems, was accepted at KDD 2026 (ADS Track)."
+  pubs: [kunlun-kdd26]
+- date: 2025-10-23
+  text: "IRIS, on interpretable risk clustering for survival analysis, was accepted at IEEE BigData 2025."
+  pubs: [iris-bigdata25]
+- date: 2025-10-22
+  text: "Our study of dementia caregivers' social media content with LLM-based topic modeling was accepted by Innovation in Aging."
+  pubs: [llm-topic-modeling-innovaging25]
+- date: 2025-09-18
+  text: "Our paper on stochastic regret guarantees for online bilevel optimization was accepted at NeurIPS 2025."
+  pubs: [online-bilevel-regret-neurips25]
+- date: 2025-08-27
+  text: "Two papers accepted at ACM BCB 2025; the tabular LLM paper on few-shot Alzheimer's disease diagnosis won the Best Paper Award."
+  pubs: [tabular-llm-ad-bcb25, fair-cca-adni-bcb25]
+- date: 2025-07-28
+  text: "Joined Meta as an AI Research Scientist."
+- date: 2025-06-27
+  text: "Organizing the <a href=\"https://sites.google.com/view/vadh25/home\">Vision-Based AI for Digital Health (VADH)</a> workshop at ICCV 2025."
+- date: 2025-05-15
+  text: "MentalChat16K was accepted at KDD 2025 as an oral presentation."
+  pubs: [mentalchat16k-kdd25]
+- date: 2025-05-01
+  text: "Our calibration-aware fine-tuning approach for aligned LLMs was accepted at ICML 2025."
+  pubs: [calibration-aligned-llm-icml25]
+- date: 2025-01-22
+  text: "Our paper on fine-tuning attention modules for task arithmetic was accepted at ICLR 2025."
+  pubs: [attention-task-arithmetic-iclr25]
+- date: 2024-11-27
+  text: "Three papers accepted at the AMIA 2025 Informatics Summit."
+  pubs: [genotype-feature-selection-amia25, sdoh-kg-amia25, clinical-modalities-amia25]
+- date: 2024-10-26
+  text: "SEFD, a framework for detecting LLM-generated text, was accepted at IEEE BigData 2024."
+  pubs: [sefd-bigdata24]
+- date: 2024-10-13
+  text: "Manifoldron was accepted by IEEE Transactions on Neural Networks and Learning Systems."
+  pubs: [manifoldron-tnnls24]
+- date: 2024-09-25
+  text: "Our paper on fairness-aware estimation of graphical models was accepted at NeurIPS 2024."
+  pubs: [fair-graphical-models-neurips24]
+- date: 2024-09-21
+  text: "MG-TCCA was accepted by IEEE/ACM Transactions on Computational Biology and Bioinformatics."
+  pubs: [mg-tcca-tcbb24]
+- date: 2024-09-20
+  text: "DALK was accepted at EMNLP 2024 Findings."
+  pubs: [dalk-emnlp24]
+- date: 2024-09-10
+  text: "Our paper on interpretable association mining for dementia diagnosis was accepted at PSB 2025."
+  pubs: [association-mining-psb25]
+- date: 2024-06-29
+  text: "Two papers accepted at the AMIA 2024 Annual Symposium; the paper on fairness in detecting mild cognitive impairment won the Distinguished Paper Award."
+  pubs: [fair-mci-mri-amia24, caregivers-twitter-amia24]
+- date: 2024-06-03
+  text: "Interpretable Deep Clustering Survival Machines was accepted by Medical Image Analysis."
+  pubs: [interpretable-dcsm-media24]
+- date: 2024-04-24
+  text: "Our quadratic neuron-empowered autoencoder for anomaly detection was accepted by IEEE Transactions on Artificial Intelligence."
+  pubs: [quadratic-autoencoder-tai24]
+- date: 2024-01-19
+  text: "Our regret analysis of online alternating gradient methods for bilevel optimization was accepted at AISTATS 2024."
+  pubs: [online-bilevel-aistats24]
+- date: 2023-12-21
+  text: "Three papers accepted at the AMIA 2024 Informatics Summit."
+  pubs: [pferm-amia24, interview-interpretability-amia24, amyloid-subtypes-amia24]
+- date: 2023-10-10
+  text: "Our paper on online learning from evolving feature spaces with deep variational models was accepted by IEEE TKDE."
+  pubs: [old3s-tkde23]
+- date: 2023-09-21
+  text: "Fair Canonical Correlation Analysis was accepted at NeurIPS 2023."
+  pubs: [fair-cca-neurips23]
+- date: 2023-07-24
+  text: "Multi-Group Tensor Canonical Correlation Analysis was accepted at ACM BCB 2023 and won the Best Paper Award."
+  pubs: [mg-tcca-bcb23]
+- date: 2023-05-08
+  text: "Our paper on fairness-aware class imbalanced learning on multiple subgroups was accepted at UAI 2023."
+  pubs: [facims-uai23]
+- date: 2023-04-18
+  text: "Our paper on thoracic disease detection with chest X-rays from PubMed Central was accepted by Computers in Biology and Medicine."
+  pubs: [chest-xray-cbm23]
+- date: 2023-01-22
+  text: "Deep Clustering Survival Machines with Interpretable Expert Distributions was accepted at ISBI 2023."
+  pubs: [dcsm-isbi23]
+- date: 2022-12-16
+  text: "Our study of diagnosis bias in deep learning for glaucoma was accepted at the AMIA 2023 Informatics Summit."
+  pubs: [glaucoma-bias-amia23]
+- date: 2022-06-29
+  text: "Online Deep Learning from Doubly-Streaming Data was accepted at ACM MM 2022."
+  pubs: [doubly-streaming-mm22]
+- date: 2022-06-16
+  text: "Our paper on automated glaucoma diagnosis from fundus images was accepted by Scientific Reports."
+  pubs: [glaucoma-scirep22]
+- date: 2021-11-22
+  text: "Received the Excellent Doctoral Dissertation Award of Jiangsu Province."
+- date: 2021-09-13
+  text: "Received the Excellent Doctoral Dissertation Award of Nanjing University."
+- date: 2021-08-31
+  text: "Online Learning in Variable Feature Spaces with Mixed Data was accepted at ICDM 2021."
+  pubs: [ovfm-icdm21]
+- date: 2021-04-01
+  text: "Prediction with Unpredictable Feature Evolution was accepted by IEEE Transactions on Neural Networks and Learning Systems."
+  pubs: [pufe-tnnls21]
+- date: 2020-12-24
+  text: "Received the JSAI Excellent Doctoral Dissertation Award."
+- date: 2020-12-02
+  text: "Storage Fit Learning with Feature Evolvable Streams was accepted at AAAI 2021."
+  pubs: [sf2el-aaai21]
+- date: 2020-06-18
+  text: "Received the CS Excellent Doctoral Dissertation Award of Nanjing University."
+- date: 2020-05-27
+  text: "Defended my Ph.D. dissertation."
+- date: 2020-04-21
+  text: "Received the Outstanding Graduate Student Award of Nanjing University."

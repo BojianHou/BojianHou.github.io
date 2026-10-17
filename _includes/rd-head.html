@@ -1,0 +1,55 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{%- if page.url == "/" -%}
+  {%- assign doc_title = site.title | append: " | AI Research Scientist at Meta" -%}
+{%- else -%}
+  {%- assign doc_title = page.title | append: " | " | append: site.title -%}
+{%- endif -%}
+{%- assign doc_desc = page.description | default: site.description | strip_html | strip_newlines | escape -%}
+<title>{{ doc_title }}</title>
+<meta name="description" content="{{ doc_desc }}">
+<meta name="author" content="{{ site.author.name }}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F1115" media="(prefers-color-scheme: dark)">
+
+<meta property="og:type" content="{% if page.url == '/' %}profile{% else %}website{% endif %}">
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:title" content="{{ doc_title }}">
+<meta property="og:description" content="{{ doc_desc }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:image" content="{{ '/images/bojian-hou-800.jpg' | absolute_url }}">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{ doc_title }}">
+<meta name="twitter:description" content="{{ doc_desc }}">
+
+<link rel="icon" href="{{ '/images/favicon.ico' | relative_url }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+
+{%- if page.url == "/" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Bojian Hou",
+  "alternateName": ["Bo-Jian Hou", "侯博建"],
+  "url": "{{ '/' | absolute_url }}",
+  "image": "{{ '/images/bojian-hou-800.jpg' | absolute_url }}",
+  "jobTitle": "AI Research Scientist",
+  "worksFor": { "@type": "Organization", "name": "Meta" },
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "Nanjing University" }
+  ],
+  "knowsAbout": ["Machine learning", "Recommendation systems", "Large language models", "Trustworthy AI", "Calibration", "Fairness", "Interpretability"],
+  "sameAs": [
+    "{{ site.author.googlescholar }}",
+    "https://github.com/{{ site.author.github }}",
+    "https://www.linkedin.com/in/{{ site.author.linkedin }}"
+  ]
+}
+</script>
+{%- endif %}

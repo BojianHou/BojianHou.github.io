@@ -1,0 +1,17 @@
+# Topic chips on the publications page, in display order. `id` matches publications.yml tags.
+- id: recsys
+  label: Recommendation
+- id: llm
+  label: Reliable LLMs
+- id: fairness
+  label: Fairness
+- id: interpretability
+  label: Interpretability
+- id: optimization
+  label: Optimization
+- id: open-env
+  label: Open-environment learning
+- id: health
+  label: AI for healthcare
+- id: other
+  label: Other
