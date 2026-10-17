@@ -2,6 +2,22 @@
 # Stylesheet for the redesigned pages (layout: rd). Plain CSS; Jekyll compiles it to /assets/css/site.css.
 ---
 
+/* ---------- Fonts (Geist, SIL Open Font License; see /assets/fonts/Geist-OFL-LICENSE.txt) ---------- */
+@font-face {
+  font-family: "Geist";
+  src: url("../fonts/Geist-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Geist Mono";
+  src: url("../fonts/GeistMono-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ---------- Tokens ---------- */
 :root {
   --bg: #FFFFFF;
