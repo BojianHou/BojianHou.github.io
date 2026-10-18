@@ -93,14 +93,14 @@ jobs:
               print(f'::add-mask::{key}')
               with open(os.environ['GITHUB_ENV'], 'a') as f:
                   f.write(f'GOOGLE_API_KEY={key}\n')
-          print(f'secret length {len(raw)}, cleaned length {len(key)}, starts with AIza: {key.startswith("AIza")}, '
+          print(f'::notice::secret length {len(raw)}, cleaned length {len(key)}, starts with AIza: {key.startswith("AIza")}, '
                 f'whitespace inside: {any(c.isspace() for c in key)}')
           try:
               r = urllib.request.urlopen('https://generativelanguage.googleapis.com/v1beta/models?pageSize=1000&key=' + key, timeout=30)
               names = [m['name'] for m in json.load(r).get('models', [])]
-              print('key accepted;', len(names), 'models; image models:', [n for n in names if 'image' in n])
+              print('::notice::key accepted;', len(names), 'models; image models:', [n for n in names if 'image' in n])
           except urllib.error.HTTPError as e:
-              print('key rejected:', e.code, json.loads(e.read() or b'{}').get('error', {}).get('message'))
+              print('::error::key rejected:', e.code, json.loads(e.read() or b'{}').get('error', {}).get('message'))
               raise SystemExit(1)
           EOF
       - run: pip install "paperbanana[google]==0.3.0" pillow pyyaml
