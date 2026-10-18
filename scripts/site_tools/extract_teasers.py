@@ -4,7 +4,7 @@ For every out/pdfs/<id>.pdf: find the caption "Figure 1" / "Fig. 1" (or "图 1")
 (images and vector drawings between the caption and the body text above, within the caption's column), render it,
 trim whitespace, pad to 16:10 and save images/pubs/<id>.webp (640 px wide).
 Manual fixes go in teaser_overrides.yml:  <id>: {page: 3, clip: [x0, y0, x1, y1]}  (PDF points, page is 1-based)
-or <id>: {figure: 2} to use another figure, or <id>: {skip: true}.
+or <id>: {figure: 2} to use another figure, {expand: 20} to widen the crop, or <id>: {skip: true}.
 Also writes out/teasers/contact_sheet.png and out/teasers/report.json for review.
 """
 import io
@@ -187,6 +187,10 @@ def process(pid, pdf):
     if found:
         pno, cap, text = found
         reg, how = figure_region(doc[pno], cap)
+        if reg is not None and o.get('expand'):
+            # widen a crop that cut off labels at the figure edges (points on each side, kept on the page)
+            e = float(o['expand'])
+            reg = pymupdf.Rect(reg.x0 - e, reg.y0 - e, reg.x1 + e, reg.y1) & doc[pno].rect
         if reg is not None:
             img = trim(render(doc[pno], reg))
             if img.size[0] > 120 and img.size[1] > 80:
