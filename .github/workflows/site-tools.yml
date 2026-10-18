@@ -114,6 +114,23 @@ jobs:
               if missing:
                   print('::error::configured models not available to this key:', missing)
                   raise SystemExit(1)
+              # one tiny test image per image model, the same call PaperBanana makes, so errors are visible
+              from google import genai
+              from google.genai import types
+              client = genai.Client(api_key=key)
+              ok = False
+              for m in dict.fromkeys([S['image_model'], 'gemini-3.1-flash-image']):
+                  try:
+                      resp = client.models.generate_content(model=m, contents='A small blue circle on a white background.',
+                          config=types.GenerateContentConfig(response_modalities=['IMAGE'],
+                              image_config=types.ImageConfig(aspect_ratio='3:2', image_size='1K')))
+                      got = any(getattr(getattr(pt, 'inline_data', None), 'data', None) for pt in resp.candidates[0].content.parts)
+                      print(f'::notice::image test {m}: ' + ('ok' if got else 'no image returned'))
+                      ok = ok or (got and m == S['image_model'])
+                  except Exception as e:
+                      print(f'::warning::image test {m} failed: {str(e)[:600]}')
+              if not ok:
+                  raise SystemExit(1)
           except urllib.error.HTTPError as e:
               print('::error::key rejected:', e.code, json.loads(e.read() or b'{}').get('error', {}).get('message'))
               raise SystemExit(1)
