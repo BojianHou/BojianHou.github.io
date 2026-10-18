@@ -1,16 +1,17 @@
 # Homepage redesign: review notes
 
-Branch `redesign-2026`. Nothing here is live until this branch is merged into `master`.
+First redesign merged in PR #1. Visual refresh (cards layout) on branch `visual-2026`.
 
 ## What changed
 
 - **New look, same URLs.** `/`, `/publications/`, `/resume/`, `/services/`, `/awards/` keep their addresses; `/news/` is new. Old `/about/`, `/cv/` and `/publication/2017-SFL-IJCAI` redirect.
-- **Homepage keeps the academic structure:** profile card and three-paragraph bio (based on the old About text), venues and recognition, five research areas with representative papers, nine selected publications, news (10 shown, "Show all" for the full history back to 2020), experience and education, honors, academic service.
+- **Homepage keeps the academic structure, laid out as cards:** intro with contact buttons, recent-paper figures, background, Published at (conferences and journals, no counts), news (latest 6, full list on /news/), honors, five research areas with representative papers, nine selected publications as figure cards, experience and education, academic service.
 - **Publications page:** 61 papers grouped by year, filterable by topic (All, Selected, Lead-authored, 8 topics). Filters are linkable, for example `/publications/#topic=llm`. Each paper has a Figure 1 thumbnail (or a figure chosen from the paper), a one-sentence summary, the venue, awards, and links.
 - **Data files are the single source:** `_data/publications.yml`, `news.yml`, `awards.yml`, `service.yml`, `research.yml`, `topics.yml`, `site.yml`. To add a paper, add one entry to `publications.yml`; the homepage counts, filters and lists update themselves.
 - **Removed AcademicPages leftovers:** sample posts, talks, teaching, portfolio, demo pages and images, `files/paper1-3.pdf`, the sample `_data/authors.yml`, the talkmap and markdown generator.
+- **Fonts:** Geist (body) and Bricolage Grotesque (headings), both SIL Open Font License, self-hosted in `assets/fonts/`.
 - **SEO:** real site description, Open Graph image, JSON-LD `Person`, page titles like "Publications | Bojian Hou". The dead `google-universal` analytics block is switched off.
-- **Experience and education follow the résumé:** Meta (Monetization and MRS), Penn (Postdoctoral Fellow), Cornell, 4Paradigm (Research Scientist, 2020 to 2021, new on the site), Nanjing University Ph.D. 2014 to 2020 and B.Sc. 2010 to 2014. The bio now says "postdoctoral fellow" and mentions 4Paradigm.
+- **Experience and education:** Meta (Monetization and MRS), Penn (Postdoctoral Fellow), Nanjing University Ph.D. 2014 to 2020 and B.Sc. 2010 to 2014. Cornell and 4Paradigm are intentionally not listed.
 - **Quality checks (latest preview build):** Jekyll builds cleanly with the GitHub Pages gem set; 125 publication links checked, 0 broken (10 publisher pages refuse bots and are marked "blocked"); no horizontal scrolling at 390 px; Lighthouse mobile: home 99 / 100 / 100 / 100, publications 97 / 100 / 100 / 100 (performance / accessibility / best practices / SEO). Fonts (Geist, SIL Open Font License) are self-hosted in `assets/fonts/`.
 - **Files:** `files/CCFAI'19.pdf` renamed to `files/CCFAI19.pdf` (apostrophes break links).
 
