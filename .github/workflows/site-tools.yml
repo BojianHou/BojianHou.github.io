@@ -88,6 +88,8 @@ jobs:
         run: |
           set -o pipefail
           bundle exec jekyll build --destination _site_prod 2>&1 | tee "$OUT/build_prod.log"
+      - name: Keep the built site (without PDFs) for local review
+        run: rsync -a --exclude '*.pdf' _site/ "$OUT/site/"
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
