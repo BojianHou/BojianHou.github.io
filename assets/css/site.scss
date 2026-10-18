@@ -139,17 +139,19 @@ main.container { padding-top: 20px; }
 .card h2 { font-family: var(--display); font-size: 22px; font-weight: 650; letter-spacing: -0.015em; }
 .card-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px 16px; margin-bottom: 16px; }
 .card-head a { font-size: 14px; font-weight: 500; }
-.bento { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 16px; }
+/* 24 columns so each two-card row can be split where both cards' content ends at about the same height */
+.bento { display: grid; grid-template-columns: repeat(24, minmax(0, 1fr)); gap: 16px; }
 .bento > .card > h2 { margin-bottom: 16px; }
 
 /* ---------- Homepage ---------- */
-.card-hero { grid-column: span 7; border-radius: var(--r-lg); padding: 34px; display: flex; flex-direction: column; gap: 22px; }
-.card-recent { grid-column: span 5; border-radius: var(--r-lg); display: flex; flex-direction: column; }
-.card-about { grid-column: span 5; }
-.card-venues { grid-column: span 7; }
-.card-news { grid-column: span 7; }
-.card-honors { grid-column: span 5; }
-.card-exp, .card-service { grid-column: span 6; }
+.card-hero { grid-column: span 14; border-radius: var(--r-lg); padding: 34px; display: flex; flex-direction: column; gap: 22px; }
+.card-recent { grid-column: span 10; border-radius: var(--r-lg); display: flex; flex-direction: column; }
+.card-about { grid-column: span 9; }
+.card-venues { grid-column: span 15; }
+.card-news { grid-column: span 13; }
+.card-honors { grid-column: span 11; }
+.card-exp { grid-column: span 16; }
+.card-service { grid-column: span 8; }
 
 .hero-id { display: flex; align-items: center; gap: 24px; }
 .hero-photo { flex: none; width: 124px; height: 124px; object-fit: cover; border-radius: 34px; display: block; background: #FFFFFF; }

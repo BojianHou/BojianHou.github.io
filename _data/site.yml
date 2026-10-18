@@ -1,7 +1,7 @@
 # "Published at" on the homepage, by group and in this order. Every name has at least one paper in publications.yml.
 venues:
   - group: Conferences
-    names: [NeurIPS, ICML, ICLR, KDD, AAAI, IJCAI, ACM MM, EMNLP, COLM, UAI, AISTATS, ICDM, IEEE BigData, AMIA]
+    names: [NeurIPS, ICML, ICLR, KDD, AAAI, IJCAI, ACM MM, EMNLP, COLM, UAI, AISTATS, ICDM, IEEE BigData, ACM BCB, AMIA, ISBI, PSB, MLMI]
   - group: Journals
     names: [IEEE TNNLS, IEEE TKDE, IEEE TAI, IEEE/ACM TCBB, Medical Image Analysis, npj Digital Medicine, Scientific Reports, iScience, Computers in Biology and Medicine, Innovation in Aging, Journal of Computer Research and Development]
 nav:
