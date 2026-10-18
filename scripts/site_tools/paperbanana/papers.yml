@@ -1,0 +1,260 @@
+# Inputs for PaperBanana (https://github.com/llmsresearch/paperbanana), which draws the overview thumbnails for papers
+# whose own figures are all results or data. Run by the "figs" job in .github/workflows/site-tools.yml
+# (push with [figs] in the commit message); outputs land on the branch site-figs-output.
+# Every method text paraphrases the paper's abstract or method section; nothing is added that the paper does not state.
+
+run: [sem-ece-neurips26, bilevel-calibration-colm26, amyloid-subtypes-amia24]   # papers to generate on the next run
+
+settings:
+  aspect_ratio: "3:2"
+  num_candidates: 2
+  budget_usd: 2.5        # per paper; the pipeline stops early when exceeded
+  parallel: 3
+
+# appended to every caption
+thumbnail_note: >-
+  The figure will be shown as a small thumbnail (about 300 px wide) on the author's website, so use only a few short
+  labels in a large font, keep the layout uncluttered with generous spacing, use no long sentences, and do not put a
+  figure title, figure number or caption text inside the image.
+
+papers:
+  sem-ece-neurips26:
+    category: nlp_language
+    caption: >-
+      Sem-ECE evaluates the calibration of an LLM on open-ended questions: sample many answers, group them into
+      semantic classes by meaning, and use class frequencies as confidence. Sem1-ECE reuses the same samples; Sem2-ECE
+      scores the selected answer on held-out samples.
+    method: |
+      Sem-ECE (Semantic-Sampling Expected Calibration Error) is a framework for evaluating whether an LLM's confidence
+      matches its accuracy on open-ended question answering, where logits may be unavailable and verbalized confidence
+      is unreliable.
+      1. For each open-ended question, the LLM is sampled n times, giving n free-form answers.
+      2. The answers are grouped into semantic classes: answers that mean the same thing, even when worded differently,
+         fall into the same class.
+      3. The relative frequency of each class is used as the model's confidence in that answer. The most frequent class
+         is the selected answer.
+      4. Comparing the confidence of the selected answer with whether it is correct, across many questions, gives the
+         expected calibration error (ECE).
+      Two estimators: Sem1-ECE uses the same samples both to select the answer and to measure its confidence
+      (self-consistency). Sem2-ECE selects the answer on one set of samples and measures its confidence on a separate
+      held-out set. Both are asymptotically unbiased; they agree on easy questions and diverge on hard ones, where
+      Sem2-ECE has smaller calibration error, so their gap indicates question difficulty.
+
+  bilevel-calibration-colm26:
+    category: optimization_theory
+    caption: >-
+      Bilevel optimization for LLM calibration: the lower level fine-tunes the LLM under a loss with hyperparameters
+      lambda, and the upper level chooses lambda to maximize predictive entropy, turning an overconfident aligned LLM
+      into a calibrated one.
+    method: |
+      Preference alignment makes LLMs overconfident: their predictive distributions are too concentrated on one answer.
+      Post-hoc temperature scaling is fitted on one domain and does not transfer to others, so this method changes the
+      model parameters during training instead.
+      Calibration objective: maximize the entropy of the model's predictive distribution, which directly discourages
+      overly concentrated (overconfident) predictions.
+      Bilevel formulation, inspired by temperature scaling:
+      - Lower level: train the LLM parameters theta under a parametric loss L(theta; lambda).
+      - Upper level: choose the loss hyperparameters lambda so that the trained model's predictive entropy is maximal.
+      The upper level passes lambda down; the lower level returns the trained parameters theta*(lambda).
+      To make this practical at LLM scale, a first-order approximation is used, which avoids explicit second-order
+      (Hessian) computation.
+      Result: well-calibrated LLMs on multiple-choice and open-ended question answering, with particular gains on
+      out-of-domain data.
+
+  calibration-aligned-llm-icml25:
+    category: nlp_language
+    caption: >-
+      Why preference alignment makes LLMs overconfident, and how to restore calibration: calibration-aware fine-tuning
+      in the calibratable regime, and an EM-based ECE regularizer in the non-calibratable regime.
+    method: |
+      Pre-trained LLMs are usually well calibrated, but after preference alignment they become overconfident and poorly
+      calibrated.
+      Cause: the preference collapse issue in alignment (the aligned model concentrates on preferred responses) carries
+      over to calibration, producing overconfidence.
+      Remedy: fine-tuning with domain-specific knowledge alleviates the overconfidence.
+      Models are split into two regimes defined by bounds on the expected calibration error (ECE):
+      - Calibratable regime: calibration-aware fine-tuning (CFT) reaches proper calibration without hurting accuracy.
+      - Non-calibratable regime (models fine-tuned further for performance): an EM-algorithm-based ECE regularization
+        term is added to the fine-tuning loss (RCFT) to keep calibration error low.
+
+  online-bilevel-aistats24:
+    category: optimization_theory
+    caption: >-
+      Online bilevel optimization: a sequence of time-varying bilevel problems arrives one by one; an online alternating
+      time-averaged gradient method tracks the moving solutions, with bilevel regret bounded by their path length.
+    method: |
+      In online bilevel optimization, a sequence of time-varying bilevel problems is revealed one after another. At
+      round t the learner holds an outer variable x_t and an inner variable y_t; then the outer objective f_t(x, y) and
+      the inner objective g_t(x, y) are revealed.
+      Bilevel regret compares the learner's cumulative outer loss with the best per-round solutions.
+      Algorithm (online alternating time-averaged gradient):
+      - Inner step: update y by gradient steps on the inner objective g_t.
+      - Outer step: update x with a hypergradient averaged over recent rounds (time-averaged).
+      The two steps alternate every round and exploit smoothness.
+      Regret bounds are given in terms of the path length of the inner and outer minimizer sequences, that is, how far
+      the optimal solutions move over time.
+
+  online-bilevel-regret-neurips25:
+    category: optimization_theory
+    caption: >-
+      Stochastic online bilevel optimization without window smoothing: a new search direction gives first-order and
+      zeroth-order algorithms with sublinear stochastic bilevel regret from noisy oracles.
+    method: |
+      Online bilevel optimization: the outer objective f_t and inner objective g_t both change over time, and the
+      learner only has noisy (stochastic) oracle access to them.
+      Earlier methods minimize a deterministic window-smoothed regret, which can misrepresent performance when the
+      functions change quickly.
+      This work introduces a new search direction. First-order and zeroth-order stochastic algorithms that use it reach
+      sublinear stochastic bilevel regret without window smoothing.
+      Efficiency features:
+      (i) fewer oracle calls for hypergradient estimation;
+      (ii) the inner variable, the outer variable and the solution of the linear system are updated together in one
+      loop;
+      (iii) zeroth-order estimation of Hessians, Jacobians and gradients from function values only.
+      Applications: online parametric loss tuning and black-box adversarial attacks.
+
+  sfl-ijcai17:
+    category: systems_networking
+    caption: >-
+      Storage fit learning: graph-based semi-supervised learning that adapts to a storage budget by replacing the full
+      similarity matrix with a low-rank approximation whose rank fits the budget.
+    method: |
+      Graph-based semi-supervised learning uses a few labeled and many unlabeled examples, connected by an n x n
+      similarity matrix. Storing this matrix needs memory that grows with n squared, while the storage available
+      differs from one situation to another.
+      Storage fit learning adjusts to the storage budget: it approximates the similarity matrix by a low-rank product
+      (an n x r matrix times an r x n matrix), with the rank r set by the budget, then runs graph-based semi-supervised
+      learning on the approximation.
+      Two ways to find the low-rank approximator:
+      - Stochastic optimization: iterative, converges to the globally optimal low-rank approximator.
+      - Nystrom method: finds a good approximator efficiently, suitable for real-time use.
+
+  association-mining-psb25:
+    category: healthcare_medical
+    caption: >-
+      Mining risk features of three neurodegenerative disorders (Alzheimer's disease, Parkinson's disease, other
+      dementias) from EHRs of 70,420 patients, comparing univariate and multivariate machine-learning methods and the
+      features each one finds.
+    method: |
+      Data: electronic health records (EHR) of a cohort of 70,420 patients with Alzheimer's disease and related
+      dementias, treated at Penn Medicine.
+      Goal: find important risk features for three types of neurodegenerative disorders: Alzheimer's disease (AD),
+      Parkinson's disease (PD) and other dementias (OD).
+      Methods: univariate approaches and multivariate machine-learning approaches are applied, and their accuracies
+      are compared.
+      Feature analysis: the features identified by each method are compared, including the features shared by all
+      methods and the features unique to one method.
+      Findings: univariate methods uncover features that are important and rare for a specific disorder type, which
+      matters clinically; features found by all methods are the most robust.
+
+  clinical-modalities-amia25:
+    category: healthcare_medical
+    caption: >-
+      Survival analysis of fall and injury risk in older adults from EHRs: combining medication and laboratory-test
+      modalities improves the C-index and removes an association between race and predicted risk.
+    method: |
+      Cohort: 29,045 patients aged 65 and older treated at Penn Medicine for a neurodegenerative disorder (NDD), mild
+      cognitive impairment (MCI) or another disease, from electronic health records.
+      Task: time-to-event survival analysis predicting falls and injuries.
+      Inputs: two modalities, medications and laboratory tests, plus sensitive attributes (race, ethnicity, sex).
+      Several survival analysis methods are compared using the C-index and hazard ratios.
+      Findings: in models with only medication and sensitive-attribute features, Black race significantly increased the
+      estimated fall/injury risk; the combined model using both medications and laboratory tests removed this
+      relationship, and combining the two modalities improved the C-index across survival methods.
+
+  pferm-amia24:
+    category: healthcare_medical
+    caption: >-
+      Prior-knowledge-guided fair ERM: when a disease is more prevalent in one group, the fairness constraint includes
+      the known prevalence ratio between groups, keeping fairness without sacrificing accuracy.
+    method: |
+      Strict fairness constraints require a classifier to treat groups defined by a sensitive attribute equally. When
+      the groups differ in prevalence, this sacrifices accuracy and can itself be inequitable; for example, Alzheimer's
+      disease is more prevalent in women than in men.
+      PFERM (Prior-knowledge-guided Fair Empirical Risk Minimization) introduces prior knowledge for fairness: the
+      prevalence ratio between groups is built into the fairness constraint.
+      The classifier minimizes expected risk within a function class subject to this prior-knowledge-guided fairness
+      constraint, which balances accuracy and fairness flexibly.
+      Result: fairness is preserved without compromising accuracy.
+
+  amyloid-subtypes-amia24:
+    category: healthcare_medical
+    caption: >-
+      Data-driven subtypes of mild cognitive impairment from amyloid PET: clustering 68 cortical amyloid features gives
+      two subtypes with homogeneous amyloid patterns that beat the clinical early/late MCI grouping.
+    method: |
+      Patients with mild cognitive impairment (MCI), a prodromal stage of Alzheimer's disease, are usually split by
+      clinical measurements into early MCI (EMCI) and late MCI (LMCI), which does not capture the heterogeneity of the
+      disorder.
+      Data: amyloid positron emission tomography (PET), summarized as 68 cortical features per patient.
+      Method: clustering algorithms (k-means, spectral clustering, agglomerative clustering) divide MCI patients into
+      two data-driven subtypes, each with a homogeneous cortical amyloid burden pattern.
+      Evaluation against the EMCI/LMCI grouping: two-dimensional cluster visualization, Kaplan-Meier survival curves,
+      genetic association studies and biomarker distributions. The identified subtypes perform better on all of these.
+
+  mg-tcca-bcb23:
+    category: healthcare_medical
+    caption: >-
+      Multi-group tensor canonical correlation analysis: jointly analyzes two brain PET modalities across subgroups
+      such as sex, separating shared from group-specific correlation structure.
+    method: |
+      Tensor canonical correlation analysis (TCCA) finds linear associations between two sets of tensor data, such as
+      two brain imaging modalities, but ignores heterogeneity across groups (for example sex or race), which can bias
+      results.
+      MG-TCCA (Multi-Group TCCA) jointly analyzes multiple subgroups. Its canonical weights have a dual sparsity
+      structure: a shared component common to all groups and an individual component specific to each group. A block
+      coordinate ascent algorithm estimates them.
+      This quantifies shared and individual structure, reduces dimensionality and supports visual exploration.
+      Application: correlations between two brain PET modalities, amyloid (AV-45) and glucose metabolism (FDG), in an
+      Alzheimer's disease cohort; MG-TCCA identifies sex-specific cross-modality correlations better than TCCA.
+
+  mg-tcca-tcbb24:
+    category: healthcare_medical
+    caption: >-
+      MG-TCCA: tensor CCA for heterogeneous groups; amyloid (AV-45) and FDG PET brain images from female and male
+      subgroups are analyzed jointly, revealing shared and sex-specific cross-modality correlations.
+    method: |
+      Tensor canonical correlation analysis (TCCA) finds linear associations between two sets of tensor data, such as
+      two brain imaging modalities, but ignores heterogeneity across groups (for example sex or race), which can bias
+      results.
+      MG-TCCA (Multi-Group TCCA) jointly analyzes multiple subgroups. Its canonical weights have a dual sparsity
+      structure: a shared component common to all groups and an individual component specific to each group. A block
+      coordinate ascent algorithm estimates them.
+      This quantifies shared and individual structure, reduces dimensionality and supports visual exploration.
+      Application: correlations between amyloid (AV-45) PET and FDG PET in an Alzheimer's disease cohort; MG-TCCA
+      identifies sex-specific cross-modality imaging correlations better than TCCA and sparse TCCA.
+
+  ovfm-icdm21:
+    category: generative_learning
+    caption: >-
+      Online learning in variable feature spaces with mixed data: a Gaussian copula maps Boolean, ordinal and continuous
+      features to a latent normal space, online EM learns feature correlations, and two learners are ensembled.
+    method: |
+      Setting: a data stream whose feature space changes over time; old features can disappear and new features can
+      appear, and features are of mixed types (Boolean, ordinal, continuous).
+      Goal: relate features to each other so the learner can (1) reconstruct the information of missed old features and
+      (2) jump-start learning on new features with informed weight initialization.
+      Earlier methods assume a linear mapping between features or a Gaussian joint distribution, which does not fit
+      mixed data.
+      Method (OVFM): a Gaussian copula models the joint distribution: observed features with arbitrary marginals are
+      mapped onto a latent normal space. Feature correlations are estimated in the latent space by an online EM process.
+      Two base learners, one on the observed features and one on the latent features, are ensembled to speed up
+      convergence and minimize prediction risk online.
+
+  rnn-interpretability-ccfai19:
+    category: nlp_language
+    caption: >-
+      Learning interpretability from RNNs: hidden states of RNNs with different numbers of gates are clustered into a
+      finite state automaton that humans can simulate, and the effect of changing input features is studied.
+    method: |
+      Recurrent neural networks (RNNs) work well on sequence tasks such as text classification, but their inner
+      mechanism is hard to understand. A finite state automaton (FSA) processing sequences is far more interpretable
+      and can be learned from an RNN.
+      Method: an RNN reads the input sequence word by word; its hidden states are clustered into a small number of
+      discrete states; the transitions between these states, triggered by input words, form an FSA that a human can
+      simulate.
+      Study: RNNs with different numbers of gates (simple RNN, MGU, GRU, LSTM) are compared, and the input features are
+      changed, as happens in open environments.
+      Findings: RNNs with simple gating such as the minimal gated unit (MGU) are preferable; the words that trigger the
+      transitions leading to a given class share the same part of speech; changing the features does not seriously
+      affect performance.

@@ -1,19 +1,20 @@
 # Maintenance tools for the homepage. Never runs on master pushes.
 #  - "tools": collect paper metadata, download PDFs, crop Figure 1 thumbnails, check every publication link.
 #  - "preview": build the site with the GitHub Pages gem set, take screenshots, run Lighthouse.
-# Trigger from the Actions tab (workflow_dispatch), or push to a non-master branch with [tools] or [preview]
-# in the commit message. Outputs are pushed to the branches site-tools-output / site-preview-output.
+#  - "figs": draw overview thumbnails with PaperBanana (needs the GEMINI_API_KEY secret).
+# Trigger from the Actions tab (workflow_dispatch), or push to a non-master branch with [tools], [preview] or [figs]
+# in the commit message. Outputs are pushed to the branches site-tools-output / site-preview-output / site-figs-output.
 name: site-tools
 
 on:
   workflow_dispatch:
     inputs:
       job:
-        description: "tools or preview"
+        description: "tools, preview or figs"
         required: true
         default: preview
   push:
-    branches-ignore: [master, site-tools-output, site-preview-output]
+    branches-ignore: [master, site-tools-output, site-preview-output, site-figs-output]
 
 permissions:
   contents: write
@@ -66,6 +67,36 @@ jobs:
           git init -q && git config user.name site-tools && git config user.email actions@users.noreply.github.com
           git checkout -q -b site-tools-output && git add -A && git commit -qm "tools output for ${GITHUB_SHA}"
           git push -qf "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git" site-tools-output
+
+  figs:
+    # Overview thumbnails drawn by PaperBanana for the papers under `run:` in scripts/site_tools/paperbanana/papers.yml.
+    # Needs the repository secret GEMINI_API_KEY. Outputs go to the branch site-figs-output for review; nothing is
+    # copied into the site automatically.
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.job == 'figs' || github.event_name == 'push' && contains(github.event.head_commit.message, '[figs]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      OUT: ${{ github.workspace }}/_figs_out
+      GOOGLE_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install "paperbanana[google]==0.3.0" pillow pyyaml
+      - name: Reference figures (PaperBananaBench)
+        run: paperbanana data download
+      - name: Generate
+        run: python scripts/site_tools/paperbanana/run.py "$OUT"
+      - name: Publish outputs
+        if: always()
+        run: |
+          mkdir -p "$OUT" && cd "$OUT"
+          find . -type d -name runs -prune -exec rm -rf {} +
+          echo "${GITHUB_SHA}" > SOURCE_COMMIT
+          git init -q && git config user.name site-tools && git config user.email actions@users.noreply.github.com
+          git checkout -q -b site-figs-output && git add -A && git commit -qm "figs output for ${GITHUB_SHA}"
+          git push -qf "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git" site-figs-output
 
   preview:
     if: github.event_name == 'workflow_dispatch' && github.event.inputs.job == 'preview' || github.event_name == 'push' && contains(github.event.head_commit.message, '[preview]')
