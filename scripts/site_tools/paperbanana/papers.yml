@@ -19,7 +19,6 @@ thumbnail_note: >-
 
 papers:
   sem-ece-neurips26:
-    category: nlp_language
     caption: >-
       Sem-ECE evaluates the calibration of an LLM on open-ended questions: sample many answers, group them into
       semantic classes by meaning, and use class frequencies as confidence. Sem1-ECE reuses the same samples; Sem2-ECE
@@ -41,7 +40,6 @@ papers:
       Sem2-ECE has smaller calibration error, so their gap indicates question difficulty.
 
   bilevel-calibration-colm26:
-    category: optimization_theory
     caption: >-
       Bilevel optimization for LLM calibration: the lower level fine-tunes the LLM under a loss with hyperparameters
       lambda, and the upper level chooses lambda to maximize predictive entropy, turning an overconfident aligned LLM
@@ -62,7 +60,6 @@ papers:
       out-of-domain data.
 
   calibration-aligned-llm-icml25:
-    category: nlp_language
     caption: >-
       Why preference alignment makes LLMs overconfident, and how to restore calibration: calibration-aware fine-tuning
       in the calibratable regime, and an EM-based ECE regularizer in the non-calibratable regime.
@@ -78,7 +75,6 @@ papers:
         term is added to the fine-tuning loss (RCFT) to keep calibration error low.
 
   online-bilevel-aistats24:
-    category: optimization_theory
     caption: >-
       Online bilevel optimization: a sequence of time-varying bilevel problems arrives one by one; an online alternating
       time-averaged gradient method tracks the moving solutions, with bilevel regret bounded by their path length.
@@ -95,7 +91,6 @@ papers:
       the optimal solutions move over time.
 
   online-bilevel-regret-neurips25:
-    category: optimization_theory
     caption: >-
       Stochastic online bilevel optimization without window smoothing: a new search direction gives first-order and
       zeroth-order algorithms with sublinear stochastic bilevel regret from noisy oracles.
@@ -114,7 +109,6 @@ papers:
       Applications: online parametric loss tuning and black-box adversarial attacks.
 
   sfl-ijcai17:
-    category: systems_networking
     caption: >-
       Storage fit learning: graph-based semi-supervised learning that adapts to a storage budget by replacing the full
       similarity matrix with a low-rank approximation whose rank fits the budget.
@@ -130,7 +124,6 @@ papers:
       - Nystrom method: finds a good approximator efficiently, suitable for real-time use.
 
   association-mining-psb25:
-    category: healthcare_medical
     caption: >-
       Mining risk features of three neurodegenerative disorders (Alzheimer's disease, Parkinson's disease, other
       dementias) from EHRs of 70,420 patients, comparing univariate and multivariate machine-learning methods and the
@@ -148,7 +141,6 @@ papers:
       matters clinically; features found by all methods are the most robust.
 
   clinical-modalities-amia25:
-    category: healthcare_medical
     caption: >-
       Survival analysis of fall and injury risk in older adults from EHRs: combining medication and laboratory-test
       modalities improves the C-index and removes an association between race and predicted risk.
@@ -163,7 +155,6 @@ papers:
       relationship, and combining the two modalities improved the C-index across survival methods.
 
   pferm-amia24:
-    category: healthcare_medical
     caption: >-
       Prior-knowledge-guided fair ERM: when a disease is more prevalent in one group, the fairness constraint includes
       the known prevalence ratio between groups, keeping fairness without sacrificing accuracy.
@@ -178,7 +169,6 @@ papers:
       Result: fairness is preserved without compromising accuracy.
 
   amyloid-subtypes-amia24:
-    category: healthcare_medical
     caption: >-
       Data-driven subtypes of mild cognitive impairment from amyloid PET: clustering 68 cortical amyloid features gives
       two subtypes with homogeneous amyloid patterns that beat the clinical early/late MCI grouping.
@@ -193,7 +183,6 @@ papers:
       genetic association studies and biomarker distributions. The identified subtypes perform better on all of these.
 
   mg-tcca-bcb23:
-    category: healthcare_medical
     caption: >-
       Multi-group tensor canonical correlation analysis: jointly analyzes two brain PET modalities across subgroups
       such as sex, separating shared from group-specific correlation structure.
@@ -209,7 +198,6 @@ papers:
       Alzheimer's disease cohort; MG-TCCA identifies sex-specific cross-modality correlations better than TCCA.
 
   mg-tcca-tcbb24:
-    category: healthcare_medical
     caption: >-
       MG-TCCA: tensor CCA for heterogeneous groups; amyloid (AV-45) and FDG PET brain images from female and male
       subgroups are analyzed jointly, revealing shared and sex-specific cross-modality correlations.
@@ -225,7 +213,6 @@ papers:
       identifies sex-specific cross-modality imaging correlations better than TCCA and sparse TCCA.
 
   ovfm-icdm21:
-    category: generative_learning
     caption: >-
       Online learning in variable feature spaces with mixed data: a Gaussian copula maps Boolean, ordinal and continuous
       features to a latent normal space, online EM learns feature correlations, and two learners are ensembled.
@@ -242,7 +229,6 @@ papers:
       convergence and minimize prediction risk online.
 
   rnn-interpretability-ccfai19:
-    category: nlp_language
     caption: >-
       Learning interpretability from RNNs: hidden states of RNNs with different numbers of gates are clustered into a
       finite state automaton that humans can simulate, and the effect of changing input features is studied.

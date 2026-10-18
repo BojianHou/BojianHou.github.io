@@ -35,8 +35,6 @@ def generate(pid):
            '--output-dir', str(d / 'runs'), '--aspect-ratio', S['aspect_ratio'],
            '--num-candidates', str(S['num_candidates']), '--budget', str(S['budget_usd']),
            '--format', 'png', '--verbose']
-    if p.get('category'):
-        cmd += ['--reference-category', p['category']]
     with open(d / 'log.txt', 'w', encoding='utf-8') as log:
         rc = subprocess.run(cmd, stdout=log, stderr=subprocess.STDOUT).returncode
     return pid, rc
