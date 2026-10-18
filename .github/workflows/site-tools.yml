@@ -87,8 +87,16 @@ jobs:
         run: |
           python - <<'EOF'
           import json, os, urllib.error, urllib.request
+          import re
           raw = os.environ.get('GOOGLE_API_KEY', '')
           key = raw.strip().strip('"').strip("'").strip()
+          found = re.findall(r'AIza[0-9A-Za-z_-]{35}', raw)
+          parts = raw.split()
+          print(f'::notice::secret shape: {len(parts)} whitespace-separated parts of lengths {[len(x) for x in parts]}, '
+                f'contains "=": {"=" in raw}, contains ":": {":" in raw}, standard key tokens found: {len(found)}')
+          if len(found) == 1 and key != found[0]:
+              key = found[0]
+              print('::notice::using the single standard key token found inside the secret')
           if key:
               print(f'::add-mask::{key}')
               with open(os.environ['GITHUB_ENV'], 'a') as f:
