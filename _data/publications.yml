@@ -26,22 +26,25 @@
     arxiv: '2605.08432'
 - id: 3d-vlm-report-mlmi26
   title: A Unified 3D Vision-Language Framework for Structured Multi-Study Volumetric Report Generation
-  authors: Rahul Shukla, Ruiming Wu, Hongzhuo Chen, Shu Yang, Duy Duong-Tran, Duy Minh Ho Nguyen, Mathias Niepert, Cameron Beeche, James C. Gee, Jeffrey T. Duda, Rakesh Sharma, Christos Davatzikos, Walter R. Witschey, Bojian Hou†, Li Shen†
+  authors: Rahul Shukla*, Ruiming Wu*, Hongzhuo Chen, Shu Yang, Duy Duong-Tran, Duy Minh Ho Nguyen, Mathias Niepert, Cameron Beeche, James Gee, Jeffrey Duda, Rakesh Sharma, Christos Davatzikos, Walter Witschey, Bojian Hou†, Li Shen†
   venue: MLMI 2026
   venue_group: ''
   year: 2026
   type: conference
-  status: in-press
+  status: published
   tags:
   - health
   selected: false
   lead: true
   award: ''
-  links: []
-  teaser: ''
-  teaser_alt: ''
-  tldr: ''
-  _sources: {}
+  links:
+  - name: PDF
+    url: /files/MLMI26-3D-VLM-report.pdf
+  teaser: /images/pubs/3d-vlm-report-mlmi26.webp
+  teaser_alt: 'Figure 1 from the paper: native 3D VLM architecture, two-stage training, and comparison with existing 3D VLMs'
+  tldr: A native 3D vision-language framework for structured CT and MRI report generation that handles multiple studies per patient, keeps vision-text alignment with a joint generative-contrastive objective, and outperforms 2D and 3D medical VLMs on the Penn Medicine BioBank.
+  _sources:
+    pdf: /files/MLMI26-3D-VLM-report.pdf
 - id: bilevel-calibration-colm26
   title: 'Beyond Post-Hoc Temperature Scaling: Bilevel Optimization for LLM Calibration'
   authors: Ruochen Jin*, Zhanliang Wang*, Zongyu Dai, Jiancong Xiao†, Bojian Hou†

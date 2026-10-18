@@ -11,7 +11,7 @@ First redesign merged in PR #1. Visual refresh (cards layout) on branch `visual-
 - **Removed AcademicPages leftovers:** sample posts, talks, teaching, portfolio, demo pages and images, `files/paper1-3.pdf`, the sample `_data/authors.yml`, the talkmap and markdown generator.
 - **Fonts:** Geist (body) and Bricolage Grotesque (headings), both SIL Open Font License, self-hosted in `assets/fonts/`.
 - **SEO:** real site description, Open Graph image, JSON-LD `Person`, page titles like "Publications | Bojian Hou". The dead `google-universal` analytics block is switched off.
-- **Experience and education:** Meta (Monetization and MRS), Penn (Postdoctoral Fellow), Nanjing University Ph.D. 2014 to 2020 and B.Sc. 2010 to 2014. Cornell and 4Paradigm are intentionally not listed.
+- **Experience and education:** Meta (Monetization and MRS), Penn (Postdoctoral Fellow), Cornell (Postdoctoral Associate), 4Paradigm (Research Scientist), Nanjing University Ph.D. 2014 to 2020 and B.Sc. 2010 to 2014. The Background card mentions only Penn and Nanjing University.
 - **Quality checks (latest preview build):** Jekyll builds cleanly with the GitHub Pages gem set; 125 publication links checked, 0 broken (10 publisher pages refuse bots and are marked "blocked"); no horizontal scrolling at 390 px; Lighthouse mobile: home 99 / 100 / 100 / 100, publications 97 / 100 / 100 / 100 (performance / accessibility / best practices / SEO). Fonts (Geist, SIL Open Font License) are self-hosted in `assets/fonts/`.
 - **Files:** `files/CCFAI'19.pdf` renamed to `files/CCFAI19.pdf` (apostrophes break links).
 
@@ -35,7 +35,7 @@ First redesign merged in PR #1. Visual refresh (cards layout) on branch `visual-
 2. **Kunlun now links to the ACM DL page** (doi.org/10.1145/3770855.3818438) as well as arXiv.
 3. **Thumbnails.** All figures are cropped from the papers. A few use a figure other than Figure 1 because Figure 1 was a results table or a cohort flowchart; see `scripts/site_tools/teaser_overrides.yml`.
 4. **One-sentence summaries** are paraphrased from each abstract (no numbers or claims beyond the abstract). Skim them on `/publications/`.
-5. **Still without a public version:** MLMI 2026 (in press; shows "In press"). Fair multi-modal CCA (AMIA 2025) links to PubMed only.
+5. **MLMI 2026** links to the author PDF hosted at `/files/MLMI26-3D-VLM-report.pdf`. Fair multi-modal CCA (AMIA 2025) links to PubMed only and has no figure.
 6. **Chinese name.** The homepage shows "also published as Bo-Jian Hou · 侯博建" (the old sidebar already showed 侯博建). Remove it if you prefer.
 7. **Links that block automated checkers** (ACM, OUP, medRxiv DOIs return 403 to bots). They open normally in a browser; the link report marks them "blocked", not broken.
 
