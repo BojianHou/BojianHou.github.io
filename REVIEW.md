@@ -6,9 +6,11 @@ First redesign merged in PR #1. Visual refresh (cards layout) on branch `visual-
 
 - **New look, same URLs.** `/`, `/publications/`, `/resume/`, `/services/`, `/awards/` keep their addresses; `/news/` is new. Old `/about/`, `/cv/` and `/publication/2017-SFL-IJCAI` redirect.
 - **Homepage keeps the academic structure, laid out as cards:** intro with contact buttons, recent-paper figures, background, Published at (conferences and journals, no counts), news (latest 6, full list on /news/), honors, five research areas with representative papers, nine selected publications as figure cards, experience and education, academic service.
-- **Publications page:** 61 papers grouped by year, filterable by topic (All, Selected, Lead-authored, 8 topics). Filters are linkable, for example `/publications/#topic=llm`. Each paper has a Figure 1 thumbnail (or a figure chosen from the paper), a one-sentence summary, the venue, awards, and links.
+- **Publications page:** 61 papers grouped by year, filterable by topic (All, Selected, Lead-authored, 10 method topics; healthcare is an application domain, not a topic). Filters are linkable, for example `/publications/#topic=llm`. Each paper has a Figure 1 thumbnail (or a figure chosen from the paper), a one-sentence summary, the venue, awards, and links.
 - **Data files are the single source:** `_data/publications.yml`, `news.yml`, `awards.yml`, `service.yml`, `research.yml`, `topics.yml`, `site.yml`. To add a paper, add one entry to `publications.yml`; the homepage counts, filters and lists update themselves.
 - **Removed AcademicPages leftovers:** sample posts, talks, teaching, portfolio, demo pages and images, `files/paper1-3.pdf`, the sample `_data/authors.yml`, the talkmap and markdown generator.
+- **Light/dark switch** in the header (saved per visitor); without a saved choice the site follows the system setting.
+- **Favicon:** the bee B in `assets/favicon/`, also at `/favicon.ico`.
 - **Fonts:** Geist (body) and Bricolage Grotesque (headings), both SIL Open Font License, self-hosted in `assets/fonts/`.
 - **SEO:** real site description, Open Graph image, JSON-LD `Person`, page titles like "Publications | Bojian Hou". The dead `google-universal` analytics block is switched off.
 - **Experience and education:** Meta (Monetization and MRS), Penn (Postdoctoral Fellow), Cornell (Postdoctoral Associate), 4Paradigm (Research Scientist), Nanjing University Ph.D. 2014 to 2020 and B.Sc. 2010 to 2014. The Background card mentions only Penn and Nanjing University.
@@ -35,7 +37,7 @@ First redesign merged in PR #1. Visual refresh (cards layout) on branch `visual-
 2. **Kunlun now links to the ACM DL page** (doi.org/10.1145/3770855.3818438) as well as arXiv.
 3. **Thumbnails.** All figures are cropped from the papers. A few use a figure other than Figure 1 because Figure 1 was a results table or a cohort flowchart; see `scripts/site_tools/teaser_overrides.yml`.
 4. **One-sentence summaries** are paraphrased from each abstract (no numbers or claims beyond the abstract). Skim them on `/publications/`.
-5. **MLMI 2026** links to the author PDF hosted at `/files/MLMI26-3D-VLM-report.pdf`. Fair multi-modal CCA (AMIA 2025) links to PubMed only and has no figure.
+5. **MLMI 2026** links to the author PDF hosted at `/files/MLMI26-3D-VLM-report.pdf`. Fair multi-modal CCA (AMIA 2025) links to its PMC full text, with Figure 1 as the thumbnail.
 6. **Chinese name.** The homepage shows "also published as Bo-Jian Hou · 侯博建" (the old sidebar already showed 侯博建). Remove it if you prefer.
 7. **Links that block automated checkers** (ACM, OUP, medRxiv DOIs return 403 to bots). They open normally in a browser; the link report marks them "blocked", not broken.
 

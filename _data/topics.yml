@@ -1,17 +1,22 @@
 # Topic chips on the publications page, in display order. `id` matches publications.yml tags.
+# Topics name the method; the application domain (for example healthcare) is not a topic.
 - id: recsys
   label: Recommendation
 - id: llm
   label: Reliable LLMs
+- id: nlp
+  label: LLM applications & NLP
+- id: multimodal
+  label: Vision & multimodal
 - id: fairness
   label: Fairness
 - id: interpretability
   label: Interpretability
+- id: robustness
+  label: Robustness
 - id: optimization
   label: Optimization
-- id: open-env
-  label: Open-environment learning
-- id: health
-  label: AI for healthcare
+- id: survival
+  label: Clustering & survival analysis
 - id: other
   label: Other

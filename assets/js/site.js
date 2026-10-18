@@ -1,6 +1,32 @@
-/* Publication topic filters and the news "Show all" toggle. Without this script every paper and news item shows. */
+/* Light/dark switch, publication topic filters and the news "Show all" toggle. Without this script the site follows
+   the system color scheme and every paper and news item shows. */
 (function () {
   'use strict';
+
+  // ----- Light/dark switch (the saved choice is applied before paint by the inline script in rd-head.html) -----
+  var toggle = document.querySelector('.theme-toggle');
+  if (toggle) {
+    var root = document.documentElement;
+    var mq = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+    var current = function () { return root.getAttribute('data-theme') || (mq && mq.matches ? 'dark' : 'light'); };
+    var sync = function () {
+      var theme = current();
+      var next = theme === 'dark' ? 'light' : 'dark';
+      toggle.setAttribute('aria-label', 'Switch to ' + next + ' mode');
+      toggle.setAttribute('title', 'Switch to ' + next + ' mode');
+      Array.prototype.forEach.call(document.querySelectorAll('meta[name="theme-color"]'), function (m) {
+        m.setAttribute('content', theme === 'dark' ? '#0A0F1C' : '#E9EDF3');
+      });
+    };
+    toggle.addEventListener('click', function () {
+      var next = current() === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) { /* storage blocked: the choice lasts for this page */ }
+      sync();
+    });
+    if (mq && mq.addEventListener) mq.addEventListener('change', sync);
+    sync();
+  }
 
   // ----- Publication filters -----
   var bar = document.querySelector('.pub-filters');

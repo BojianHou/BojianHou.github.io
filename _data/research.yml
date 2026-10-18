@@ -7,21 +7,21 @@
   pubs: [kunlun-kdd26]
 - title: Large Language Models
   icon: spark
-  topics: Calibration and uncertainty estimation, preference alignment, evaluation, fine-tuning.
+  topics: Calibration and uncertainty estimation, preference alignment, evaluation, fine-tuning, and LLMs with knowledge graphs.
   tag: llm
   pubs: [calibration-aligned-llm-icml25, attention-task-arithmetic-iclr25, bilevel-calibration-colm26, sem-ece-neurips26]
 - title: Trustworthy Machine Learning
   icon: shield
-  topics: Fairness learning and interpretability, from classical models to deep networks.
+  topics: Fairness, interpretability, and robustness to evolving features and data streams, from classical models to deep networks.
   tag: fairness
-  pubs: [fair-cca-neurips23, fair-graphical-models-neurips24, facims-uai23, lisor-tnnls20]
-- title: Learning Theory and Optimization
+  pubs: [fair-cca-neurips23, fair-graphical-models-neurips24, lisor-tnnls20, fesl-nips17]
+- title: Optimization and Learning Theory
   icon: sigma
-  topics: Feature evolvable learning, online learning, bilevel optimization, semi-supervised learning.
-  tag: open-env
-  pubs: [fesl-nips17, sf2el-aaai21, online-bilevel-aistats24, online-bilevel-regret-neurips25]
-- title: AI for Health
-  icon: pulse
-  topics: "Alzheimer's disease and dementia, mental health, medical imaging and vision-language models."
-  tag: health
-  pubs: [mentalchat16k-kdd25, interpretable-dcsm-media24, ct-vlm-npjdm26]
+  topics: Bilevel and multi-level optimization, and online learning with regret guarantees.
+  tag: optimization
+  pubs: [online-bilevel-aistats24, online-bilevel-regret-neurips25, bilevel-calibration-colm26, facims-uai23]
+- title: Multimodal Learning
+  icon: image
+  topics: Vision-language models for 3D imaging, multi-view representation learning with canonical correlation analysis, and deep clustering for survival analysis.
+  tag: multimodal
+  pubs: [ct-vlm-npjdm26, 3d-vlm-report-mlmi26, mg-tcca-bcb23, interpretable-dcsm-media24]
