@@ -1,19 +1,20 @@
 # Maintenance tools for the homepage. Never runs on master pushes.
 #  - "tools": collect paper metadata, download PDFs, crop Figure 1 thumbnails, check every publication link.
 #  - "preview": build the site with the GitHub Pages gem set, take screenshots, run Lighthouse.
-# Trigger from the Actions tab (workflow_dispatch), or push to a non-master branch with [tools] or [preview]
-# in the commit message. Outputs are pushed to the branches site-tools-output / site-preview-output.
+#  - "figs": draw overview thumbnails with PaperBanana (needs the GEMINI_API_KEY secret).
+# Trigger from the Actions tab (workflow_dispatch), or push to a non-master branch with [tools], [preview] or [figs]
+# in the commit message. Outputs are pushed to the branches site-tools-output / site-preview-output / site-figs-output.
 name: site-tools
 
 on:
   workflow_dispatch:
     inputs:
       job:
-        description: "tools or preview"
+        description: "tools, preview or figs"
         required: true
         default: preview
   push:
-    branches-ignore: [master, site-tools-output, site-preview-output]
+    branches-ignore: [master, site-tools-output, site-preview-output, site-figs-output]
 
 permissions:
   contents: write
@@ -66,6 +67,87 @@ jobs:
           git init -q && git config user.name site-tools && git config user.email actions@users.noreply.github.com
           git checkout -q -b site-tools-output && git add -A && git commit -qm "tools output for ${GITHUB_SHA}"
           git push -qf "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git" site-tools-output
+
+  figs:
+    # Overview thumbnails drawn by PaperBanana for the papers under `run:` in scripts/site_tools/paperbanana/papers.yml.
+    # Needs the repository secret GEMINI_API_KEY. Outputs go to the branch site-figs-output for review; nothing is
+    # copied into the site automatically.
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.job == 'figs' || github.event_name == 'push' && contains(github.event.head_commit.message, '[figs]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      OUT: ${{ github.workspace }}/_figs_out
+      GOOGLE_API_KEY: ${{ secrets.GEMINI_API_KEY || secrets.GOOGLE_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install "paperbanana[google]==0.3.0" pillow pyyaml
+      - name: Check the Gemini key and the configured models (prints only the key's length and format)
+        run: |
+          python - <<'EOF'
+          import json, os, urllib.error, urllib.request
+          import re
+          raw = os.environ.get('GOOGLE_API_KEY', '')
+          key = raw.strip().strip('"').strip("'").strip()
+          found = re.findall(r'AIza[0-9A-Za-z_-]{35}', raw)
+          parts = raw.split()
+          print(f'::notice::secret shape: {len(parts)} whitespace-separated parts of lengths {[len(x) for x in parts]}, '
+                f'contains "=": {"=" in raw}, contains ":": {":" in raw}, standard key tokens found: {len(found)}')
+          if len(found) == 1 and key != found[0]:
+              key = found[0]
+              print('::notice::using the single standard key token found inside the secret')
+          if key:
+              print(f'::add-mask::{key}')
+              with open(os.environ['GITHUB_ENV'], 'a') as f:
+                  f.write(f'GOOGLE_API_KEY={key}\n')
+          print(f'::notice::secret length {len(raw)}, cleaned length {len(key)}, starts with AIza: {key.startswith("AIza")}, '
+                f'whitespace inside: {any(c.isspace() for c in key)}')
+          try:
+              r = urllib.request.urlopen('https://generativelanguage.googleapis.com/v1beta/models?pageSize=1000&key=' + key, timeout=30)
+              names = [m['name'].split('/')[-1] for m in json.load(r).get('models', [])]
+              print('::notice::key accepted; models:', ', '.join(sorted(names)))
+              import yaml
+              S = yaml.safe_load(open('scripts/site_tools/paperbanana/papers.yml'))['settings']
+              missing = [m for m in (S['vlm_model'], S['image_model']) if m not in names]
+              if missing:
+                  print('::error::configured models not available to this key:', missing)
+                  raise SystemExit(1)
+              # one tiny test image per image model, the same call PaperBanana makes, so errors are visible
+              from google import genai
+              from google.genai import types
+              client = genai.Client(api_key=key)
+              ok = False
+              for m in [S['image_model']]:
+                  try:
+                      resp = client.models.generate_content(model=m, contents='A small blue circle on a white background.',
+                          config=types.GenerateContentConfig(response_modalities=['IMAGE'],
+                              image_config=types.ImageConfig(aspect_ratio='3:2', image_size='1K')))
+                      got = any(getattr(getattr(pt, 'inline_data', None), 'data', None) for pt in resp.candidates[0].content.parts)
+                      print(f'::notice::image test {m}: ' + ('ok' if got else 'no image returned'))
+                      ok = ok or (got and m == S['image_model'])
+                  except Exception as e:
+                      print(f'::warning::image test {m} failed: {str(e)[:600]}')
+              if not ok:
+                  raise SystemExit(1)
+          except urllib.error.HTTPError as e:
+              print('::error::key rejected:', e.code, json.loads(e.read() or b'{}').get('error', {}).get('message'))
+              raise SystemExit(1)
+          EOF
+      - name: Reference figures (PaperBananaBench)
+        run: paperbanana data download
+      - name: Generate
+        run: python scripts/site_tools/paperbanana/run.py "$OUT"
+      - name: Publish outputs
+        if: always()
+        run: |
+          mkdir -p "$OUT" && cd "$OUT"
+          find . -type d -name runs -prune -exec rm -rf {} +
+          echo "${GITHUB_SHA}" > SOURCE_COMMIT
+          git init -q && git config user.name site-tools && git config user.email actions@users.noreply.github.com
+          git checkout -q -b site-figs-output && git add -A && git commit -qm "figs output for ${GITHUB_SHA}"
+          git push -qf "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git" site-figs-output
 
   preview:
     if: github.event_name == 'workflow_dispatch' && github.event.inputs.job == 'preview' || github.event_name == 'push' && contains(github.event.head_commit.message, '[preview]')

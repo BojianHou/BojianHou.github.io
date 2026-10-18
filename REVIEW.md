@@ -6,7 +6,7 @@ First redesign merged in PR #1. Visual refresh (cards layout) on branch `visual-
 
 - **New look, same URLs.** `/`, `/publications/`, `/resume/`, `/services/`, `/awards/` keep their addresses; `/news/` is new. Old `/about/`, `/cv/` and `/publication/2017-SFL-IJCAI` redirect.
 - **Homepage keeps the academic structure, laid out as cards:** intro with contact buttons, recent-paper figures, background, Published at (conferences and journals, no counts), news (latest 6, full list on /news/), honors, five research areas with representative papers, nine selected publications as figure cards, experience and education, academic service.
-- **Publications page:** 61 papers grouped by year, filterable by topic (All, Selected, Lead-authored, 10 method topics; healthcare is an application domain, not a topic). Filters are linkable, for example `/publications/#topic=llm`. Each paper has a Figure 1 thumbnail (or a figure chosen from the paper), a one-sentence summary, the venue, awards, and links.
+- **Publications page:** 61 papers grouped by year, filterable by topic (All, Selected, Lead-authored, 10 method topics; healthcare is an application domain, not a topic). Filters are linkable, for example `/publications/#topic=llm`. Each paper has an overview thumbnail (a method or framework figure from the paper, or a drawn overview when the paper has none), a one-sentence summary, the venue, awards, and links.
 - **Data files are the single source:** `_data/publications.yml`, `news.yml`, `awards.yml`, `service.yml`, `research.yml`, `topics.yml`, `site.yml`. To add a paper, add one entry to `publications.yml`; the homepage counts, filters and lists update themselves.
 - **Removed AcademicPages leftovers:** sample posts, talks, teaching, portfolio, demo pages and images, `files/paper1-3.pdf`, the sample `_data/authors.yml`, the talkmap and markdown generator.
 - **Light/dark switch** in the header (saved per visitor); without a saved choice the site follows the system setting.
@@ -35,7 +35,7 @@ First redesign merged in PR #1. Visual refresh (cards layout) on branch `visual-
     - IEEE TNNLS 2024 (Manifoldron): the published paper includes Zhen Jia and Boce Zhang (Crossref spells "Boce Zhang"; arXiv spells "Boce Zhou").
     - Kunlun keeps "et al." after six authors (the paper has 28).
 2. **Kunlun now links to the ACM DL page** (doi.org/10.1145/3770855.3818438) as well as arXiv.
-3. **Thumbnails.** All figures are cropped from the papers. A few use a figure other than Figure 1 because Figure 1 was a results table or a cohort flowchart; see `scripts/site_tools/teaser_overrides.yml`.
+3. **Thumbnails.** Each thumbnail should show what the paper does, not a result plot. Most are the paper's own method or framework figure (some are not Figure 1; see `scripts/site_tools/teaser_overrides.yml`). For 14 papers whose figures are all results, cohort or data plots, the thumbnail is an overview figure generated with PaperBanana (Gemini image model) from a method summary that paraphrases the abstract (`scripts/site_tools/paperbanana/papers.yml`); each was checked against its paper. Please check those 14 read correctly.
 4. **One-sentence summaries** are paraphrased from each abstract (no numbers or claims beyond the abstract). Skim them on `/publications/`.
 5. **MLMI 2026** links to the author PDF hosted at `/files/MLMI26-3D-VLM-report.pdf`. Fair multi-modal CCA (AMIA 2025) links to its PMC full text, with Figure 1 as the thumbnail.
 6. **Chinese name.** The homepage shows "also published as Bo-Jian Hou · 侯博建" (the old sidebar already showed 侯博建). Remove it if you prefer.
@@ -54,6 +54,7 @@ First redesign merged in PR #1. Visual refresh (cards layout) on branch `visual-
 
 - `collect_metadata.py`: titles, authors and abstracts from arXiv, Europe PMC and Crossref.
 - `fetch_pdfs.py` + `extract_teasers.py`: download each paper and crop its figure into `images/pubs/<id>.webp`.
+- `paperbanana/`: method summaries, captions and palettes for PaperBanana; push with `[figs]` in the commit message (needs the `GEMINI_API_KEY` secret with billing enabled) and review the candidates on the branch `site-figs-output`.
 - `check_links.py`: checks every publication link.
 - `screens.mjs`: screenshots at desktop and phone widths in light and dark mode, plus filter and news checks.
 
