@@ -9,110 +9,141 @@ redirect_from:
   - /about.html
 ---
 {%- assign pubs = site.data.publications -%}
-<section class="profile" aria-label="About me">
-  <aside class="profile-card">
-    <img class="profile-photo" src="{{ '/images/bojian-hou-400.webp' | relative_url }}" alt="Portrait of Bojian Hou" width="200" height="200">
-    <ul class="contact-list">
-      <li class="contact-role">AI Research Scientist, Meta</li>
-      <li class="muted">Mountain View, CA</li>
-      <li><a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></li>
-      <li><a href="{{ site.author.googlescholar }}">Google Scholar</a></li>
-      <li><a href="https://github.com/{{ site.author.github }}">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/{{ site.author.linkedin }}">LinkedIn</a></li>
-      <li><a href="{{ '/resume/' | relative_url }}">Resume (PDF)</a></li>
+<div class="bento bento-top">
+  <section class="card card-hero" aria-labelledby="name-h">
+    <div class="hero-id">
+      <img class="hero-photo" src="{{ '/images/bojian-hou-400.webp' | relative_url }}" alt="Portrait of Bojian Hou" width="200" height="200" fetchpriority="high">
+      <div class="hero-id-text">
+        <h1 class="hero-name" id="name-h">Bojian Hou</h1>
+        <p class="hero-role">AI Research Scientist at Meta<br>Mountain View, California</p>
+        <p class="hero-aka">Also published as <span class="nowrap">Bo-Jian Hou (侯博建)</span></p>
+      </div>
+    </div>
+    <p class="hero-lead">I am an <strong>AI Research Scientist</strong> at <strong>Meta</strong> in Monetization and Meta Recommendation Systems (MRS). My work centers on LLM-style model architectures and scaling laws for massive-scale ads ranking (e.g., <a href="{{ '/publications/' | relative_url }}#kunlun-kdd26">Kunlun</a>, KDD 2026) and on representation learning that connects organic and ads signals for ranking and retrieval. I also continue my research on trustworthy large language models, especially calibration, uncertainty estimation, and preference alignment.</p>
+    <ul class="hero-links" aria-label="Contact and profiles">
+      <li><a class="btn btn-primary" href="{{ '/resume/' | relative_url }}">{% include icon.html name="doc" size=17 %}Resume</a></li>
+      <li><a class="btn" href="mailto:{{ site.author.email }}">{% include icon.html name="mail" size=17 %}Email</a></li>
+      <li><a class="btn" href="{{ site.author.googlescholar }}">{% include icon.html name="scholar" size=17 %}Scholar</a></li>
+      <li><a class="btn" href="https://github.com/{{ site.author.github }}">{% include icon.html name="code" size=17 %}GitHub</a></li>
+      <li><a class="btn" href="https://www.linkedin.com/in/{{ site.author.linkedin }}">{% include icon.html name="person" size=17 %}LinkedIn</a></li>
     </ul>
-  </aside>
-  <div class="bio">
-    <h1 class="name">Bojian Hou</h1>
-    <p class="aka">also published as Bo-Jian Hou · 侯博建</p>
-    <p>I am an <strong>AI Research Scientist</strong> at <strong>Meta</strong> in Monetization and Meta Recommendation Systems (MRS). My work centers on LLM-style model architectures and scaling laws for massive-scale ads ranking (e.g., <a href="{{ '/publications/' | relative_url }}#kunlun-kdd26">Kunlun</a>, KDD 2026) and on representation learning that connects organic and ads signals for ranking and retrieval. I also continue my research on trustworthy large language models, especially calibration, uncertainty estimation, and preference alignment.</p>
-    <p>Before joining Meta, I was a postdoctoral fellow in the <a href="https://www.dbei.med.upenn.edu/">Department of Biostatistics, Epidemiology and Informatics</a> at the <a href="https://www.upenn.edu/">University of Pennsylvania</a>, advised by Prof. <a href="https://www.dbei.med.upenn.edu/bio/li-shen-phd-faimbe">Li Shen</a>, where I led a Trustworthy AI research line and mentored 20+ students. Earlier, I was a postdoctoral associate at <a href="https://www.cornell.edu/">Cornell University</a> and a research scientist at 4Paradigm. I received my B.Sc. and Ph.D. in Computer Science from <a href="https://www.nju.edu.cn/">Nanjing University</a> in 2014 and 2020, supervised by Prof. <a href="https://cs.nju.edu.cn/zhouzh/">Zhi-Hua Zhou</a> in the <a href="https://www.lamda.nju.edu.cn/MainPage.ashx">LAMDA Group</a>.</p>
-    <p>I am interested in both the theoretical foundations and the real-world deployment of machine learning, and in building AI systems that are technically rigorous, trustworthy, and socially responsible.</p>
-  </div>
-</section>
+  </section>
 
-<section class="proof" aria-label="Publication venues and recognition">
-  <div>
-    <h2 class="label">Published at</h2>
-    <p>
-      {%- for v in site.data.site.venues_shown -%}
-      {%- assign n = pubs | where: "venue_group", v | size -%}
-      {{ v }}{% if n > 1 %} ({{ n }}){% endif %}{% unless forloop.last %} · {% endunless %}
-      {%- endfor -%}
-    </p>
-  </div>
-  <div>
-    <h2 class="label">Recognition</h2>
-    <p>{{ site.data.site.recognition | join: " · " }}</p>
-  </div>
-</section>
+  <section class="card card-recent" aria-labelledby="recent-h">
+    <div class="card-head">
+      <h2 id="recent-h">Recent papers</h2>
+      <a href="{{ '/publications/' | relative_url }}">All {{ pubs.size }}</a>
+    </div>
+    <ul class="recent-grid">
+      {%- for id in site.data.site.recent_figures %}
+      {%- assign p = pubs | where: "id", id | first %}
+      <li>
+        <a class="recent-item" href="{{ '/publications/' | relative_url }}#{{ id }}">
+          <span class="recent-fig"><img src="{{ p.teaser | relative_url }}" alt="{{ p.teaser_alt | escape }}" width="640" height="400" loading="lazy" decoding="async"></span>
+          <span class="recent-cap"><strong>{{ p.venue | remove: " (ADS)" }}</strong> <span>{{ p.title }}</span></span>
+        </a>
+      </li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section class="card card-about" aria-labelledby="about-h">
+    <h2 id="about-h">Background</h2>
+    <div class="prose-sm">
+      <p>Before joining Meta, I was a postdoctoral fellow in the <a href="https://www.dbei.med.upenn.edu/">Department of Biostatistics, Epidemiology and Informatics</a> at the <a href="https://www.upenn.edu/">University of Pennsylvania</a>, advised by Prof. <a href="https://www.dbei.med.upenn.edu/bio/li-shen-phd-faimbe">Li Shen</a>, where I led a Trustworthy AI research line and mentored 20+ students. I received my B.Sc. and Ph.D. in Computer Science from <a href="https://www.nju.edu.cn/">Nanjing University</a> in 2014 and 2020, supervised by Prof. <a href="https://cs.nju.edu.cn/zhouzh/">Zhi-Hua Zhou</a> in the <a href="https://www.lamda.nju.edu.cn/MainPage.ashx">LAMDA Group</a>.</p>
+      <p>I am interested in both the theoretical foundations and the real-world deployment of machine learning, and in building AI systems that are technically rigorous, trustworthy, and socially responsible.</p>
+    </div>
+  </section>
+
+  <section class="card card-venues" aria-labelledby="venues-h">
+    <h2 id="venues-h">Published at</h2>
+    {%- for g in site.data.site.venues %}
+    <h3 class="venue-group">{{ g.group }}</h3>
+    <ul class="venue-list">
+      {%- for v in g.names %}
+      <li>{{ v }}</li>
+      {%- endfor %}
+    </ul>
+    {%- endfor %}
+  </section>
+
+  <section class="card card-news" id="news" aria-labelledby="news-h">
+    <div class="card-head">
+      <h2 id="news-h">News</h2>
+      <a href="{{ '/news/' | relative_url }}">All news</a>
+    </div>
+    {% include news-list.html max=6 %}
+  </section>
+
+  <section class="card card-honors" id="awards" aria-labelledby="awards-h">
+    <div class="card-head">
+      <h2 id="awards-h">Honors and awards</h2>
+      <a href="{{ '/awards/' | relative_url }}">Full list</a>
+    </div>
+    <ul class="year-list">
+      {%- assign home_awards = site.data.awards | where: "home", true %}
+      {%- for a in home_awards %}
+      <li><span class="when">{{ a.year }}</span><span>{{ a.short | default: a.name }}</span></li>
+      {%- endfor %}
+    </ul>
+  </section>
+</div>
 
 <section class="section" id="research" aria-labelledby="research-h">
-  <h2 id="research-h">Research Interests</h2>
-  <p class="section-lead">My research spans algorithms, theory, and applications of machine learning. Representative papers are linked under each area; the <a href="{{ '/publications/' | relative_url }}">publications page</a> can be filtered by topic.</p>
+  <div class="section-head">
+    <h2 id="research-h">Research interests</h2>
+    <a href="{{ '/publications/' | relative_url }}">Browse papers by topic</a>
+  </div>
   <div class="interests">
     {%- for a in site.data.research %}
-    <div class="interest">
-      <h3>{{ a.title }}</h3>
+    <article class="card interest interest-{{ forloop.index }}">
+      <span class="interest-icon">{% include icon.html name=a.icon size=22 %}</span>
+      <h3><a href="{{ '/publications/' | relative_url }}#topic={{ a.tag }}">{{ a.title }}</a></h3>
       <p>{{ a.topics }}</p>
       <p class="interest-reps">
         {%- for id in a.pubs -%}
         {%- assign p = pubs | where: "id", id | first -%}
-        <a href="{{ '/publications/' | relative_url }}#{{ id }}" title="{{ p.title | escape }}">{{ p.venue | remove: " (ADS)" }}</a>{% unless forloop.last %} · {% endunless %}
+        <a href="{{ '/publications/' | relative_url }}#{{ id }}" title="{{ p.title | escape }}">{{ p.venue | remove: " (ADS)" }}</a>
         {%- endfor -%}
       </p>
-    </div>
+    </article>
     {%- endfor %}
   </div>
 </section>
 
 <section class="section" id="selected" aria-labelledby="selected-h">
   <div class="section-head">
-    <h2 id="selected-h">Selected Publications</h2>
-    <a href="{{ '/publications/' | relative_url }}">All {{ pubs.size }} publications by topic</a>
+    <h2 id="selected-h">Selected publications</h2>
+    <a href="{{ '/publications/' | relative_url }}">All {{ pubs.size }} publications</a>
   </div>
-  <p class="legend">* equal contribution · † corresponding author</p>
-  {%- for id in site.data.site.selected_order %}
-  {%- assign p = pubs | where: "id", id | first %}
-  {% include pub-row.html pub=p variant="home" %}
-  {%- endfor %}
+  <p class="legend"><span>* equal contribution</span><span>† corresponding author</span></p>
+  <div class="pub-grid">
+    {%- for id in site.data.site.selected_order %}
+    {%- assign p = pubs | where: "id", id | first %}
+    {% include pub-row.html pub=p variant="home" %}
+    {%- endfor %}
+  </div>
 </section>
 
-<section class="section" id="news" aria-labelledby="news-h">
-  <h2 id="news-h">News</h2>
-  {% include news-list.html limit=10 %}
-</section>
-
-<div class="two-col">
-  <section class="section" id="experience" aria-labelledby="exp-h">
-    <h2 id="exp-h">Experience and Education</h2>
-    <ul class="timeline">
-      <li><span class="when">2025 to now</span><span><strong>Meta</strong><br>AI Research Scientist, Monetization and Meta Recommendation Systems</span></li>
-      <li><span class="when">2022 to 2025</span><span><strong>University of Pennsylvania</strong><br>Postdoctoral Fellow, Department of Biostatistics, Epidemiology and Informatics. Advisor: Prof. Li Shen</span></li>
-      <li><span class="when">2021 to 2022</span><span><strong>Cornell University</strong><br>Postdoctoral Associate</span></li>
-      <li><span class="when">2020 to 2021</span><span><strong>4Paradigm</strong><br>Research Scientist</span></li>
-      <li><span class="when">2014 to 2020</span><span><strong>Nanjing University</strong><br>Ph.D. in Computer Science, LAMDA Group. Advisor: Prof. Zhi-Hua Zhou</span></li>
-      <li><span class="when">2010 to 2014</span><span><strong>Nanjing University</strong><br>B.Sc. in Computer Science</span></li>
+<div class="bento bento-bottom">
+  <section class="card card-exp" id="experience" aria-labelledby="exp-h">
+    <h2 id="exp-h">Experience and education</h2>
+    <ul class="year-list year-list-wide">
+      <li><span class="when">2025–now</span><span><strong>Meta</strong><br>AI Research Scientist, Monetization and Meta Recommendation Systems</span></li>
+      <li><span class="when">2022–2025</span><span><strong>University of Pennsylvania</strong><br>Postdoctoral Fellow, Department of Biostatistics, Epidemiology and Informatics. Advisor: Prof. Li Shen</span></li>
+      <li><span class="when">2014–2020</span><span><strong>Nanjing University</strong><br>Ph.D. in Computer Science, LAMDA Group. Advisor: Prof. Zhi-Hua Zhou</span></li>
+      <li><span class="when">2010–2014</span><span><strong>Nanjing University</strong><br>B.Sc. in Computer Science</span></li>
     </ul>
   </section>
-  <section class="section" id="awards" aria-labelledby="awards-h">
-    <h2 id="awards-h">Honors and Awards</h2>
-    <ul class="timeline timeline-compact">
-      {%- assign home_awards = site.data.awards | where: "home", true %}
-      {%- for a in home_awards %}
-      <li><span class="when">{{ a.year }}</span><span>{{ a.short | default: a.name }}</span></li>
+  <section class="card card-service" id="service" aria-labelledby="service-h">
+    <div class="card-head">
+      <h2 id="service-h">Academic service</h2>
+      <a href="{{ '/services/' | relative_url }}">Full list</a>
+    </div>
+    <ul class="service-list">
+      {%- for s in site.data.service %}
+      <li><strong>{{ s.group }}</strong><span>{{ s.text }}</span></li>
       {%- endfor %}
     </ul>
-    <a class="more" href="{{ '/awards/' | relative_url }}">Full list ({{ site.data.awards.size }})</a>
   </section>
 </div>
-
-<section class="section" id="service" aria-labelledby="service-h">
-  <h2 id="service-h">Academic Service</h2>
-  <ul class="service-list">
-    {%- for s in site.data.service %}
-    <li><strong>{{ s.group }}:</strong> {{ s.text }}</li>
-    {%- endfor %}
-  </ul>
-  <a class="more" href="{{ '/services/' | relative_url }}">Full list</a>
-</section>

@@ -8,8 +8,10 @@ description: "Honors and awards of Bojian Hou."
 <header class="page-head">
   <h1>Honors and Awards</h1>
 </header>
-<ul class="timeline timeline-compact">
+<section class="card card-page">
+<ul class="year-list">
   {%- for a in site.data.awards %}
   <li><span class="when">{{ a.year }}</span><span>{{ a.name }}</span></li>
   {%- endfor %}
 </ul>
+</section>

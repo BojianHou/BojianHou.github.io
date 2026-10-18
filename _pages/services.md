@@ -8,13 +8,15 @@ description: "Academic service of Bojian Hou: workshop organization, program com
 <header class="page-head">
 <h1>Academic Service</h1>
 </header>
+<section class="card card-page">
 <ul class="service-list">
 {%- for s in site.data.service %}
-<li><strong>{{ s.group }}:</strong> {{ s.text }}</li>
+<li><strong>{{ s.group }}</strong><span>{{ s.text }}</span></li>
 {%- endfor %}
 </ul>
+</section>
 
-<div class="prose" markdown="1">
+<div class="card card-page prose" markdown="1">
 
 ## Full list
 ### Conferences: program committee and reviewing

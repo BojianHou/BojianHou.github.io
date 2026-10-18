@@ -1,21 +1,27 @@
-# Research interest areas on the homepage. `pubs`: representative publication ids; `tag`: publications page filter.
+# Research interest areas on the homepage. `pubs`: representative publication ids; `tag`: publications page filter;
+# `icon`: a name from _includes/icon.html.
 - title: Recommendation Systems
+  icon: layers
   topics: Scaling laws, ranking architectures, representation learning for ranking and retrieval.
   tag: recsys
   pubs: [kunlun-kdd26]
 - title: Large Language Models
+  icon: spark
   topics: Calibration and uncertainty estimation, preference alignment, evaluation, fine-tuning.
   tag: llm
   pubs: [calibration-aligned-llm-icml25, attention-task-arithmetic-iclr25, bilevel-calibration-colm26, sem-ece-neurips26]
 - title: Trustworthy Machine Learning
+  icon: shield
   topics: Fairness learning and interpretability, from classical models to deep networks.
   tag: fairness
   pubs: [fair-cca-neurips23, fair-graphical-models-neurips24, facims-uai23, lisor-tnnls20]
 - title: Learning Theory and Optimization
+  icon: sigma
   topics: Feature evolvable learning, online learning, bilevel optimization, semi-supervised learning.
   tag: open-env
   pubs: [fesl-nips17, sf2el-aaai21, online-bilevel-aistats24, online-bilevel-regret-neurips25]
 - title: AI for Health
+  icon: pulse
   topics: "Alzheimer's disease and dementia, mental health, medical imaging and vision-language models."
   tag: health
   pubs: [mentalchat16k-kdd25, interpretable-dcsm-media24, ct-vlm-npjdm26]

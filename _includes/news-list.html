@@ -1,16 +1,19 @@
 {%- comment -%}
-News items from _data/news.yml. Param: limit (optional). With a limit, items past it are hidden by site.js and a
-"Show all" button reveals them; without JavaScript every item is shown.
+News items from _data/news.yml. Params (both optional):
+  max: render only the newest `max` items (homepage card).
+  limit: render everything but hide items past `limit` until "Show all" is pressed (site.js); without JavaScript
+         every item is shown.
 {%- endcomment -%}
 {%- assign items = site.data.news -%}
+{%- assign max = include.max | default: items.size -%}
 <ul class="news-list"{% if include.limit %} data-limit="{{ include.limit }}"{% endif %}>
-  {%- for n in items %}
+  {%- for n in items limit: max %}
   <li class="news-item{% if include.limit and forloop.index > include.limit %} is-extra{% endif %}">
     <time datetime="{{ n.date | date: '%Y-%m' }}">{{ n.date | date: "%b %Y" }}</time>
     <span class="news-text">{{ n.text }}
       {%- if n.pubs %}
       {%- for id in n.pubs %}{% assign p = site.data.publications | where: "id", id | first %}
-      <a class="news-link" href="{{ '/publications/' | relative_url }}#{{ id }}" aria-label="Paper: {{ p.title | escape }}">[paper]</a>
+      <a class="news-link" href="{{ '/publications/' | relative_url }}#{{ id }}" aria-label="Paper: {{ p.title | escape }}">Paper</a>
       {%- endfor %}
       {%- endif %}
     </span>

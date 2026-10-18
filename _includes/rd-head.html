@@ -12,8 +12,8 @@
 <meta name="author" content="{{ site.author.name }}">
 <link rel="canonical" href="{{ page.url | absolute_url }}">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0F1115" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#E9EDF3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0A0F1C" media="(prefers-color-scheme: dark)">
 
 <meta property="og:type" content="{% if page.url == '/' %}profile{% else %}website{% endif %}">
 <meta property="og:site_name" content="{{ site.title }}">
@@ -27,6 +27,7 @@
 
 <link rel="icon" href="{{ '/images/favicon.ico' | relative_url }}">
 <link rel="preload" href="{{ '/assets/fonts/Geist-Variable.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ '/assets/fonts/BricolageGrotesque-Variable.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
 
 {%- if page.url == "/" %}
