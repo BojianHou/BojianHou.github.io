@@ -1,0 +1,1268 @@
+{
+ "sem-ece-neurips26": [
+  [
+   6,
+   "Figure 1:   (a) Regime diagram on the  ( ˜ m q , K q )  plane, partitioned by the JDR boun"
+  ],
+  [
+   8,
+   "Figure 2:   Pooled  Sem 1 -ECE (orange) and  Sem 2 -ECE (blue) as functions of the per-que"
+  ],
+  [
+   8,
+   "Figure   3:   Pooled   Sem 1 -ECE   and   Sem 2 -ECE   stratified   by   per-question   ma"
+  ],
+  [
+   9,
+   "Figure 4:   Reliability diagrams pooled across models on SimpleQA (left), HLE (middle), Po"
+  ],
+  [
+   19,
+   "Figure 5:   Margin-stratified ECE curves for OpenAI on SimpleQA, HLE, and PopQA."
+  ],
+  [
+   19,
+   "Figure 6:   Margin-stratified ECE curves for Anthropic on SimpleQA, HLE, and PopQA."
+  ],
+  [
+   19,
+   "Figure 7:   Margin-stratified ECE curves for Gemini on SimpleQA, HLE, and PopQA."
+  ],
+  [
+   19,
+   "Figure 8:   Margin-stratified ECE curves for xAI on SimpleQA, HLE, and PopQA."
+  ],
+  [
+   21,
+   "Figure   4   shows   reliability   diagrams   pooled   across   models   on   each   bench"
+  ],
+  [
+   22,
+   "Figure 9:   Margin-stratified ECE curves for Mistral on SimpleQA, HLE, and PopQA."
+  ],
+  [
+   22,
+   "Figure 10:   Direct ECE gap  Sem 1 - ECE  − Sem 2 - ECE  on the low-margin sub-population "
+  ],
+  [
+   22,
+   "Figure 11:   Reliability diagrams for OpenAI on SimpleQA, HLE, and PopQA."
+  ]
+ ],
+ "3d-vlm-report-mlmi26": [
+  [
+   3,
+   "Fig. 1.   Overview   of   our   native   3D   VLM   framework.   (A)   Architecture:   mul"
+  ],
+  [
+   6,
+   "Fig. 2.   Qualitative   generation   and   evaluation   protocol.   (Left)   Example   gen"
+  ]
+ ],
+ "bilevel-calibration-colm26": [
+  [
+   9,
+   "Figure   1   shows   classwise   reliability   diagrams   on   Mistral-7B   (OOD)   for   "
+  ],
+  [
+   10,
+   "Figure   1:   Classwise   reliability   diagrams   on   Mistral-7B   (OOD):   (a) DPO   ba"
+  ],
+  [
+   27,
+   "Figure 2:   Classwise (Total) reliability diagrams in the  OOD MCQA setting .   Each block"
+  ],
+  [
+   28,
+   "Figure   3: Classwise   (Total)   reliability   diagrams   in   the   ID   MCQA   setting "
+  ],
+  [
+   29,
+   "Figure   4:   Classwise   (Total)   reliability   diagrams   in   the   ID   MCQA   settin"
+  ]
+ ],
+ "kunlun-kdd26": [
+  [
+   3,
+   "Figure 1 Overview   of   the   Kunlun   architecture.   The   model   is   composed   of  "
+  ],
+  [
+   6,
+   "Figure 2   Comparison   between   (a)   the   original   PFFN,   and (b)   our   GDPA-enha"
+  ],
+  [
+   9,
+   "Figure   3   presents   the   comparison   of   different   architec- tures   at   three  "
+  ],
+  [
+   9,
+   "Figure 3   NE   gains   of   different   architectures   compared   to Wukong   baseline  "
+  ],
+  [
+   10,
+   "Figure 4   (Left)   Scaling   law   curves   showing   NE   improvement vs.   Total   Comp"
+  ]
+ ],
+ "tabular-llm-multimodal-ad-arxiv26": [
+  [
+   3,
+   "Fig. 1.   Overview of the TAP-GPT framework. For each dataset, we split the subjects into "
+  ],
+  [
+   4,
+   "Fig.   2. The   four   prompt   formats   used   in   our   experiments,   with   tab- ula"
+  ],
+  [
+   6,
+   "Fig. 3. QT-PAD mean F1 across models in zero-shot and few-shot ( k   =   8 ) contexts. LLM"
+  ],
+  [
+   7,
+   "Fig. 4. Imaging ROI mean F1 across models in the zero- and few-shot ( k   =   4 ) contexts"
+  ],
+  [
+   8,
+   "Fig.   5. Number   of   ICL   examples   ( k )   ablation   analysis   on   QT-PAD data   "
+  ],
+  [
+   8,
+   "Fig.   6. Number   of   ICL   examples   ( k )   and   number   of   features   ( p ) abla"
+  ],
+  [
+   8,
+   "Fig. 7.   TAP-GPT Performance using all 72 ROIs compared to selecting the top 16 features "
+  ],
+  [
+   9,
+   "Fig.   8. Example   interpretable   outputs   from   TAP-GPT   across   all datasets.   Fo"
+  ],
+  [
+   10,
+   "Fig. 9. Regional feature importance as ranked by GPT-4.1-mini across modalities.   Cortica"
+  ],
+  [
+   10,
+   "Fig.   10. Effect   of   self-reflection   on   GPT-4.1-mini   and   TAP-GPT   across moda"
+  ],
+  [
+   10,
+   "Fig.   11. Performance   of   multiple   models   on   simulated   missingness   in the   "
+  ],
+  [
+   11,
+   "Fig.   12. Performance   across   real-world   target   missingness   levels.   est sample"
+  ]
+ ],
+ "online-bilevel-regret-neurips25": [
+  [
+   3,
+   "Figure 1:   Smoothly  and  rapidly  changing  f t in   OBO   with   g t ( x t , y t )   = "
+  ],
+  [
+   9,
+   "Figure 2:   Performance comparison (mean ± std) of optimizers including ZO-O-GD, ZO-O-Adam"
+  ],
+  [
+   10,
+   "Figure 3:   Performance (mean ± std) on  online parametric loss tuning  with distribution "
+  ]
+ ],
+ "tabular-llm-ad-bcb25": [
+  [
+   4,
+   "Figure 1: Overview of the TAP-GPT framework. As illustrated in the QT-PAD Biomarker Tabula"
+  ],
+  [
+   5,
+   "Figure   2:   Prompt   formats   and   models   used   in   our   experi- ments. Prompts p"
+  ],
+  [
+   6,
+   "Figure 3: Mean F1 for AD diagnosis across models in zero-shot and few-shot ( 𝑘 =  8 ) cont"
+  ],
+  [
+   8,
+   "Figure   4:   k   ablation   analysis   across   TableGPT2,   TabPFN, and TAP-GPT. TabPFN "
+  ],
+  [
+   8,
+   "Figure 5: Evaluation of TableGPT2 finetuned on zero-shot prompts used on few-shot prompts."
+  ]
+ ],
+ "fair-cca-adni-bcb25": [
+  [
+   2,
+   "Figure 1:  Illustration of FR-CCA with the sensitive attribute sex as an example (female a"
+  ],
+  [
+   5,
+   "Figure 2:   Percentage change of the fairness and correlation of our method compared to ba"
+  ],
+  [
+   7,
+   "Figure 3:  Comparison plot for fairness metrics (DPG, EOG, GSG) and Accuracy on four modal"
+  ],
+  [
+   9,
+   "Figure 4:  Brain heat map of feature importance for ADNI MRI and ADNI AV1451 using the coe"
+  ]
+ ],
+ "mentalchat16k-kdd25": [
+  [
+   3,
+   "Figure 1:  Overall architecture of our approach. (a) Data Collection and Processing: We co"
+  ],
+  [
+   4,
+   "Figure 2:   Illustration of behavioral intervention interview data. A caregiver has three "
+  ],
+  [
+   13,
+   "Figure 3:   Topic Distribution for Synthetic Data."
+  ],
+  [
+   18,
+   "Figure 4:  Active Listening   scores rated by GPT-4 Turbo Preview and Gemini Pro 1.0."
+  ],
+  [
+   18,
+   "Figure 5:  Empathy & Validation  scores rated by GPT-4 Turbo Preview and Gemini Pro 1.0."
+  ],
+  [
+   19,
+   "Figure 6:  Safety & Trustworthiness  scores rated by GPT-4 Turbo Preview and Gemini Pro 1."
+  ],
+  [
+   19,
+   "Figure 7:  Open-mindedness & Non-judgment  scores rated by GPT-4 Turbo Preview and Gemini "
+  ],
+  [
+   20,
+   "Figure 8:  Clarity & Encouragement  scores rated by GPT-4 Turbo Preview and Gemini Pro 1.0"
+  ],
+  [
+   20,
+   "Figure 9:  Boundaries & Ethical  scores rated by GPT-4 Turbo Preview and Gemini Pro 1.0."
+  ],
+  [
+   20,
+   "Figure 10:  Holistic Approach  scores rated by GPT-4 Turbo Preview and Gemini Pro 1.0."
+  ],
+  [
+   21,
+   "Figure 11: Score distributions for GPT-4 Turbo and Gemini Pro with scores across all evalu"
+  ],
+  [
+   21,
+   "Figure 12: Score distributions for  Active Listening   rated by GPT-4 Turbo Preview and Ge"
+  ]
+ ],
+ "calibration-aligned-llm-icml25": [
+  [
+   2,
+   "Figure 1.  Calibration performance comparison between DPO and our approach on Llama3.1-8B-"
+  ],
+  [
+   5,
+   "Figure 2.  Illustration   of   TCE,   calibratable   and   non-calibratable"
+  ],
+  [
+   5,
+   "Figure  2 .   What remains undiscussed are the models that lie in   the   white   area   a"
+  ],
+  [
+   8,
+   "Figure 3.   Calibration Plots of (a) DPO, (b) Temperature Scaling (TS), (c) our CFT, (d) o"
+  ],
+  [
+   22,
+   "Figure 4.  (a) Using only  L SFT 2   achieves high accuracy ( ∼ 90%) but shows poor calibr"
+  ],
+  [
+   22,
+   "Figure  4  shows the ablation study in RCFT. In RCFT’s objective, we have two components. "
+  ],
+  [
+   23,
+   "Figure  5  and Figure  7  show the complete calibration plots on Llama-3.1-8B-Tulu.   We c"
+  ],
+  [
+   24,
+   "Figure 5.   Calibration Plots of (a, e) DPO, (b, f) Temperature Scaling (TS), (c, g) our C"
+  ],
+  [
+   25,
+   "Figure 6.   Calibration Plots of (a, e) DPO, (b, f) Temperature Scaling, (c, g) our CFT, a"
+  ],
+  [
+   26,
+   "Figure 7.   Calibration   Plots   of   (a,   e,   i,   m)   DPO,   (b,   f,   j,   n)   Te"
+  ],
+  [
+   27,
+   "Figure 8.   Calibration Plots of (a, e, i, m) DPO, (b, f, j, n) Temperature Scaling, (c, g"
+  ]
+ ],
+ "attention-task-arithmetic-iclr25": [
+  [
+   2,
+   "Figure   1:   Illustration   of   the   concepts   of   task   arithmetic   and   weight  "
+  ],
+  [
+   3,
+   "Figure 2:   Logic flow of our work."
+  ],
+  [
+   5,
+   "Figure   3:   Accuracy   of   non-linear   and   post-hoc models   by   tasks.   The   dia"
+  ],
+  [
+   7,
+   "Figure   5:   Averaged   accuracy   of   non-linear and   linear   models. The   diagonal "
+  ],
+  [
+   9,
+   "Figure 6:   Visualization of weight disentanglement.   The heatmaps show the disentangleme"
+  ],
+  [
+   9,
+   "Figure   6   displays   the   disentanglement   error   of   a   CLIP   ViT-B/32   model  "
+  ],
+  [
+   16,
+   "Figure 8:   Visualization of weight disentanglement.   The heatmaps show the disentangleme"
+  ],
+  [
+   16,
+   "Figure 10 shows the cosine similarity between task vectors from ViT for three types of fin"
+  ],
+  [
+   17,
+   "Figure 7:   Single-task accuracy of different models obtained using different strategies o"
+  ],
+  [
+   18,
+   "Figure 9:   Performance comparison across different methods with varying  α  values."
+  ],
+  [
+   18,
+   "Figure 10:  Similarity heatmaps.  These figures show heatmaps of the cosine similarity bet"
+  ]
+ ],
+ "genotype-feature-selection-amia25": [
+  [
+   3,
+   "Figure 1:   Overview of the F REE F ORM  framework.   The pipeline consists of two parts: "
+  ],
+  [
+   4,
+   "Figure 2:   Example of Detailed Instructions"
+  ],
+  [
+   6,
+   "Figure 3:   Evaluation of Feature Selection on Ancestry and Hearing Loss"
+  ],
+  [
+   7,
+   "Figure 4:   Evaluation of Feature Engineering on Ancestry and Hearing Loss"
+  ],
+  [
+   8,
+   "Figure   5:   Comparison   between   different   LLM   models   on   their   knowledge   o"
+  ]
+ ],
+ "association-mining-psb25": [
+  [
+   4,
+   "Fig. 1. Venn Diagram of Patients Diagnosed with PD,   AD   and   OD."
+  ],
+  [
+   5,
+   "Fig.   2. Racial   and   Sex   Distribution   by   NDD   type."
+  ],
+  [
+   8,
+   "Fig.   3. Manhattan   Plot   for   NDD   type:   AD,   PD,   OD"
+  ],
+  [
+   10,
+   "Fig.   4. Venn   Diagram   of   Important   Features   for NDD   type:   AD,   PD,   and  "
+  ],
+  [
+   11,
+   "Fig.   5. Distribution   of   Creutzfeldt-Jakob   disease (CJD)   by   NDD   types."
+  ]
+ ],
+ "icafs-tai25": [
+  [
+   2,
+   "Fig.   1.   VFL   feature   selection   architecture   comparison   between   Intra-Client"
+  ],
+  [
+   4,
+   "Fig.   2.   Illustration   of   ICAFS   pipeline.   There   are   three   stages   includi"
+  ],
+  [
+   9,
+   "Fig.   3.   (a-b)   Distribution   of   both   original   and   synthetic   data.   (c-d) "
+  ]
+ ],
+ "pmbb-vlm-iccvw25": [
+  [
+   3,
+   "Figure   1.   Architecture   pipeline   for   adapting   2D   vision-language   models   t"
+  ],
+  [
+   4,
+   "Figure 2. An example from the PMBB dataset illustrating our two-stage training design. The"
+  ],
+  [
+   5,
+   "Figure 3.   Image-Caption Pairing (Step 1)."
+  ],
+  [
+   5,
+   "Figure 4.   Intermediary Disease Cleanup (Step 1.5)."
+  ],
+  [
+   5,
+   "Figure 5.   Image-Conversation Generation (Step 2)."
+  ]
+ ],
+ "multimodal-dcsm-iccvw25": [
+  [
+   3,
+   "Figure  1  shows the pipeline of multi-modal deep clustering survival   machines   (MMDCSM"
+  ],
+  [
+   4,
+   "Figure 1.   Mechanism of Multi-Modal Deep Clustering Survival Machines (MMDCSM).  Each inp"
+  ],
+  [
+   5,
+   "Figure   2.   Illustration   of   the   survival   information   for   5   subjects. The  "
+  ],
+  [
+   5,
+   "Figure  2  shows survival traces for five exemplar partici- pants:   Subjects 1, 4, and 5 "
+  ],
+  [
+   6,
+   "Figure   3. Comparison   of   LogRank   statistics   for   single-modal and multi-modal an"
+  ],
+  [
+   7,
+   "Figure   4.   The   Kaplan–Meier   plots   for   KMeans,   Cox   PH,   Deep Cox,   DSM, an"
+  ],
+  [
+   7,
+   "Figure   5. Comparison   of   C-Index   statistics   for   single-modal and   multi-modal "
+  ],
+  [
+   7,
+   "Figure   6.   Brain   heatmap   of   multimodal   inputs   (AV45-PET   and VBM-MRI)   gene"
+  ]
+ ],
+ "sdoh-dcsm-aimedhealth25": [
+  [
+   3,
+   "Figure 1: DeepCox roll-out and SHAP-DeepExplainer Intersection"
+  ],
+  [
+   4,
+   "Figure 2: Analysis Flow Diagram with Logrank Results. DC: DeepCox; DE: DeepExplainer"
+  ],
+  [
+   5,
+   "Figure   3:   The   mechanism   of   DCSM   with   multiple   modalities.   In   Part   1,"
+  ],
+  [
+   6,
+   "Figure   4:   LogRank   Comparison   Across   Feature   Selection Methods and SDOH Inclusi"
+  ],
+  [
+   6,
+   "Figure 5: C-index Comparison Across Feature Selection Methods and SDOH Inclusion with CI"
+  ],
+  [
+   7,
+   "Figure   6:   Top   10   Features   from   the   Model   with   Highest   LogRank.   Cells"
+  ],
+  [
+   8,
+   "Figure 7: KM Plots from all Modalities"
+  ],
+  [
+   8,
+   "Figure 8: Weibull Plots from all Modalities"
+  ]
+ ],
+ "esn-topology-aimedhealth25": [
+  [
+   3,
+   "Figure 1.   Overview of the pipeline.   Memory, processing, or mixed datasets are fed into"
+  ],
+  [
+   4,
+   "Figure 2.   Human brain functional networks (sub-circuits) as parcellated by Yeo and colle"
+  ],
+  [
+   6,
+   "Figure 3.   General performance of various reservoir models tested on  perceptual  dataset"
+  ],
+  [
+   6,
+   "Figure 4.   General performance of various reservoir models tested on  capacity and contex"
+  ],
+  [
+   7,
+   "Figure 5.   Performance of various reservoir models on  perceptual  datasets w.r.t.   the "
+  ],
+  [
+   7,
+   "Figure 6.   Performance of various reservoir models on  capacity and contextual  datasets "
+  ],
+  [
+   8,
+   "Figure 7.   F1-score performance of various reservoir models on three datasets w.r.t.   th"
+  ],
+  [
+   8,
+   "Figure 8.   The number of best performance runs by model and nulls across 1000 runs, by ea"
+  ],
+  [
+   9,
+   "Figure 9.   The number of best performance runs by model and nulls across 1000 runs, by ea"
+  ],
+  [
+   9,
+   "Figure 10.   Struct500 (463 nodes) connectome, various graph statistics, 1000 different co"
+  ],
+  [
+   9,
+   "Figure 11.   Structural 500 nodes, statistic-performance correlations, PDMDR,  α   =  0 . "
+  ],
+  [
+   10,
+   "Figure 12.   Modularity histogram: difference between structural and functional connectome"
+  ]
+ ],
+ "rna-structure-survey-arxiv25": [
+  [
+   4,
+   "Figure   1:   An   example   of   RNA   secondary   structures.   As   shown   in   this  "
+  ],
+  [
+   5,
+   "Figure   2:   RSS   free   energy   computation   based   on   nearest   neighbor   energy"
+  ],
+  [
+   6,
+   "Figure   2 (A)   shows   an   example   of   the   nearest   neighbor   model   of   an   "
+  ],
+  [
+   10,
+   "Figure 3:   A schematic illustration of comparative RNA secondary structure prediction str"
+  ],
+  [
+   18,
+   "Figure   4:   An   example   of   the   interplay   between   RNA   modification   and   s"
+  ]
+ ],
+ "sefd-bigdata24": [
+  [
+   2,
+   "Fig.   1. A   brief   version   of   SEFD   structure.   SEFD   comprises   a   retrieval "
+  ],
+  [
+   3,
+   "Fig.   2. The   detailed   structure   of   our   framework.   The   input   sequence   on"
+  ],
+  [
+   3,
+   "Fig.   2   illustrates   the   structure   of   our   framework   which   is   a detailed "
+  ],
+  [
+   3,
+   "Fig.   3. Detection   score   distributions   for   four   different   detectors:   Log- L"
+  ],
+  [
+   4,
+   "Fig. 4.   Similarity score distribution on four different LLM generated datasets: GPT-2 XL"
+  ],
+  [
+   6,
+   "Fig.   5.   Recursive   paraphrasing"
+  ],
+  [
+   9,
+   "Fig.   6. Detection   accuracy   under   different   initial   pool   sizes   with   Detec"
+  ],
+  [
+   9,
+   "Fig. 7.   Detection performance of SEFD under recursive paraphrasing attacks. The   initia"
+  ]
+ ],
+ "fair-graphical-models-neurips24": [
+  [
+   2,
+   "Figure 1:   Illustration of a GM and its fair variant.   (a) displays the entire dataset, "
+  ],
+  [
+   7,
+   "Figure 2:   Comparison of original graphs utilized in synthetic data creation for two grou"
+  ],
+  [
+   9,
+   "Figure 3:   (a)-(b) Comparison of graphs generated by standard GLasso and Fair GLasso on T"
+  ],
+  [
+   10,
+   "Figure 4:   Percentage change from GMs to Fair GMs (results from Tables  2  and  4 ).   % "
+  ],
+  [
+   29,
+   "Figure 5:   Subfigures (a) and (b) present a comparison of the graphs generated by standar"
+  ]
+ ],
+ "dalk-emnlp24": [
+  [
+   4,
+   "Figure 1:   The overview pipeline of DALK. We first extract structural knowledge from unst"
+  ],
+  [
+   4,
+   "Figure 2:   The detailed process of AD-specific KG con- struction."
+  ],
+  [
+   7,
+   "Figure 3:   The size of the knowledge graph (triplet num- ber)   and   the   KG-augmented "
+  ],
+  [
+   8,
+   "Figure 4:   Different self-aware knowledge retrieval set- tings in MedQA, MedMCQA, QA4MRE "
+  ]
+ ],
+ "online-bilevel-aistats24": [
+  [
+   7,
+   "Figure   1:   Performance   of   OAGD   in   online   hyperparameter   learning   over   f"
+  ],
+  [
+   7,
+   "Figure   1   (left   and   middle)   shows   the   variation   P 2 ,T   + Y 2 ,T   and the"
+  ],
+  [
+   8,
+   "Figure   2:   Performance   comparison   (mean ± std)   on   loss   tuning   for   imbalan"
+  ],
+  [
+   8,
+   "Figure   3:   Performance   comparison   (mean ± std)   on   loss   tuning   for   imbalan"
+  ],
+  [
+   8,
+   "Figure   2   (left)   provides   runtime   comparisons. The single-level   OGD   algorithm"
+  ],
+  [
+   8,
+   "Figure   2   (middle   and   right)   displays   balanced   training and   testing   accur"
+  ],
+  [
+   9,
+   "Figure   4:   Performance   comparison   (mean ± std)   on   meta-learning   for   FC100  "
+  ]
+ ],
+ "manifoldron-tnnls24": [
+  [
+   2,
+   "Fig.   1:   (a)   The   pipeline   of   the   proposed   Manifoldron.   In   the training "
+  ],
+  [
+   4,
+   "Fig. 2: The scheme of proving the universal boundary approx- imation   theorem."
+  ],
+  [
+   5,
+   "Fig.   3:   The   decision   boundary   contours   of   different   models   are   obtaine"
+  ],
+  [
+   8,
+   "Fig. 4: The constructed 3D manifolds for the Manifoldron and other   models   to   classif"
+  ],
+  [
+   11,
+   "Fig.   5:   The   dynamics   of   envelopes   of   the   spiral   manifold   with   respec"
+  ],
+  [
+   11,
+   "Fig.   6: Ablation   studies   on   tic-tac-toe ,   ionosphere   and   parkin- sons   with"
+  ],
+  [
+   12,
+   "Fig.   7:   The   dye   color   change   after   exposure   to   the   VOCs   informs   th"
+  ]
+ ],
+ "interpretable-dcsm-media24": [
+  [
+   4,
+   "Fig. 1. Mechanism of DCSM."
+  ],
+  [
+   4,
+   "Fig. 2. Post-hoc clustering mechanism of Cox PH, Deep Cox, and DSM."
+  ],
+  [
+   7,
+   "Fig. 3.  The Kaplan-Meier plots of KMeans, Cox PH, Deep Cox, DSM, DCSM, SCA, Vadesc on dat"
+  ],
+  [
+   8,
+   "Fig. 4. Targeted genetic association results of DCSM. In the parentheses of the vertical l"
+  ],
+  [
+   9,
+   "Fig. 5. Brain heat map of AV45, FDG, and VBM using the coe ffi cient of our DCSM model.   "
+  ],
+  [
+   9,
+   "Fig. 5 shows the important brain regions that DCSM pays at- tention   to.   The   first   "
+  ],
+  [
+   10,
+   "Fig. 6. (a) The Kaplan-Meier plots of DCSM on data PBC. The cross mark indicates censoring"
+  ],
+  [
+   13,
+   "Fig. A.7. The Kaplan-Meier plots of KMeans, Cox PH, Deep Cox, DSM, SCA, Vadesc, NSC and DC"
+  ],
+  [
+   14,
+   "Fig. A.8. The Kaplan-Meier plots of KMeans, Cox PH, Deep Cox, DSM, SCA, Vadesc, NSC and DC"
+  ],
+  [
+   16,
+   "Fig. C.10. Distribution of (a) age, (b) education and (c) gender of high and low risk grou"
+  ],
+  [
+   16,
+   "Fig. C.11. Distribution of (a) age, (b) education and (c) gender of high and low risk grou"
+  ],
+  [
+   16,
+   "Fig. C.12. Distribution of (a) age, (b) education and (c) gender of high and low risk grou"
+  ]
+ ],
+ "quadratic-autoencoder-tai24": [
+  [
+   5,
+   "Fig.   1:   Fourier   transforms   of   a   radial   function   f   and   an   inner- prod"
+  ],
+  [
+   8,
+   "Fig.   2:   Three   heterogeneous   autoencoder   designs."
+  ],
+  [
+   8,
+   "Fig. 3: ReLinear: a training strategy of quadratic networks (R. I.   means   random   init"
+  ],
+  [
+   9,
+   "Fig.   4:   The   measurement   structure   of   seawater   booster   pump."
+  ],
+  [
+   9,
+   "Fig.   5:   Abnormal   and   normal   signals   of   the   seawater   booster pump."
+  ],
+  [
+   10,
+   "Fig.   6:   The   t-SNE   results   of   four   autoencoders   on   optidigits. The   red "
+  ]
+ ],
+ "fair-cca-neurips23": [
+  [
+   2,
+   "Figure 1:   Illustration of CCA and F-CCA, with the sensitive attribute being sex (female "
+  ],
+  [
+   9,
+   "Figure 2:   Scatter plot of the synthetic data points after projected to the 2-dimensional"
+  ],
+  [
+   21,
+   "Figure 5:   Group distributions of the studied datasets."
+  ],
+  [
+   22,
+   "Figure   6:   Aggregate   disparity   of   1st   projection   dimension   on   synthetic  "
+  ],
+  [
+   22,
+   "Figure  6  provides a visual representation of our findings.   The results clearly demonst"
+  ],
+  [
+   23,
+   "Figure 7: Visualization of the canonical correlation results on synthetic data for the tot"
+  ],
+  [
+   23,
+   "Figure 8:   Visualization of the canonical correlation results of NHANES (Education & Race"
+  ],
+  [
+   25,
+   "Figure 10:   Visualization of the canonical correlation results of ADNI for the total five"
+  ],
+  [
+   28,
+   "Figure   11:   Sensitivity   of   correlation   and   disparity   error   to   λ   in   SF"
+  ],
+  [
+   29,
+   "Figure 12:   Computation time (mean ± std) of 10 repeated experiments for the total three "
+  ],
+  [
+   29,
+   "Figure 13:   Computation time (mean ± std) of 10 repeated experiments for the total three "
+  ],
+  [
+   30,
+   "Figure 14:   Computation time (mean ± std) of 10 repeated experiments for the total seven "
+  ]
+ ],
+ "facims-uai23": [
+  [
+   2,
+   "Figure 1: An illustration of the FACIMS model defined in  (7) .  f   a   and  f   b   maxi"
+  ],
+  [
+   8,
+   "Figure 2:   Boxplot comparing balanced accuracy and group sufficiency gap for three real d"
+  ],
+  [
+   9,
+   "Figure   3:   Accuracy- SGap f   curve   under   different   α low   in Alzheimer’s diseas"
+  ]
+ ],
+ "dcsm-isbi23": [
+  [
+   2,
+   "Fig. 1 .   The model structure of the proposed DCSM. Part 1 learns each instance’s surviva"
+  ],
+  [
+   4,
+   "Fig.   2(a)   shows   the   comparison   of   C   Index   values   on   syn- thetic   data"
+  ],
+  [
+   6,
+   "Fig.   2 .   (a)   The   C   Index   comparison   among   the   36   synthetic   datasets."
+  ]
+ ],
+ "glaucoma-bias-amia23": [
+  [
+   3,
+   "Figure   1:   The   experimental   design.   We   focus   our   underdiagnosis   and   ove"
+  ],
+  [
+   3,
+   "Figure 1 shows the pipeline of our model.   All images are resized to  224  ×  224  ×  3  "
+  ],
+  [
+   4,
+   "Figure 2A shows that the underdiagnosis rate differs in all subpopulations of sex, race, a"
+  ],
+  [
+   4,
+   "Figure 3A shows that healthy males and healthy older adults are more likely to be misclass"
+  ],
+  [
+   5,
+   "Figure 2:  Underdiagnosis analysis across subgroups of sex, race, and age in the OHTS data"
+  ],
+  [
+   5,
+   "Figure 3:   Overdiagnosis analysis across subgroups of sex, race, and age in the OHTS data"
+  ]
+ ],
+ "old3s-tkde23": [
+  [
+   4,
+   "Fig. 1:   Illustration of doubly-streaming data. Only in a very short timespan  |T b | ≪|T"
+  ],
+  [
+   4,
+   "Fig. 2: Two challenges underlie the OLD 3 S problem.  Left : The deeper the learning model"
+  ],
+  [
+   5,
+   "Fig. 3: An architectural illustration of our OLD 3 S computational network during the over"
+  ],
+  [
+   7,
+   "Fig.   4: Two   straightforward   solutions   to   build   lifelong learners with   multip"
+  ],
+  [
+   8,
+   "Fig.   5:   Illustration   of   how   the   new   OLD 3 S-L   leverages   the vanished   f"
+  ],
+  [
+   8,
+   "Fig.   6: Illustration   of   the   proposed   OLD 3 S-L,   where   one latent   subspace "
+  ],
+  [
+   10,
+   "Fig. 7: Illustration of Evolving Features for Tabular Datasets."
+  ],
+  [
+   12,
+   "Fig.   8:   The   change   of   data   distributions   before   and   after   the   evolvi"
+  ],
+  [
+   12,
+   "Fig.   9:   Disjoint   distribution   of   original   data   in   adult   dataset   is   a"
+  ],
+  [
+   14,
+   "Fig. 10: The trends of OCA of six methods on 10 datasets in the doubly-streaming setting. "
+  ],
+  [
+   15,
+   "Fig. 11: The trends of OCA of two methods on two datasets in   the   doubly-streaming   se"
+  ],
+  [
+   15,
+   "Fig. 12: The trends of OCA of six methods on SUSY and Ep- silon   in   the   doubly-stream"
+  ]
+ ],
+ "chest-xray-cbm23": [
+  [
+   2,
+   "Fig. 1  shows the overview of the proposed framework. First, we used  the PubMed API (i.e."
+  ],
+  [
+   3,
+   "Fig. 1.   The pipeline of collecting PMC-CXR from  PMC-OA and evaluating its contribution "
+  ],
+  [
+   3,
+   "Fig. 2.   An example of CXR with Pneumonia from the PMC-OA article  “ Pneu­ monia in Norma"
+  ],
+  [
+   3,
+   "Fig. 3.   Performance of Hernia and Lung Lesion detection on CXR. (a) Hernia detection on "
+  ],
+  [
+   4,
+   "Fig. 3  shows the performance of Hernia and Lung Lesion detection on  CXR. For Hernia dete"
+  ],
+  [
+   4,
+   "Fig. 4  shows the results of pneumonia and pneumothorax detection  tested on the NIH-CXR t"
+  ],
+  [
+   4,
+   "Fig. 5  shows the pneumonia and pneumothorax detection results  tested on the MIMIC-CXR te"
+  ],
+  [
+   4,
+   "Fig. 4.   Performance of Pneumonia and Pneumo­ thorax detection on CXR tested on NIH-CXR t"
+  ],
+  [
+   5,
+   "Fig. 5.   Performance of Pneumonia and Pneumo­ thorax detection on CXR tested on MIMIC-CXR"
+  ],
+  [
+   5,
+   "Fig. 6.   Performance of pneumonia (a – b) and pneumothorax (c – d) detection on CXR. The "
+  ],
+  [
+   6,
+   "Fig. 7.   Examples of CXR that are positive for Hernia. The figures are from the  article "
+  ],
+  [
+   7,
+   "Figure Classification, IEEE, 2019, pp. 74 – 79 .  [29]   A. Garcia Seco De Herrera, R. Sch"
+  ]
+ ],
+ "detr-pretraining-arxiv23": [
+  [
+   2,
+   "Fig.   1:   The   distribution   of   the   number   of   parameters   and GFLOPs   within"
+  ],
+  [
+   4,
+   "Fig. 2:  The overall framework of self-supervised pre-training scheme . There are two step"
+  ],
+  [
+   6,
+   "Fig. 3:   The pre-training pipelines of DETReg, DETReg+pseudo-box, and Simple Self-trainin"
+  ],
+  [
+   6,
+   "Fig. 4:  Qualitative comparisons of the top  30  generated bounding boxes of different met"
+  ],
+  [
+   8,
+   "Fig. 5:  Ablation experiments on low-data regimes.  The value shows the performance improv"
+  ],
+  [
+   10,
+   "Fig. 6:  Visualizations of discriminability scores in the encoder on COCO  val  images."
+  ],
+  [
+   10,
+   "Fig. 7:  Visualizations of deformable cross-attention based on the last Transformer decode"
+  ]
+ ],
+ "doubly-streaming-mm22": [
+  [
+   3,
+   "Figure   1:   Illustration   of   doubly-streaming   data.   Only   in   a very   short   "
+  ],
+  [
+   4,
+   "Figure 2: Two challenges underlie the OLD 3 S problem.  Lef : The deeper the learning mode"
+  ],
+  [
+   5,
+   "Figure 3: An architectural illustration of our OLD 3 S computational network during the ov"
+  ],
+  [
+   8,
+   "Figure 4: The trends of OCA of six methods on ﬁve datasets in the doubly-streaming setting"
+  ]
+ ],
+ "glaucoma-scirep22": [
+  [
+   2,
+   "Figure  1  shows the creation of the OHTS dataset in our study. Because of the inherent re"
+  ],
+  [
+   3,
+   "Figure 1.    Creation of the OHTS dataset."
+  ],
+  [
+   4,
+   "Figure 2.    The architecture of the proposed GlaucomaNet."
+  ],
+  [
+   5,
+   "Figure 3.    Examples of fundus photographs and their corresponding masked images: ( a ) P"
+  ],
+  [
+   6,
+   "Figure 4.    Comparison of different metrics (standard deviation) for different model arch"
+  ],
+  [
+   6,
+   "Figure 5.    Comparison of different metrics (standard deviation) for proposed and ensembl"
+  ],
+  [
+   7,
+   "Figure 6.    Comparison of different metrics for different model architectures in the LAG "
+  ],
+  [
+   7,
+   "Figure 7.    The t-SNE visualization of the proposed model on the OHTS dataset. Each point"
+  ]
+ ],
+ "sf2el-aaai21": [
+  [
+   2,
+   "Figure 1: Illustration of how data stream comes."
+  ],
+  [
+   7,
+   "Figure 2:  The trend of risk with NOGD+MR, uROGD+MR, fROGD+MR and SF 2 EL. We only compare"
+  ],
+  [
+   10,
+   "Figure   4:   The   trend   of   risk   with   NOGD+MR,   uROGD+MR, fROGD+MR   and   SF 2 "
+  ],
+  [
+   10,
+   "Figure 5:   The impact of buffer size on accuracy on large datasets HTRU   2 and magic04."
+  ]
+ ],
+ "ovfm-icdm21": [
+  [
+   1,
+   "Fig.   1:   Illustration   of   the   optimization   process   over   two   2D contours   "
+  ],
+  [
+   2,
+   "Fig.   2:   Prediction   errors   incurred   by   a   feature   space   changed   at two c"
+  ],
+  [
+   3,
+   "Fig.   3:   Trends   of   averaged   cumulative   gradients   (ACGs)   w . r . t . the   n"
+  ],
+  [
+   9,
+   "Fig.   4:   The   trends   of   CER   of   4   methods   in   the   setting   of   caprici"
+  ]
+ ],
+ "pufe-tnnls21": [
+  [
+   1,
+   "Figure   1:   Illustration   of   how   data   streams   come   in   FESL.   S 1 ,   S 2  "
+  ],
+  [
+   2,
+   "Figure   2:   Illustration   of   PUFE   with   two   feature   spaces.   The   previous f"
+  ],
+  [
+   8,
+   "Figure   3   gives   the   trend   of   average   cumulative   loss   in   pre- dictable  "
+  ]
+ ],
+ "clinical-evidence-engine-arxiv21": [
+  [
+   5,
+   "Fig. 1.   Clinical Evidence Engine system architecture. Key to its design is the organic i"
+  ],
+  [
+   6,
+   "Fig. 2.   Workflow of the document retrieval module."
+  ],
+  [
+   7,
+   "Fig. 3.   The generation process of the retrieval model dataset, where  𝑖 ≠ 𝑗 ≠ 𝑘 ≠ 𝑚 ≠ 𝑛 "
+  ],
+  [
+   8,
+   "Fig. 4.   Illustration of information extraction module."
+  ],
+  [
+   10,
+   "Fig. 5.   Example interface designs of Clinical Evidence Engine as it directly addresses c"
+  ],
+  [
+   12,
+   "Fig. 6.   Example interface designs of   Clinical Evidence Engine as it aids clinician dec"
+  ]
+ ],
+ "lisor-tnnls20": [
+  [
+   4,
+   "Figure   1:   The   hidden   state   points   reduced   to   two   dimensions   by   t-SNE"
+  ],
+  [
+   4,
+   "Figure   2:   The   illustration   of   the   framework   of   the   proposed   algorithm."
+  ],
+  [
+   7,
+   "Figure   3:   FSAs   learned   from   four   RNNs   trained   on   task   “0110”.   The   "
+  ],
+  [
+   7,
+   "Figure   4:   Impact   of   the   number   of   clusters   on   FSA’s   accuracy   when   "
+  ],
+  [
+   8,
+   "Figure   5:   Comparisons   between   the   average   accuracy   of   the   5   trials   a"
+  ],
+  [
+   8,
+   "Figure   6:   Comparisons   between   the   average   accuracy   of   the   5   trials   v"
+  ]
+ ],
+ "rnn-interpretability-ccfai19": [
+  [
+   4,
+   "图 1  带有不同门机制的 RNN  内部数据流动和计算图 [7] 。"
+  ],
+  [
+   5,
+   "图 2  隐层节点输出降到 2  维的图示，它们具有聚类特质。"
+  ],
+  [
+   5,
+   "图 3  有限状态机（图示和及其状态转移表格）。"
+  ],
+  [
+   8,
+   "图 4  模拟任务随着聚类个数的增加 FSA  的准确率， GRD  是真实标记（ groundtruth ）的简称。 FSA-vs-RNN  指以 RNN  输出的"
+  ],
+  [
+   8,
+   "图 4  显示 MGU  生成的 FSA  在任务“ 0110 ”和 任务“ 000 ”上随着聚类个数的增加，准确率（分 别以 RNN   输出的标记和真实标记作为衡量标准） 的变"
+  ],
+  [
+   10,
+   "图 5 MGU  在任务“ 0110” 上的 FSA  图。"
+  ],
+  [
+   10,
+   "图 6 MGU  在任务“ 000” 上的 FSA  图。"
+  ],
+  [
+   10,
+   "图 7 MGU  在情感分析任务上的 FSA  图。"
+  ]
+ ],
+ "fesl-tkde19": [
+  [
+   1,
+   "Figure 1. Illustration that how data stream comes."
+  ],
+  [
+   3,
+   "Figure 2. Illustration of setting where the feature space may evolve over time. Here, we o"
+  ],
+  [
+   10,
+   "Figure 3.  The trend of loss with three baseline methods and the proposed methods on synth"
+  ],
+  [
+   10,
+   "Figure 3 gives the trend of average cumulative loss. The smaller   the   average   cumulat"
+  ],
+  [
+   11,
+   "Figure 4. The trend of loss with three baseline methods and the proposed methods on Reuter"
+  ],
+  [
+   12,
+   "Figure 5. The trend of loss with three baseline methods and the proposed methods on real d"
+  ]
+ ],
+ "deep-forest-mil-jcrd19": [
+  [
+   2,
+   "图像数据可以被划分成多个局部区域 , 基因表达数"
+  ],
+  [
+   4,
+   "Fig．１　Theillustrationofclassvectorgeneration"
+  ],
+  [
+   4,
+   "图 １　 类向量生成示意图"
+  ],
+  [
+   5,
+   "Fig．２　Theillustrationofthecascadestructureofmultipleinstancedeepforest"
+  ],
+  [
+   5,
+   "图 ２　 多示例深度森林级联示意图"
+  ]
+ ],
+ "fesl-nips17": [
+  [
+   2,
+   "Figure 1:   Illustration that how data stream comes."
+  ],
+  [
+   3,
+   "Figure 2:   Speciﬁc illustration with one cycle."
+  ]
+ ],
+ "sfl-ijcai17": [
+  [
+   5,
+   "Figure 1:   Comparison among TSVM+RandSub, ClusK+RandSub, SoCK and NysCK on AUC. The origi"
+  ]
+ ]
+}

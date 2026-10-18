@@ -1,0 +1,179 @@
+Kunlun: Establishing Scaling Laws for Massive-Scale
+Recommendation Systems through Unified
+Architecture Design
+Bojian Hou∗,1, Xiaolong Liu∗,1, Xiaoyi Liu∗,†,1, Jiaqi Xu∗,†,1, Yasmine Badr∗,1, Mengyue Hang∗,1, Sudhanshu
+Chanpuriya1, Junqing Zhou1, Yuhang Yang1, Han Xu1, Qiuling Suo1, Laming Chen1, Yuxi Hu1, Jiasheng Zhang1,
+Huaqing Xiong1, Yuzhen Huang1, Chao Chen1, Yue Dong1, Yi Yang1, Shuo Chang1, Xiaorui Gan1, Wenlin Chen1,
+Santanu Kolay1, Darren Liu1, Jade Nie‡,2, Chunzhi Yang‡,2, Ellie Wen1, Jiyan Yang1, Huayu Li1
+1Meta Platforms, Inc., Menlo Park, CA, USA., 2OpenAI, San Francisco, CA, USA.
+∗Equal contribution, †Corresponding author, ‡Work done while at Meta
+Deriving predictable scaling laws that govern the relationship between model performance and compu-
+tational investment is crucial for designing and allocating resources in massive-scale recommendation
+systems. While such laws are established for large language models, they remain challenging for rec-
+ommendation systems, especially those processing both user history and context features. We identify
+poor scaling efficiency as the main barrier to predictable power-law scaling, stemming from inefficient
+modules with low Model FLOPs Utilization (MFU) and suboptimal resource allocation. We introduce
+Kunlun, a scalable architecture that systematically improves model efficiency and resource allocation. Our
+low-level optimizations include Generalized Dot-Product Attention (GDPA), Hierarchical Seed Pooling
+(HSP), and Sliding Window Attention. Our high-level innovations feature Computation Skip (CompSkip)
+and Event-level Personalization. These advances increase MFU from 17% to 37% on NVIDIA B200 GPUsa
+and double scaling efficiency over state-of-the-art methods. Kunlun is now deployed in major Meta Ads
+models, delivering significant production impact.
+Correspondence: {xiaoyliu, jackiexu0313}@meta.com
+Keywords: Recommendation Systems, Scaling Laws, CTR Prediction, Model Efficiency
+ahttps://www.nvidia.com/en-us/data-center/b200/
+1
+Introduction
+Click-through rate (CTR) prediction serves as the cor-
+nerstone of modern recommender systems, directly influ-
+encing both company revenue and user experience (Guo
+et al., 2017; Cheng et al., 2016; Zhou et al., 2018). As
+these systems grow in scale and complexity, establishing
+predictable scaling laws—mathematical relationships
+describing how model performance improves with com-
+putational resources—has become increasingly critical
+for guiding architectural decisions and resource alloca-
+tion (Kaplan et al., 2020; Hoffmann et al., 2022). While
+scaling laws are well-established for large language mod-
+els (Kaplan et al., 2020; Brown et al., 2020) and have
+been explored for non-sequential recommendation mod-
+els (Zhang et al., 2024), they remain an open challenge
+for systems that jointly model both sequential user be-
+haviors and non-sequential context features—a critical
+requirement for modern production recommendation
+systems at massive scale.
+The success of scaling laws in language models suggests
+a natural approach: focus exclusively on sequential
+user behaviors. However, modern production recom-
+mender systems cannot adopt this simplified architec-
+ture. Non-sequential context features—including user
+demographics, ad metadata, and contextual signals—
+remain essential due to business requirements and deep
+infrastructure dependencies (Han et al., 2025). Any scal-
+able architecture must therefore efficiently handle both
+feature types simultaneously, yet existing systems that
+attempt this joint modeling fail to achieve predictable
+power-law scaling behaviors.
+We identify poor scaling efficiency—the rate at which
+performance improves per unit of computational
+investment—as the primary barrier preventing pre-
+dictable scaling laws.
+Specifically, scaling efficiency
+requires simultaneously optimizing both algorithmic
+effectiveness (performance gain per FLOP) and compu-
+tational efficiency (hardware utilization). When exam-
+ining state-of-the-art model paradigms that incorporate
+both sequence and non-sequence context features (Zeng
+et al., 2024), we observe limited scaling efficiency due to
+1
+arXiv:2602.10016v3  [cs.IR]  5 Jun 2026
+two critical bottlenecks: (1) Inefficient modules: Mod-
+els achieve only 3-15% Model FLOPs Utilization (MFU),
+compared to 40-60% for LLMs, due to heterogeneous
+feature spaces resulting in small embedding dimensions,
+irregular tensor shapes, and memory-bound operations.
+(2) Inefficient computation resource allocation: Naively
+scaling all components equally leads to diminishing re-
+turns, as different layers and event types benefit from
+different computational patterns.
+Our Approach: Model-Efficiency Codesign. We propose
+Kunlun (named after the Kunlun Mountains, symboliz-
+ing a foundational peak that unifies diverse elements),
+a unified architecture that tackles these challenges
+through systematic codesign at two levels. As illus-
+trated in Figure 1, Kunlun adopts a multi-layer archi-
+tecture where each layer processes both sequence and
+non-sequence features through two main components:
+(1) a Kunlun Transformer Block for context-aware se-
+quence modeling via GDPA-enhanced personalized feed-
+forward networks and multi-head self-attention, and (2)
+a Kunlun Interaction Block for bidirectional informa-
+tion exchange through personalized weight generation,
+hierarchical sequence summarization, and global feature
+interaction.
+Low-level module optimization improves computational
+efficiency of fundamental building blocks. We intro-
+duce Generalized Dot-Product Attention (GDPA) for
+efficient personalized sequence transformation, Hierar-
+chical Seed Pooling (HSP) for effective sequence sum-
+marization, and Sliding Window Attention for linear-
+complexity sequence modeling.
+High-level computation reallocation enables adaptive re-
+source distribution.
+We propose Computation Skip
+(CompSkip) for layer-wise component selection and
+Event-level Personalization for importance-based re-
+source allocation across heterogeneous event types.
+Through this codesign approach, Kunlun improves MFU
+from 17% to 37% on NVIDIA B200 GPUs and achieves
+2× scaling efficiency improvement over state-of-the-art
+approaches, enabling the first predictable scaling laws
+for joint sequence-nonsequence modeling in recommen-
+dation systems.
+Contributions. We summarize our main contributions
+as:
+1. Problem Formulation: We identify and formalize
+the scaling efficiency challenge in massive-scale rec-
+ommendation systems, highlighting two key bot-
+tlenecks: inefficient modules and inefficient compu-
+tation resource allocation.
+2. Architecture Design: We propose Kunlun, featur-
+ing systematic model-efficiency codesign with low-
+level optimizations (GDPA, HSP, Sliding Window
+Attention) and high-level innovations (CompSkip,
+Event-level personalization).
+3. Scaling Laws: We demonstrate predictable scaling
+behavior, achieving 2× scaling efficiency improve-
+ment over state-of-the-art and establishing the first
+scaling laws for joint sequence-nonsequence model-
+ing at massive scale.
+4. Deployment Impact: Kunlun has been deployed at
+major Meta Ads models, achieving 1.2% improve-
+ment in topline metrics and significant online im-
+pact.
+2
+Related Work
+2.1
+Recommendation System Architectures
+Non-Sequential Methods.
+Traditional recommenda-
+tion models focus on learning interactions among non-
+sequential features via various mechanisms.
+Factor-
+ization Machines (FM) (Rendle, 2010) model pair-
+wise feature interactions, while deep learning ap-
+proaches combine FMs with neural networks (Lian
+et al., 2018; Wang et al., 2021) for higher-order in-
+teractions. Wukong (Zhang et al., 2024) demonstrates
+scaling properties through the stacking of interaction
+modules; however, sequence modeling is not a central
+aspect of this architecture (Zhu et al., 2025).
+Sequential Methods. Sequential recommendation mod-
+els (Zhou et al., 2018, 2019) leverage RNNs or at-
+tention mechanisms to capture temporal dynamics in
+user behaviors.
+HSTU (Zhai et al., 2024) employs
+transformer-style architectures for sequential recommen-
+dation, but primarily focuses on sequence-only model-
+ing and does not effectively handle scenarios where rich
+non-sequential context features are present and pow-
+erful (Zhang et al., 2025; Chai et al., 2025; Xu et al.,
+2025). Recently, Interformer (Zeng et al., 2024) pro-
+posed an interleaving structure to address the limitation
+of unidirectional information flow through learning of
+bidirectional interactions between sequences and non-
+sequence context features. Although it demonstrates
+strong performance, its scaling efficiency at massive
+scales is limited by computational bottlenecks, which
+our work addresses.
+2.2
+Scaling Laws in Machine Learning
+Scaling laws describe how model performance improves
+with increased computation, data, or parameters (Ka-
+plan et al., 2020). While well-established for language
+models, scaling laws for recommendation systems re-
+main underexplored, particularly for models jointly
+learning sequential and non-sequential context features.
+Recent work (Zhang et al., 2024) demonstrates promis-
+ing scaling trends but does not address computational
+2

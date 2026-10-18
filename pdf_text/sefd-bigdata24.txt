@@ -1,0 +1,224 @@
+SEFD: Semantic-Enhanced Framework for
+Detecting LLM-Generated Text
+Weiqing He*
+School of Art and Science
+University of Pennsylvania
+Philadelphia, USA
+weiqingh@sas.upenn.edu
+Bojian Hou*
+Department of Biostatistics,
+Epidemiology and Informatics
+University of Pennsylvania
+Philadelphia, USA
+bojian.hou@pennmedicine.upenn.edu
+Tianqi Shang*
+Department of Biostatistics,
+Epidemiology and Informatics
+University of Pennsylvania
+Philadelphia, USA
+tianqi.shang@pennmedicine.edu
+Davoud Ataee Tarzanagh
+Department of Biostatistics,
+Epidemiology and Informatics
+University of Pennsylvania
+Philadelphia, USA
+davoud.ataeetarzanagh@pennmedicine.upenn.edu
+Qi Long
+Department of Biostatistics,
+Epidemiology and Informatics
+University of Pennsylvania
+Philadelphia, USA
+qlong@pennmedicine.upenn.edu
+Li Shen†
+Department of Biostatistics,
+Epidemiology and Informatics
+University of Pennsylvania
+Philadelphia, USA
+li.shen@pennmedicine.upenn.edu
+Abstract—The widespread adoption of large language models
+(LLMs) has created an urgent need for robust tools to detect
+LLM-generated text, especially in light of paraphrasing tech-
+niques that often evade existing detection methods. To address
+this challenge, we present a novel semantic-enhanced frame-
+work for detecting LLM-generated text (SEFD) that leverages
+a retrieval-based mechanism to fully utilize text semantics. Our
+framework improves upon existing detection methods by system-
+atically integrating retrieval-based techniques with traditional
+detectors, employing a carefully curated retrieval mechanism
+that strikes a balance between comprehensive coverage and
+computational efficiency. We showcase the effectiveness of our
+approach in sequential text scenarios common in real-world
+applications, such as online forums and Q&A platforms. Through
+comprehensive experiments across various LLM-generated texts
+and detection methods, we demonstrate that our framework
+substantially enhances detection accuracy in paraphrasing sce-
+narios while maintaining robustness for standard LLM-generated
+content. This work contributes significantly to ongoing efforts to
+safeguard information integrity in an era where AI-generated
+content is increasingly prevalent. Code is available at https:
+//github.com/hwq0726/SEFD.
+Index Terms—LLMs, LLM-Generated Text Detection, Para-
+phrasing, Semantic Analysis, Information Retrieval
+I. INTRODUCTION
+The proliferation of LLM-generated content, while benefi-
+cial in many ways, also raises significant concerns, especially
+in terms of the authenticity and accuracy of information.
+Instances of misleading or incorrect LLM-generated text, as
+evidenced in the study by [1], highlight the imperative need for
+effective detection mechanisms. Additionally, in human health-
+related research, the authenticity of data is paramount [2],
+[3], as reliance on fabricated or inaccurately generated data,
+† Corresponding author
+* These authors contributed equally to this work.
+such as AI-generated medical notes, could fundamentally com-
+promise study outcomes. Ensuring data integrity is essential
+to maintain trustworthiness [4], [5], especially when findings
+directly impact patient care or public health policies [6].
+Innovations in this field include watermarking [7]–[9], train-
+ing based classifiers [10]–[15], statistical test based detectors
+[14], [16]–[18] and text heterogeneity based detectors [19]–
+[21]. In an era where LLM-generated content is increasingly
+dominant, these tools represent a concerted effort to ensure
+the integrity and reliability of information.
+Identifying LLM-generated text poses a significant chal-
+lenge due to the rapid evolution of LLMs and widespread
+evasion tactics [22]. Concurrently, evasion techniques such as
+paraphrasing—where another LLM is used to rephrase the
+original LLM-generated text—undermine the effectiveness of
+detection tools like GPTZero [23], DetectGPT [16], and Ope-
+nAI’s text classifier [15]. These methods are non-watermarking
+techniques that rely on LLM-specific features. Paraphrasing
+can obscure these features by altering text attributes, which
+hampers detection. Furthermore, watermarking strategies that
+insert unique patterns into LLM outputs are vulnerable to
+evasion through paraphrasing [24] which can eliminate the
+markers by restructuring sentences and replacing synonyms.
+To address the paraphrasing issue, we introduce a semantic
+similarity-based retrieval technique that computes the semantic
+similarity between the target text and LLM-generated texts
+from a pre-defined database to determine whether the target
+text is LLM-generated. Since paraphrasing largely preserves
+the original semantic meaning, this technique offers a viable
+approach to defend against paraphrasing attacks. By system-
+atically integrating this technique with traditional detection
+methods, we aim to achieve robust detection performance
+for both regular LLM-generated text and paraphrased con-
+arXiv:2411.12764v1  [cs.CL]  17 Nov 2024
+Input 
+text
+Initial 
+Detection
+Semantic
+Similarity
+Computation 
+update
+  Detection 
+Score
+update
+Semantic
+Enhanced
+Detection
+ Final 
+Score
+determine
+Retrieval Pool
+  Similarity 
+Score
+Fig. 1.
+A brief version of SEFD structure. SEFD comprises a retrieval
+database/pool (colored by purple) and three detection steps (colored by green).
+tent. However, the effectiveness of the retrieval technique
+heavily depends on the comprehensiveness of its database,
+which presents significant practical challenges. On one hand,
+storing all LLM responses demands significant storage space
+and computational resources for retrieval from this extensive
+dataset. On the other hand, to save storage, a limited database
+may not be sufficient and can be outdated as the environment
+or distribution changes. Given the challenges posed by para-
+phrasing tactics and the limitations of the retrieval technique,
+we propose a framework that is able to not only systematically
+combine it with the traditional method but also update in real-
+time as detection progresses.
+We also observe that in many detection scenarios, texts
+follow a sequential order, such as detecting the source of
+comments under a post or answers under a question. With
+this in mind, we focus on the AI text detection task within
+this sequential text context, assuming that inputs are strictly
+ordered. Based on that, we develop a semantic-enhanced
+framework for detecting LLM-generated text (SEFD) to im-
+prove the detector’s performance against paraphrasing attacks.
+As shown in Fig. 1, our framework comprises a retrieval
+pool (colored by purple) and three detection steps (colored by
+green). Initial detection, which employs an existing detector to
+analyze the input text and generate a detection score; Semantic
+Similarity Computation, a pre-trained model (e.g., BERT-
+based) computes semantic similarity with texts in the retrieval
+pool, getting a similarity score; Semantic Enhanced Detection,
+a fusion function integrates the detection and similarity scores
+for the final score. The retrieval pool is updated using both
+detection and similarity scores to adapt to new LLM-generated
+text, enhancing paraphrase detection. Our contributions can
+be summarized as follow:
+• We introduce a novel semantic-enhanced framework
+for detecting LLM-generated text (SEFD) that inte-
+grates retrieval-based approaches with traditional detec-
+tion methods, significantly improving robustness against
+paraphrasing attacks.
+• We develop an efficient and adaptive retrieval pool
+mechanism that balances comprehensive coverage with
+computational practicality, allowing real-time updates to
+adapt to new LLM-generated content.
+• We demonstrate the framework’s effectiveness in sequen-
+tial text scenarios common in real-world applications, and
+provide extensive experimental validation across various
+LLM-generated texts and detection methods.
+The rest of this paper is organized as follows: Section II
+reviews related work in LLM-generated text detection. Sec-
+tion III details our proposed SEFD framework. Section IV
+presents our experimental setup and results. Finally, Section
+V discusses the limitations of our approach, outlines future
+research directions, and concludes the paper.
+II. RELATED WORK
+Watermarking Techniques. Current LLM-generated text de-
+tection methodologies fall into two categories: watermarking
+and non-watermarking. The studies [7], [25]–[31] leveraging
+watermarking approach to address the detection issues involves
+subtly altering the generated text in a way that is undetectable
+to human readers but can be identified by specialized algo-
+rithms during a post-generation analysis. Effective watermarks
+are meticulously designed to be resistant to removal and
+to exert minimal impact on the overall quality of the text
+output. As an example, soft watermarking developed by [7],
+utilizes a novel token partitioning strategy, categorizing tokens
+into “green” and “red” lists. This partitioning aids in the
+creation of distinct watermark patterns, with a watermarked
+LLM typically selecting tokens from the “green list”, which
+is determined by the preceding token, with a high degree
+of probability. In a recent development, Scott Aaronson [32]
+has announced his investigation into cryptographic methods
+of watermarking, in a collaborative effort with OpenAI. Their
+preliminary method is based only on biasing of the LLM
+output, diverging from the more deterministic approach seen
+in the work of [33]. While comprehensive details of this
+method are yet to be disclosed, preliminary information hints
+at the involvement of hashing techniques applied to n-gram
+sequences. It is important to note, however, that watermarking
+approaches are inherently targeted and are thus applicable only
+to specific LLMs. Moreover, the advancement of watermarking
+algorithms is somewhat constrained by the necessity for access
+to open-source LLMs.
+Non-watermarking Techniques. Compared to watermarking-
+based methods, non-watermarking techniques offer the distinct
+advantage of being capable of detecting text generated by
+various LLMs without necessitating modifications to the gen-
+erative algorithms. Early non-watermark detection strategies
+focused on identifying statistical anomalies in metrics such as
+entropy [34] and perplexity [35]. A notable advancement in
+this field was the introduction of the GLTR visualizer [17],
+designed to aid human evaluators in distinguishing LLM-
+generated text. The emergence of ChatGPT led to the devel-
+opment of zero-shot detectors [14], [16], [18]–[21], leveraging
+the statistical and topological properties of the LLM-generated
+text. Instead of these, classifier-based methods train supervised
+models to distinguish human-written text from LLM-generated
+text [10]–[15].

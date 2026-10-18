@@ -1,0 +1,208 @@
+Integrating Social Determinants of Health in a Multi-Modal Deep Clustering
+Survival Model for Injury-Risk in Alzheimer’s and Related Dementia Patients
+Kazi Noshin*1, Mary Regina Boland*3, Bojian Hou2, Weiqing He2, Victoria Lu1,
+Li Shen†2, Aidong Zhang†1
+1Department of Computer Science, University of Virginia
+2Department of Biostatistics, Epidemiology and Informatics, University of Pennsylvania, Philadelphia, PA 19104, USA
+3Data Science Program, Department of Mathematics, Saint Vincent College, Latrobe, PA 15650, USA
+epw9kz@virginia.edu, mary.boland@stvincent.edu, Bojian.Hou@Pennmedicine.upenn.edu, weiqingh@sas.upenn.edu,
+Li.Shen@pennmedicine.upenn.edu, aidong@virginia.edu
+Abstract
+As our population ages, the prevalence of Alzheimer’s Dis-
+ease and Related Dementias (ADRD) and its associated bur-
+dens continue to rise. Social Determinants of Health (SDOH)
+significantly influence both ADRD development and progres-
+sion. Using Electronic Health Records (EHR) from a quater-
+nary care academic medical center in a diverse urban setting,
+we investigated SDOH’s impact on multi-modal deep clus-
+tering survival machines. Our findings revealed that SDOH
+improved model performance across feature selection meth-
+ods (DeepCox roll-out vs. SHAP DeepExplainer) and EHR
+clinical modalities (medication vs. laboratory). Additionally,
+Laboratory features proved more informative than medica-
+tions for predicting injury-fall risk. Our results highlight
+SDOH’s crucial role in ADRD progression, particularly re-
+garding injury-fall risk. We found that feature importance var-
+ied by selection method when analyzing multi-modality EHR
+data, with education emerging as a key SDOH factor among
+our top 10 features, underscoring its significance in ADRD
+progression.
+Introduction
+The population is aging rapidly. According to the World
+Health Organization (WHO) one in six people in the world
+will be 60+ years by 2030 (WHO 2024). In the United States
+of America (USA), the fifth leading cause of death among
+the elderly (65+) is Alzheimer’s Disease and Related De-
+mentias (ADRD) (ALZ.org 2024). Therefore, ADRD will
+be a major issue globally as the overall global population
+ages. NeuroDegenerative Disorders (NDD) is a larger family
+of conditions, which includes ADRD and additional disor-
+ders including Parkinson’s Disease (PD), and Amyotrophic
+Lateral Sclerosis (ALS). NDD are even more common than
+ADRD, but despite their collective commonality, little is
+known about risk factors for these patients in their commu-
+nities. Diversity is often lacking in many published studies
+on ADRD and NDD despite the commonality of these dis-
+orders in diverse populations (including Racial and Ethnic
+diversity) (Gilmore-Bykovskyi et al. 2019).
+*These authors contributed equally.
+†Correspondence to Aidong Zhang or Li Shen
+Copyright © 2025, Association for the Advancement of Artificial
+Intelligence (www.aaai.org). All rights reserved.
+Electronic Health Records (EHR) data contains rich in-
+formation from routine clinical care that can enable research
+on larger cohorts of patient populations. Additionally, EHR
+data enables research on diverse populations (Boland, El-
+hadad, and Pratt 2022) including exploring the role of racial
+(Canel´on, Butts, and Boland 2021), socioeconomic (Boland
+et al. 2021), geographic (Boland et al. 2021; Bushong et al.
+2022), and intersectional (e.g., combinations of racial, so-
+cioeconomic and geographical disparities) on health out-
+comes (Meeker et al. 2022, 2021; Kellier et al. 2024a,b).
+Prior work has shown that utilizing multi-modal features
+from EHR data improves feature prediction for ADRD using
+structured data (Noshin et al. 2025a,b).
+Social Determinants of Health (SDOH) are attributes of
+an individual’s environment that can play a role on their
+health. SDOH includes attributes of individuals’ environ-
+ment outside of their immediate control, including eco-
+nomic, educational, environmental, healthcare and social
+(Agarwal et al. 2023). They also include behavioral health
+risk factors, including alcohol use (Rajput, Aziz, and Sid-
+diqui 2019; Chai, Tan, and Dong 2024), tobacco use (Chai,
+Tan, and Dong 2024), depression (Prather 2020; Remes,
+Mendes, and Templeton 2021), economic stress (Prather
+2020), and physical activity (Chai, Tan, and Dong 2024).
+SDOH has been implicated in ADRD (Majoka and Schim-
+ming 2021). Higher levels of education is protective against
+ADRD (Majoka and Schimming 2021). Lower socioeco-
+nomic status, lower levels of food access and security in-
+crease the risk of ADRD (Majoka and Schimming 2021).
+Body mass index (BMI) also played a role in ADRD (Ma-
+joka and Schimming 2021). Transportation, housing, pollu-
+tion, greening, environment, literacy, isolation, and health-
+care also were important SDOH in ADRD (Adkins-Jackson
+et al. 2023). Neighborhood deprivation (a measure of over-
+all SDOH) has also been implicated in ADRD (Powell et al.
+2020).
+Combining the study of EHR clinical data with the study
+of SDOH when investigating factors that increase injury-risk
+among ADRD patients is a much needed area. However, it
+raises some additional complexities due to multi-modal na-
+ture of EHR data. The purpose of this study is to integrate
+SDOH information in a multi-modal deep clustering sur-
+vival model (DCSM) (Hou et al. 2023, 2024) for injury-risk
+in ADRD patients from an academic medical center in the
+United States. Specifically, we adapt DCSM into a multi-
+modal version by injecting different combinations of sev-
+eral sets of features including SODH, demographics, med-
+ications etc. to our data. We conduct feature selection by
+utilizing two methods for interpretability study, i.e., Deep-
+Cox (Katzman et al. 2018) roll-out and SHAP Deep Ex-
+plainer (Lundberg 2017). With different combinations of
+feature sets (different modalities), we find that the SDOH
+modality plays an important roles no matter what feature se-
+lection methods we are using. In other words, adding SDOH
+to the features, the final clustering performance in terms of
+different risks of developing injury will be significantly im-
+proved.
+Materials and Methods
+Dataset
+Cohort Selection
+Our dataset consists of EHR clinical
+data collected from a quaternary care academic medical cen-
+ter in the USA. This academic medical center is located in
+a densely populated, urban area with rich diversity in terms
+of Race, Ethnicity and Socioeconomic status (among other
+attributes). Our methods involve the use of survival analy-
+sis techniques and therefore, we constructed our dataset to
+have our outcome indicator be a fall/injury (binary outcome
+variable). To identify patients with a fall or injury, we used
+a publicly accessible set of PheCodes (Boland 2024).
+We want to study the time from individual diagnosis of
+either Mild Cognitive Impairment (MCI) or a more serious
+NDD diagnosis to injury-fall. To study this, we identified pa-
+tients having one of five NDDs: Alzheimer’s Disease (AD),
+Parkinson’s Disease (PD), Vascular Dementia (VD), Other
+Dementias (OD) and Lewy Body (LB) using a combination
+of PheCodes and direct extraction of relevant International
+Classification of Diseases (ICD) version 9 (ICD-9) and 10
+(ICD-10) codes. We also extract MCI using well known and
+established ICD-9 and ICD-10 codes (Mao et al. 2023).
+We utilized our survival analysis dataset constructed in a
+previous study that has been annotated with the time from
+first diagnosis of an NDD or MCI to the outcome of fall. All
+patients that had a fall prior to diagnosis with either MCI or
+NDD or who were diagnosed with MCI/NDD for the first
+time on the same date as the fall were excluded from the
+study. We also excluded individuals who had only visited the
+academic medical center system a single time as these were
+lost to followup. The first date of diagnosis was the start date
+(for either MCI or NDD). We also excluded patients with
+missing information in their medications, laboratory data or
+demographics (e.g., age). Our final cohort used for the sur-
+vival analysis experiments contained N=29,045 patients.
+Feature Preprocessing
+Medications We identified all distinct medication features
+from our de-identified EHR dataset. Previously, these med-
+ications were linked to the Observational Health Data Sci-
+ences & Informatics (OHDSI) Common Data Model (CDM)
+framework (Reich et al. 2024), which harmonizes various
+medication terminology systems to distinct concept codes.
+These medication concept codes were used as binary fea-
+tures in our models with 1 indicating presence of the medi-
+cation concept.
+Laboratory Results The OHDSI CDM also contains in-
+formation on how to structure vital signs and laboratory
+results (Reich et al. 2024). This system was used for our
+dataset and hence the LOINC (Logical Observation Identi-
+fiers Names and Codes) terminology was used for laboratory
+tests, laboratory values and vital signs and these were pro-
+vided to used in structured billing code format (McDonald
+et al. 2003).
+These LOINC laboratory codes were used as binary fea-
+tures in our models. The binary columns for vital and labo-
+ratory code indicate whether data for the code was recorded
+on or before the study’s start date. If data for a specific code
+exists, a binary value of 1 is assigned; otherwise, 0 is as-
+signed. The final laboratory dataset contains information for
+the patients included in our cohort regarding their presence
+or absence of vital signs and laboratory tests at baseline for
+each patient.
+Demographic Features Our dataset also includes gender
+and race as demographic features. We transformed the Race
+variable using one-hot encoding, creating binary variables
+for each race category: White, Black, Asian, and Other. Sim-
+ilarly, we converted the Hispanic and Male columns into bi-
+nary variables.
+SDOH Features We included 10 SDOH features, 5 de-
+rived from the Agarwal paper, namely: economic, education,
+environment, healthcare and social (Agarwal et al. 2023) and
+5 additional SDOH features that are related to behavioral
+health risk factors and lifestyle, including alcohol use (Ra-
+jput, Aziz, and Siddiqui 2019; Chai, Tan, and Dong 2024),
+tobacco use (Chai, Tan, and Dong 2024), psychoactive sub-
+stance abuse (Spooner and Hetherington 2005), self-harm
+(Llamocca et al. 2023) and lack of physical activity (Chai,
+Tan, and Dong 2024). We identified each of these 10 SDOH
+using ICD-9 and ICD-10 diagnosis codes.
+Feature Selection
+To identify key predictive features, we evaluated feature im-
+portance using two methods:
+• Method 1 (DeepCox roll-out): We extracted and eval-
+uated feature importance based on the model’s learned
+weights by training a deep cox model. The importance
+score for each feature was computed by multiplying the
+weight matrices from all sequential layers (Montavon
+et al. 2019) (namely “roll-out”). The absolute values of
+the elements were taken to quantify the importance of
+each feature.
+• Method 2 (SHAP DeepExplainer): SHapley Additive ex-
+Planations (SHAP), a method based on Shapley val-
+ues derived from cooperative game theory. Specifically,
+SHAP was applied through the deepexplainer framework
+(Lundberg 2017) to calculate importance scores for each
+feature. The absolute shapley values were used to quan-
+tify the importance of each feature.
+The analysis involved 29,045 patient records, encom-
+passing features from medication, laboratory, and combined

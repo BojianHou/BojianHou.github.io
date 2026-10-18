@@ -1,0 +1,248 @@
+IEEE TRANSACTIONS AND JOURNALS TEMPLATE
+1
+Tabular LLMs for Interpretable Few-Shot
+Alzheimer’s Disease Prediction with Multimodal
+Biomedical Data
+Sophie Kearney∗and Shu Yang∗, Zixuan Wen, Weimin Lyu, Bojian Hou, Duy Duong-Tran, Tianlong Chen,
+Jason H. Moore, Marylyn D. Ritchie, Chao Chen, Li Shen†, for the Alzheimer’s Disease Neuroimaging
+Initiative∗∗
+Abstract— Accurate diagnosis of Alzheimer’s disease
+(AD) requires handling tabular biomarker data, yet such
+data are often small and incomplete, where deep learning
+models frequently fail to outperform classical methods.
+Pretrained large language models (LLMs) offer few-shot
+generalization, structured reasoning, and interpretable out-
+puts, providing a powerful paradigm shift for clinical predic-
+tion. We propose TAP-GPT, Tabular Alzheimer’s Prediction
+GPT, a domain-adapted tabular LLM framework built on
+TableGPT2 and fine-tuned for few-shot AD classification
+using tabular prompts rather than plain texts. We evaluate
+TAP-GPT across four ADNI-derived datasets, including QT-
+PAD biomarkers and region-level structural MRI, amyloid
+PET, and tau PET for binary AD classification. Across mul-
+timodal and unimodal settings, TAP-GPT improves upon
+its backbone models and outperforms traditional machine
+learning baselines in the few-shot setting while remain-
+ing competitive with state-of-the-art general-purpose LLMs.
+We show that feature selection mitigates degradation in
+high-dimensional inputs and that TAP-GPT maintains sta-
+ble performance under simulated and real-world missing-
+ness without imputation. Additionally, TAP-GPT produces
+structured, modality-aware reasoning aligned with estab-
+lished AD biology and shows greater stability under self-
+reflection, supporting its use in iterative multi-agent sys-
+tems. To our knowledge, this is the first systematic applica-
+∗These authors contributed equally to this research.
+**Data used in the preparation of this article were obtained from
+the Alzheimer’s Disease Neuroimaging Initiative (ADNI) database
+(adni.loni.usc.edu). As such, the investigators within the ADNI con-
+tributed to the design and implementation of ADNI and/or pro-
+vided
+data
+but
+did
+not
+participate
+in
+the
+analysis
+or
+writing
+of this report. A complete listing of ADNI investigators can be
+found at: http://adni.loni.usc.edu/wp-content/uploads/
+how_to_apply/ADNI_Acknowledgement_List.pdf
+S. Kearney, S. Yang, Z. Wen, B. Hou, D. Duong-Tran, and
+L.
+Shen
+are
+with
+the
+University
+of
+Pennsylvania,
+Philadelphia,
+PA,
+USA
+(e-mail:
+sophie.kearney@pennmedicine.upenn.edu;
+yangsh@pennmedicine.upenn.edu;
+zxwen@sas.upenn.edu;
+houbo@pennmedicine.upenn.edu;
+duyanh.duong-
+tran@pennmedicine.upenn.edu; li.shen@pennmedicine.upenn.edu).
+C.
+Chen
+and
+W.
+Lyu
+are
+with
+Stony
+Brook
+University,
+Stony
+Brook,
+NY,
+USA
+(e-mail:
+chao.chen.1@stonybrook.edu;
+welyu@cs.stonybrook.edu)
+T. Chen is with the University of North Carolina at Chapel Hill, Chapel
+Hill, NC, USA (e-mail: tianlong@cs.unc.edu).
+M. Ritchie is with the Medical University of South Carolina,
+Charleston, SC, USA (email: ritchiem@musc.edu)
+J. H. Moore is with Cedars-Sinai Medical Center, West Hollywood,
+CA, USA (e-mail: jason.moore@csmc.edu).
+†L. Shen is the corresponding author.
+tion of a tabular-specialized LLM to multimodal biomarker-
+based AD prediction, demonstrating that such pretrained
+models can effectively address structured clinical predic-
+tion tasks and laying the foundation for tabular LLM-driven
+multi-agent clinical decision-support systems. The source
+code is publicly available on GitHub: https://github.
+com/sophie-kearney/TAP-GPT.
+Index Terms— Large language models, health informat-
+ics, Alzheimer’s Disease, clinical diagnosis
+I. INTRODUCTION
+The transition toward precision health in the management
+of complex human diseases such as Alzheimer’s disease (AD)
+calls for the sophisticated investigation of heterogeneous,
+multimodal biomedical data. As a progressive and irreversible
+neurodegenerative disorder, AD represents the most common
+form of dementia globally and the sixth leading cause of
+mortality in the United States [1], [2]. Currently, curative
+treatments for AD remain limited, posing a critical challenge
+for both clinical neuroscience research and public health, espe-
+cially driven by the accelerated aging of the global population.
+Consequently, accurate and early detection becomes essential
+for proactive intervention. Previous studies have identified a
+set of AD biological markers and verified their ability to mea-
+sure AD pathology. The importance of these biomarkers was
+subsequently reflected in revised diagnostic criteria. In 2018,
+the National Institute on Aging (NIA) and the Alzheimer’s
+Association Workgroup’s Research Framework proposed to
+use the AT[N] biomarker classification system [3], [4]. By
+defining AD in terms of a biological, rather than a clinical,
+construct, this system divides the major AD biomarkers into
+three categories based on the nature of their pathology: 1) ‘A’:
+the β-amyloid biomarkers (as measured by amyloid positron
+emission tomography (PET) imaging or cerebrospinal fluid
+(CSF) Aβ42); 2) ‘T’: the pathological tau biomarkers (CSF
+phosphorylated Tau or Tau PET imaging); and 3) ‘N’: the
+neurodegeneration or neuronal injury biomarkers (atrophy on
+structural magnetic resonance imaging (MRI) scans, Fluo-
+rodeoxyglucose (FDG) PET scans, or CSF total Tau) [4]. The
+multifaceted AT[N] biomarkers have been widely utilized in
+AD research and investigated in conjunction with other types
+of markers like cognitive measures for disease progression [5].
+arXiv:2603.17191v1  [cs.CL]  17 Mar 2026
+2
+IEEE TRANSACTIONS AND JOURNALS TEMPLATE
+From a data-science perspective, these AT[N] measurements
+are often represented as tables: each subject corresponds to
+a row, each measurement (e.g., CSF tau biomarker or brain
+MRI-derived regional feature) corresponds to a column. In the
+real-world setting, row/sample sizes of biomedical tables are
+frequently modest relative to the column/feature dimension-
+ality, and missingness is common during the data collection.
+Such tabular structure creates distinctive modeling challenges.
+Unlike language or images, tables lack a natural ordering or
+locality (e.g., columns are permutation invariant [6], [7]), and
+predictive signals may reside in cross-feature interactions that
+are difficult to capture with small size cohort. As a result, con-
+ventional machine learning methods, such as gradient-boosted
+and tree-ensemble approaches, have remained strong baselines
+for many small datasets. In particular, for AD outcome pre-
+diction, Random Forest (RF) and XGBoost have shown robust
+performance by modeling complex, non-linear relations among
+features from tabular data [8]–[10]; even logistic regression
+(LR) remains a clinical standard due to its simplicity and
+clarity [11]. In contrast, classic deep neural networks can be
+sensitive to limited sample sizes, feature scaling, and missing
+values [12], [13], which are commonly seen in AD tabular
+setting [14]–[16]. Despite the predictive performance, these
+conventional machine learning and deep learning methods
+provide limited insight into which blood marker or brain
+region drives a given prediction, and they do not leverage prior
+knowledge in the biomedical domain beyond the training data.
+Recently, transformer-based large foundation models offer
+an alternative paradigm and open up new opportunities for
+handling AD tabular data: rather than training a predictive
+model from scratch, one can adapt a pretrained model that
+has already learned broad prior knowledge over data dis-
+tributions and reasoning patterns [17], [18]. This paradigm
+includes both: (i) tabular foundation models that learn in-
+context prediction behaviors for tables
+[6], [19]–[22], and
+(ii) large language model-based approaches that convert tables
+into textual prompts through serialization or latent embeddings
+through table encoders [23]–[28]. Such methods can conduct
+few-shot prediction for very small datasets and incorporate
+broad prior knowledge, potentially improving performance
+on biomedical tables like AD AT[N] markers. Tabular foun-
+dation models (TFMs) tailored to small-to-medium datasets
+have emerged [20]–[22]. As an example, TabPFN [6], [19]
+represents one of the most significant works in this class. It
+performs in-context learning (ICL) to predict labels from a
+small training table in a single forward pass without gradient
+updates. Although ICL was first observed in LLMs [29], later
+studies showed transformers can leverage ICL to approximate
+classical learning algorithms such as logistic regression and
+neural networks [30], [31]. Pre-trained via prior-fitting on 100
+million synthetic datasets spanning diverse causal structures,
+TabPFN achieved state-of-the-art accuracy on small, noisy
+tables with outliers and missing values, requiring only 50% of
+the data to match conventional models [6], [19]. Notable exten-
+sions have explored adapting TabPFN to larger or more com-
+plex tasks through finetuning and retrieval-augmentation [32],
+[33]. However, TFMs are primarily predictive engines and
+do not natively provide natural-language reasoning that is
+valuable for clinical interpretability, error analysis, and down-
+stream agentic workflows.
+In parallel, pretrained on large text corpora, LLMs ex-
+hibit emergent abilities for tabular tasks, such as tabular
+data generation, table understanding, prediction, reasoning
+and even feature selection/engineering, etc. [23]–[28]. With
+prompting and finetuning, they can be adapted to tabular
+tasks, addressing limitations of naive transformer architectures
+for handling tabular formats. In particular, as the leading
+open-source efforts of the field, TableGPT unifies tables,
+language, and functional commands for table understanding
+and manipulation with natural language instructions [34].
+It utilizes dedicated table encoders and compresses tabular
+information into compact latent representations to mitigate
+token-length constraints and capture schema-level context.
+TableGPT2 [35] scales this idea via large-scale pretraining on
+593K tables and 2.36M table-question pairs, with a schema-
+aware table encoder and a 7B–72B parameter QWen2.5 LLM
+decoder [36]. It achieved ∼35–49% improvements over base
+LLMs on diverse table-related business intelligence tasks. The
+most recent variant of the family, TableGPT-R1, released in
+December 2025 [37], goes beyond standard supervised fine-
+tuning by using a systematic reinforcement learning approach
+and a powerful QWen3 [38] backbone to strengthen multi-
+step reasoning and advanced table understanding tasks [37].
+Despite these strong gains from tabular LLMs, studies show
+that they still lag behind humans on complex, real-world tables
+that require deep domain knowledge [35], [39].
+Building on these advances, we introduce a domain-adapted
+tabular LLM framework for AT[N]-based AD diagnosis,
+termed TAP-GPT: Tabular Alzheimer’s Prediction GPT, which
+novelly adapts the multimodal TableGPT2 model for few-shot
+classification of AD vs cognitively normal (CN) individuals
+from AT[N] feature tables. We formulate the task as tabu-
+lar few-shot in-context learning paradigm, where the model
+is prompted with a small table containing several example
+subjects with neuroimaging, etc., features and diagnosis labels,
+alongside a target subject whose label to be predicted. To adapt
+TableGPT2 for AD tabular prediction, we employ diverse
+strategies to construct dedicated training tables from clinical
+data, and we perform parameter-efficient finetuning [40] on
+these tables. To our knowledge, this represents the first sys-
+tematic application of tabular LLM to AD biomarker study,
+uniquely combining tabular-LLM’s table understanding and
+reasoning capabilities with specific medical knowledge regard-
+ing AD and AT[N] markers. We evaluated TAP-GPT against
+a set of general-purpose LLMs and TFM, as well classic
+machine learning methods, effectively demonstrating the po-
+tential of TAP-GPT for struct

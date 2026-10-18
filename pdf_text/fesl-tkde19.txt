@@ -1,0 +1,219 @@
+IEEE TRANSACTIONS ON KNOWLEDGE AND DATA ENGINEERING, VOL. XX, NO. X, XXXX 20XX
+1
+Learning with Feature Evolvable Streams
+Bo-Jian Hou, Lijun Zhang, Member, IEEE and Zhi-Hua Zhou, Fellow, IEEE
+Abstract—Learning with streaming data has attracted much attention during the past few years. Though most studies consider data
+stream with ﬁxed features, in real practice the features may be evolvable. For example, features of data gathered by limited-lifespan
+sensors will change when these sensors are substituted by new ones. In this paper, we propose a novel learning paradigm: Feature
+Evolvable Streaming Learning where old features would vanish and new features would occur. Rather than relying on only the current
+features, we attempt to recover the vanished features and exploit it to improve performance. Speciﬁcally, we learn a mapping from the
+overlapping period to recover old features and then we learn two models from the recovered features and the current features,
+respectively. To beneﬁt from the recovered features, we develop two ensemble methods. In the ﬁrst method, we combine the predictions
+from two models and theoretically show that with the assistance of old features, the performance on new features can be improved and
+we provide a tighter bound when the loss function is exponentially concave. In the second approach, we dynamically select the best
+single prediction and establish a better performance guarantee when the best model switches. Experiments on both synthetic and real
+data validate the effectiveness of our proposal.
+Index Terms—Machine learning, Supervised learning, Learning with streaming data, Evolvable features.
+!
+1
+INTRODUCTION
+I
+N many real tasks, data are accumulated over time, and
+thus, learning with streaming data has attracted much at-
+tention during the past few years. Many effective approaches
+have been developed, such as hoeffding tree [1], Bayes
+tree [2], evolving granular neural network (eGNN) [3], Core
+Vector Machine (CVM) [4], etc. Though these approaches
+are effective for certain scenarios, they have a common
+assumption, i.e., the data stream comes with a ﬁxed stable
+feature space. In other words, the data samples are always
+described by the same set of features. Unfortunately, this
+assumption does not hold in many streaming tasks. For
+example, for ecosystem protection one can deploy many
+sensors in a reserve to collect data, where each sensor
+corresponds to a feature. Due to its limited-lifespan, after
+some periods many sensors will wear out, whereas some
+new sensors can be spread. Thus, features corresponding
+to the old sensors vanish while features corresponding to
+the new sensors appear, and the learning algorithm needs
+to work well under such evolving environment. Note that
+the ability of adapting to environmental change is one of
+the fundamental requirements for learnware [5], where an
+important aspect is the ability of handling evolvable features.
+A straightforward approach is to rely on the new features
+and learn a new model to use. However, this solution suffers
+from some deﬁciencies. First, when new features just emerge,
+there are few data samples described by these features, and
+thus, the training samples might be insufﬁcient to train a
+strong model. Second, the old model of vanished features is
+ignored, which is a big waste of our data collection efforts.
+To address these limitations, in this paper we propose a
+novel learning paradigm: Feature Evolvable Streaming Learning
+(FESL). We formulate the problem based on a key observa-
+tion: in general, features do not change in an arbitrary way;
+instead, there are some overlapping periods in which both
+•
+B.-J. Hou, L Zhang and Z.-H. Zhou are with National Key Laboratory of
+Novel Software Technology, Nanjing University, Nanjing, 210023, China.
+Email: {houbj, zhanglj, zhouzh}@lamda.nju.edu.cn.
+Feature Evolution
+Data Streaming
+Feature Set
+𝑆1
+𝑆2
+𝑆3
+…
+data with 
+feature set 𝑆1
+data with feature set 𝑆1 and 𝑆2
+data with
+feature set 𝑆2
+data with feature set 𝑆2 and 𝑆3
+𝑇2
+𝑇1
+𝐵1
+𝐵2
+Figure 1. Illustration that how data stream comes.
+old and new features are available. Back to the ecosystem
+protection example, since the lifespan of sensors is known
+to us, e.g., how long their battery will run out is a prior
+knowledge, we usually spread a set of new sensors before
+the old ones wear out. Thus, the data stream arrives in a
+way as shown in Figure 1, where in period T1, the original
+set of features are valid and at the end of T1, period B1
+appears, where the original set of features are still accessible,
+but some new features are included; then in T2, the original
+set of features vanish, only the new features are valid but
+at the end of T2, period B2 appears where newer features
+come. This process will repeat again and again. Note that
+the T1 and T2 periods are usually long, whereas the B1 and
+B2 periods are short because, as in the ecosystem protection
+example, the B1 and B2 periods are just used to switch the
+sensors and we do not want to waste a lot of lifetime of
+sensors for such overlapping periods.
+In this paper, we propose to solve the FESL problem by
+utilizing the overlapping period to discover the relationship
+between the old and new features, and exploiting the
+old model even when only the new features are available.
+Speciﬁcally, we try to learn a mapping from new features to
+IEEE TRANSACTIONS ON KNOWLEDGE AND DATA ENGINEERING, VOL. XX, NO. X, XXXX 20XX
+2
+old features through the samples in the overlapping period.
+In this way, we are able to reconstruct old features from
+new ones and thus the old model can still be applied. To
+beneﬁt from additional features, we develop two ensemble
+methods, one is in a combination manner and the other in a
+dynamic selection manner. In the ﬁrst method, we combine
+the predictions from two models and theoretically show that
+with the assistance of old features, the performance on new
+features can be improved and we ﬁnd that if the loss function
+is exponentially concave, the corresponding bound will be
+tighter. In the second approach, we dynamically select the
+best single prediction and establish a better performance
+guarantee when the best model switches at an arbitrary
+time. Experiments on synthetic and real datasets validate the
+effectiveness of our proposal.
+The rest of this paper is organized as follows. Section 2
+introduces related work. Section 3 presents the formulation of
+FESL. Our proposed approaches with corresponding analy-
+ses are presented in section 4. Section 5 provides the detailed
+proofs of our theorems. Section 6 reports experimental results.
+Finally, Section 7 concludes our paper.
+2
+RELATED WORK
+Our work is most related to data stream classiﬁcation task.
+Existing techniques for data stream classiﬁcation can be
+divided into two categories, one only considers a single
+classiﬁer and the other considers ensemble classiﬁers.
+For the former, several methods have been proposed, for
+examples, hoeffding tree that is a decision tree classiﬁer
+has been proposed for data streams [1]; Bayes tree [2]
+gives a novel index-based classiﬁer; evolving granular
+neural network (eGNN) [3] supported by granule-based
+learning algorithms is used to classify data streams; Core
+Vector Machine (CVM) [4] corresponding with a one-pass
+version [6] is inspired by SVM; On-Demand-Stream [7]
+proposes a k-nearest-neighbor data stream classiﬁer. For
+the latter, various ensemble methods have been proposed
+which are as follows: Online Bagging & Boosting [8] is
+an online version of the batch Bagging and Boosting al-
+gorithm that tackles the problem when data arrive in stream
+without the need for storage and reprocessing; Ensemble
+Classiﬁers [9, 10] mines concept-drifting data streams using
+weighted ensemble technique; Adapted One-vs-All Decision
+Trees (OVA) [11] proposes a new OVA scheme that is adapted
+for data stream classiﬁcation; Meta-knowledge Ensemble [12]
+explores shared patterns among all the base classiﬁers in a
+spatial database. For more details, please refer to [13–16].
+These traditional streaming data algorithms often assume
+that the data samples are described by the same set of
+features, while in many real streaming tasks feature often
+changes. We want to emphasize that though concept-drift
+happens in streaming data where the underlying data dis-
+tribution changes over time [17–19], the number of features
+in concept-drift never changes which is different from our
+problem. Most studies correlated to features changing are
+focusing on feature selection and extraction [20, 21] and
+to the best of our knowledge, none of them consider the
+evolving of feature set during the learning process.
+Data stream mining is a hot research direction in data
+mining while online learning [22, 23] is a related topic from
+machine learning. Yet online learning can also tackle the
+streaming data problem since it assumes that the data come
+in a streaming way. Online learning has been extensively
+studied under different settings, such as learning with
+experts [24] in which the forecaster predicts by exploiting the
+prediction of experts and online convex optimization [25, 26]
+which faces a sequence of convex problems. There are strong
+theoretical guarantees for online learning, and it usually uses
+regret or the number of mistakes to measure the performance
+of the learning procedure. However, most of existing online
+learning algorithms are limited to the case that the feature
+set is ﬁxed.
+Other related topics involving multiple feature sets
+include multi-view learning [27, 28], transfer learning [29, 30]
+and incremental attribute learning [31]. Although both our
+approaches and multi-view learning exploit the relation
+between different sets of features, there exists a fundamental
+difference: multi-view learning assumes that every sample is
+described by multiple feature sets simultaneously, whereas
+in FESL only few samples in the feature switching period
+have two sets of features, and no matter how many periods
+there are, the switching part involves only two sets of
+features. Transfer learning usually assumes that data are
+in batch mode, and few of them consider the streaming
+cases where data arrives sequentially and cannot be stored
+completely. One exception is online transfer learning [32] in
+which data from both sets of features arrive sequentially.
+However, they assume that all the feature spaces must
+appear simultaneously during the whole learning process
+while such an assumption is not true in FESL. Another
+transfer learning work that is in an online manner is called
+online heterogeneous transfer (OHT) [33]. The feature spaces
+of the source and target domains of OHT are different.
+Nevertheless, although they assume the target data of interest
+arrive in an online manner, the source data and auxiliary
+co-occurrence data are from ofﬂine sources while in our
+scenario both the data from old and new feature spaces
+come in a streaming or online manner and the feature space
+continues evolving instead of only two invariant feature
+spaces shown in OHT. Furthermore, transfer learning often
+assumes that the label spaces of the source domain and
+target domain could be different while the label spaces in
+our setting are the same. When it comes to incremental
+attribute learning [31], old sets of features do not vanish or
+do not vanish entirely while in FESL, old ones will vanish
+thoroughly when new sets of features come. There were
+studies about incremental optimization under non-stationary
+environment [34], whereas our concerned setting has not
+been touched yet.
+The most related work is OPID [35]. It also handles
+evolvable streams. Different to our setting where there are
+overlapping periods, OPID handles situations where there
+are no overlapping periods but there are overlapping features.
+Thus, the technical challenges and solutions are different.
+3
+PRELIMINARIES
+We focus on both classiﬁcation and regression tasks. On
+each round of the learning process, the algorithm observes
+an instance and gives its prediction. 

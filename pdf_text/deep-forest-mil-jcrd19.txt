@@ -1,0 +1,132 @@
+计算机研究与发展
+DOI:１０．
+７５４４∕issn１０００Ｇ１２３９．
+２０１９．
+２０１９０３３２
+JournalofComputerResearchandDevelopment
+５６(８):１６７０１６７６,２０１９
+　收稿日期:２０１９－０６－０３;修回日期:２０１９－０６－２８
+　基金项目:国家自然科学基金项目(６１６７３２０１)
+ThisworkwassupportedbytheNationalNaturalScienceFoundationofChina(６１６７３２０１)
+　通信作者:姜远(jiangy＠lamda．
+nju．
+edu．
+cn)
+多示例学习下的深度森林架构
+任　婕　侯博建　姜　远
+(计算机软件新技术国家重点实验室(南京大学)　南京　２１００２３)
+(软件新技术与产业化协同创新中心(南京大学)　南京　２１００２３)
+(renj＠lamda．
+nju．
+edu．
+cn)
+DeepForestforMultipleInstanceLearning
+RenJie,HouBojian,andJiangYuan
+(NationalKeyLaboratoryforNovelSoftwareTechnology (NanjingUniversity),Nanjing２１００２３)
+(CollaborativeInnovation Centerof NovelSoftware TechnologyandIndustrialization (Nanjing University),Nanjing
+２１００２３)
+Abstract　MultiＧinstancelearninghasbeenappliedtovarioustasks,suchasimageretrieval,text
+classification,facerecognition,etc．Deepneuralnetworkhasalsobeensuccessfullyappliedtoplenty
+oftasksandproblems．MIＧNetsareoneofthesuccessfulapplicationsto multiＧinstancelearningof
+deepneuralnetwork．AlthoughMIＧNetshaveobtainedachievementsandthemaintasktheyaregood
+atisimagetask,whileonnonＧimagetasks,theyshow mediocreperformance．Overthelasttwo
+years,deepforesthasachievedgoodperformanceonnonＧimagetasksandisfavoredforitsless
+parametersandsteady performancecompared with deep neuralnetwork．Thusitisurgentand
+necessarytoapplydeepforestto multiＧinstancelearning．However,duetothelimitationofthe
+structureofdeepforest,wecannotsimplysubstitutethebagＧlevelforestforeachforestofdeepforest．
+Therefore,weneedtochangethestructureofdeepforesttoachieveourpurpose．Inthispaper,we
+provideanewstructureofdeepforest,thatismultipleinstancedeepforest(MIDF)．Weregardeach
+instancefrom abagasanew bag,andthusthedistribution outputfrom the middlelevelcan
+concatenatetheoriginalbagto makethecascadestructurevalid．Wecanalsoassurethenumberof
+layersofMIDF．Experimentalresultsshowthatourmethodhascomparableperformancewith MIＧ
+Netsonimagetask,whileonnonＧimagetasks,ourmethodoutperformsMIＧNetsandotherbaseline
+methods．
+Keywords　machinelearning;multiＧinstancelearning;deepforest;supervisedlearning;nonＧimage
+categorization
+摘　要　多示例学习已经广泛地应用到各个领域,如图像检索、文本分类、人脸识别等．而近年来深度神
+经网络也成功地运用到各个任务和问题上,MIＧNets是深度神经网络在多示例学习领域一个成功的应
+用．虽然MIＧNets很成功,但其主要在图像相关的任务上表现突出,而在非图像任务比如文本分类任务
+上的性能并不令人满意．而最近２年兴起的深度森林在非图像任务上取得了较好的成绩,并因为其相对
+于深度神经网络有较少的参数和较稳定的性能而受到青睐．所以用深度森林来提升多示例学习性能
+具有可行性．但由于深度森林结构的限制,并不能把组成深度森林的每一个森林都直接替换成包级别的
+森林,需要修改深度森林的结构来达到目的．提出了一种新的深度森林架构MIDF．在该架构下,为了使
+得中间层的输出分布可以和包中的示例拼接成功,拼接时把包里的每个示例都看作是一个包,从而使得
+级联结构依然有效．另外,还能自动确认深度森林的层数．实验结果表明:该方法在图像任务上的性能与
+擅长处理图像任务的MIＧNets相当;而在文本数据上,该方法取得了比MIＧNets和其他基线算法更好
+的效果．
+关键词　机器学习;多示例学习;深度森林;监督学习;非图像分类
+中图法分类号　TP１８
+　　多示例学习(multipleinstancelearning,MIL)
+在药物活性预测调查期间被首次提出[１]．与传统的
+单示例学习不同,多示例学习的输入是一组标签为
+正或负的包,而不是一组标签为正或负的示例．在多
+示例学习中我们不会得到任何示例的标签信息．如
+今,多示例学习已经广泛地应用于各种领域,如图像
+分类检索、人脸识别、文本分类、计算机辅助医疗诊
+断等[２]．在过去的时间里,已经提出了很多有效的
+MIL算法[３Ｇ５]．
+而近年来,深度神经网络也在各个领域都取得
+了很好的效果[６Ｇ８]．其中MIＧNetwithDS和MIＧNet
+withRC
+[９]是深度神经网络在多示例学习领域的成
+功应用,它使用了深度学习的技巧:深度监督和剩余
+连接,在图像领域的数据上取得了优异的成绩．然而
+在非图像任务上的性能并不像在图像任务上那么优
+秀．与大部分的深度神经网络模型一样,它也需要人
+工针对不同的数据集进行结构调整和参数选择．
+最近几年,深度森林[１０]进入了人们的视野．这
+是一种基于非可微模块构建的深度模型,具有比深
+度神经网络少得多的超参数,同时其模型复杂性可
+以通过数据相关的方式自动确定．实验表明,其性能
+对于超参数设置非常稳健,因此在大多数情况下,即
+使面对来自不同领域的不同数据,也可以通过使用
+相同的默认设置获得出色的性能．此外由于决策树
+的特性,深度森林在非图像的领域上也有着不错的
+效果．
+因此在非图像任务上利用深度森林架构来解决
+多示例学习问题或许是一种更好的选择．Amores
+[２]
+指出包级别的算法通常比示例级的算法效果要好．
+但由于深度森林结构的限制,组成深度森林的每一
+个森林并不能直接被替换成包级别的森林,所以并
+不能把包级别的思想直接套用到深度森林框架上．
+这就使得我们需要提出一种新的深度森林结构来解
+决多示例学习问题．
+本文提出了一种新的深度森林架构(multiple
+instancedeepforest,MIDF),使用了包级的算法思
+想．在拼接时我们把包里的每个示例都看做是一个
+包,从而使得中间层的输出分布可以和包中的示例
+拼接成功,让级联结构依然有效．此外我们的架构由
+２个级联结构组成,一个使用k 折交叉验证来帮助
+自动确定深度森林的层数,另一个根据所求的层数
+来计算最终的结果．实验结果表明:我们的方法在图
+像任务上的性能与擅长处理图像任务的MIＧNet
+withDS 和MIＧNetwithRC 相当;而在文本数据
+上,我们的算法取得了比它们和其他基线算法更好
+的效果．
+１　背景知识
+本节主要介绍多示例学习问题的定义,并回顾
+一个经典的基于包级别的多示例决策树算法ID３Ｇ
+MI
+[１１]．
+多示例学习(MIL)问题最初在药物活性预测中
+提出．现在多示例学习已经被广泛应用于许多领域,
+并成为机器学习中的一个重要问题．在大量的多媒
+体数据中都包含着多示例(multipleinstance,MI)
+结构,例如文本数据中的文章可以被分为多个段落,
+图像数据可以被划分成多个局部区域,基因表达数
+据包含着多个基因．多示例学习能够有效地处理这
+些多示例(MI)数据．
+多示例学习(MIL)是一种弱监督学习(weakly
+supervisedlearning,WSL)．在MIL中,每一个训练
+样本都是一个由许多示例组成的包．对于二分类问
+题,如果一个包中存在至少一个标签为正的示例,那
+么我们称这样的包是一个正包．如果一个包中的示
+例标签都为负,那么我们称这样的包是一个负包．尽
+管我们可以得到包的标签,但是所有示例的标签都
+是未知的．多示例学习的目标就是要在这样的假设
+１
+７
+６
+１
+任　婕等:多示例学习下的深度森林架构

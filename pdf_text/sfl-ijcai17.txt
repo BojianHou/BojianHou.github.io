@@ -1,0 +1,219 @@
+Storage Fit Learning with Unlabeled Data∗
+Bo-Jian Hou
+Lijun Zhang
+Zhi-Hua Zhou
+National Key Laboratory for Novel Software Technology, Nanjing University, Nanjing 210023, China
+{houbj, zhanglj, zhouzh}@lamda.nju.edu.cn
+Abstract
+By using abundant unlabeled data, semi-supervised
+learning approaches have been found useful in var-
+ious tasks. Existing approaches, however, neglect
+the fact that the storage available for the learning
+process is different under different situations, and
+thus, the learning approaches should be ﬂexible sub-
+ject to the storage budget limit. In this paper, we
+focus on graph-based semi-supervised learning and
+propose two storage ﬁt learning approaches which
+can adjust their behaviors to different storage bud-
+gets. Speciﬁcally, we utilize techniques of low-rank
+matrix approximation to ﬁnd a low-rank approxi-
+mator of the similarity matrix to meet the storage
+budget. The ﬁrst approach is based on stochastic
+optimization, which is an iterative approach that con-
+verges to the optimal low-rank approximator glob-
+ally. The second approach is based on Nystr¨om
+method, which can ﬁnd a good low-rank approxima-
+tor efﬁciently and is suitable for real-time applica-
+tions. Experiments show that the proposed methods
+can ﬁt adaptively different storage budgets and ob-
+tain good performances in different scenarios.
+1
+Introduction
+During the past decade, smart mobile devices such as mobile
+phones are becoming increasingly popular. Mobile devices can
+easily generate an enormous amount of data, such as photos,
+texts, videos, etc. However, although most users prefer neatly
+arranged data, few users bother to label these data, for example,
+assigning labels to photos they took.
+This problem naturally corresponds to semi-supervised
+learning where few photos labeled by users represent la-
+beled data while large amounts of unlabeled photos can be
+regarded as unlabeled data. Semi-supervised learning uti-
+lizes these additional unlabeled data to enhance classiﬁcation.
+Among many semi-supervised learning approaches, graph-
+based semi-supervised learning is one of the most important
+semi-supervised learning paradigms [Zhu, 2007; Liu et al.,
+∗This work was supported by the NSFC (61673201, 61603177),
+JiangsuSF (BK20160658), and the Collaborative Innovation Center
+of Novel Software Technology and Industrialization.
+2012]. Graph-based semi-supervised methods deﬁne a graph
+where the nodes are all instances either labeled or unlabeled,
+and edges reﬂect the similarity of examples [Zhu et al., 2005].
+In graph-based methods, a large kernel matrix of size n × n
+will be calculated, where n is the number of instances, result-
+ing in ineffectiveness in both computation and storage. During
+the past decade, various methods from different perspectives
+have been proposed in graph-based semi-supervised learn-
+ing, including Mincut [Blum and Chawla, 2001], Gaussian
+Random Fields and Harmonic Functions [Zhu et al., 2003;
+Grady and Funka-Lea, 2004; Levin et al., 2004], Local and
+Global Consistency [Zhou et al., 2003], Tikhonov Regulariza-
+tion [Belkin et al., 2004], Graph Kernels [Chapelle et al., 2002;
+Zhu et al., 2004], Spectral Graph Transducer [Joachims, 2003],
+Tree-Based Bayes [Kemp et al., 2003], etc.
+There are some graph-based semi-supervised methods deal-
+ing with the large kernel matrix, however, previous studies on
+graph-based semi-supervised learning almost neglect the fact
+that the storage budget that can be used is different on differ-
+ent devices. Back to the photos labeling example, since the
+mobile phones have various limited memory, such as 500MB,
+1000MB or 2000MB, we cannot exploit all the unlabeled pho-
+tos to do semi-supervised learning, and the best to do is to
+fully exploit the storage budget rather than fully exploiting
+the unlabeled data. In this paper, we propose to study storage
+ﬁt learning, that is, the learning process is designed to fully
+exploit a storage budget limit. For example, assume that a
+storage of 106 × 106 matrix is required for a concerned semi-
+supervised learning algorithms Algo to exploit all available
+unlabeled data, yet the memory storage available is only able
+to accommodate a 103 × 103 matrix. Ideally, effective storage
+ﬁt learning algorithms should be able to adjust their behav-
+iors considering the given storage budgets. This problem was
+ﬁrstly studied by Zhou et al. [2009], where fully-connected
+afﬁnity graph for cluster kernel [Chapelle et al., 2002] was re-
+placed by k-nearest neighbor graph for approximation. When
+k is small, abundant unlabeled data can be exploited, but the
+approximation would be poor; when k is large, the approxi-
+mation can be good, but the computational load is too high to
+handle large-scale data.
+In this paper, we will make the cluster kernel method adap-
+tively ﬁt the storage budget. Our basic ideas can also be
+generalized to other approaches relying on spectral analysis
+which suffer seriously from storage limitation. Inspired by
+techniques of low-rank matrix approximation, we propose two
+simple but effective methods to solve the problem of storage
+ﬁt learning. One is based on stochastic optimization and the
+other on Nystr¨om. The stochastic optimization method can
+converge to the optimal low-rank approximator iteratively and
+the Nystr¨om-based method can ﬁnd a good low-rank approxi-
+mator efﬁciently. Unlike most graph-based semi-supervised
+learning methods, the two proposed methods can adaptively
+adjust their memory requirements to ﬁt different storage bud-
+gets as well as obtain good performances.
+2
+Background
+Cluster kernel (abbreviated as ClusK) [Chapelle et al., 2002;
+Zhou et al., 2009] is a classic technique that has been popularly
+used in graph-based approaches. The details of cluster kernel
+method are given as follows.
+Given labeled data {(x1, y1), · · · , (xl, yl)} and unlabeled
+data{xl+1, · · · , xl+u}, l ≪u, n = l + u where x ∈Rd and
+y ∈{−1, 1}. We can construct a kernel matrix K where
+nearby data points are assigned with relatively large edge
+weights. The procedure of cluster kernel algorithm is pre-
+sented as follows:
+1. Let D denote the diagonal matrix whose elements
+are Dii
+= ΣjKij, and construct the matrix L =
+D−1/2KD−1/2.
+2. Compute the eigendecomposition L = UΣU ⊤, and as-
+sume that the eigenvalues are ordered as σ1 ≥· · · ≥σn.
+3. Apply a transfer function ϕ on σ. Let ˜σi = ϕ(σi), and
+construct ˜L = U ˜ΣU ⊤.
+4. Let ˜D denote the diagonal matrix whose elements are
+˜Dii = 1/˜Lii, and compute ˜K = ˜D1/2 ˜L ˜D1/2.
+The transfer function ϕ can take different forms. Here, the
+poly-step transfer function which has achieved the best perfor-
+mance in [Chapelle et al., 2002] is adopted:
+˜σi =
+( √σi
+i < h(= l + 9)
+σ2
+i
+i ≥h(= l + 9).
+(1)
+The kernel ˜K obtained from cluster kernel method then could
+be used to do classiﬁcation by kernel SVM. One problem of
+this method is that it has a storage requirement up to O(n2).
+It cannot work for those situations where we have limited
+resources which cannot meet the requirement, such as do-
+ing image labeling [S´anchez et al., 2013] on smart phones.
+Another problem we would face is that mobile devices have
+different storage sizes. The effect of storage increasing is
+weakened since the number of instances used to calculate the
+kernel only increases by the square root of increased storage.
+For the ﬁrst problem, several large scale graph-based semi-
+supervised methods try to tackle it. Some of them focus
+on reducing time complexity. For example, Pfahringer et
+al. [2007] compute the large kernel matrix inverse; Fowlkes
+et al. [2004] calculate only the dominate eigenvalues; Kumar
+et al. [2009] and Zhang and Kwok [2010] use kernel approxi-
+mation in manifold learning. There are some other methods
+reducing space complexity including the ﬁxed-sized least-
+squares support vector machines which try to reduce space
+complexity by approximating kernels [Brabanter et al., 2010;
+Jumutc et al., 2013].
+However, these methods focus on
+how to solve the large scale problem while we concen-
+trate on the ﬁtting problem which means even though the
+data is in regular scale, we cannot compute the full ker-
+nel matrix since the storage is limited. Moreover, due to
+different storage budgets, we need to adjust our methods
+to ﬁt different scenarios.
+There are some other related
+works relying on spectral analysis which try to tackle the
+large-scale problem in clustering, such as [Li et al., 2016;
+Han et al., 2016]. However, they do not consider the situation
+where a storage budget is given and the methods should dy-
+namically ﬁt it. We notice that the key storage cost of cluster
+kernel method is owing to storing matrix K and L. Addition-
+ally, the main time cost is due to eigendecomposing L. Thus
+if we can efﬁciently obtain the eigensystem of K or L with-
+out storing them, we would have room to ﬁt our methods for
+different storage budgets. In this paper, to solve the storage ﬁt
+problem, we utilize low-rank matrix approximation techniques
+to ﬁnd low-rank approximator of K or L and thus, we can use
+the top eigensystem to get surrogate “virtual” samples which
+can be used in linear SVM. By adjusting parameters according
+to different budgets, we can exploit all the unlabeled data and
+obtain good performances in different scenarios.
+3
+Our Proposed Approaches
+In this section, we ﬁrst describe the basic idea of how to per-
+form kernel SVM to do classiﬁcation without storing the whole
+n × n kernel. Then the speciﬁc methods which can adjust
+their bahaviors to defferent storage budgets are presented in
+accompany with complexity analysis and how to dynamically
+adjust parameters according to different budgets.
+Originally, we calculate ˜K according to the steps mentioned
+in Section 2 to perform kernel SVM. But these steps cost
+nearly O(n3) time [Pan and Chen, 1999] and O(n2) space
+which cannot work in our setting. We don’t need to compute
+˜K, instead, we can transform a kernel SVM into a linear SVM
+by decomposing kernel matrix on the training and testing
+data [Zhang et al., 2012] which is showed in Proposition 1.
+Proposition 1 Given training data Xr and label yr, and test
+data Xe. A kernel SVM trained on Xr, yr, and tested on Xe
+is equivalent to a linear SVM trained on Fr, yr and tested on
+Fe, where
+K =
+ Fr
+Fe
+
+[F ⊤
+r
+F ⊤
+e ]
+(2)
+is any decomposition of the PSD kernel matrix K evaluated
+on (Xr,Xe), and the factor Fr ∈Rn×p and Fe ∈Rm×p can
+be deemed as “virtual samples” whose p is the rank of K.
+Proposition 1 shows that any kernel SVM can be cast as an
+equivalent linear SVM by decomposing of the kernel matrix
+K = FF ⊤, where F serves as an empirical kernel map or
+virtual samples. The positive semi-deﬁniteness of the kernel
+matrix guarantees that decomposition (2) always exists.
+In our setting, we would like to decompose ˜K to obtain
+the virtual examples without storing ˜K. The basic idea is to
+exploit the top eigensystem to compute the virtual examples
+directly. Speciﬁcally, note that ˜K = ˜D1/2 ˜L ˜D1/2, so that the

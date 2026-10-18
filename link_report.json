@@ -1,0 +1,1145 @@
+[
+ {
+  "id": "sem-ece-neurips26",
+  "name": "arXiv",
+  "url": "https://arxiv.org/abs/2605.08432",
+  "status": 200,
+  "final": "https://arxiv.org/abs/2605.08432",
+  "title": "[2605.08432] A Semantic-Sampling Framework for Evaluating Calibration in Open-Ended Question Answering",
+  "verdict": "ok"
+ },
+ {
+  "id": "3d-vlm-report-mlmi26",
+  "name": "PDF",
+  "url": "/files/MLMI26-3D-VLM-report.pdf",
+  "status": 200,
+  "final": "/files/MLMI26-3D-VLM-report.pdf",
+  "title": "(local file)",
+  "verdict": "ok"
+ },
+ {
+  "id": "bilevel-calibration-colm26",
+  "name": "arXiv",
+  "url": "https://arxiv.org/abs/2608.07419",
+  "status": 200,
+  "final": "https://arxiv.org/abs/2608.07419",
+  "title": "[2608.07419] Beyond Post-Hoc Temperature Scaling: Bilevel Optimization for LLM Calibration",
+  "verdict": "ok"
+ },
+ {
+  "id": "bilevel-calibration-colm26",
+  "name": "Code",
+  "url": "https://github.com/BojianHou/calm",
+  "status": 200,
+  "final": "https://github.com/BojianHou/calm",
+  "title": "GitHub - BojianHou/calm: CALM: Calibration for Large Models via Bilevel Optimization · GitHub",
+  "verdict": "ok"
+ },
+ {
+  "id": "kunlun-kdd26",
+  "name": "Paper",
+  "url": "https://doi.org/10.1145/3770855.3818438",
+  "status": 403,
+  "final": "https://doi.org/10.1145/3770855.3818438",
+  "title": "",
+  "verdict": "blocked"
+ },
+ {
+  "id": "kunlun-kdd26",
+  "name": "arXiv",
+  "url": "https://arxiv.org/abs/2602.10016",
+  "status": 200,
+  "final": "https://arxiv.org/abs/2602.10016",
+  "title": "[2602.10016] Kunlun: Establishing Scaling Laws for Massive-Scale Recommendation Systems through Unified Architecture Design",
+  "verdict": "ok"
+ },
+ {
+  "id": "ct-vlm-npjdm26",
+  "name": "Paper",
+  "url": "https://doi.org/10.1038/s41746-026-03257-2",
+  "status": 200,
+  "final": "https://www.nature.com/articles/s41746-026-03257-2",
+  "title": "Client Challenge",
+  "verdict": "ok"
+ },
+ {
+  "id": "ct-vlm-npjdm26",
+  "name": "medRxiv",
+  "url": "https://www.medrxiv.org/content/10.1101/2025.07.03.25330654v4.full",
+  "status": 403,
+  "final": "https://www.medrxiv.org/content/10.1101/2025.07.03.25330654v4.full",
+  "title": "",
+  "verdict": "blocked"
+ },
+ {
+  "id": "tabular-llm-multimodal-ad-arxiv26",
+  "name": "arXiv",
+  "url": "https://arxiv.org/abs/2603.17191",
+  "status": 200,
+  "final": "https://arxiv.org/abs/2603.17191",
+  "title": "[2603.17191] Tabular LLMs for Interpretable Few-Shot Alzheimer's Disease Prediction with Multimodal Biomedical Data",
+  "verdict": "ok"
+ },
+ {
+  "id": "tabular-llm-multimodal-ad-arxiv26",
+  "name": "Code",
+  "url": "https://github.com/sophie-kearney/TAP-GPT",
+  "status": 200,
+  "final": "https://github.com/sophie-kearney/TAP-GPT",
+  "title": "GitHub - sophie-kearney/TAP-GPT · GitHub",
+  "verdict": "ok"
+ },
+ {
+  "id": "iris-bigdata25",
+  "name": "Paper",
+  "url": "https://doi.org/10.1109/BigData66926.2025.11402028",
+  "status": 202,
+  "final": "https://ieeexplore.ieee.org/document/11402028/",
+  "title": "",
+  "verdict": "ok"
+ },
+ {
+  "id": "iris-bigdata25",
+  "name": "PMC",
+  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12971063/",
+  "status": 200,
+  "final": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12971063/",
+  "title": "IRIS: Interpretable Risk Clustering Intelligence for Survival Analysis - PMC",
+  "verdict": "ok"
+ },
+ {
+  "id": "online-bilevel-regret-neurips25",
+  "name": "Paper",
+  "url": "https://proceedings.neurips.cc/paper_files/paper/2025/hash/d899eabc6c8fefd0d4064762aba407e2-Abstract-Conference.html",
+  "status": 200,
+  "final": "https://proceedings.neurips.cc/paper_files/paper/2025/hash/d899eabc6c8fefd0d4064762aba407e2-Abstract-Conference.html",
+  "title": "Stochastic Regret Guarantees for Online Zeroth- and First-Order Bilevel Optimization",
+  "verdict": "ok"
+ },
+ {
+  "id": "online-bilevel-regret-neurips25",
+  "name": "arXiv",
+  "url": "https://arxiv.org/abs/2511.01126",
+  "status": 200,
+  "final": "https://arxiv.org/abs/2511.01126",
+  "title": "[2511.01126] Stochastic Regret Guarantees for Online Zeroth- and First-Order Bilevel Optimization",
+  "verdict": "ok"
+ },
+ {
+  "id": "tabular-llm-ad-bcb25",
+  "name": "Paper",
+  "url": "https://doi.org/10.1145/3765612.3767229",
+  "status": 403,
+  "final": "https://doi.org/10.1145/3765612.3767229",
+  "title": "",
+  "verdict": "blocked"
+ },
+ {
+  "id": "tabular-llm-ad-bcb25",
+  "name": "arXiv",
+  "url": "https://arxiv.org/abs/2507.23227",
+  "status": 200,
+  "final": "https://arxiv.org/abs/2507.23227",
+  "title": "[2507.23227] Enabling Few-Shot Alzheimer's Disease Diagnosis on Biomarker Data with Tabular LLMs",
+  "verdict": "ok"
+ },
+ {
+  "id": "fair-cca-adni-bcb25",
+  "name": "Paper",
+  "url": "https://doi.org/10.1145/3765612.3767215",
+  "status": 403,
+  "final": "https://doi.org/10.1145/3765612.3767215",
+  "title": "",
+  "verdict": "blocked"
+ },
+ {
+  "id": "fair-cca-adni-bcb25",
+  "name": "arXiv",
+  "url": "https://arxiv.org/abs/2507.09382",
+  "status": 200,
+  "final": "https://arxiv.org/abs/2507.09382",
+  "title": "[2507.09382] Fair CCA for Fair Representation Learning: An ADNI Study",
+  "verdict": "ok"
+ },
+ {
+  "id": "fair-cca-adni-bcb25",
+  "name": "Code",
+  "url": "https://github.com/ZhanliangAaronWang/FR-CCA-ADNI",
+  "status": 200,
+  "final": "https://github.com/ZhanliangAaronWang/FR-CCA-ADNI",
+  "title": "GitHub - ZhanliangAaronWang/FR-CCA-ADNI · GitHub",
+  "verdict": "ok"
+ },
+ {
+  "id": "mentalchat16k-kdd25",
+  "name": "Paper",
+  "url": "https://doi.org/10.1145/3711896.3737393",
+  "status": 403,
+  "final": "https://doi.org/10.1145/3711896.3737393",
+  "title": "",
+  "verdict": "blocked"
+ },
+ {
+  "id": "mentalchat16k-kdd25",
+  "name": "arXiv",
+  "url": "https://arxiv.org/abs/2503.13509",
+  "status": 200,
+  "final": "https://arxiv.org/abs/2503.13509",
+  "title": "[2503.13509] MentalChat16K: A Benchmark Dataset for Conversational Mental Health Assistance",
+  "verdict": "ok"
+ },
+ {
+  "id": "mentalchat16k-kdd25",
+  "name": "Code",
+  "url": "https://github.com/ChiaPatricia/MentalChat16K",
+  "status": 200,
+  "final": "https://github.com/ChiaPatricia/MentalChat16K",
+  "title": "GitHub - ChiaPatricia/MentalChat16K: A benchmark dataset designed to support the development and evaluation of large language models (LLMs) for conversational m",
+  "verdict": "ok"
+ },
+ {
+  "id": "mentalchat16k-kdd25",
+  "name": "Dataset",
+  "url": "https://huggingface.co/datasets/ShenLab/MentalChat16K",
+  "status": 200,
+  "final": "https://huggingface.co/datasets/ShenLab/MentalChat16K",
+  "title": "ShenLab/MentalChat16K · Datasets at Hugging Face",
+  "verdict": "ok"
+ },
+ {
+  "id": "calibration-aligned-llm-icml25",
+  "name": "Paper",
+  "url": "https://proceedings.mlr.press/v267/xiao25b.html",
+  "status": 200,
+  "final": "https://proceedings.mlr.press/v267/xiao25b.html",
+  "title": "Restoring Calibration for Aligned Large Language Models: A Calibration-Aware Fine-Tuning Approach",
+  "verdict": "ok"
+ },
+ {
+  "id": "calibration-aligned-llm-icml25",
+  "name": "arXiv",
+  "url": "https://arxiv.org/abs/2505.01997",
+  "status": 200,
+  "final": "https://arxiv.org/abs/2505.01997",
+  "title": "[2505.01997] Restoring Calibration for Aligned Large Language Models: A Calibration-Aware Fine-Tuning Approach",
+  "verdict": "ok"
+ },
+ {
+  "id": "calibration-aligned-llm-icml25",
+  "name": "OpenReview",
+  "url": "https://openreview.net/forum?id=51tMpvPNSm",
+  "status": 200,
+  "final": "https://openreview.net/challenge?redirect=%2Fforum%3Fid%3D51tMpvPNSm",
+  "title": "Verifying your browser | OpenReview",
+  "verdict": "ok"
+ },
+ {
+  "id": "attention-task-arithmetic-iclr25",
+  "name": "arXiv",
+  "url": "https://arxiv.org/abs/2407.07089",
+  "status": 200,
+  "final": "https://arxiv.org/abs/2407.07089",
+  "title": "[2407.07089] Fine-Tuning Attention Modules Only: Enhancing Weight Disentanglement in Task Arithmetic",
+  "verdict": "ok"
+ },
+ {
+  "id": "attention-task-arithmetic-iclr25",
+  "name": "OpenReview",
+  "url": "https://openreview.net/forum?id=dj0TktJcVI",
+  "status": 200,
+  "final": "https://openreview.net/challenge?redirect=%2Fforum%3Fid%3Ddj0TktJcVI",
+  "title": "Verifying your browser | OpenReview",
+  "verdict": "ok"
+ },
+ {
+  "id": "attention-task-arithmetic-iclr25",
+  "name": "Code",
+  "url": "https://github.com/kyrie-23/linear_task_arithmetic",
+  "status": 200,
+  "final": "https://github.com/kyrie-23/linear_task_arithmetic",
+  "title": "GitHub - kyrie-23/linear_task_arithmetic · GitHub",
+  "verdict": "ok"
+ },
+ {
+  "id": "genotype-feature-selection-amia25",
+  "name": "arXiv",
+  "url": "https://arxiv.org/abs/2410.01795",
+  "status": 200,
+  "final": "https://arxiv.org/abs/2410.01795",
+  "title": "[2410.01795] Knowledge-Driven Feature Selection and Engineering for Genotype Data with Large Language Models",
+  "verdict": "ok"
+ },
+ {
+  "id": "genotype-feature-selection-amia25",
+  "name": "Code",
+  "url": "https://github.com/PennShenLab/FREEFORM",
+  "status": 200,
+  "final": "https://github.com/PennShenLab/FREEFORM",
+  "title": "GitHub - PennShenLab/FREEFORM: FREEFORM | Knowledge-Driven Feature Selection and Engineering with Large Language Models · GitHub",
+  "verdict": "ok"
+ },
+ {
+  "id": "genotype-feature-selection-amia25",
+  "name": "PMC",
+  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12150712/",
+  "status": 200,
+  "final": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12150712/",
+  "title": "Knowledge-Driven Feature Selection and Engineering for Genotype Data with Large Language Models - PMC",
+  "verdict": "ok"
+ },
+ {
+  "id": "sdoh-kg-amia25",
+  "name": "Code",
+  "url": "https://github.com/hwq0726/SDoHenPKG",
+  "status": 200,
+  "final": "https://github.com/hwq0726/SDoHenPKG",
+  "title": "GitHub - hwq0726/SDoHenPKG: Implementation code for the paper: \"Leveraging Social Determinants of Health in Alzheimer’s Research Using LLM-Augmented Literature ",
+  "verdict": "ok"
+ },
+ {
+  "id": "sdoh-kg-amia25",
+  "name": "PMC",
+  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12150755/",
+  "status": 200,
+  "final": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12150755/",
+  "title": "Leveraging Social Determinants of Health in Alzheimer’s Research Using LLM-Augmented Literature Mining and Knowledge Graphs - PMC",
+  "verdict": "ok"
+ },
+ {
+  "id": "clinical-modalities-amia25",
+  "name": "PMC",
+  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12150751/",
+  "status": 200,
+  "final": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12150751/",
+  "title": "Determining the Importance of Clinical Modalities for NeuroDegenerative Disorders and Risk of Patient Injury Using Machine Learning and Survival Analysis - PMC",
+  "verdict": "ok"
+ },
+ {
+  "id": "association-mining-psb25",
+  "name": "Paper",
+  "url": "https://doi.org/10.1142/9789819807024_0045",
+  "status": 403,
+  "final": "https://doi.org/10.1142/9789819807024_0045",
+  "title": "",
+  "verdict": "blocked"
+ },
+ {
+  "id": "association-mining-psb25",
+  "name": "PDF",
+  "url": "https://psb.stanford.edu/psb-online/proceedings/psb25/noshin.pdf",
+  "status": 200,
+  "final": "https://psb.stanford.edu/psb-online/proceedings/psb25/noshin.pdf",
+  "title": "(PDF)",
+  "verdict": "ok"
+ },
+ {
+  "id": "association-mining-psb25",
+  "name": "PMC",
+  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11649014/",
+  "status": 200,
+  "final": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11649014/",
+  "title": "Uncovering Important Diagnostic Features for Alzheimer’s, Parkinson’s and Other Dementias Using Interpretable Association Mining Methods - PMC",
+  "verdict": "ok"
+ },
+ {
+  "id": "llm-topic-modeling-innovaging25",
+  "name": "Paper",
+  "url": "https://doi.org/10.1093/geroni/igaf120",
+  "status": 403,
+  "final": "https://doi.org/10.1093/geroni/igaf120",
+  "title": "",
+  "verdict": "blocked"
+ },
+ {
+  "id": "llm-topic-modeling-innovaging25",
+  "name": "PMC",
+  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12742845/",
+  "status": 200,
+  "final": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12742845/",
+  "title": "Advanced topic modeling with large language models: analyzing social media content from dementia caregivers - PMC",
+  "verdict": "ok"
+ },
+ {
+  "id": "fair-multimodal-cca-amia25",
+  "name": "Paper",
+  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12919458/",
+  "status": 200,
+  "final": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12919458/",
+  "title": "Fair Multi-modal Canonical Correlation Analysis: A Neuroimaging Study of Alzheimer’s Disease - PMC",
+  "verdict": "ok"
+ },
+ {
+  "id": "fair-multimodal-cca-amia25",
+  "name": "PubMed",
+  "url": "https://pubmed.ncbi.nlm.nih.gov/41726413/",
+  "status": 203,
+  "final": "https://pubmed.ncbi.nlm.nih.gov/41726413/",
+  "title": "pubmed.ncbi.nlm.nih.gov",
+  "verdict": "ok"
+ },
+ {
+  "id": "icafs-tai25",
+  "name": "Paper",
+  "url": "https://doi.org/10.1109/TAI.2025.3647596",
+  "status": 202,
+  "final": "https://ieeexplore.ieee.org/document/11311697/",
+  "title": "",
+  "verdict": "ok"
+ },
+ {
+  "id": "icafs-tai25",
+  "name": "arXiv",
+  "url": "https://arxiv.org/abs/2504.10851",
+  "status": 200,
+  "final": "https://arxiv.org/abs/2504.10851",
+  "title": "[2504.10851] ICAFS: Inter-Client-Aware Feature Selection for Vertical Federated Learning",
+  "verdict": "ok"
+ },
+ {
+  "id": "icafs-tai25",
+  "name": "PMC",
+  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12893625/",
+  "status": 200,
+  "final": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12893625/",
+  "title": "ICAFS: Inter-Client-Aware Feature Selection for Vertical Federated Learning - PMC",
+  "verdict": "ok"
+ },
+ {
+  "id": "sdoh-ehr-kg-innovaging25",
+  "name": "Paper",
+  "url": "https://doi.org/10.1093/geroni/igaf102",
+  "status": 403,
+  "final": "https://doi.org/10.1093/geroni/igaf102",
+  "title": "",
+  "verdict": "blocked"
+ },
+ {
+  "id": "sdoh-ehr-kg-innovaging25",
+  "name": "PMC",
+  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12742847/",
+  "status": 200,
+  "final": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12742847/",
+  "title": "A novel computational analysis integrating social determinants information from EHR and literature with Alzheimer’s disease biological knowledge through large l",
+  "verdict": "ok"
+ },
+ {
+  "id": "pmbb-vlm-iccvw25",
+  "name": "Paper",
+  "url": "https://openaccess.thecvf.com/content/ICCV2025W/VADH/html/Chen_Adapting_Vision-Language_Models_for_3D_CTMRI_Understanding_on_PMBB_via_ICCVW_2025_paper.html",
+  "status": 200,
+  "final": "https://openaccess.thecvf.com/content/ICCV2025W/VADH/html/Chen_Adapting_Vision-Language_Models_for_3D_CTMRI_Understanding_on_PMBB_via_ICCVW_2025_paper.html",
+  "title": "ICCV 2025 Open Access Repository",
+  "verdict": "ok"
+ },
+ {
+  "id": "multimodal-dcsm-iccvw25",
+  "name": "Paper",
+  "url": "https://doi.org/10.1109/ICCVW69036.2025.00239",
+  "status": 202,
+  "final": "https://ieeexplore.ieee.org/document/11374514/",
+  "title": "",
+  "verdict": "ok"
+ },
+ {
+  "id": "sdoh-dcsm-aimedhealth25",
+  "name": "Paper",
+  "url": "https://proceedings.mlr.press/v281/noshin25a.html",
+  "status": 200,
+  "final": "https://proceedings.mlr.press/v281/noshin25a.html",
+  "title": "Integrating Social Determinants of Health in a Multi-Modal Deep Clustering Survival Model for Injury-Risk in Alzheimer’s and Related Dementia Patients",
+  "verdict": "ok"
+ },
+ {
+  "id": "esn-topology-aimedhealth25",
+  "name": "Paper",
+  "url": "https://proceedings.mlr.press/v281/nguyen25a.html",
+  "status": 200,
+  "final": "https://proceedings.mlr.press/v281/nguyen25a.html",
+  "title": "Evaluating topological fitness of human brain-inspired sub-circuits in Echo State Networks",
+  "verdict": "ok"
+ },
+ {
+  "id": "esn-topology-aimedhealth25",
+  "name": "arXiv",
+  "url": "https://arxiv.org/abs/2412.14999",
+  "status": 200,
+  "final": "https://arxiv.org/abs/2412.14999",
+  "title": "[2412.14999] Accessing the topological properties of human brain functional sub-circuits in Echo State Networks",
+  "verdict": "ok"
+ },
+ {
+  "id": "rna-structure-survey-arxiv25",
+  "name": "arXiv",
+  "url": "https://arxiv.org/abs/2501.04056",
+  "status": 200,
+  "final": "https://arxiv.org/abs/2501.04056",
+  "title": "[2501.04056] Advances in RNA secondary structure prediction and RNA modifications: Methods, data, and applications",
+  "verdict": "ok"
+ },
+ {
+  "id": "sefd-bigdata24",
+  "name": "Paper",
+  "url": "https://doi.org/10.1109/BigData62323.2024.10825110",
+  "status": 202,
+  "final": "https://ieeexplore.ieee.org/document/10825110/",
+  "title": "",
+  "verdict": "ok"
+ },
+ {
+  "id": "sefd-bigdata24",
+  "name": "arXiv",
+  "url": "https://arxiv.org/abs/2411.12764",
+  "status": 200,
+  "final": "https://arxiv.org/abs/2411.12764",
+  "title": "[2411.12764] SEFD: Semantic-Enhanced Framework for Detecting LLM-Generated Text",
+  "verdict": "ok"
+ },
+ {
+  "id": "fair-graphical-models-neurips24",
+  "name": "Paper",
+  "url": "https://proceedings.neurips.cc/paper_files/paper/2024/hash/1fd2b71226c67013756d318d70c40eee-Abstract.html",
+  "status": 200,
+  "final": "https://proceedings.neurips.cc/paper_files/paper/2024/hash/1fd2b71226c67013756d318d70c40eee-Abstract.html",
+  "title": "Fairness-Aware Estimation of Graphical Models",
+  "verdict": "ok"
+ },
+ {
+  "id": "fair-graphical-models-neurips24",
+  "name": "arXiv",
+  "url": "https://arxiv.org/abs/2408.17396",
+  "status": 200,
+  "final": "https://arxiv.org/abs/2408.17396",
+  "title": "[2408.17396] Fairness-Aware Estimation of Graphical Models",
+  "verdict": "ok"
+ },
+ {
+  "id": "dalk-emnlp24",
+  "name": "Paper",
+  "url": "https://aclanthology.org/2024.findings-emnlp.119/",
+  "status": 200,
+  "final": "https://aclanthology.org/2024.findings-emnlp.119/",
+  "title": "DALK: Dynamic Co-Augmentation of LLMs and KG to answer Alzheimer’s Disease Questions with Scientific Literature - ACL Anthology",
+  "verdict": "ok"
+ },
+ {
+  "id": "dalk-emnlp24",
+  "name": "arXiv",
+  "url": "https://arxiv.org/abs/2405.04819",
+  "status": 200,
+  "final": "https://arxiv.org/abs/2405.04819",
+  "title": "[2405.04819] DALK: Dynamic Co-Augmentation of LLMs and KG to answer Alzheimer's Disease Questions with Scientific Literature",
+  "verdict": "ok"
+ },
+ {
+  "id": "dalk-emnlp24",
+  "name": "Code",
+  "url": "https://github.com/David-Li0406/DALK",
+  "status": 200,
+  "final": "https://github.com/David-Li0406/DALK",
+  "title": "GitHub - David-Li0406/DALK · GitHub",
+  "verdict": "ok"
+ },
+ {
+  "id": "caregivers-twitter-amia24",
+  "name": "PMC",
+  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12099380/",
+  "status": 200,
+  "final": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12099380/",
+  "title": "Analyzing Dementia Caregivers’ Experiences on Twitter: A Term-Weighted Topic Modeling Approach - PMC",
+  "verdict": "ok"
+ },
+ {
+  "id": "caregivers-twitter-amia24",
+  "name": "PubMed",
+  "url": "https://pubmed.ncbi.nlm.nih.gov/40417464/",
+  "status": 203,
+  "final": "https://pubmed.ncbi.nlm.nih.gov/40417464/",
+  "title": "pubmed.ncbi.nlm.nih.gov",
+  "verdict": "ok"
+ },
+ {
+  "id": "fair-mci-mri-amia24",
+  "name": "PMC",
+  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12099326/",
+  "status": 200,
+  "final": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12099326/",
+  "title": "Ensuring Fairness in Detecting Mild Cognitive Impairment with MRI - PMC",
+  "verdict": "ok"
+ },
+ {
+  "id": "fair-mci-mri-amia24",
+  "name": "PubMed",
+  "url": "https://pubmed.ncbi.nlm.nih.gov/40417489/",
+  "status": 203,
+  "final": "https://pubmed.ncbi.nlm.nih.gov/40417489/",
+  "title": "pubmed.ncbi.nlm.nih.gov",
+  "verdict": "ok"
+ },
+ {
+  "id": "online-bilevel-aistats24",
+  "name": "Paper",
+  "url": "https://proceedings.mlr.press/v238/ataee-tarzanagh24a.html",
+  "status": 200,
+  "final": "https://proceedings.mlr.press/v238/ataee-tarzanagh24a.html",
+  "title": "Online Bilevel Optimization: Regret Analysis of Online Alternating Gradient Methods",
+  "verdict": "ok"
+ },
+ {
+  "id": "online-bilevel-aistats24",
+  "name": "arXiv",
+  "url": "https://arxiv.org/abs/2207.02829",
+  "status": 200,
+  "final": "https://arxiv.org/abs/2207.02829",
+  "title": "[2207.02829] Online Bilevel Optimization: Regret Analysis of Online Alternating Gradient Methods",
+  "verdict": "ok"
+ },
+ {
+  "id": "online-bilevel-aistats24",
+  "name": "Code",
+  "url": "https://github.com/BojianHou/OAGD",
+  "status": 200,
+  "final": "https://github.com/BojianHou/OAGD",
+  "title": "GitHub - BojianHou/OAGD: Repository for Online Bilevel Optimization · GitHub",
+  "verdict": "ok"
+ },
+ {
+  "id": "interview-interpretability-amia24",
+  "name": "PMC",
+  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11141819/",
+  "status": 200,
+  "final": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11141819/",
+  "title": "Interpretability Study for Long Interview Transcripts from Behavior Intervention Sessions for Family Caregivers of Dementia Patients - PMC",
+  "verdict": "ok"
+ },
+ {
+  "id": "pferm-amia24",
+  "name": "Code",
+  "url": "https://github.com/BojianHou/PFERM",
+  "status": 200,
+  "final": "https://github.com/BojianHou/PFERM",
+  "title": "GitHub - BojianHou/PFERM · GitHub",
+  "verdict": "ok"
+ },
+ {
+  "id": "pferm-amia24",
+  "name": "PMC",
+  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11141835/",
+  "status": 200,
+  "final": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11141835/",
+  "title": "PFERM: A Fair Empirical Risk Minimization Approach with Prior Knowledge - PMC",
+  "verdict": "ok"
+ },
+ {
+  "id": "amyloid-subtypes-amia24",
+  "name": "PMC",
+  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11141862/",
+  "status": 200,
+  "final": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11141862/",
+  "title": "Cluster Analysis of Cortical Amyloid Burden for Identifying Imaging-driven Subtypes in Mild Cognitive Impairment - PMC",
+  "verdict": "ok"
+ },
+ {
+  "id": "manifoldron-tnnls24",
+  "name": "Paper",
+  "url": "https://doi.org/10.1109/TNNLS.2024.3486252",
+  "status": 202,
+  "final": "https://ieeexplore.ieee.org/document/10752740/",
+  "title": "",
+  "verdict": "ok"
+ },
+ {
+  "id": "manifoldron-tnnls24",
+  "name": "arXiv",
+  "url": "https://arxiv.org/abs/2201.05279",
+  "status": 200,
+  "final": "https://arxiv.org/abs/2201.05279",
+  "title": "[2201.05279] Manifoldron: Direct Space Partition via Manifold Discovery",
+  "verdict": "ok"
+ },
+ {
+  "id": "manifoldron-tnnls24",
+  "name": "Code",
+  "url": "https://github.com/wdayang/Manifoldron",
+  "status": 200,
+  "final": "https://github.com/wdayang/Manifoldron",
+  "title": "GitHub - wdayang/Manifoldron: This respository includes implementations on Manifoldron: Direct Space Partition via Manifold Discovery · GitHub",
+  "verdict": "ok"
+ },
+ {
+  "id": "mg-tcca-tcbb24",
+  "name": "Paper",
+  "url": "https://doi.org/10.1109/TCBB.2024.3471930",
+  "status": 202,
+  "final": "https://ieeexplore.ieee.org/document/10700972/",
+  "title": "",
+  "verdict": "ok"
+ },
+ {
+  "id": "mg-tcca-tcbb24",
+  "name": "PMC",
+  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11954983/",
+  "status": 200,
+  "final": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11954983/",
+  "title": "MG-TCCA: Tensor Canonical Correlation Analysis across Multiple Groups - PMC",
+  "verdict": "ok"
+ },
+ {
+  "id": "interpretable-dcsm-media24",
+  "name": "Paper",
+  "url": "https://doi.org/10.1016/j.media.2024.103231",
+  "status": 200,
+  "final": "https://linkinghub.elsevier.com/retrieve/pii/S1361841524001567",
+  "title": "Redirecting",
+  "verdict": "ok"
+ },
+ {
+  "id": "interpretable-dcsm-media24",
+  "name": "Code",
+  "url": "https://github.com/PennShenLab/DCSM/",
+  "status": 200,
+  "final": "https://github.com/PennShenLab/DCSM/",
+  "title": "GitHub - PennShenLab/DCSM · GitHub",
+  "verdict": "ok"
+ },
+ {
+  "id": "quadratic-autoencoder-tai24",
+  "name": "Paper",
+  "url": "https://doi.org/10.1109/TAI.2024.3394795",
+  "status": 202,
+  "final": "https://ieeexplore.ieee.org/document/10510400/",
+  "title": "",
+  "verdict": "ok"
+ },
+ {
+  "id": "quadratic-autoencoder-tai24",
+  "name": "arXiv",
+  "url": "https://arxiv.org/abs/2204.01707",
+  "status": 200,
+  "final": "https://arxiv.org/abs/2204.01707",
+  "title": "[2204.01707] Quadratic Neuron-empowered Heterogeneous Autoencoder for Unsupervised Anomaly Detection",
+  "verdict": "ok"
+ },
+ {
+  "id": "sinkhorn-iscience24",
+  "name": "Paper",
+  "url": "https://doi.org/10.1016/j.isci.2024.109212",
+  "status": 200,
+  "final": "https://linkinghub.elsevier.com/retrieve/pii/S2589004224004334",
+  "title": "Redirecting",
+  "verdict": "ok"
+ },
+ {
+  "id": "sinkhorn-iscience24",
+  "name": "PubMed",
+  "url": "https://pubmed.ncbi.nlm.nih.gov/38433927/",
+  "status": 203,
+  "final": "https://pubmed.ncbi.nlm.nih.gov/38433927/",
+  "title": "pubmed.ncbi.nlm.nih.gov",
+  "verdict": "ok"
+ },
+ {
+  "id": "fair-cca-neurips23",
+  "name": "Paper",
+  "url": "https://proceedings.neurips.cc/paper_files/paper/2023/file/0b8e4c8468273ee3bafb288229c0acbc-Paper-Conference.pdf",
+  "status": 200,
+  "final": "https://proceedings.neurips.cc/paper_files/paper/2023/file/0b8e4c8468273ee3bafb288229c0acbc-Paper-Conference.pdf",
+  "title": "(PDF)",
+  "verdict": "ok"
+ },
+ {
+  "id": "fair-cca-neurips23",
+  "name": "arXiv",
+  "url": "https://arxiv.org/abs/2309.15809",
+  "status": 200,
+  "final": "https://arxiv.org/abs/2309.15809",
+  "title": "[2309.15809] Fair Canonical Correlation Analysis",
+  "verdict": "ok"
+ },
+ {
+  "id": "fair-cca-neurips23",
+  "name": "Code",
+  "url": "https://github.com/PennShenLab/Fair_CCA",
+  "status": 200,
+  "final": "https://github.com/zhuopinz/Fair_CCA",
+  "title": "GitHub - zhuopinz/Fair_CCA · GitHub",
+  "verdict": "ok"
+ },
+ {
+  "id": "mg-tcca-bcb23",
+  "name": "Paper",
+  "url": "https://doi.org/10.1145/3584371.3612962",
+  "status": 403,
+  "final": "https://doi.org/10.1145/3584371.3612962",
+  "title": "",
+  "verdict": "blocked"
+ },
+ {
+  "id": "mg-tcca-bcb23",
+  "name": "PMC",
+  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10593155/",
+  "status": 200,
+  "final": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10593155/",
+  "title": "Multi-Group Tensor Canonical Correlation Analysis - PMC",
+  "verdict": "ok"
+ },
+ {
+  "id": "avs-loss-mlmi23",
+  "name": "Paper",
+  "url": "https://doi.org/10.1007/978-3-031-45676-3_15",
+  "status": 200,
+  "final": "https://link.springer.com/10.1007/978-3-031-45676-3_15",
+  "title": "Client Challenge",
+  "verdict": "ok"
+ },
+ {
+  "id": "avs-loss-mlmi23",
+  "name": "PMC",
+  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10924683/",
+  "status": 200,
+  "final": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10924683/",
+  "title": "Class-Balanced Deep Learning with Adaptive Vector Scaling Loss for Dementia Stage Detection - PMC",
+  "verdict": "ok"
+ },
+ {
+  "id": "facims-uai23",
+  "name": "Paper",
+  "url": "https://proceedings.mlr.press/v216/tarzanagh23a.html",
+  "status": 200,
+  "final": "https://proceedings.mlr.press/v216/tarzanagh23a.html",
+  "title": "Fairness-aware class imbalanced learning on multiple subgroups",
+  "verdict": "ok"
+ },
+ {
+  "id": "facims-uai23",
+  "name": "Code",
+  "url": "https://github.com/PennShenLab/FACIMS",
+  "status": 200,
+  "final": "https://github.com/PennShenLab/FACIMS",
+  "title": "GitHub - PennShenLab/FACIMS · GitHub",
+  "verdict": "ok"
+ },
+ {
+  "id": "dcsm-isbi23",
+  "name": "Paper",
+  "url": "https://doi.org/10.1109/ISBI53787.2023.10230844",
+  "status": 202,
+  "final": "https://ieeexplore.ieee.org/document/10230844/",
+  "title": "",
+  "verdict": "ok"
+ },
+ {
+  "id": "dcsm-isbi23",
+  "name": "arXiv",
+  "url": "https://arxiv.org/abs/2301.11826",
+  "status": 200,
+  "final": "https://arxiv.org/abs/2301.11826",
+  "title": "[2301.11826] Deep Clustering Survival Machines with Interpretable Expert Distributions",
+  "verdict": "ok"
+ },
+ {
+  "id": "dcsm-isbi23",
+  "name": "Code",
+  "url": "https://github.com/BojianHou/DCSM",
+  "status": 200,
+  "final": "https://github.com/BojianHou/DCSM",
+  "title": "GitHub - BojianHou/DCSM · GitHub",
+  "verdict": "ok"
+ },
+ {
+  "id": "glaucoma-bias-amia23",
+  "name": "PDF",
+  "url": "/files/glaucoma_bias.pdf",
+  "status": 200,
+  "final": "/files/glaucoma_bias.pdf",
+  "title": "(local file)",
+  "verdict": "ok"
+ },
+ {
+  "id": "old3s-tkde23",
+  "name": "Paper",
+  "url": "https://doi.org/10.1109/TKDE.2023.3326365",
+  "status": 202,
+  "final": "https://ieeexplore.ieee.org/document/10308962/",
+  "title": "",
+  "verdict": "ok"
+ },
+ {
+  "id": "old3s-tkde23",
+  "name": "PDF",
+  "url": "/files/OLD3S.pdf",
+  "status": 200,
+  "final": "/files/OLD3S.pdf",
+  "title": "(local file)",
+  "verdict": "ok"
+ },
+ {
+  "id": "chest-xray-cbm23",
+  "name": "Paper",
+  "url": "https://doi.org/10.1016/j.compbiomed.2023.106962",
+  "status": 200,
+  "final": "https://linkinghub.elsevier.com/retrieve/pii/S0010482523004274",
+  "title": "Redirecting",
+  "verdict": "ok"
+ },
+ {
+  "id": "chest-xray-cbm23",
+  "name": "PDF",
+  "url": "/files/pubmed.pdf",
+  "status": 200,
+  "final": "/files/pubmed.pdf",
+  "title": "(local file)",
+  "verdict": "ok"
+ },
+ {
+  "id": "detr-pretraining-arxiv23",
+  "name": "arXiv",
+  "url": "https://arxiv.org/abs/2308.01300",
+  "status": 200,
+  "final": "https://arxiv.org/abs/2308.01300",
+  "title": "[2308.01300] Revisiting DETR Pre-training for Object Detection",
+  "verdict": "ok"
+ },
+ {
+  "id": "doubly-streaming-mm22",
+  "name": "Paper",
+  "url": "https://doi.org/10.1145/3503161.3548355",
+  "status": 403,
+  "final": "https://doi.org/10.1145/3503161.3548355",
+  "title": "",
+  "verdict": "blocked"
+ },
+ {
+  "id": "doubly-streaming-mm22",
+  "name": "arXiv",
+  "url": "https://arxiv.org/abs/2204.11793",
+  "status": 200,
+  "final": "https://arxiv.org/abs/2204.11793",
+  "title": "[2204.11793] Online Deep Learning from Doubly-Streaming Data",
+  "verdict": "ok"
+ },
+ {
+  "id": "glaucoma-scirep22",
+  "name": "Paper",
+  "url": "https://doi.org/10.1038/s41598-022-17753-4",
+  "status": 200,
+  "final": "https://www.nature.com/articles/s41598-022-17753-4",
+  "title": "Client Challenge",
+  "verdict": "ok"
+ },
+ {
+  "id": "glaucoma-scirep22",
+  "name": "PDF",
+  "url": "/files/glaucoma.pdf",
+  "status": 200,
+  "final": "/files/glaucoma.pdf",
+  "title": "(local file)",
+  "verdict": "ok"
+ },
+ {
+  "id": "glaucoma-scirep22",
+  "name": "Code",
+  "url": "https://github.com/bionlplab/GlaucomaNet",
+  "status": 200,
+  "final": "https://github.com/bionlplab/GlaucomaNet",
+  "title": "GitHub - bionlplab/GlaucomaNet: A deep-learning algorithm for the diagnosis of primary open-angle glaucoma from fundus photographs · GitHub",
+  "verdict": "ok"
+ },
+ {
+  "id": "sf2el-aaai21",
+  "name": "Paper",
+  "url": "https://doi.org/10.1609/aaai.v35i9.16944",
+  "status": 200,
+  "final": "https://ojs.aaai.org/index.php/AAAI/article/view/16944",
+  "title": "",
+  "verdict": "ok"
+ },
+ {
+  "id": "sf2el-aaai21",
+  "name": "arXiv",
+  "url": "https://arxiv.org/abs/2007.11280",
+  "status": 200,
+  "final": "https://arxiv.org/abs/2007.11280",
+  "title": "[2007.11280] Storage Fit Learning with Feature Evolvable Streams",
+  "verdict": "ok"
+ },
+ {
+  "id": "sf2el-aaai21",
+  "name": "Code",
+  "url": "https://www.lamda.nju.edu.cn/code_SF2EL.ashx",
+  "status": 200,
+  "final": "https://www.lamda.nju.edu.cn/code_SF2EL.ashx",
+  "title": "SF2EL - LAMDA",
+  "verdict": "ok"
+ },
+ {
+  "id": "ovfm-icdm21",
+  "name": "Paper",
+  "url": "https://doi.org/10.1109/ICDM51629.2021.00028",
+  "status": 202,
+  "final": "https://ieeexplore.ieee.org/document/9679013/",
+  "title": "",
+  "verdict": "ok"
+ },
+ {
+  "id": "ovfm-icdm21",
+  "name": "PDF",
+  "url": "/files/OVFM.pdf",
+  "status": 200,
+  "final": "/files/OVFM.pdf",
+  "title": "(local file)",
+  "verdict": "ok"
+ },
+ {
+  "id": "pufe-tnnls21",
+  "name": "Paper",
+  "url": "https://doi.org/10.1109/TNNLS.2021.3071311",
+  "status": 202,
+  "final": "https://ieeexplore.ieee.org/document/9406178/",
+  "title": "",
+  "verdict": "ok"
+ },
+ {
+  "id": "pufe-tnnls21",
+  "name": "arXiv",
+  "url": "https://arxiv.org/abs/1904.12171",
+  "status": 200,
+  "final": "https://arxiv.org/abs/1904.12171",
+  "title": "[1904.12171] Prediction with Unpredictable Feature Evolution",
+  "verdict": "ok"
+ },
+ {
+  "id": "pufe-tnnls21",
+  "name": "Code",
+  "url": "https://www.lamda.nju.edu.cn/code_PUFE.ashx",
+  "status": 200,
+  "final": "https://www.lamda.nju.edu.cn/code_PUFE.ashx",
+  "title": "PUFE - LAMDA",
+  "verdict": "ok"
+ },
+ {
+  "id": "clinical-evidence-engine-arxiv21",
+  "name": "arXiv",
+  "url": "https://arxiv.org/abs/2111.00621",
+  "status": 200,
+  "final": "https://arxiv.org/abs/2111.00621",
+  "title": "[2111.00621] Clinical Evidence Engine: Proof-of-Concept For A Clinical-Domain-Agnostic Decision Support Infrastructure",
+  "verdict": "ok"
+ },
+ {
+  "id": "lisor-tnnls20",
+  "name": "Paper",
+  "url": "https://doi.org/10.1109/TNNLS.2020.2967051",
+  "status": 202,
+  "final": "https://ieeexplore.ieee.org/document/8998339/",
+  "title": "",
+  "verdict": "ok"
+ },
+ {
+  "id": "lisor-tnnls20",
+  "name": "PDF",
+  "url": "/files/LISOR.pdf",
+  "status": 200,
+  "final": "/files/LISOR.pdf",
+  "title": "(local file)",
+  "verdict": "ok"
+ },
+ {
+  "id": "lisor-tnnls20",
+  "name": "Code",
+  "url": "https://www.lamda.nju.edu.cn/code_LISOR.ashx",
+  "status": 200,
+  "final": "https://www.lamda.nju.edu.cn/code_LISOR.ashx",
+  "title": "LISOR - LAMDA",
+  "verdict": "ok"
+ },
+ {
+  "id": "rnn-interpretability-ccfai19",
+  "name": "PDF",
+  "url": "/files/CCFAI19.pdf",
+  "status": 200,
+  "final": "/files/CCFAI19.pdf",
+  "title": "(local file)",
+  "verdict": "ok"
+ },
+ {
+  "id": "fesl-tkde19",
+  "name": "PDF",
+  "url": "/files/FESL-tkde.pdf",
+  "status": 200,
+  "final": "/files/FESL-tkde.pdf",
+  "title": "(local file)",
+  "verdict": "ok"
+ },
+ {
+  "id": "deep-forest-mil-jcrd19",
+  "name": "PDF",
+  "url": "/files/MIDF.pdf",
+  "status": 200,
+  "final": "/files/MIDF.pdf",
+  "title": "(local file)",
+  "verdict": "ok"
+ },
+ {
+  "id": "fesl-nips17",
+  "name": "PDF",
+  "url": "/files/FESL.pdf",
+  "status": 200,
+  "final": "/files/FESL.pdf",
+  "title": "(local file)",
+  "verdict": "ok"
+ },
+ {
+  "id": "fesl-nips17",
+  "name": "Code",
+  "url": "https://www.lamda.nju.edu.cn/code_FESL.ashx",
+  "status": 200,
+  "final": "https://www.lamda.nju.edu.cn/code_FESL.ashx",
+  "title": "FESL - LAMDA",
+  "verdict": "ok"
+ },
+ {
+  "id": "fesl-nips17",
+  "name": "Poster",
+  "url": "/files/FESL-poster.pdf",
+  "status": 200,
+  "final": "/files/FESL-poster.pdf",
+  "title": "(local file)",
+  "verdict": "ok"
+ },
+ {
+  "id": "sfl-ijcai17",
+  "name": "Paper",
+  "url": "https://doi.org/10.24963/ijcai.2017/256",
+  "status": 200,
+  "final": "https://www.ijcai.org/proceedings/2017/256",
+  "title": "Storage Fit Learning with Unlabeled Data | IJCAI",
+  "verdict": "ok"
+ },
+ {
+  "id": "sfl-ijcai17",
+  "name": "PDF",
+  "url": "/files/SFL.pdf",
+  "status": 200,
+  "final": "/files/SFL.pdf",
+  "title": "(local file)",
+  "verdict": "ok"
+ },
+ {
+  "id": "sfl-ijcai17",
+  "name": "Code",
+  "url": "https://www.lamda.nju.edu.cn/code_SFL.ashx",
+  "status": 200,
+  "final": "https://www.lamda.nju.edu.cn/code_SFL.ashx",
+  "title": "SFL - LAMDA",
+  "verdict": "ok"
+ },
+ {
+  "id": "sfl-ijcai17",
+  "name": "Poster",
+  "url": "/files/SFL-poster.pdf",
+  "status": 200,
+  "final": "/files/SFL-poster.pdf",
+  "title": "(local file)",
+  "verdict": "ok"
+ }
+]

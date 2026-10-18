@@ -1,0 +1,84 @@
+Clinical Evidence Engine: Proof-of-Concept For
+A Clinical-Domain-Agnostic Decision Support Infrastructure
+BOJIAN HOU and HAO ZHANG, Weill Cornell Medicine, USA
+GUR LADIZHINSKY and ALI KAYYAL, Technion, Israel
+STEPHEN YANG, Cornell University, USA
+VOLODYMYR KULESHOV, Cornell Tech, USA
+FEI WANG, Weill Cornell Medicine, USA
+QIAN YANG∗, Cornell University, USA
+Abstruse learning algorithms and complex datasets increasingly characterize modern clinical decision support (CDS) systems. As a
+result, clinicians cannot easily or rapidly scrutinize the CDSS recommendation when facing a difficult diagnosis or treatment decision
+in practice. Over-trusting or under-trusting CDS recommendations are frequent, leading to preventable diagnostic or treatment errors.
+Prior research has explored supporting such assessments by explaining DST data inputs and algorithmic mechanisms. This paper
+explores a different approach: Providing precisely relevant, scientific evidence from biomedical literature. We present a proof-of-
+concept system, Clinical Evidence Engine, to demonstrate the technical and design feasibility of this approach across three domains
+(cardiovascular diseases, autism, cancer). Leveraging Clinical BioBERT, the system can effectively identify clinical trial reports based on
+lengthy clinical questions (e.g., "risks of catheter infection among adult patients in intensive care unit who require arterial catheters, if
+treated with povidone iodine-alcohol"). This capability enables the system to identify clinical trials relevant to diagnostic/treatment
+hypotheses – a clinician’s or a CDS’s. Further, Clinical Evidence Engine can identify key parts of a clinical trial abstract, including
+patient population (e.g., adult patients in intensive care unit who require arterial catheters), intervention (povidone iodine-alcohol),
+and outcome (risks of catheter infection). This capability opens up the possibility of enabling clinicians to 1) rapidly determine the
+match between a clinical trial and a clinical question, and 2) understand the result and contexts of the trial without extensive reading.
+We demonstrate this potential by illustrating two example use scenarios of the system. We discuss future work that can advance
+the design and ML performances of this system. We discuss the idea of designing DST explanations not as specific to a DST or an
+algorithm, but as a domain-agnostic decision support infrastructure.
+CCS Concepts: • Human-centered computing →Interactive systems and tools; • Information systems →Information extraction;
+• Applied computing →Health care information systems.
+Additional Key Words and Phrases: machine learning, decision support system, healthcare, literature retrival, information extraction,
+biomedical NLP, human-AI interaction.
+1
+INTRODUCTION
+Biomedical literature can provide valuable “decision support” for clinicians. From best practices to clinical trial reports,
+the literature contains scientifically proven information that can aid numerous diagnostic and therapeutic dilemmas
+across all clinical domains. With the rise of Evidence-Based Medicine (EBM), clinicians increasingly turn to literature at
+point-of-care to inform their decisions [38, 41]; Medical students receive training on how to formulate their clinical
+questions into good search terms, for example, training on the PICO (Population, Intervention, Comparison, and
+Outcome) clinical knowledge representation framework [30].
+Interestingly, literature is rarely in the spotlight of clinical decision support (CDS) research. With the explosive
+growth in machine learning (ML), CDS systems are increasingly characterized by patient-data-driven inferences and
+∗Contact author: Email - qy242@cornell.edu
+1
+arXiv:2111.00621v1  [cs.AI]  31 Oct 2021
+Bojian Hou, Hao Zhang, Gur Ladizhinsky, Ali Kayyal, Stephen Yang, Volodymyr Kuleshov, Fei Wang, and Qian Yang
+abstruse risk models, each tailored for one clinical decision or one clinical domain. In this context, literature-based
+systems can appear particularly valuable for clinicians today. They can complement other CDS systems and offer
+scientific evidence that clinicians can easily understand [8, 14, 47]. They can support many vastly different clinical
+decisions and domains, including those in data-poor or resource-constrained hospitals.
+Document-level literature retrieval systems such as PubMed and Google Scholar have proven their worth in clinical
+practice. However, at points-of-care, clinicians need far more fine-grained tools to identify information that is precisely
+applicable to their patient case and clinical question at hand [17, 30]. Clinical decision-making is a continuous and
+iterative process, consisting of a series of micro-decisions [4, 44, 49]. For each micro decision in practice, clinicians could
+only afford 2-3 minutes on literature search [12]. To be useful, literature systems need to be able to directly answer
+point-of-care clinical questions such as“What are the risks of catheter infection if an adult patient in intensive care unit
+who requires arterial catheters is treated with povidone iodine-alcohol rather than chlorhexidine–alcohol?” [30] Existing
+systems (e.g., PubMed, Trialstreamer [36]) struggle with processing such complex queries. Searching the query above
+on PubMed simply returns no results, not to mention eliciting key information from the literature.
+This work aims to more precisely address point-of-care clinical questions with biomedical literature. We present
+Clinical Evidence Engine, a proof-of-concept system that demonstrates the technical feasibility of achieving this goal.
+On clinical trial reports of three domains (cardiovascular diseases, autism, cancer), Clinical Evidence Engine can:
+(Capability 1) Identify relevant clinical trial reports based on complex, long, clinical-question-like search queries
+(up to 512 words), queries such as “Would the addition of radiotherapy on top of androgen-deprivation therapy lead to
+higher risk of bowel toxicity of an adult male patient with locally advanced prostate cancer?” The literature retrieval
+model of Clinical Evidence Engine achieves an accuracy of 99.44%, when evaluated on synthetic queries based on an
+established expert-annotated literature dataset [35]. (Capability 2) Identify critical information in clinical trial report
+abstracts can serve as clinical evidence, i.e., PICO (Population, Intervention, Comparison, and Outcome) information
+[30]. The PICO classification model of Clinical Evidence Engine achieves a F1 score of 0.74. Both models outperform
+existing state-of-the-art models.
+These newfound technical capabilities open up new design and research opportunities around literature-based CDS;
+around designing clinical decision supports as domain-agnostic, intelligent information infrastructure, rather than
+decision- or domain-specific applications. We concretize these opportunities and questions through two example use
+scenarios of Clinical Evidence Engine : aid clinicians in crutinizing (i) their self-derived decision hypothesis and (ii)
+an abstruse patient-data-based risk model.
+This paper makes two contributions. First, it demonstrates novel bioNLP capabilities of harnessing biomedical
+literature as point-of-care decision. Key to this technical advance is the integrative use of a clinical knowledge represen-
+tation framework (i.e. PICO [30]) and large pretrained language models (i.e. Clinical BioBERT [2]). Second, Clinical
+Evidence Engine offers an initial design exemplar of a domain-agnostic, intelligent information infrastructure. It
+offers an alternative perspective to the traditional idea of clinical decision supports as decision- or domain-specific
+applications. It can serve as a valuable point of reference for the research discourse on future AI-infused healthcare.
+2
+RELATED WORK
+2.1
+Biomedical Literature Supports Clinical Decision-Making
+Clinicians routinely consult biomedical literature for decision-making. When facing diagnostic and prognostic dilemmas,
+clinicians search the literature – most often on PubMed – for valuable clinical evidence such as clinical trial reports, best
+2

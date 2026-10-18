@@ -1,0 +1,117 @@
+Evaluate underdiagnosis and overdiagnosis bias of deep learning model on
+primary open-angle glaucoma diagnosis in under-served populations
+Mingquan Lin1,a, Yunyu Xiao1,a, Bojian Hou2, Tingyi Wanyan1, Mohit Manoj Sharma1,
+Zhangyang Wang3, Fei Wang1, Sarah Van Tassel1, Yifan Peng1
+1Population Health Sciences, Weill Cornell Medicine, New York, NY, USA; 2 Department of
+Biostatistics, Epidemiology and Informatics, University of Pennsylvania; 3 Electrical and
+Computer Engineering, The University of Texas at Austin;
+Abstract
+In the United States, primary open-angle glaucoma (POAG) is the leading cause of blindness, especially among
+African American and Hispanic individuals. Deep learning has been widely used to detect POAG using fundus im-
+ages as its performance is comparable to or even surpasses diagnosis by clinicians. However, human bias in clinical
+diagnosis may be reflected and amplified in the widely-used deep learning models, thus impacting their performance.
+Biases may cause (1) underdiagnosis, increasing the risks of delayed or inadequate treatment, and (2) overdiagnosis,
+which may increase individuals’ stress, fear, well-being, and unnecessary/costly treatment. In this study, we exam-
+ined the underdiagnosis and overdiagnosis when applying deep learning in POAG detection based on the Ocular
+Hypertension Treatment Study (OHTS) from 22 centers across 16 states in the United States. Our results show that
+the widely-used deep learning model can underdiagnose or overdiagnose under-served populations. The most un-
+derdiagnosed group is female younger (< 60 yrs) group, and the most overdiagnosed group is Black older (≥60
+yrs) group. Biased diagnosis through traditional deep learning methods may delay disease detection, treatment and
+create burdens among under-served populations, thereby, raising ethical concerns about using deep learning models
+in ophthalmology clinics.
+1
+Introduction
+Primary open-angle glaucoma (POAG) is one of the leading causes of blindness in the US and worldwide.1 It has been
+projected to affect approximately 111.8 million people by 2040. Among these patients, 5.3 million may be bilaterally
+blind.2 In the United States, POAG is the most common form of glaucoma and is the leading cause of blindness among
+Black and Hispanic individuals.3,4 POAG is asymptomatic until it reaches an advanced stage whereby peripheral
+visual field loss encroaches on central vision. However, early detection and treatment can avoid most blindness
+caused by POAG.5 Therefore, timely identification of individuals with glaucoma is critical to guide medical and
+surgical treatments and patient monitoring.6,7 Detecting POAG is crucial, yet challenging, due to the high demands
+on screening and experiences of ophthalmologists.8 Fundus photography is convenient and inexpensive for recording
+optic nerve head structure9. Therefore, developing an automatic deep learning (DL) model to detect POAG with high
+accuracy from fundus photographs to address the lack of experienced ophthalmologists is important.
+In recent years, developments in artificial intelligence (AI) have provided potential opportunities for automatic POAG
+diagnosis using fundus photographs.10–17 While such DL models have increasingly achieved expert-level performance,
+there is growing concern that these models may reflect and amplify human bias and reduce the quality of their per-
+formance in historically under-served populations such as Black individuals.18–21 The topic of AI-driven underdiag-
+nosis and overdiagnosis has been particularly important.21,22 In this work, we define “Underdiagnosis” as the problem
+where the model falsely claims that the individual is healthy, increasing the risks of delayed or inadequate treatment,
+and “Overdiagnosis” as the problem where the model predicts healthy people wrongly into sick ones, leading to indi-
+viduals’ stress, fear, and unnecessary/costly treatment. Therefore, model fairness of POAG diagnosis can be a crucial
+concern if used in the clinical pipeline for patient triage.
+To our knowledge, the topic of AI-driven underdiagnosis and overdiagnosis of POAG diagnosis has not been ex-
+plored before.23 In this study, we will systematically study underdiagnosis and overdiagnosis bias in the AI-based
+POAG diagnosis models from a large, cross-sectional dataset obtained from the Ocular Hypertension Treatment Study
+(OHTS).24 OHTS is one of the largest longitudinal clinical trials in POAG (1,636 participants and 37,399 images) from
+aEqual contributions.
+370
+22 centers in the United States.25 We chose these subgroups mainly because of the clear history of bias in previous
+research.26–29
+2
+Materials and Methods
+2.1
+The OHTS dataset
+In this study, we perform a study of model bias in POAG diagnosis in a large-scale, longitudinal, and population-
+based dataset (Table 1). Previous studies show that the classifier exhibits different performances in different individual
+groups stratified by sex, race, and age.29 Inspired by these works, we report results by considering these factors.
+The dataset is obtained from the Ocular Hypertension Treatment Study (OHTS). The study protocol was approved
+by the Institutional Review Board at each clinical center, and the Weill Cornell Medicine IRB determined that the
+protocol does not constitute human subjects research. All risk factors were measured at baseline before the onset of
+the disease and collected for approximately 16 years. The participants in this dataset were selected according to both
+eligibility and exclusion criteria.24
+Briefly, the eligibility criteria include intraocular pressure (between 24 mm Hg and 32 mm Hg in one eye and between
+21 mm Hg and 32 mm Hg in the fellow eye) and age (between 40 and 80 years old). The visual field tests were
+interpreted by the Visual Field Reading Center, and the stereoscopic photographs were interpreted by the Optic Disc
+Reading Center. Exclusion criteria included previous intraocular surgery, visual acuity worse than 20/40 in either
+eye, and diseases that may cause optic disc deterioration and visual field loss (such as diabetic retinopathy). The
+gold standard POAG labels were graded at the Optic Disc Reading Center. In brief, two masked certified readers
+were instructed to independently detect glaucomatous optic disc deterioration over time. If there was a disagreement
+between two readers, a senior reader reviewed the subject in a masked fashion. The POAG diagnosis in a quality
+control sample of 86 eyes (50 normal eyes and 36 with progression) showed test-retest agreement at κ = 0.70 (95%
+confidence interval [CI], 0.55-0.85). More details of the reading center workflow have been described in Gorden et
+al.25
+Total
+POAG
+No. of images
+37,399
+2,327 ( 6.22%)
+Sex
+Male
+16,185
+1,303 ( 8.05%)
+Female
+21,154
+1,024 ( 4.84%)
+Race
+Non-Black
+28,460
+1,554 ( 5.46%)
+Black
+8,879
+773 ( 8.71%)
+Age
+40-49
+4,292
+64 ( 1.49%)
+50-59
+11,962
+356 ( 2.98%)
+60-69
+11,904
+846 ( 7.11%)
+70-79
+7,593
+829 (10.92%)
+≥80
+1,588
+232 (14.61%)
+Table 1: The characteristics of the OHTS dataset.
+2.2
+Definition of POAG underdiagnosis and overdiagnosis
+To assess model fairness, we compare underdiagnosis and overdiagnosis rates across subpopulations. Similar to ref,29
+we define the underdiagnosis rate as the false-negative rate (FNR) of the binarized model prediction for the POAG
+at the subgroup levels: P(ˆy = non-POAG|y = POAG, A). Here A is the sex, race, or other factors that the model
+should be free of bias. For example, the underdiagnosis of female individuals is given by P(ˆy = non-POAG|y =
+POAG, female). We then compare these underdiagnosis rates across subpopulations. We say a classifier is fair if the
+371

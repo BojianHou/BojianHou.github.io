@@ -1,0 +1,193 @@
+Adapting Vision–Language Models for 3D CT/MRI Understanding on PMBB via
+Slice Selection and Explanation Analysis
+Hongzhuo Chen1* Rahul Shukla2* Ruiming Wu3
+Shu Yang3
+Duy Duong-Tran4
+Duy Minh Ho Nguyen5
+Mathias Niepert5
+Cameron Beeche3
+James Gee3
+Jeffrey Duda3
+Rakesh Sharma3
+Christos Davatzikos3
+Walter Witschey3
+Bojian Hou3† Li Shen3†
+1School of Arts and Sciences, University of Pennsylvania
+2School of Engineering and Applied Science, University of Pennsylvania
+3Perelman School of Medicine, University of Pennsylvania
+4Department of Mathematics, The United States Naval Academy
+5Max Planck Research School for Intelligent Systems (IMPRS-IS)
+Abstract
+Recent advances in vision–language models (VLMs)
+have enabled strong medical image understanding, yet most
+remain limited to 2D inputs and scale poorly to 3D CT and
+MRI data. Directly applying 3D encoders is computation-
+ally costly and often weakens diagnostic signals by includ-
+ing irrelevant slices. We propose a generalizable framework
+to adapt 2D medical VLMs to 3D imaging through princi-
+pled slice selection and multimodal instruction tuning. Our
+two-stage pipeline first aligns image–text pairs with caption
+supervision, then fine-tunes on synthetic diagnostic conver-
+sations grounded in radiology reports. Using PMBB data,
+we benchmark energy-based and K-Center strategies across
+accuracy, explanation quality, and efficiency. Results show
+that selecting about half of the slices (e.g., K=5 of 11)
+yields the best diagnostic accuracy while reducing train-
+ing cost by over 40%. Explanation quality, however, does
+not always track accuracy. Coverage and overlap analy-
+ses indicate strong complementarity across strategies, sug-
+gesting that diverse slice selection can recover most cor-
+rect cases with compact subsets. These findings highlight
+the importance of visual–textual pretraining, task-specific
+fine-tuning, and principled slice selection in scaling medi-
+cal VLMs to volumetric data.
+1. Introduction
+Recent progress in vision–language modeling has enabled
+significant advances in both general and biomedical AI.
+*Equal contribution.
+†Corresponding authors. This work was sup-
+ported in part by seed funding from the PSOM AI2D Center at Penn.
+Modern vision–language models (VLMs) align visual and
+textual signals for captioning, VQA, and instruction follow-
+ing [1, 5, 8, 13, 17, 19–21, 25, 29, 31, 34]. These foun-
+dation models have been adapted to medicine by domain-
+specific systems such as LLaVA-Med, Med-Flamingo, and
+RadFM, which extend pretrained VLMs to disease reason-
+ing and report-grounded interaction [18, 24, 32].
+Yet most VLMs are architected for 2D inputs and strug-
+gle with volumetric CT/MRI, where inter-slice context and
+anatomical continuity are essential. Directly adopting na-
+tive 3D architectures (e.g., 3D U-Net/nnU-Net/Swin-3D-
+style transformers) improves volumetric context but signifi-
+cantly raises compute and can inject noise from irrelevant
+regions [7, 14, 26].
+Recent 3D transformer designs and
+large-scale medical pretraining further underscore this ac-
+curacy–efficiency tension [4, 11, 22, 38, 39]. Meanwhile,
+vision–language approaches that bridge text with 3D vol-
+umes (e.g., CT-CLIP) highlight the promise of leveraging
+language priors without fully 3D encoders [10].
+We address this gap with a general, architecture-
+preserving framework that adapts 2D VLMs to 3D un-
+derstanding via principled slice selection and lightweight
+multi-slice token fusion. A 3D scan is decomposed into
+2D axial slices; an informative subset is chosen using en-
+ergy ranking or k-center sampling [12, 16, 23], encoded by
+a shared vision backbone, and concatenated into a single
+visual token sequence for the VLM. This compact-subset
+view is consistent with recent evidence that (i) carefully
+choosing a few slices can rival full-volume processing and
+(ii) slice-level cues/prompting can steer VLM attention to-
+ward diagnostically salient anatomy [30]. From the data
+side, annotation-efficient studies suggest allocating fewer
+This ICCV Workshop paper is the Open Access version, provided by the Computer Vision Foundation.
+Except for this watermark, it is identical to the accepted version;
+the final published version of the proceedings is available on IEEE Xplore.
+2294
+slices per volume but covering more volumes, reinforcing
+the value of compact, diverse slice sets [37].
+Training follows a two-stage recipe: Stage I aligns im-
+ages with figure-caption supervision to ground the visual
+encoder; Stage II instruction-tunes the model with diag-
+nostic dialogues synthesized from PMBB reports. This de-
+coupled pretraining–tuning paradigm mirrors successful de-
+signs in general VLMs while remaining parameter-efficient
+for multi-slice inputs. We evaluate along three axes: diag-
+nosis accuracy, explanation quality, and computational ef-
+ficiency ,and find that a moderate subset size (about half
+the volume, e.g., K=5 of 11) offers the best trade-off;
+explanation quality and accuracy are not strictly coupled;
+efficient selection reduces training time by >40% versus
+whole-volume; and both vision–language pretraining and
+task-specific fine-tuning are essential.
+Our contributions are threefold:
+• A scalable framework that adapts 2D medical VLMs to
+volumetric scans through principled slice selection and
+lightweight multi-slice token integration.
+• A two-stage pipeline demonstrating that visual–textual
+pretraining followed by domain-specific fine-tuning is
+crucial for accurate and interpretable medical reasoning.
+• A compact yet comprehensive evaluation protocol span-
+ning balanced and general accuracy, both individual
+and intersection explanation metrics, and coverage/over-
+lap/error analyses, with practical guidance on slice count
+(around half), strategy choice (e.g., k-Center, energy),
+and efficiency–accuracy trade-offs for deployment.
+2. Related Work
+Vision–Language Models for Medical AI. Foundational
+vision–language models (VLMs) learn joint visual–textual
+representations through contrastive/generative pretraining
+and, increasingly, instruction tuning [1, 5, 8, 13, 17, 19–
+21, 25, 29, 31, 34].
+These capabilities have been trans-
+ferred to clinical settings by domain-adapted systems such
+as LLaVA-Med, Med-Flamingo, and RadFM, as well as
+broader biomedical efforts like BiomedGPT, PMC-VQA,
+and generalist biomedical AI pipelines [18, 24, 28, 32, 35,
+36]. Our work inherits this recipe, using lightweight vision
+encoders, multimodal alignment, and instruction tuning, but
+targets volumetric data by feeding compact multi-slice in-
+puts to a 2D VLM, preserving architecture while injecting
+3D context and keeping compute tractable.
+From 2D to 3D Medical Imaging.
+Classical volumet-
+ric CNNs (e.g., 3D U-Net) and self-configuring pipelines
+(nnU-Net) remain powerful segmentation baselines but
+are compute/memory intensive at scale [7, 14].
+Trans-
+former families (UNETR/TransUNet/nnFormer) capture
+long-range 3D dependencies and benefit from pretraining
+and promptability (Models Genesis, MedSAM) [4, 11, 22,
+38, 39]. Language-guided bridges between text and vol-
+umes (CT-CLIP) [10] and emerging fully volumetric VLMs
+(e.g., Merlin, Med3DVLM) [3, 33] show that end-to-end
+3D reasoning is feasible, albeit with higher engineering and
+computational costs. A practical challenge is how to re-
+tain the benefits of volumetric context (e.g., inter-slice con-
+tinuity, spatial coverage) without incurring full 3D model
+overhead or overfitting to protocol-specific artifacts. We
+therefore pursue a complementary middle path: retain a 2D
+VLM backbone and provide just enough volumetric context
+through principled slice selection and token concatenation,
+aiming for a stronger accuracy–efficiency trade-off than
+full-volume modeling while remaining compatible with
+instruction-tuned LLM backbones.
+Slice Selection for Efficient 3D Modeling. Selecting in-
+formative slices offers a pragmatic alternative to processing
+entire volumes. Heuristic/optimization strategies such as
+energy ranking and k-center prioritize salient views under
+limited budgets [12, 16, 23]. In vision–language settings,
+selecting diagnostically relevant slices or aggregating se-
+quential features improves few/zero-shot performance and
+better mirrors radiologist workflows [30]. At the curation
+end, non-interactive studies report that, under fixed bud-
+gets, annotating fewer slices per volume but more volumes
+is typically preferable, and unsupervised active slice selec-
+tion may not outperform simple spacing or random sam-
+pling [37]. Complementary direction enforces cross-slice
+attention for consistency and ordering cues [27]. Concep-
+tually, these ideas connect to classic active learning and di-
+verse batch acquisition for efficient coverage of informative
+examples [2, 9, 15]. Our contribution is to systematize this
+line for multi-slice VLMs: we benchmark selection strate-
+gies under a unified pipeline, quantify diagnostic accuracy,
+explanation quality, and compute, and provide fine-grained
+coverage, overlap and error analyses using real-world clini-
+cal data.
+3. Method
+3.1. Adapting 2D Vision–Language Models to
+Multi-Slice Medical Inputs
+Standard vision-language models (VLMs) are primarily de-
+signed for 2D images and cannot directly handle volumetric
+data. To address this, we propose a straightforward adapta-
+tion that converts 3D images into sequences of 2D slices,
+ensuring compatibility with 2D VLM architectures while
+preserving essential spatial and anatomical information.
+All slices from a patient are first passed through the vi-
+sion encoder jointly, yielding patch-level features for each
+slice. These features are then grouped by patient and con-
+catenated along the sequence dimension to form a single
+long token sequence.
+At the fusion stage, this concate-
+nated feature sequence replaces a single <image> token
+2295

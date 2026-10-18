@@ -1,0 +1,1766 @@
+{
+ "sem-ece-neurips26": {
+  "site_title": "A Semantic-Sampling Framework for Evaluating Calibration in Open-Ended Question Answering",
+  "records": [
+   {
+    "source": "arxiv",
+    "title": "A Semantic-Sampling Framework for Evaluating Calibration in Open-Ended Question Answering",
+    "authors": [
+     "Zhanliang Wang",
+     "Jiancong Xiao",
+     "Ruochen Jin",
+     "Shu Yang",
+     "Bojian Hou",
+     "Li Shen"
+    ],
+    "abstract": "Calibration measures whether a model's predicted confidence aligns with its empirical accuracy, and is central to the reliable deployment of large language models (LLMs) in high-stakes domains such as medicine and law. While much recent work focuses on improving LLM calibration, the equally important question of how to evaluate it in realistic settings remains underdeveloped. Open-ended question answering (QA), the most common deployment setting for modern LLMs, is where existing evaluation methods fall short: logit-based metrics need restricted output formats and internal probabilities; verbalized confidence is self-reported and often overconfident; and sampling-based methods rely on task-specific extraction rules without a clear finite-sample target. We introduce Sem-ECE (Semantic-Sampling Expected Calibration Error), a calibration evaluation framework for open-ended QA that samples answers from the model, groups them into semantic classes, and uses the resulting frequencies as confidence. We study two estimators within this framework: Sem$_1$-ECE, the same-sample self-consistency score, and Sem$_2$-ECE, a held-out variant that separates answer selection from confidence evaluation. We prove both are asymptotically unbiased, and further show that they agree on easy questions but diverge on hard ones with Sem$_2$ achieving strictly smaller calibration error, so their gap also serves as a diagnostic for question difficulty. Experiments on three open-ended QA benchmarks across five leading commercial LLMs match our theoretical predictions and show that Sem-ECE outperforms verbalized confidence and existing sampling-based methods, while complementing logit-based evaluation when internal probabilities are unavailable.",
+    "comment": "Preprint",
+    "journal_ref": ""
+   }
+  ]
+ },
+ "3d-vlm-report-mlmi26": {
+  "site_title": "A Unified 3D Vision-Language Framework for Structured Multi-Study Volumetric Report Generation",
+  "records": []
+ },
+ "bilevel-calibration-colm26": {
+  "site_title": "Beyond Post-Hoc Temperature Scaling: Bilevel Optimization for LLM Calibration",
+  "records": [
+   {
+    "source": "arxiv",
+    "title": "Beyond Post-Hoc Temperature Scaling: Bilevel Optimization for LLM Calibration",
+    "authors": [
+     "Ruochen Jin",
+     "Zhanliang Wang",
+     "Zongyu Dai",
+     "Jiancong Xiao",
+     "Bojian Hou"
+    ],
+    "abstract": "Preference alignment often makes large language models (LLMs) overconfident and poorly calibrated. Traditional post-hoc temperature scaling is inherently domain-dependent: a temperature fitted on one domain does not generalize across domains. This motivates us to modify model parameters during training to improve calibration. We propose maximizing the entropy of predictive distributions as the calibration objective, which directly targets overconfidence by discouraging overly concentrated predictions. Inspired by temperature scaling, we realize this through a bilevel optimization formulation, where the lower level trains the model under a parametric loss and the upper level selects loss hyperparameters to maximize entropy. To make the framework practical at LLM scale, we adopt an efficient first-order approximation that avoids explicit second-order computation. Across both multiple-choice and open-ended generative question answering, experiments demonstrate that our method yields well-calibrated LLMs with particular advantages in out-of-domain generalization.",
+    "comment": "Third Conference on Language Modeling (COLM 2026)",
+    "journal_ref": ""
+   }
+  ]
+ },
+ "kunlun-kdd26": {
+  "site_title": "Kunlun: Establishing Scaling Laws for Massive-Scale Recommendation Systems through Unified Architecture Design",
+  "records": [
+   {
+    "source": "arxiv",
+    "title": "Kunlun: Establishing Scaling Laws for Massive-Scale Recommendation Systems through Unified Architecture Design",
+    "authors": [
+     "Bojian Hou",
+     "Xiaolong Liu",
+     "Xiaoyi Liu",
+     "Jiaqi Xu",
+     "Yasmine Badr",
+     "Mengyue Hang",
+     "Sudhanshu Chanpuriya",
+     "Junqing Zhou",
+     "Yuhang Yang",
+     "Han Xu",
+     "Qiuling Suo",
+     "Laming Chen",
+     "Yuxi Hu",
+     "Jiasheng Zhang",
+     "Huaqing Xiong",
+     "Yuzhen Huang",
+     "Chao Chen",
+     "Yue Dong",
+     "Yi Yang",
+     "Shuo Chang",
+     "Xiaorui Gan",
+     "Wenlin Chen",
+     "Santanu Kolay",
+     "Darren Liu",
+     "Jade Nie",
+     "Chunzhi Yang",
+     "Ellie Wen",
+     "Jiyan Yang",
+     "Huayu Li"
+    ],
+    "abstract": "Deriving predictable scaling laws that govern the relationship between model performance and computational investment is crucial for designing and allocating resources in massive-scale recommendation systems. While such laws are established for large language models, they remain challenging for recommendation systems, especially those processing both user history and context features. We identify poor scaling efficiency as the main barrier to predictable power-law scaling, stemming from inefficient modules with low Model FLOPs Utilization (MFU) and suboptimal resource allocation. We introduce Kunlun, a scalable architecture that systematically improves model efficiency and resource allocation. Our low-level optimizations include Generalized Dot-Product Attention (GDPA), Hierarchical Seed Pooling (HSP), and Sliding Window Attention. Our high-level innovations feature Computation Skip (CompSkip) and Event-level Personalization. These advances increase MFU from 17% to 37% on NVIDIA B200 GPUs and double scaling efficiency over state-of-the-art methods. Kunlun is now deployed in major Meta Ads models, delivering significant production impact.",
+    "comment": "10 pages, 4 figures",
+    "journal_ref": ""
+   },
+   {
+    "source": "crossref",
+    "title": "Kunlun: Establishing Scaling Laws for Massive-Scale Recommendation Systems through Unified Architecture Design",
+    "authors": [
+     "Bojian Hou",
+     "Xiaolong Liu",
+     "Xiaoyi Liu",
+     "Jiaqi Xu",
+     "Yasmine Badr",
+     "Mengyue Hang",
+     "Sudhanshu Chanpuriya",
+     "Junqing Zhou",
+     "Yuhang Yang",
+     "Han Xu",
+     "Qiuling Suo",
+     "Laming Chen",
+     "Yuxi Hu",
+     "Jiasheng Zhang",
+     "Huaqing Xiong",
+     "Yuzhen Huang",
+     "Chao Chen",
+     "Yue Dong",
+     "Yi Yang",
+     "Shuo Chang",
+     "Xiaorui Gan",
+     "Wenlin Chen",
+     "Santanu Kolay",
+     "Darren Liu",
+     "Jade Nie",
+     "Chunzhi Yang",
+     "Jiyan Yang",
+     "Huayu Li"
+    ],
+    "abstract": "",
+    "container": "Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining V.2",
+    "doi": "10.1145/3770855.3818438"
+   }
+  ]
+ },
+ "ct-vlm-npjdm26": {
+  "site_title": "Generalizable CT Vision-Language Modeling for Population Health and Disease Risk",
+  "records": [
+   {
+    "source": "crossref",
+    "title": "Generalizable CT vision-language modeling for population health and disease risk",
+    "authors": [
+     "Cameron A. Beeche",
+     "Joonghyun Kim",
+     "Hamed Tavolinejad",
+     "Bingxin Zhao",
+     "Jessie Dong",
+     "Rakesh Sharma",
+     "Jeffrey T. Duda",
+     "James Gee",
+     "Farouk Dako",
+     "Anurag Verma",
+     "Colleen Morse",
+     "Bojian Hou",
+     "Li Shen",
+     "Hersh Sagreiya",
+     "Christos Davatzikos",
+     "Scott M. Damrauer",
+     "Rohan Shad",
+     "Marylyn D. Ritchie",
+     "Daniel Rader",
+     "Qi Long",
+     "Eric Eaton",
+     "Gengwei Zhang",
+     "Tianlong Chen",
+     "Charles E. Kahn",
+     "Julio A. Chirinos",
+     "Walter R. Witschey",
+     ""
+    ],
+    "abstract": "Abstract\n                  Vision-language foundation models (VLMs) for computed tomography (CT) are emerging tools that learn generalizable representations from large-scale clinical imaging data. While these models can predict task-specific labels, the extent to which their representations capture the clinical, physiological, and longitudinal variation of real-world patient populations remains unclear. We introduce Percival, a CT-native VLM trained on more than 400,000 CT-report pairs from the Penn Medicine BioBank using a dual-encoder symmetric contrastive framework. Across over 20,000 held-out participants, Percival’s latent space aligns with demographic, physiological, and laboratory variation, and supports phenome-wide associations across the electronic health record. We evaluate Percival against alternative foundation-model paradigms, including vision-only contrastive and multi-organ segmentation, demonstrating that vision-language pretraining captures clinical information not fully accessible to vision-only alternatives across disease classification and longitudinal risk modeling. Together, these findings indicate that CT-VLMs uncover latent structure aligned with clinical, physiological, and prognostic variation across the disease-prevalence spectrum.",
+    "container": "npj Digital Medicine",
+    "doi": "10.1038/s41746-026-03257-2"
+   }
+  ]
+ },
+ "tabular-llm-multimodal-ad-arxiv26": {
+  "site_title": "Tabular LLMs for Interpretable Few-Shot Alzheimer's Disease Prediction with Multimodal Biomedical Data",
+  "records": [
+   {
+    "source": "arxiv",
+    "title": "Tabular LLMs for Interpretable Few-Shot Alzheimer's Disease Prediction with Multimodal Biomedical Data",
+    "authors": [
+     "Sophie Kearney",
+     "Shu Yang",
+     "Zixuan Wen",
+     "Weimin Lyu",
+     "Bojian Hou",
+     "Duy Duong-Tran",
+     "Tianlong Chen",
+     "Jason H. Moore",
+     "Marylyn D. Ritchie",
+     "Chao Chen",
+     "Li Shen"
+    ],
+    "abstract": "Accurate diagnosis of Alzheimer's disease (AD) requires handling tabular biomarker data, yet such data are often small and incomplete, where deep learning models frequently fail to outperform classical methods. Pretrained large language models (LLMs) offer few-shot generalization, structured reasoning, and interpretable outputs, providing a powerful paradigm shift for clinical prediction. We propose TAP-GPT Tabular Alzheimer's Prediction GPT, a domain-adapted tabular LLM framework built on TableGPT2 and fine-tuned for few-shot AD classification using tabular prompts rather than plain texts. We evaluate TAP-GPT across four ADNI-derived datasets, including QT-PAD biomarkers and region-level structural MRI, amyloid PET, and tau PET for binary AD classification. Across multimodal and unimodal settings, TAP-GPT improves upon its backbone models and outperforms traditional machine learning baselines in the few-shot setting while remaining competitive with state-of-the-art general-purpose LLMs. We show that feature selection mitigates degradation in high-dimensional inputs and that TAP-GPT maintains stable performance under simulated and real-world missingness without imputation. Additionally, TAP-GPT produces structured, modality-aware reasoning aligned with established AD biology and shows greater stability under self-reflection, supporting its use in iterative multi-agent systems. To our knowledge, this is the first systematic application of a tabular-specialized LLM to multimodal biomarker-based AD prediction, demonstrating that such pretrained models can effectively address structured clinical prediction tasks and laying the foundation for tabular LLM-driven multi-agent clinical decision-support systems. The source code is publicly available on GitHub: https://github.com/sophie-kearney/TAP-GPT.",
+    "comment": "",
+    "journal_ref": ""
+   }
+  ]
+ },
+ "iris-bigdata25": {
+  "site_title": "IRIS: Interpretable Risk Clustering Intelligence for Survival Analysis",
+  "records": [
+   {
+    "source": "europepmc",
+    "title": "IRIS: Interpretable Risk Clustering Intelligence for Survival Analysis.",
+    "authors": [
+     "Noshin K",
+     "Hou B",
+     "Boland MR",
+     "Wen Z",
+     "Tong B",
+     "Shen L",
+     "Zhang A"
+    ],
+    "abstract": "Survival analysis models have evolved significantly with deep learning approaches, yet often lack interpretability and meaningful risk stratification capabilities. We present Interpretable Risk Clustering Intelligence for Survival Analysis (IRIS), a novel framework that addresses the critical task of risk clustering while enhancing both input-level and model-body interpretability. Unlike traditional survival models that perform post-hoc risk clustering, IRIS learns to cluster patients into meaningful risk groups directly from data while providing transparent feature importance estimation through feature contribution functions. We validate IRIS on several benchmark datasets, a real-world Alzheimer's disease dataset, and an electronic health record dataset, showing superior performance in risk clustering and predictive reliability with only a modest decrease in time-to-event prediction accuracy compared to state-of-the-art methods. Our results show that IRIS successfully balances the trade-off between interpretability and prediction performance in risk-based survival analysis, offering clinicians actionable insights for treatment planning and resource allocation.",
+    "pmcid": "PMC12971063",
+    "pmid": "41809690",
+    "doi": "10.1109/bigdata66926.2025.11402028",
+    "journal": "Proceedings : ... IEEE International Conference on Big Data. IEEE International Conference on Big Data"
+   },
+   {
+    "source": "crossref",
+    "title": "IRIS: Interpretable Risk Clustering Intelligence for Survival Analysis",
+    "authors": [
+     "Kazi Noshin",
+     "Bojian Hou",
+     "Mary Regina Boland",
+     "Zixuan Wen",
+     "Boning Tong",
+     "Li Shen",
+     "Aidong Zhang"
+    ],
+    "abstract": "",
+    "container": "2025 IEEE International Conference on Big Data (BigData)",
+    "doi": "10.1109/BigData66926.2025.11402028"
+   }
+  ]
+ },
+ "online-bilevel-regret-neurips25": {
+  "site_title": "Stochastic Regret Guarantees for Online Zeroth- and First-Order Bilevel Optimization",
+  "records": [
+   {
+    "source": "arxiv",
+    "title": "Stochastic Regret Guarantees for Online Zeroth- and First-Order Bilevel Optimization",
+    "authors": [
+     "Parvin Nazari",
+     "Bojian Hou",
+     "Davoud Ataee Tarzanagh",
+     "Li Shen",
+     "George Michailidis"
+    ],
+    "abstract": "Online bilevel optimization (OBO) is a powerful framework for machine learning problems where both outer and inner objectives evolve over time, requiring dynamic updates. Current OBO approaches rely on deterministic \\textit{window-smoothed} regret minimization, which may not accurately reflect system performance when functions change rapidly. In this work, we introduce a novel search direction and show that both first- and zeroth-order (ZO) stochastic OBO algorithms leveraging this direction achieve sublinear {stochastic bilevel regret without window smoothing}. Beyond these guarantees, our framework enhances efficiency by: (i) reducing oracle dependence in hypergradient estimation, (ii) updating inner and outer variables alongside the linear system solution, and (iii) employing ZO-based estimation of Hessians, Jacobians, and gradients. Experiments on online parametric loss tuning and black-box adversarial attacks validate our approach.",
+    "comment": "Published at NeurIPS 2025",
+    "journal_ref": ""
+   },
+   {
+    "source": "crossref-title",
+    "title": "Stochastic Regret Guarantees for Online Zeroth- and First-Order Bilevel Optimization",
+    "authors": [
+     "Parvin Nazari",
+     "Bojian Hou",
+     "Davoud Ataee Tarzanagh",
+     "Li Shen",
+     "George Michailidis"
+    ],
+    "doi": "10.52202/085713-4931",
+    "container": "Advances in Neural Information Processing Systems 38",
+    "abstract": ""
+   }
+  ]
+ },
+ "tabular-llm-ad-bcb25": {
+  "site_title": "Enabling Few-Shot Alzheimer's Disease Diagnosis on Biomarker Data with Tabular LLMs",
+  "records": [
+   {
+    "source": "arxiv",
+    "title": "Enabling Few-Shot Alzheimer's Disease Diagnosis on Biomarker Data with Tabular LLMs",
+    "authors": [
+     "Sophie Kearney",
+     "Shu Yang",
+     "Zixuan Wen",
+     "Bojian Hou",
+     "Duy Duong-Tran",
+     "Tianlong Chen",
+     "Jason Moore",
+     "Marylyn Ritchie",
+     "Li Shen"
+    ],
+    "abstract": "Early and accurate diagnosis of Alzheimer's disease (AD), a complex neurodegenerative disorder, requires analysis of heterogeneous biomarkers (e.g., neuroimaging, genetic risk factors, cognitive tests, and cerebrospinal fluid proteins) typically represented in a tabular format. With flexible few-shot reasoning, multimodal integration, and natural-language-based interpretability, large language models (LLMs) offer unprecedented opportunities for prediction with structured biomedical data. We propose a novel framework called TAP-GPT, Tabular Alzheimer's Prediction GPT, that adapts TableGPT2, a multimodal tabular-specialized LLM originally developed for business intelligence tasks, for AD diagnosis using structured biomarker data with small sample sizes. Our approach constructs few-shot tabular prompts using in-context learning examples from structured biomedical data and finetunes TableGPT2 using the parameter-efficient qLoRA adaption for a clinical binary classification task of AD or cognitively normal (CN). The TAP-GPT framework harnesses the powerful tabular understanding ability of TableGPT2 and the encoded prior knowledge of LLMs to outperform more advanced general-purpose LLMs and a tabular foundation model (TFM) developed for prediction tasks. To our knowledge, this is the first application of LLMs to the prediction task using tabular biomarker data, paving the way for future LLM-driven multi-agent frameworks in biomedical informatics.",
+    "comment": "accepted by ACM-BCB'25: ACM Conference on Bioinformatics, Computational Biology, and Health Informatics [ACM SIGBio Best Paper Award]",
+    "journal_ref": ""
+   },
+   {
+    "source": "crossref",
+    "title": "Enabling Few-Shot Alzheimer's Disease Diagnosis on Biomarker Data with Tabular LLMs",
+    "authors": [
+     "Sophie Kearney",
+     "Shu Yang",
+     "Zixuan Wen",
+     "Bojian Hou",
+     "Duy Duong-Tran",
+     "Tianlong Chen",
+     "Jason Moore",
+     "Marylyn Ritchie",
+     "Li Shen"
+    ],
+    "abstract": "",
+    "container": "Proceedings of the 16th ACM International Conference on Bioinformatics, Computational Biology, and Health Informatics",
+    "doi": "10.1145/3765612.3767229"
+   }
+  ]
+ },
+ "fair-cca-adni-bcb25": {
+  "site_title": "Fair CCA for Fair Representation Learning: An ADNI Study",
+  "records": [
+   {
+    "source": "arxiv",
+    "title": "Fair CCA for Fair Representation Learning: An ADNI Study",
+    "authors": [
+     "Bojian Hou",
+     "Zhanliang Wang",
+     "Zhuoping Zhou",
+     "Boning Tong",
+     "Zexuan Wang",
+     "Jingxuan Bao",
+     "Duy Duong-Tran",
+     "Qi Long",
+     "Li Shen"
+    ],
+    "abstract": "Canonical correlation analysis (CCA) is a technique for finding correlations between different data modalities and learning low-dimensional representations. As fairness becomes crucial in machine learning, fair CCA has gained attention. However, previous approaches often overlook the impact on downstream classification tasks, limiting applicability. We propose a novel fair CCA method for fair representation learning, ensuring the projected features are independent of sensitive attributes, thus enhancing fairness without compromising accuracy. We validate our method on synthetic data and real-world data from the Alzheimer's Disease Neuroimaging Initiative (ADNI), demonstrating its ability to maintain high correlation analysis performance while improving fairness in classification tasks. Our work enables fair machine learning in neuroimaging studies where unbiased analysis is essential. Code is available in https://github.com/ZhanliangAaronWang/FR-CCA-ADNI.",
+    "comment": "",
+    "journal_ref": ""
+   },
+   {
+    "source": "crossref",
+    "title": "Fair CCA for Fair Representation Learning: An ADNI Study",
+    "authors": [
+     "Bojian Hou",
+     "Zhanliang Wang",
+     "Zhuoping Zhou",
+     "Boning Tong",
+     "Zexuan Wang",
+     "Jingxuan Bao",
+     "Duy Duong-Tran",
+     "Qi Long",
+     "Li Shen"
+    ],
+    "abstract": "",
+    "container": "Proceedings of the 16th ACM International Conference on Bioinformatics, Computational Biology, and Health Informatics",
+    "doi": "10.1145/3765612.3767215"
+   }
+  ]
+ },
+ "mentalchat16k-kdd25": {
+  "site_title": "MentalChat16K: A Benchmark Dataset for Conversational Mental Health Assistance",
+  "records": [
+   {
+    "source": "arxiv",
+    "title": "MentalChat16K: A Benchmark Dataset for Conversational Mental Health Assistance",
+    "authors": [
+     "Jia Xu",
+     "Tianyi Wei",
+     "Bojian Hou",
+     "Patryk Orzechowski",
+     "Shu Yang",
+     "Ruochen Jin",
+     "Rachael Paulbeck",
+     "Joost Wagenaar",
+     "George Demiris",
+     "Li Shen"
+    ],
+    "abstract": "We introduce MentalChat16K, an English benchmark dataset combining a synthetic mental health counseling dataset and a dataset of anonymized transcripts from interventions between Behavioral Health Coaches and Caregivers of patients in palliative or hospice care. Covering a diverse range of conditions like depression, anxiety, and grief, this curated dataset is designed to facilitate the development and evaluation of large language models for conversational mental health assistance. By providing a high-quality resource tailored to this critical domain, MentalChat16K aims to advance research on empathetic, personalized AI solutions to improve access to mental health support services. The dataset prioritizes patient privacy, ethical considerations, and responsible data usage. MentalChat16K presents a valuable opportunity for the research community to innovate AI technologies that can positively impact mental well-being. The dataset is available at https://huggingface.co/datasets/ShenLab/MentalChat16K and the code and documentation are hosted on GitHub at https://github.com/ChiaPatricia/MentalChat16K.",
+    "comment": "",
+    "journal_ref": ""
+   },
+   {
+    "source": "crossref",
+    "title": "MentalChat16K: A Benchmark Dataset for Conversational Mental Health Assistance",
+    "authors": [
+     "Jia Xu",
+     "Tianyi Wei",
+     "Bojian Hou",
+     "Patryk Orzechowski",
+     "Shu Yang",
+     "Ruochen Jin",
+     "Rachael Paulbeck",
+     "Joost Wagenaar",
+     "George Demiris",
+     "Li Shen"
+    ],
+    "abstract": "",
+    "container": "Proceedings of the 31st ACM SIGKDD Conference on Knowledge Discovery and Data Mining V.2",
+    "doi": "10.1145/3711896.3737393"
+   }
+  ]
+ },
+ "calibration-aligned-llm-icml25": {
+  "site_title": "Restoring Calibration for Aligned Large Language Models: A Calibration-Aware Fine-Tuning Approach",
+  "records": [
+   {
+    "source": "arxiv",
+    "title": "Restoring Calibration for Aligned Large Language Models: A Calibration-Aware Fine-Tuning Approach",
+    "authors": [
+     "Jiancong Xiao",
+     "Bojian Hou",
+     "Zhanliang Wang",
+     "Ruochen Jin",
+     "Qi Long",
+     "Weijie J. Su",
+     "Li Shen"
+    ],
+    "abstract": "One of the key technologies for the success of Large Language Models (LLMs) is preference alignment. However, a notable side effect of preference alignment is poor calibration: while the pre-trained models are typically well-calibrated, LLMs tend to become poorly calibrated after alignment with human preferences. In this paper, we investigate why preference alignment affects calibration and how to address this issue. For the first question, we observe that the preference collapse issue in alignment undesirably generalizes to the calibration scenario, causing LLMs to exhibit overconfidence and poor calibration. To address this, we demonstrate the importance of fine-tuning with domain-specific knowledge to alleviate the overconfidence issue. To further analyze whether this affects the model's performance, we categorize models into two regimes: calibratable and non-calibratable, defined by bounds of Expected Calibration Error (ECE). In the calibratable regime, we propose a calibration-aware fine-tuning approach to achieve proper calibration without compromising LLMs' performance. However, as models are further fine-tuned for better performance, they enter the non-calibratable regime. For this case, we develop an EM-algorithm-based ECE regularization for the fine-tuning loss to maintain low calibration error. Extensive experiments validate the effectiveness of the proposed methods.",
+    "comment": "",
+    "journal_ref": "ICML 2025"
+   }
+  ]
+ },
+ "attention-task-arithmetic-iclr25": {
+  "site_title": "Fine-Tuning Attention Modules Only: Enhancing Weight Disentanglement in Task Arithmetic",
+  "records": [
+   {
+    "source": "arxiv",
+    "title": "Fine-Tuning Attention Modules Only: Enhancing Weight Disentanglement in Task Arithmetic",
+    "authors": [
+     "Ruochen Jin",
+     "Bojian Hou",
+     "Jiancong Xiao",
+     "Weijie Su",
+     "Li Shen"
+    ],
+    "abstract": "In recent years, task arithmetic has garnered increasing attention. This approach edits pre-trained models directly in weight space by combining the fine-tuned weights of various tasks into a unified model. Its efficiency and cost-effectiveness stem from its training-free combination, contrasting with traditional methods that require model training on large datasets for multiple tasks. However, applying such a unified model to individual tasks can lead to interference from other tasks (lack of weight disentanglement). To address this issue, Neural Tangent Kernel (NTK) linearization has been employed to leverage a \"kernel behavior\", facilitating weight disentanglement and mitigating adverse effects from unrelated tasks. Despite its benefits, NTK linearization presents drawbacks, including doubled training costs, as well as reduced performance of individual models. To tackle this problem, we propose a simple yet effective and efficient method that is to finetune the attention modules only in the Transformer. Our study reveals that the attention modules exhibit kernel behavior, and fine-tuning the attention modules only significantly improves weight disentanglement. To further understand how our method improves the weight disentanglement of task arithmetic, we present a comprehensive study of task arithmetic by differentiating the role of the representation module and task-specific module. In particular, we find that the representation module plays an important role in improving weight disentanglement whereas the task-specific modules such as the classification heads can degenerate the weight disentanglement performance. (The code is available at https://github.com/kyrie-23/task_arithmetic_tangent)",
+    "comment": "International Conference on Learning Representations (ICLR 2025)",
+    "journal_ref": ""
+   }
+  ]
+ },
+ "genotype-feature-selection-amia25": {
+  "site_title": "Knowledge-Driven Feature Selection and Engineering for Genotype Data with Large Language Models",
+  "records": [
+   {
+    "source": "arxiv",
+    "title": "Knowledge-Driven Feature Selection and Engineering for Genotype Data with Large Language Models",
+    "authors": [
+     "Joseph Lee",
+     "Shu Yang",
+     "Jae Young Baik",
+     "Xiaoxi Liu",
+     "Zhen Tan",
+     "Dawei Li",
+     "Zixuan Wen",
+     "Bojian Hou",
+     "Duy Duong-Tran",
+     "Tianlong Chen",
+     "Li Shen"
+    ],
+    "abstract": "Predicting phenotypes with complex genetic bases based on a small, interpretable set of variant features remains a challenging task. Conventionally, data-driven approaches are utilized for this task, yet the high dimensional nature of genotype data makes the analysis and prediction difficult. Motivated by the extensive knowledge encoded in pre-trained LLMs and their success in processing complex biomedical concepts, we set to examine the ability of LLMs in feature selection and engineering for tabular genotype data, with a novel knowledge-driven framework. We develop FREEFORM, Free-flow Reasoning and Ensembling for Enhanced Feature Output and Robust Modeling, designed with chain-of-thought and ensembling principles, to select and engineer features with the intrinsic knowledge of LLMs. Evaluated on two distinct genotype-phenotype datasets, genetic ancestry and hereditary hearing loss, we find this framework outperforms several data-driven methods, particularly on low-shot regimes. FREEFORM is available as open-source framework at GitHub: https://github.com/PennShenLab/FREEFORM.",
+    "comment": "accepted by AMIA-IS'25: AMIA Informatics Summit [Marco Ramoni Distinguished Paper Award for Translational Bioinformatics]",
+    "journal_ref": ""
+   },
+   {
+    "source": "europepmc",
+    "title": "Knowledge-Driven Feature Selection and Engineering for Genotype Data with Large Language Models.",
+    "authors": [
+     "Lee J",
+     "Yang S",
+     "Baik JY",
+     "Liu X",
+     "Tan Z",
+     "Li D",
+     "Wen Z",
+     "Hou B",
+     "Duong-Tran D",
+     "Chen T",
+     "Shen L"
+    ],
+    "abstract": "Predicting phenotypes with complex genetic bases based on a small, interpretable set of variant features remains a challenging task. Conventionally, data-driven approaches are used for this task, yet the high dimensional nature of genotype data makes the analysis and prediction difficult. Motivated by the biomedical knowledge encoded in pre-trained LLMs and the emerging applications for genetics, we set to examine the ability of LLMs in feature selection and engineering for tabular genotype data, with a novel knowledge-driven framework. We develop FREEFORM, Free-flow Reasoning and Ensembling for Enhanced Feature Output and Robust Modeling, designed with chain-of-thought and ensembling principles, to select and engineer features with the intrinsic knowledge of LLMs. Evaluated on two distinct genotype-phenotype datasets, genetic ancestry and hereditary hearing loss, we find this framework outperforms several data-driven methods, particularly on low-data regimes. FREEFORM is available as open-source framework at GitHub: https://github.com/PennShenLab/FREEFORM.",
+    "pmcid": "PMC12150712",
+    "pmid": "40502214",
+    "doi": null,
+    "journal": "AMIA Joint Summits on Translational Science proceedings. AMIA Joint Summits on Translational Science"
+   }
+  ]
+ },
+ "sdoh-kg-amia25": {
+  "site_title": "Leveraging Social Determinants of Health in Alzheimer’s Research Using LLM-Augmented Literature Mining and Knowledge Graphs",
+  "records": [
+   {
+    "source": "europepmc",
+    "title": "Leveraging Social Determinants of Health in Alzheimer's Research Using LLM-Augmented Literature Mining and Knowledge Graphs.",
+    "authors": [
+     "Shang T",
+     "Yang S",
+     "He W",
+     "Zhai T",
+     "Li D",
+     "Hou B",
+     "Chen T",
+     "Moore JH",
+     "Ritchie MD",
+     "Shen L"
+    ],
+    "abstract": "Growing evidence suggests that social determinants of health (SDoH), a set of nonmedical factors, affect individuals' risks of developing Alzheimer's disease (AD) and related dementias. Nevertheless, the etiological mechanisms underlying such relationships remain largely unclear, mainly due to difficulties in collecting relevant information. This study presents a novel, automated framework that leverages recent advancements of large language model (LLM) and natural language processing techniques to mine SDoH knowledge from extensive literature and integrate it with AD-related biological entities extracted from the general-purpose knowledge graph PrimeKG. Utilizing graph neural networks, we performed link prediction tasks to evaluate the resultant SDoH-augmented knowledge graph. Our framework shows promise for enhancing knowledge discovery in AD and can be generalized to other SDoH-related research areas, offering a new tool for exploring the impact of social determinants on health outcomes. Our code is available at: https://github.com/hwq0726/SDoHenPKG.",
+    "pmcid": "PMC12150755",
+    "pmid": "40502260",
+    "doi": null,
+    "journal": "AMIA Joint Summits on Translational Science proceedings. AMIA Joint Summits on Translational Science"
+   }
+  ]
+ },
+ "clinical-modalities-amia25": {
+  "site_title": "Determining the Importance of Clinical Modalities for NeuroDegenerative Disorders and Risk of Patient Injury Using Machine Learning and Survival Analysis",
+  "records": [
+   {
+    "source": "europepmc",
+    "title": "Determining the Importance of Clinical Modalities for NeuroDegenerative Disorders and Risk of Patient Injury Using Machine Learning and Survival Analysis.",
+    "authors": [
+     "Noshin K",
+     "Boland MR",
+     "Hou B",
+     "He W",
+     "Lu V",
+     "Manning C",
+     "Shen L",
+     "Zhang A"
+    ],
+    "abstract": "Falls among the elderly and especially those with NeuroDegenerative Disorders (NDD) reduces life expectancy. The purpose of this study is to explore the role of Machine Learning on Electronic Health Records (EHR) data for time-to-event survival analysis prediction of injuries, and role of sensitive attributes, e.g., Race, Ethnicity, Sex, in these models. We used multiple survival analysis methods on a cohort of 29,045 patients 65 years and older treated at PennMedicine for either NDD, Mild Cognitive Impairment (MCI), or another disease. We compare the algorithms and explore the role of multiple modalities on improving prediction of injuries among NDD patients, specifically medications and laboratory tests. Overall, we found that medication features resulted in either increased Hazard Ratios (HR) or reduced HR depending on the NDD type. We found that being of Black race significantly increased the risk offall/injury in the models that included only medication and sensitive attribute features. The combined model that used both modalities (medications and laboratory information) removed this relationship between being of Black race and increases in fall/injury. Therefore, we found that combining modalities in these survival models in the prediction offall/injury risk among NDD and MCI individuals results in findings that are robust to different Racial and Ethnic groups with no biases apparent in our final combined modality results. Furthermore, combining modalities (both medications and laboratory values) improved the survival analysis performance across multiple survival analysis methods, when compared using the C-index.",
+    "pmcid": "PMC12150751",
+    "pmid": "40502273",
+    "doi": null,
+    "journal": "AMIA Joint Summits on Translational Science proceedings. AMIA Joint Summits on Translational Science"
+   }
+  ]
+ },
+ "association-mining-psb25": {
+  "site_title": "Uncovering Important Diagnostic Features for Alzheimer’s, Parkinson’s and Other Dementias Using Interpretable Association Mining Methods",
+  "records": [
+   {
+    "source": "europepmc",
+    "title": "Uncovering Important Diagnostic Features for Alzheimer's, Parkinson's and Other Dementias Using Interpretable Association Mining Methods.",
+    "authors": [
+     "Noshin K",
+     "Boland MR",
+     "Hou B",
+     "Lu V",
+     "Manning C",
+     "Shen L",
+     "Zhang A"
+    ],
+    "abstract": "Alzheimer's Disease and Related Dementias (ADRD) afflict almost 7 million people in the USA alone. The majority of research in ADRD is conducted using post-mortem samples of brain tissue or carefully recruited clinical trial patients. While these resources are excellent, they suffer from lack of sex/gender, and racial/ethnic inclusiveness. Electronic Health Records (EHR) data has the potential to bridge this gap by including real-world ADRD patients treated during routine clinical care. In this study, we utilize EHR data from a cohort of 70,420 ADRD patients diagnosed and treated at Penn Medicine. Our goal is to uncover important risk features leading to three types of Neuro-Degenerative Disorders (NDD), including Alzheimer's Disease (AD), Parkinson's Disease (PD) and Other Dementias (OD). We employ a variety of Machine Learning (ML) Methods, including uni-variate and multivariate ML approaches and compare accuracies across the ML methods. We also investigate the types of features identified by each method, the overlapping features and the unique features to highlight important advantages and disadvantages of each approach specific for certain NDD types. Our study is important for those interested in studying ADRD and NDD in EHRs as it highlights the strengths and limitations of popular approaches employed in the ML community. We found that the uni-variate approach was able to uncover features that were important and rare for specific types of NDD (AD, PD, OD), which is important from a clinical perspective. Features that were found across all methods represent features that are the most robust.",
+    "pmcid": "PMC11649014",
+    "pmid": "39670401",
+    "doi": null,
+    "journal": "Pacific Symposium on Biocomputing. Pacific Symposium on Biocomputing"
+   },
+   {
+    "source": "crossref",
+    "title": "Uncovering Important Diagnostic Features for Alzheimer’s, Parkinson’s and Other Dementias Using Interpretable Association Mining Methods",
+    "authors": [
+     "Kazi Noshin",
+     "Mary Regina Boland",
+     "Bojian Hou",
+     "Victoria Lu",
+     "Carol Manning",
+     "Li Shen",
+     "Aidong Zhang"
+    ],
+    "abstract": "",
+    "container": "Biocomputing 2025",
+    "doi": "10.1142/9789819807024_0045"
+   }
+  ]
+ },
+ "llm-topic-modeling-innovaging25": {
+  "site_title": "Advanced Topic Modeling with Large Language Models: Analyzing Social Media Content from Dementia Caregivers",
+  "records": [
+   {
+    "source": "europepmc",
+    "title": "Advanced topic modeling with large language models: analyzing social media content from dementia caregivers.",
+    "authors": [
+     "He W",
+     "Hou B",
+     "Zheng A",
+     "Feng Y",
+     "Klein A",
+     "O'Connor K",
+     "Yang S",
+     "Shang T",
+     "Demiris G",
+     "Gonzalez-Hernandez G",
+     "Shen L"
+    ],
+    "abstract": "Background and objectivesWhile traditional topic modeling methods have been applied to analyze social media content from dementia caregivers, they often struggle with semantic understanding and coherent topic generation. This study explores the direct application of large language models (LLMs) for topic modeling of caregiver tweets, aiming to leverage their advanced semantic comprehension capabilities.Research design and methodsWe analyzed 231 870 tweets from dementia caregivers after preprocessing using ChatGPT as the primary topic modeling tool. To address context length limitations, we developed a 2-stage approach: first splitting the dataset into 226 batches of 1000 tweets each for initial topic extraction, then combining these results through a second-stage prompt for final topic synthesis. We compared our approach against 11 baseline methods, including Latent Dirichlet Allocation (LDA), Gibbs Sampling Dirichlet Multinomial Mixture Model (GSDMM), their term-weighted variants, and state-of-the-art BERTopic models. Topic quality was evaluated using Sentence-BERT-based coherence scores, and topic comprehensiveness was assessed through both ChatGPT and human expert evaluation.ResultsOur LLM-based approach achieved a coherence score of 0.358, significantly outperforming all baseline methods. Traditional approaches like GSDMM (0.317) and LDA (0.320), their term-weighted variants (ranging from 0.264 to 0.302), and BERTopic variants (approximately 0.30) showed lower coherence scores. The 2-stage batching strategy effectively handled the large dataset while maintaining topic quality and representativeness. Expert evaluation confirmed the topics' relevance to caregiver experiences and their comprehensive coverage of key themes.Discussion and implicationsThis study introduces a novel methodology for applying LLMs to large-scale topic modeling tasks, demonstrating superior performance over traditional and state-of-the-art approaches. The significant improvement in coherence scores suggests that LLMs can better capture the semantic relationships within topics. Our approach addresses key challenges in context length limitations and prompt engineering, while providing more coherent and interpretable insights into caregiver experiences that can inform targeted support strategies.",
+    "pmcid": "PMC12742845",
+    "pmid": "41458886",
+    "doi": "10.1093/geroni/igaf120",
+    "journal": "Innovation in aging"
+   },
+   {
+    "source": "crossref",
+    "title": "Advanced topic modeling with large language models: analyzing social media content from dementia caregivers",
+    "authors": [
+     "Weiqing He",
+     "Bojian Hou",
+     "Amy Zheng",
+     "Yanbo Feng",
+     "Ari Klein",
+     "Karen O’Connor",
+     "Shu Yang",
+     "Tianqi Shang",
+     "George Demiris",
+     "Graciela Gonzalez-Hernandez",
+     "Li Shen"
+    ],
+    "abstract": "Abstract\n                  \n                    Background and Objectives\n                    While traditional topic modeling methods have been applied to analyze social media content from dementia caregivers, they often struggle with semantic understanding and coherent topic generation. This study explores the direct application of large language models (LLMs) for topic modeling of caregiver tweets, aiming to leverage their advanced semantic comprehension capabilities.\n                  \n                  \n                    Research Design and Methods\n                    We analyzed 231 870 tweets from dementia caregivers after preprocessing using ChatGPT as the primary topic modeling tool. To address context length limitations, we developed a 2-stage approach: first splitting the dataset into 226 batches of 1000 tweets each for initial topic extraction, then combining these results through a second-stage prompt for final topic synthesis. We compared our approach against 11 baseline methods, including Latent Dirichlet Allocation (LDA), Gibbs Sampling Dirichlet Multinomial Mixture Model (GSDMM), their term-weighted variants, and state-of-the-art BERTopic models. Topic quality was evaluated using Sentence-BERT-based coherence scores, and topic comprehensiveness was assessed through both ChatGPT and human expert evaluation.\n                  \n                  \n                    Results\n                    Our LLM-based approach achieved a coherence score of 0.358, significantly outperforming all baseline methods. Traditional approaches like GSDMM (0.317) and LDA (0.320), their term-weighted variants (ranging from 0.264 to 0.302), and BERTopic variants (approximately 0.30) showed lower coherence scores. The 2-stage batching strategy effectively handled the large dataset while maintaining topic quality and representativeness. Expert evaluation confirmed the topics’ relevance to caregiver experiences and their comprehensive coverage of key themes.\n                  \n                  \n                    Discussion and Implications\n                    This study introduces a novel methodology for applying LLMs to large-scale topic modeling tasks, demonstrating superior performance over traditional and state-of-the-art approaches. The significant improvement in coherence scores suggests that LLMs can better capture the semantic relationships within topics. Our approach addresses key challenges in context length limitations and prompt engineering, while providing more coherent and interpretable insights into caregiver experiences that can inform targeted support strategies.\n                  ",
+    "container": "Innovation in Aging",
+    "doi": "10.1093/geroni/igaf120"
+   }
+  ]
+ },
+ "fair-multimodal-cca-amia25": {
+  "site_title": "Fair Multi-modal Canonical Correlation Analysis: A Neuroimaging Study of Alzheimer's Disease",
+  "records": [
+   {
+    "source": "europepmc",
+    "title": "Fair Multi-modal Canonical Correlation Analysis: A Neuroimaging Study of Alzheimer's Disease.",
+    "authors": [
+     "Zhou Z",
+     "Tong B",
+     "Hou B",
+     "Davatzikos C",
+     "Long Q",
+     "Shen L"
+    ],
+    "abstract": "This study addresses fairness concerns in Multi-modal Canonical Correlation Analysis (MCCA), a technique for analyzing relationships across multiple datasets. We introduce Fair MCCA (F-MCCA), which mitigates bias by optimizing for both correlation performance and demographic fairness. Our method quantifies disparities using Correlation Disparity Error (CDE) and employs a multi-objective optimization framework to derive projection matrices that achieve consistent correlation levels across sensitive groups. We validate F-MCCA on neuroimaging data from the Alzheimer's Disease Neuroimaging Initiative using sex as the sensitive attribute. Experiments demonstrate that F-MCCA substantially improves fairness metrics with minimal correlation performance sacrifice. In downstream classification tasks, F-MCCA reduces demographic parity difference and equalized odds difference while maintaining comparable accuracy to standard approaches. Results confirm that our method effectively balances analytical performance with fairness considerations, supporting more unbiased healthcare applications of multi-modal data analysis.",
+    "pmcid": "PMC12919458",
+    "pmid": "41726413",
+    "doi": null,
+    "journal": "AMIA ... Annual Symposium proceedings. AMIA Symposium"
+   },
+   {
+    "source": "europepmc",
+    "title": "Fair Multi-modal Canonical Correlation Analysis: A Neuroimaging Study of Alzheimer's Disease.",
+    "authors": [
+     "Zhou Z",
+     "Tong B",
+     "Hou B",
+     "Davatzikos C",
+     "Long Q",
+     "Shen L"
+    ],
+    "abstract": "This study addresses fairness concerns in Multi-modal Canonical Correlation Analysis (MCCA), a technique for analyzing relationships across multiple datasets. We introduce Fair MCCA (F-MCCA), which mitigates bias by optimizing for both correlation performance and demographic fairness. Our method quantifies disparities using Correlation Disparity Error (CDE) and employs a multi-objective optimization framework to derive projection matrices that achieve consistent correlation levels across sensitive groups. We validate F-MCCA on neuroimaging data from the Alzheimer's Disease Neuroimaging Initiative using sex as the sensitive attribute. Experiments demonstrate that F-MCCA substantially improves fairness metrics with minimal correlation performance sacrifice. In downstream classification tasks, F-MCCA reduces demographic parity difference and equalized odds difference while maintaining comparable accuracy to standard approaches. Results confirm that our method effectively balances analytical performance with fairness considerations, supporting more unbiased healthcare applications of multi-modal data analysis.",
+    "pmcid": "PMC12919458",
+    "pmid": "41726413",
+    "doi": null,
+    "journal": "AMIA ... Annual Symposium proceedings. AMIA Symposium"
+   }
+  ]
+ },
+ "icafs-tai25": {
+  "site_title": "ICAFS: Inter-Client-Aware Feature Selection for Vertical Federated Learning",
+  "records": [
+   {
+    "source": "arxiv",
+    "title": "ICAFS: Inter-Client-Aware Feature Selection for Vertical Federated Learning",
+    "authors": [
+     "Ruochen Jin",
+     "Boning Tong",
+     "Shu Yang",
+     "Bojian Hou",
+     "Li Shen"
+    ],
+    "abstract": "Vertical federated learning (VFL) enables a paradigm for vertically partitioned data across clients to collaboratively train machine learning models. Feature selection (FS) plays a crucial role in Vertical Federated Learning (VFL) due to the unique nature that data are distributed across multiple clients. In VFL, different clients possess distinct subsets of features for overlapping data samples, making the process of identifying and selecting the most relevant features a complex yet essential task. Previous FS efforts have primarily revolved around intra-client feature selection, overlooking vital feature interaction across clients, leading to subpar model outcomes. We introduce ICAFS, a novel multi-stage ensemble approach for effective FS in VFL by considering inter-client interactions. By employing conditional feature synthesis alongside multiple learnable feature selectors, ICAFS facilitates ensemble FS over these selectors using synthetic embeddings. This method bypasses the limitations of private gradient sharing and allows for model training using real data with refined embeddings. Experiments on multiple real-world datasets demonstrate that ICAFS surpasses current state-of-the-art methods in prediction accuracy.",
+    "comment": "",
+    "journal_ref": ""
+   },
+   {
+    "source": "crossref",
+    "title": "ICAFS: Inter-Client-Aware Feature Selection for Vertical Federated Learning",
+    "authors": [
+     "Ruochen Jin",
+     "Boning Tong",
+     "Shu Yang",
+     "Bojian Hou",
+     "Li Shen"
+    ],
+    "abstract": "",
+    "container": "IEEE Transactions on Artificial Intelligence",
+    "doi": "10.1109/TAI.2025.3647596"
+   }
+  ]
+ },
+ "sdoh-ehr-kg-innovaging25": {
+  "site_title": "A Novel Computational Analysis Integrating Social Determinants Information from EHR and Literature with Alzheimer's Disease Biological Knowledge through Large Language Models and Knowledge Graphs",
+  "records": [
+   {
+    "source": "europepmc",
+    "title": "A novel computational analysis integrating social determinants information from EHR and literature with Alzheimer's disease biological knowledge through large language models and knowledge graphs.",
+    "authors": [
+     "Shang T",
+     "Yang S",
+     "Zhai T",
+     "He W",
+     "Mamourian E",
+     "Zhang J",
+     "Hou B",
+     "Lee J",
+     "Duong-Tran D",
+     "Moore JH",
+     "Ritchie MD",
+     "Shen L"
+    ],
+    "abstract": "Background and objectivesAlzheimer's disease (AD) and AD-related dementias (ADRD) are expected to affect over 100 million people by 2050, placing a significant strain on public health systems. Social determinants of health (SDoH), which include factors such as socioeconomic conditions and environment, play a crucial role in AD risk. Despite growing evidence, the understanding of SDoH's impact on AD remains limited.Research design and methodsThis study leverages large language models and knowledge graphs (KGs) to extract AD-related SDoH knowledge from literature and electronic health records (EHR). We integrate this knowledge into biological research on AD through KG construction and graph deep learning, performing KG-link predictions validated by multimodal biological data from single-cell RNA-seq and proteomics.ResultsWe generated an SDoH knowledge graph with around 92k triplets, integrating literature and EHR data. In various link prediction experiments, we observed higher accuracy when integrating SDoH into knowledge graphs. Additionally, exploratory predictions uncovered potential SDoH-gene interactions, many of which were validated through differential expression analysis using proteomics and RNA-seq data.Discussion and implicationsThis novel KG-based analysis enhances link prediction in AD-related biomedical networks by integrating SDoH and biological knowledge. Our findings highlight the potential interaction between social determinants and biological factors in AD, offering insights into more personalized and socially aware healthcare interventions.",
+    "pmcid": "PMC12742847",
+    "pmid": "41458885",
+    "doi": "10.1093/geroni/igaf102",
+    "journal": "Innovation in aging"
+   },
+   {
+    "source": "crossref",
+    "title": "A novel computational analysis integrating social determinants information from EHR and literature with Alzheimer’s disease biological knowledge through large language models and knowledge graphs",
+    "authors": [
+     "Tianqi Shang",
+     "Shu Yang",
+     "Tianhua Zhai",
+     "Weiqing He",
+     "Elizabeth Mamourian",
+     "Jiayu Zhang",
+     "Bojian Hou",
+     "Joseph Lee",
+     "Duy Duong-Tran",
+     "Jason H Moore",
+     "Marylyn D Ritchie",
+     "Li Shen"
+    ],
+    "abstract": "Abstract\n                  \n                    Background and Objectives\n                    Alzheimer’s disease (AD) and AD-related dementias (ADRD) are expected to affect over 100 million people by 2050, placing a significant strain on public health systems. Social determinants of health (SDoH), which include factors such as socioeconomic conditions and environment, play a crucial role in AD risk. Despite growing evidence, the understanding of SDoH’s impact on AD remains limited.\n                  \n                  \n                    Research Design and Methods\n                    This study leverages large language models and knowledge graphs (KGs) to extract AD-related SDoH knowledge from literature and electronic health records (EHR). We integrate this knowledge into biological research on AD through KG construction and graph deep learning, performing KG-link predictions validated by multimodal biological data from single-cell RNA-seq and proteomics.\n                  \n                  \n                    Results\n                    We generated an SDoH knowledge graph with around 92k triplets, integrating literature and EHR data. In various link prediction experiments, we observed higher accuracy when integrating SDoH into knowledge graphs. Additionally, exploratory predictions uncovered potential SDoH-gene interactions, many of which were validated through differential expression analysis using proteomics and RNA-seq data.\n                  \n                  \n                    Discussion and Implications\n                    This novel KG-based analysis enhances link prediction in AD-related biomedical networks by integrating SDoH and biological knowledge. Our findings highlight the potential interaction between social determinants and biological factors in AD, offering insights into more personalized and socially aware healthcare interventions.\n                  ",
+    "container": "Innovation in Aging",
+    "doi": "10.1093/geroni/igaf102"
+   }
+  ]
+ },
+ "pmbb-vlm-iccvw25": {
+  "site_title": "Adapting Vision-Language Models for 3D CT/MRI Understanding on PMBB via Slice Selection and Explanation Analysis",
+  "records": [
+   {
+    "source": "crossref-title",
+    "title": "Adapting Vision–Language Models for 3D CT/MRI Understanding on PMBB via Slice Selection and Explanation Analysis",
+    "authors": [
+     "Hongzhuo Chen",
+     "Rahul Shukla",
+     "Ruiming Wu",
+     "Shu Yang",
+     "Duy Duong-Tran",
+     "Duy Minh Ho Nguyen",
+     "Mathias Niepert",
+     "Cameron Beeche",
+     "James Gee",
+     "Jeffrey Duda",
+     "Rakesh Sharma",
+     "Christos Davatzikos",
+     "Walter Witschey",
+     "Bojian Hou",
+     "Li Shen"
+    ],
+    "doi": "10.1109/iccvw69036.2025.00240",
+    "container": "2025 IEEE/CVF International Conference on Computer Vision Workshops (ICCVW)",
+    "abstract": ""
+   }
+  ]
+ },
+ "multimodal-dcsm-iccvw25": {
+  "site_title": "Multi-Modal Deep Clustering Survival Machines for Alzheimer's Disease Subtype Discovery",
+  "records": [
+   {
+    "source": "crossref",
+    "title": "Multi-Modal Deep Clustering Survival Machines for Alzheimer's Disease Subtype Discovery",
+    "authors": [
+     "Zixuan Wen",
+     "Bojian Hou",
+     "Weiqing He",
+     "Shu Yang",
+     "Jason H. Moore",
+     "Andrew J. Saykin",
+     "Heng Huang",
+     "Paul M. Thompson",
+     "Marylyn D. Ritchie",
+     "Christos Davatzikos",
+     "Li Shen"
+    ],
+    "abstract": "",
+    "container": "2025 IEEE/CVF International Conference on Computer Vision Workshops (ICCVW)",
+    "doi": "10.1109/ICCVW69036.2025.00239"
+   }
+  ]
+ },
+ "sdoh-dcsm-aimedhealth25": {
+  "site_title": "Integrating Social Determinants of Health in a Multi-Modal Deep Clustering Survival Model for Injury-Risk in Alzheimer's and Related Dementia Patients",
+  "records": [
+   {
+    "source": "europepmc",
+    "title": "Integrating Social Determinants of Health in a Multi-Modal Deep Clustering Survival Model for Injury-Risk in Alzheimer's and Related Dementia Patients.",
+    "authors": [
+     "Noshin K",
+     "Boland MR",
+     "Hou B",
+     "He W",
+     "Lu V",
+     "Shen L",
+     "Zhang A"
+    ],
+    "abstract": "As our population ages, the prevalence of Alzheimer's Disease and Related Dementias (ADRD) and its associated burdens continue to rise. Social Determinants of Health (SDOH) significantly influence both ADRD development and progression. Using Electronic Health Records (EHR) from a quaternary care academic medical center in a diverse urban setting, we investigated SDOH's impact on multi-modal deep clustering survival machines. Our findings revealed that SDOH improved model performance across feature selection methods (DeepCox roll-out vs. SHAP DeepExplainer) and EHR clinical modalities (medication vs. laboratory). Additionally, Laboratory features proved more informative than medications for predicting injury-fall risk. Our results highlight SDOH's crucial role in ADRD progression, particularly regarding injury-fall risk. We found that feature importance varied by selection method when analyzing multi-modality EHR data, with education emerging as a key SDOH factor among our top 10 features, underscoring its significance in ADRD progression.",
+    "pmcid": "PMC13004619",
+    "pmid": "41867912",
+    "doi": null,
+    "journal": "Proceedings of machine learning research"
+   }
+  ]
+ },
+ "esn-topology-aimedhealth25": {
+  "site_title": "Evaluating Topological Fitness of Human Brain-Inspired Sub-Circuits in Echo State Networks",
+  "records": [
+   {
+    "source": "arxiv",
+    "title": "Accessing the topological properties of human brain functional sub-circuits in Echo State Networks",
+    "authors": [
+     "Bach Nguyen",
+     "Tianlong Chen",
+     "Shu Yang",
+     "Bojian Hou",
+     "Li Shen",
+     "Duy Duong-Tran"
+    ],
+    "abstract": "Recent years have witnessed an emerging trend in neuromorphic computing that centers around the use of brain connectomics as a blueprint for artificial neural networks. Connectomics-based neuromorphic computing has primarily focused on embedding human brain large-scale structural connectomes (SCs), as estimated from diffusion Magnetic Resonance Imaging (dMRI) modality, to echo-state networks (ESNs). A critical step in ESN embedding requires pre-determined read-in and read-out layers constructed by the induced subgraphs of the embedded reservoir. As \\textit{a priori} set of functional sub-circuits are derived from functional MRI (fMRI) modality, it is unknown, till this point, whether the embedding of fMRI-induced sub-circuits/networks onto SCs is well justified from the neuro-physiological perspective and ESN performance across a variety of tasks. This paper proposes a pipeline to implement and evaluate ESNs with various embedded topologies and processing/memorization tasks. To this end, we showed that different performance optimums highly depend on the neuro-physiological characteristics of these pre-determined fMRI-induced sub-circuits. In general, fMRI-induced sub-circuit-embedded ESN outperforms simple bipartite and various null models with feed-forward properties commonly seen in MLP for different tasks and reservoir criticality conditions. We provided a thorough analysis of the topological properties of pre-determined fMRI-induced sub-circuits and highlighted their graph-theoretical properties that play significant roles in determining ESN performance.",
+    "comment": "10 pages, 12 figures",
+    "journal_ref": ""
+   }
+  ]
+ },
+ "rna-structure-survey-arxiv25": {
+  "site_title": "Advances in RNA Secondary Structure Prediction and RNA Modifications: Methods, Data, and Applications",
+  "records": [
+   {
+    "source": "arxiv",
+    "title": "Advances in RNA secondary structure prediction and RNA modifications: Methods, data, and applications",
+    "authors": [
+     "Shu Yang",
+     "Nhat Truong Pham",
+     "Ziyang Li",
+     "Jae Young Baik",
+     "Joseph Lee",
+     "Tianhua Zhai",
+     "Weicheng Yu",
+     "Bojian Hou",
+     "Tianqi Shang",
+     "Weiqing He",
+     "Duy Duong-Tran",
+     "Mayur Naik",
+     "Li Shen"
+    ],
+    "abstract": "Due to the hierarchical organization of RNA structures and their pivotal roles in fulfilling RNA functions, the formation of RNA secondary structure critically influences many biological processes and has thus been a crucial research topic. This review sets out to explore the computational prediction of RNA secondary structure and its connections to RNA modifications, which have emerged as an active domain in recent years. We first examine the progression of RNA secondary structure prediction methodology, focusing on a set of representative works categorized into thermodynamic, comparative, machine learning, and hybrid approaches. Next, we survey the advances in RNA modifications and computational methods for identifying RNA modifications, focusing on the prominent modification types. Subsequently, we highlight the interplay between RNA modifications and secondary structures, emphasizing how modifications such as m6A dynamically affect RNA folding and vice versa. In addition, we also review relevant data sources and provide a discussion of current challenges and opportunities in the field. Ultimately, we hope our review will be able to serve as a cornerstone to aid in the development of innovative methods for this emerging topic and foster therapeutic applications in the future.",
+    "comment": "",
+    "journal_ref": ""
+   }
+  ]
+ },
+ "sefd-bigdata24": {
+  "site_title": "SEFD: Semantic-Enhanced Framework for Detecting LLM-Generated Text",
+  "records": [
+   {
+    "source": "arxiv",
+    "title": "SEFD: Semantic-Enhanced Framework for Detecting LLM-Generated Text",
+    "authors": [
+     "Weiqing He",
+     "Bojian Hou",
+     "Tianqi Shang",
+     "Davoud Ataee Tarzanagh",
+     "Qi Long",
+     "Li Shen"
+    ],
+    "abstract": "The widespread adoption of large language models (LLMs) has created an urgent need for robust tools to detect LLM-generated text, especially in light of \\textit{paraphrasing} techniques that often evade existing detection methods. To address this challenge, we present a novel semantic-enhanced framework for detecting LLM-generated text (SEFD) that leverages a retrieval-based mechanism to fully utilize text semantics. Our framework improves upon existing detection methods by systematically integrating retrieval-based techniques with traditional detectors, employing a carefully curated retrieval mechanism that strikes a balance between comprehensive coverage and computational efficiency. We showcase the effectiveness of our approach in sequential text scenarios common in real-world applications, such as online forums and Q\\&A platforms. Through comprehensive experiments across various LLM-generated texts and detection methods, we demonstrate that our framework substantially enhances detection accuracy in paraphrasing scenarios while maintaining robustness for standard LLM-generated content.",
+    "comment": "",
+    "journal_ref": ""
+   },
+   {
+    "source": "crossref",
+    "title": "SEFD: Semantic-Enhanced Framework for Detecting LLM-Generated Text",
+    "authors": [
+     "Weiqing He",
+     "Bojian Hou",
+     "Tianqi Shang",
+     "Davoud Ataee Tarzanagh",
+     "Qi Long",
+     "Li Shen"
+    ],
+    "abstract": "",
+    "container": "2024 IEEE International Conference on Big Data (BigData)",
+    "doi": "10.1109/BigData62323.2024.10825110"
+   }
+  ]
+ },
+ "fair-graphical-models-neurips24": {
+  "site_title": "Fairness-Aware Estimation of Graphical Models",
+  "records": [
+   {
+    "source": "arxiv",
+    "title": "Fairness-Aware Estimation of Graphical Models",
+    "authors": [
+     "Zhuoping Zhou",
+     "Davoud Ataee Tarzanagh",
+     "Bojian Hou",
+     "Qi Long",
+     "Li Shen"
+    ],
+    "abstract": "This paper examines the issue of fairness in the estimation of graphical models (GMs), particularly Gaussian, Covariance, and Ising models. These models play a vital role in understanding complex relationships in high-dimensional data. However, standard GMs can result in biased outcomes, especially when the underlying data involves sensitive characteristics or protected groups. To address this, we introduce a comprehensive framework designed to reduce bias in the estimation of GMs related to protected attributes. Our approach involves the integration of the pairwise graph disparity error and a tailored loss function into a nonsmooth multi-objective optimization problem, striving to achieve fairness across different sensitive groups while maintaining the effectiveness of the GMs. Experimental evaluations on synthetic and real-world datasets demonstrate that our framework effectively mitigates bias without undermining GMs' performance.",
+    "comment": "Accepted for publication at NeurIPS 2024, 34 Pages, 9 Figures",
+    "journal_ref": ""
+   },
+   {
+    "source": "crossref-title",
+    "title": "Fairness-Aware Estimation of Graphical Models",
+    "authors": [
+     "Zhuoping Zhou",
+     "Davoud Ataee Tarzanagh",
+     "Bojian Hou",
+     "Qi Long",
+     "Li Shen"
+    ],
+    "doi": "10.52202/079017-0568",
+    "container": "Advances in Neural Information Processing Systems 37",
+    "abstract": ""
+   }
+  ]
+ },
+ "dalk-emnlp24": {
+  "site_title": "DALK: Dynamic Co-Augmentation of LLMs and KG to answer Alzheimer’s Disease Questions with Scientific Literature",
+  "records": [
+   {
+    "source": "arxiv",
+    "title": "DALK: Dynamic Co-Augmentation of LLMs and KG to answer Alzheimer's Disease Questions with Scientific Literature",
+    "authors": [
+     "Dawei Li",
+     "Shu Yang",
+     "Zhen Tan",
+     "Jae Young Baik",
+     "Sukwon Yun",
+     "Joseph Lee",
+     "Aaron Chacko",
+     "Bojian Hou",
+     "Duy Duong-Tran",
+     "Ying Ding",
+     "Huan Liu",
+     "Li Shen",
+     "Tianlong Chen"
+    ],
+    "abstract": "Recent advancements in large language models (LLMs) have achieved promising performances across various applications. Nonetheless, the ongoing challenge of integrating long-tail knowledge continues to impede the seamless adoption of LLMs in specialized domains. In this work, we introduce DALK, a.k.a. Dynamic Co-Augmentation of LLMs and KG, to address this limitation and demonstrate its ability on studying Alzheimer's Disease (AD), a specialized sub-field in biomedicine and a global health priority. With a synergized framework of LLM and KG mutually enhancing each other, we first leverage LLM to construct an evolving AD-specific knowledge graph (KG) sourced from AD-related scientific literature, and then we utilize a coarse-to-fine sampling method with a novel self-aware knowledge retrieval approach to select appropriate knowledge from the KG to augment LLM inference capabilities. The experimental results, conducted on our constructed AD question answering (ADQA) benchmark, underscore the efficacy of DALK. Additionally, we perform a series of detailed analyses that can offer valuable insights and guidelines for the emerging topic of mutually enhancing KG and LLM. We will release the code and data at https://github.com/David-Li0406/DALK.",
+    "comment": "Accepted by EMNLP 2024 Findings; revise format problem",
+    "journal_ref": ""
+   },
+   {
+    "source": "crossref-title",
+    "title": "DALK: Dynamic Co-Augmentation of LLMs and KG to answer Alzheimer’s Disease Questions with Scientific Literature",
+    "authors": [
+     "Dawei Li",
+     "Shu Yang",
+     "Zhen Tan",
+     "Jae Young Baik",
+     "Sukwon Yun",
+     "Joseph Lee",
+     "Aaron Chacko",
+     "Bojian Hou",
+     "Duy Duong-Tran",
+     "Ying Ding",
+     "Huan Liu",
+     "Li Shen",
+     "Tianlong Chen"
+    ],
+    "doi": "10.18653/v1/2024.findings-emnlp.119",
+    "container": "Findings of the Association for Computational Linguistics: EMNLP 2024",
+    "abstract": ""
+   }
+  ]
+ },
+ "caregivers-twitter-amia24": {
+  "site_title": "Analyzing Dementia Caregivers' Experiences on Twitter: A Term-Weighted Topic Modeling Approach",
+  "records": [
+   {
+    "source": "europepmc",
+    "title": "Analyzing Dementia Caregivers' Experiences on Twitter: A Term-Weighted Topic Modeling Approach.",
+    "authors": [
+     "Feng Y",
+     "Hou B",
+     "Klein A",
+     "O'Connor K",
+     "Chen J",
+     "Mondragóon A",
+     "Yang S",
+     "Gonzalez-Hernandez G",
+     "Shen L"
+    ],
+    "abstract": "Dementia profoundly impacts patients and their families, making it essential to understand the experiences and concerns offamily caregivers for enhanced support and care. This study introduces a novel approach to analyzing tweets from individuals whose family members suffer from dementia. We preprocessed our collected Twitter (now X) data using advanced natural language processing techniques and enhanced conventional topic model-Gibbs Sampling Dirichlet Multinomial Mixture Model (GSDMM)-with term-weighting strategies to improve topic clarity. This enhanced approach enabled the identification of key topics among dementia-affected families, offering semantically rich and contextually coherent topics, demonstrating that our method outperforms the state-of-the-art BERTopic model in clarity and consistency. Leveraging ChatGPT 4 alongside two human experts, we uncovered the multifaceted challenges faced by family caregivers. This work aims to provide healthcare professionals, researchers, and support organizations with a valuable tool to better understand and address the needs offamily caregivers.",
+    "pmcid": "PMC12099380",
+    "pmid": "40417464",
+    "doi": null,
+    "journal": "AMIA ... Annual Symposium proceedings. AMIA Symposium"
+   }
+  ]
+ },
+ "fair-mci-mri-amia24": {
+  "site_title": "Ensuring Fairness in Detecting Mild Cognitive Impairment with MRI",
+  "records": [
+   {
+    "source": "europepmc",
+    "title": "Ensuring Fairness in Detecting Mild Cognitive Impairment with MRI.",
+    "authors": [
+     "Tong B",
+     "Edwards T",
+     "Yang S",
+     "Hou B",
+     "Tarzanagh DA",
+     "Urbanowicz RJ",
+     "Moore JH",
+     "Ritchie MD",
+     "Davatzikos C",
+     "Shen L"
+    ],
+    "abstract": "Machine learning (ML) algorithms play a crucial role in the early and accurate diagnosis of Alzheimer's Disease (AD), which is essential for effective treatment planning. However, existing methods are not well-suited for identifying Mild Cognitive Impairment (MCI), a critical transitional stage between normal aging and AD. This inadequacy is primarily due to label imbalance and bias from different sensitve attributes in MCI classification. To overcome these challenges, we have designed an end-to-end fairness-aware approach for label-imbalanced classification, tailored specifically for neuroimaging data. This method, built on the recently developed FACIMS framework, integrates into STREAMLINE, an automated ML environment. We evaluated our approach against nine other ML algorithms and found that it achieves comparable balanced accuracy to other methods while prioritizing fairness in classifications with five different sensitive attributes. This analysis contributes to the development of equitable and reliable ML diagnostics for MCI detection.",
+    "pmcid": "PMC12099326",
+    "pmid": "40417489",
+    "doi": null,
+    "journal": "AMIA ... Annual Symposium proceedings. AMIA Symposium"
+   }
+  ]
+ },
+ "online-bilevel-aistats24": {
+  "site_title": "Online Bilevel Optimization: Regret Analysis of Online Alternating Gradient Methods",
+  "records": [
+   {
+    "source": "arxiv",
+    "title": "Online Bilevel Optimization: Regret Analysis of Online Alternating Gradient Methods",
+    "authors": [
+     "Davoud Ataee Tarzanagh",
+     "Parvin Nazari",
+     "Bojian Hou",
+     "Li Shen",
+     "Laura Balzano"
+    ],
+    "abstract": "This paper introduces \\textit{online bilevel optimization} in which a sequence of time-varying bilevel problems is revealed one after the other. We extend the known regret bounds for online single-level algorithms to the bilevel setting. Specifically, we provide new notions of \\textit{bilevel regret}, develop an online alternating time-averaged gradient method that is capable of leveraging smoothness, and give regret bounds in terms of the path-length of the inner and outer minimizer sequences.",
+    "comment": "Published at AISTATS 2024. V7: minor edits to the statement of Lemma 18 and Assumption A",
+    "journal_ref": ""
+   }
+  ]
+ },
+ "interview-interpretability-amia24": {
+  "site_title": "Interpretability Study for Long Interview Transcripts from Behavior Intervention Sessions for Family Caregivers of Dementia Patients",
+  "records": [
+   {
+    "source": "europepmc",
+    "title": "Interpretability Study for Long Interview Transcripts from Behavior Intervention Sessions for Family Caregivers of Dementia Patients.",
+    "authors": [
+     "He W",
+     "Hou B",
+     "Demiris G",
+     "Shen L"
+    ],
+    "abstract": "Mental health challenges are significant global public health concerns, affecting millions of people and impacting individuals, families, and communities alike. Therapists play a crucial role in supporting those with mental health issues by providing emotional, practical, and financial assistance, as well as facilitating access to treatment and services. Utilizing one-to-one interviews is an effective approach that yields valuable transcripts for further study. In this paper, we focus on interview transcripts between therapists and caregivers with family members suffering from dementia. We propose a method to efficiently handle long interview transcripts for classification. Then we employ the Shapley-value based interpretability technique to identify important contents that significantly contribute to classification results and build a corpus containing sentences potentially beneficial to the therapy. This approach offers valuable insights for enhancing the treatment of mental health issues.",
+    "pmcid": "PMC11141819",
+    "pmid": "38827095",
+    "doi": null,
+    "journal": "AMIA Joint Summits on Translational Science proceedings. AMIA Joint Summits on Translational Science"
+   }
+  ]
+ },
+ "pferm-amia24": {
+  "site_title": "PFERM: A Fair Empirical Risk Minimization Approach with Prior Knowledge",
+  "records": [
+   {
+    "source": "europepmc",
+    "title": "PFERM: A Fair Empirical Risk Minimization Approach with Prior Knowledge.",
+    "authors": [
+     "Hou B",
+     "Mondragón A",
+     "Tarzanagh DA",
+     "Zhou Z",
+     "Saykin AJ",
+     "Moore JH",
+     "Ritchie MD",
+     "Long Q",
+     "Shen L"
+    ],
+    "abstract": "Fairness is crucial in machine learning to prevent bias based on sensitive attributes in classifier predictions. However, the pursuit of strict fairness often sacrifices accuracy, particularly when significant prevalence disparities exist among groups, making classifiers less practical. For example, Alzheimer's disease (AD) is more prevalent in women than men, making equal treatment inequitable for females. Accounting for prevalence ratios among groups is essential for fair decision-making. In this paper, we introduce prior knowledge for fairness, which incorporates prevalence ratio information into the fairness constraint within the Empirical Risk Minimization (ERM) framework. We develop the Prior-knowledge-guided Fair ERM (PFERM) framework, aiming to minimize expected risk within a specified function class while adhering to a prior-knowledge-guided fairness constraint. This approach strikes a flexible balance between accuracy and fairness. Empirical results confirm its effectiveness in preserving fairness without compromising accuracy.",
+    "pmcid": "PMC11141835",
+    "pmid": "38827072",
+    "doi": null,
+    "journal": "AMIA Joint Summits on Translational Science proceedings. AMIA Joint Summits on Translational Science"
+   }
+  ]
+ },
+ "amyloid-subtypes-amia24": {
+  "site_title": "Cluster Analysis of Cortical Amyloid Burden for Identifying Imaging-driven Subtypes in Mild Cognitive Impairment",
+  "records": [
+   {
+    "source": "europepmc",
+    "title": "Cluster Analysis of Cortical Amyloid Burden for Identifying Imaging-driven Subtypes in Mild Cognitive Impairment.",
+    "authors": [
+     "Wu R",
+     "He B",
+     "Hou B",
+     "Saykin AJ",
+     "Yan J",
+     "Shen L"
+    ],
+    "abstract": "Over the past decade, Alzheimer's disease (AD) has become increasingly severe and gained greater attention. Mild Cognitive Impairment (MCI) serves as an important prodromal stage of AD, highlighting the urgency of early diagnosis for timely treatment and control of the condition. Identifying the subtypes of MCI patients exhibits importance for dissecting the heterogeneity of this complex disorder and facilitating more effective target discovery and therapeutic development. Conventional method uses clinical measurements such as cognitive score and neurophysical assessment to stratify MCI patients into two groups with early MCI (EMCI) and late MCI (LMCI), which shows their progressive stages. However, such clinical method is not designed to de-convolute the heterogeneity of the disorder. This study uses a data-driven approach to divide MCI patients into a novel grouping of two subtypes based on an amyloid dataset of 68 cortical features from positron emission tomography (PET), where each subtype has a homogeneous cortical amyloid burden pattern. Experimental evaluation including visual two-dimensional cluster distribution, Kaplan-Meier plot, genetic association studies, and biomarker distribution analysis demonstrates that the identified subtypes performs better across all metrics than the conventional EMCI and LMCI grouping.",
+    "pmcid": "PMC11141862",
+    "pmid": "38827045",
+    "doi": null,
+    "journal": "AMIA Joint Summits on Translational Science proceedings. AMIA Joint Summits on Translational Science"
+   }
+  ]
+ },
+ "manifoldron-tnnls24": {
+  "site_title": "Manifoldron: Direct Space Partition via Manifold Discovery",
+  "records": [
+   {
+    "source": "arxiv",
+    "title": "Manifoldron: Direct Space Partition via Manifold Discovery",
+    "authors": [
+     "Dayang Wang",
+     "Feng-Lei Fan",
+     "Bo-Jian Hou",
+     "Hao Zhang",
+     "Zhen Jia",
+     "Boce Zhou",
+     "Rongjie Lai",
+     "Hengyong Yu",
+     "Fei Wang"
+    ],
+    "abstract": "A neural network with the widely-used ReLU activation has been shown to partition the sample space into many convex polytopes for prediction. However, the parameterized way a neural network and other machine learning models use to partition the space has imperfections, \\textit{e}.\\textit{g}., the compromised interpretability for complex models, the inflexibility in decision boundary construction due to the generic character of the model, and the risk of being trapped into shortcut solutions. In contrast, although the non-parameterized models can adorably avoid or downplay these issues, they are usually insufficiently powerful either due to over-simplification or the failure to accommodate the manifold structures of data. In this context, we first propose a new type of machine learning models referred to as Manifoldron that directly derives decision boundaries from data and partitions the space via manifold structure discovery. Then, we systematically analyze the key characteristics of the Manifoldron such as manifold characterization capability and its link to neural networks. The experimental results on 4 synthetic examples, 20 public benchmark datasets, and 1 real-world application demonstrate that the proposed Manifoldron performs competitively compared to the mainstream machine learning models. We have shared our code in \\url{https://github.com/wdayang/Manifoldron} for free download and evaluation.",
+    "comment": "",
+    "journal_ref": ""
+   },
+   {
+    "source": "crossref",
+    "title": "Manifoldron: Direct Space Partition via Manifold Discovery",
+    "authors": [
+     "Dayang Wang",
+     "Feng-Lei Fan",
+     "Bo-Jian Hou",
+     "Hao Zhang",
+     "Zhen Jia",
+     "Boce Zhang",
+     "Rongjie Lai",
+     "Hengyong Yu",
+     "Fei Wang"
+    ],
+    "abstract": "",
+    "container": "IEEE Transactions on Neural Networks and Learning Systems",
+    "doi": "10.1109/TNNLS.2024.3486252"
+   }
+  ]
+ },
+ "mg-tcca-tcbb24": {
+  "site_title": "MG-TCCA: Tensor Canonical Correlation Analysis across Multiple Groups",
+  "records": [
+   {
+    "source": "europepmc",
+    "title": "MG-TCCA: Tensor Canonical Correlation Analysis Across Multiple Groups.",
+    "authors": [
+     "Zhou Z",
+     "Tong B",
+     "Ataee Tarzanagh D",
+     "Hou B",
+     "Saykin AJ",
+     "Long Q",
+     "Shen L"
+    ],
+    "abstract": "Tensor Canonical Correlation Analysis (TCCA) is a commonly employed statistical method utilized to examine linear associations between two sets of tensor datasets. However, the existing TCCA models fail to adequately address the heterogeneity present in real-world tensor data, such as brain imaging data collected from diverse groups characterized by factors like sex and race. Consequently, these models may yield biased outcomes. In order to surmount this constraint, we propose a novel approach called Multi-Group TCCA (MG-TCCA), which enables the joint analysis of multiple subgroups. By incorporating a dual sparsity structure and a block coordinate ascent algorithm, our MG-TCCA method effectively addresses heterogeneity and leverages information across different groups to identify consistent signals. This novel approach facilitates the quantification of shared and individual structures, reduces data dimensionality, and enables visual exploration. To empirically validate our approach, we conduct a study focused on investigating correlations between two brain positron emission tomography (PET) modalities (AV-45 and FDG) within an Alzheimer's disease (AD) cohort. Our results demonstrate that MG-TCCA surpasses traditional TCCA and Sparse TCCA (STCCA) in identifying sex-specific cross-modality imaging correlations. This heightened performance of MG-TCCA provides valuable insights for the characterization of multimodal imaging biomarkers in AD.",
+    "pmcid": "PMC11954983",
+    "pmid": "39348263",
+    "doi": "10.1109/tcbb.2024.3471930",
+    "journal": "IEEE transactions on computational biology and bioinformatics"
+   },
+   {
+    "source": "crossref",
+    "title": "MG-TCCA: Tensor Canonical Correlation Analysis Across Multiple Groups",
+    "authors": [
+     "Zhuoping Zhou",
+     "Boning Tong",
+     "Davoud Ataee Tarzanagh",
+     "Bojian Hou",
+     "Andrew J. Saykin",
+     "Qi Long",
+     "Li Shen"
+    ],
+    "abstract": "",
+    "container": "IEEE Transactions on Computational Biology and Bioinformatics",
+    "doi": "10.1109/TCBB.2024.3471930"
+   }
+  ]
+ },
+ "interpretable-dcsm-media24": {
+  "site_title": "Interpretable Deep Clustering Survival Machines for Alzheimer's Disease Subtype Discovery",
+  "records": [
+   {
+    "source": "crossref",
+    "title": "Interpretable deep clustering survival machines for Alzheimer’s disease subtype discovery",
+    "authors": [
+     "Bojian Hou",
+     "Zixuan Wen",
+     "Jingxuan Bao",
+     "Richard Zhang",
+     "Boning Tong",
+     "Shu Yang",
+     "Junhao Wen",
+     "Yuhan Cui",
+     "Jason H. Moore",
+     "Andrew J. Saykin",
+     "Heng Huang",
+     "Paul M. Thompson",
+     "Marylyn D. Ritchie",
+     "Christos Davatzikos",
+     "Li Shen"
+    ],
+    "abstract": "",
+    "container": "Medical Image Analysis",
+    "doi": "10.1016/j.media.2024.103231"
+   }
+  ]
+ },
+ "quadratic-autoencoder-tai24": {
+  "site_title": "Quadratic Neuron-empowered Heterogeneous Autoencoder for Unsupervised Anomaly Detection",
+  "records": [
+   {
+    "source": "arxiv",
+    "title": "Quadratic Neuron-empowered Heterogeneous Autoencoder for Unsupervised Anomaly Detection",
+    "authors": [
+     "Jing-Xiao Liao",
+     "Bo-Jian Hou",
+     "Hang-Cheng Dong",
+     "Hao Zhang",
+     "Xiaoge Zhang",
+     "Jinwei Sun",
+     "Shiping Zhang",
+     "Feng-Lei Fan"
+    ],
+    "abstract": "Inspired by the complexity and diversity of biological neurons, a quadratic neuron is proposed to replace the inner product in the current neuron with a simplified quadratic function. Employing such a novel type of neurons offers a new perspective on developing deep learning. When analyzing quadratic neurons, we find that there exists a function such that a heterogeneous network can approximate it well with a polynomial number of neurons but a purely conventional or quadratic network needs an exponential number of neurons to achieve the same level of error. Encouraged by this inspiring theoretical result on heterogeneous networks, we directly integrate conventional and quadratic neurons in an autoencoder to make a new type of heterogeneous autoencoders. To our best knowledge, it is the first heterogeneous autoencoder that is made of different types of neurons. Next, we apply the proposed heterogeneous autoencoder to unsupervised anomaly detection for tabular data and bearing fault signals. The anomaly detection faces difficulties such as data unknownness, anomaly feature heterogeneity, and feature unnoticeability, which is suitable for the proposed heterogeneous autoencoder. Its high feature representation ability can characterize a variety of anomaly data (heterogeneity), discriminate the anomaly from the normal (unnoticeability), and accurately learn the distribution of normal samples (unknownness). Experiments show that heterogeneous autoencoders perform competitively compared to other state-of-the-art models.",
+    "comment": "",
+    "journal_ref": ""
+   },
+   {
+    "source": "crossref",
+    "title": "Quadratic Neuron-Empowered Heterogeneous Autoencoder for Unsupervised Anomaly Detection",
+    "authors": [
+     "Jing-Xiao Liao",
+     "Bo-Jian Hou",
+     "Hang-Cheng Dong",
+     "Hao Zhang",
+     "Xiaoge Zhang",
+     "Jinwei Sun",
+     "Shiping Zhang",
+     "Feng-Lei Fan"
+    ],
+    "abstract": "",
+    "container": "IEEE Transactions on Artificial Intelligence",
+    "doi": "10.1109/TAI.2024.3394795"
+   }
+  ]
+ },
+ "sinkhorn-iscience24": {
+  "site_title": "Distance-weighted Sinkhorn loss for Alzheimer's disease classification",
+  "records": [
+   {
+    "source": "europepmc",
+    "title": "Distance-weighted Sinkhorn loss for Alzheimer's disease classification.",
+    "authors": [
+     "Wang Z",
+     "Zhan Q",
+     "Tong B",
+     "Yang S",
+     "Hou B",
+     "Huang H",
+     "Saykin AJ",
+     "Thompson PM",
+     "Davatzikos C",
+     "Shen L"
+    ],
+    "abstract": "Traditional loss functions such as cross-entropy loss often quantify the penalty for each mis-classified training sample without adequately considering its distance from the ground truth class distribution in the feature space. Intuitively, the larger this distance is, the higher the penalty should be. With this observation, we propose a penalty called distance-weighted Sinkhorn (DWS) loss. For each mis-classified training sample (with predicted label A and true label B), its contribution to the DWS loss positively correlates to the distance the training sample needs to travel to reach the ground truth distribution of all the A samples. We apply the DWS framework with a neural network to classify different stages of Alzheimer's disease. Our empirical results demonstrate that the DWS framework outperforms the traditional neural network loss functions and is comparable or better to traditional machine learning methods, highlighting its potential in biomedical informatics and data science.",
+    "pmcid": "PMC10906516",
+    "pmid": "38433927",
+    "doi": "10.1016/j.isci.2024.109212",
+    "journal": "iScience"
+   },
+   {
+    "source": "crossref",
+    "title": "Distance-weighted Sinkhorn loss for Alzheimer’s disease classification",
+    "authors": [
+     "Zexuan Wang",
+     "Qipeng Zhan",
+     "Boning Tong",
+     "Shu Yang",
+     "Bojian Hou",
+     "Heng Huang",
+     "Andrew J. Saykin",
+     "Paul M. Thompson",
+     "Christos Davatzikos",
+     "Li Shen"
+    ],
+    "abstract": "",
+    "container": "iScience",
+    "doi": "10.1016/j.isci.2024.109212"
+   }
+  ]
+ },
+ "fair-cca-neurips23": {
+  "site_title": "Fair Canonical Correlation Analysis",
+  "records": [
+   {
+    "source": "arxiv",
+    "title": "Fair Canonical Correlation Analysis",
+    "authors": [
+     "Zhuoping Zhou",
+     "Davoud Ataee Tarzanagh",
+     "Bojian Hou",
+     "Boning Tong",
+     "Jia Xu",
+     "Yanbo Feng",
+     "Qi Long",
+     "Li Shen"
+    ],
+    "abstract": "This paper investigates fairness and bias in Canonical Correlation Analysis (CCA), a widely used statistical technique for examining the relationship between two sets of variables. We present a framework that alleviates unfairness by minimizing the correlation disparity error associated with protected attributes. Our approach enables CCA to learn global projection matrices from all data points while ensuring that these matrices yield comparable correlation levels to group-specific projection matrices. Experimental evaluation on both synthetic and real-world datasets demonstrates the efficacy of our method in reducing correlation disparity error without compromising CCA accuracy.",
+    "comment": "Accepted for publication at NeurIPS 2023, 31 Pages, 14 Figures",
+    "journal_ref": ""
+   }
+  ]
+ },
+ "mg-tcca-bcb23": {
+  "site_title": "Multi-Group Tensor Canonical Correlation Analysis",
+  "records": [
+   {
+    "source": "europepmc",
+    "title": "Multi-Group Tensor Canonical Correlation Analysis.",
+    "authors": [
+     "Zhou Z",
+     "Tong B",
+     "Tarzanagh DA",
+     "Hou B",
+     "Saykin AJ",
+     "Long Q",
+     "Shen L"
+    ],
+    "abstract": "Tensor Canonical Correlation Analysis (TCCA) is a commonly employed statistical method utilized to examine linear associations between two sets of tensor datasets. However, the existing TCCA models fail to adequately address the heterogeneity present in real-world tensor data, such as brain imaging data collected from diverse groups characterized by factors like sex and race. Consequently, these models may yield biased outcomes. In order to surmount this constraint, we propose a novel approach called Multi-Group TCCA (MG-TCCA), which enables the joint analysis of multiple subgroups. By incorporating a dual sparsity structure and a block coordinate ascent algorithm, our MG-TCCA method effectively addresses heterogeneity and leverages information across different groups to identify consistent signals. This novel approach facilitates the quantification of shared and individual structures, reduces data dimensionality, and enables visual exploration. To empirically validate our approach, we conduct a study focused on investigating correlations between two brain positron emission tomography (PET) modalities (AV-45 and FDG) within an Alzheimer's disease (AD) cohort. Our results demonstrate that MG-TCCA surpasses traditional TCCA in identifying sex-specific cross-modality imaging correlations. This heightened performance of MG-TCCA provides valuable insights for the characterization of multimodal imaging biomarkers in AD.",
+    "pmcid": "PMC10593155",
+    "pmid": "37876849",
+    "doi": "10.1145/3584371.3612962",
+    "journal": "ACM-BCB ... ... : the ... ACM Conference on Bioinformatics, Computational Biology and Biomedicine. ACM Conference on Bioinformatics, Computational Biology and Biomedicine"
+   },
+   {
+    "source": "crossref",
+    "title": "Multi-Group Tensor Canonical Correlation Analysis",
+    "authors": [
+     "Zhuoping Zhou",
+     "Boning Tong",
+     "Davoud Ataee Tarzanagh",
+     "Bo-Jian Hou",
+     "Andrew Saykin",
+     "Qi Long",
+     "Li Shen"
+    ],
+    "abstract": "",
+    "container": "Proceedings of the 14th ACM International Conference on Bioinformatics, Computational Biology, and Health Informatics",
+    "doi": "10.1145/3584371.3612962"
+   }
+  ]
+ },
+ "avs-loss-mlmi23": {
+  "site_title": "Class-Balanced Deep Learning with Adaptive Vector Scaling Loss for Dementia Stage Detection",
+  "records": [
+   {
+    "source": "europepmc",
+    "title": "Class-Balanced Deep Learning with Adaptive Vector Scaling Loss for Dementia Stage Detection.",
+    "authors": [
+     "Tong B",
+     "Zhou Z",
+     "Tarzanagh DA",
+     "Hou B",
+     "Saykin AJ",
+     "Moore J",
+     "Ritchie M",
+     "Shen L"
+    ],
+    "abstract": "Alzheimer's disease (AD) leads to irreversible cognitive decline, with Mild Cognitive Impairment (MCI) as its prodromal stage. Early detection of AD and related dementia is crucial for timely treatment and slowing disease progression. However, classifying cognitive normal (CN), MCI, and AD subjects using machine learning models faces class imbalance, necessitating the use of balanced accuracy as a suitable metric. To enhance model performance and balanced accuracy, we introduce a novel method called VS-Opt-Net. This approach incorporates the recently developed vector-scaling (VS) loss into a machine learning pipeline named STREAMLINE. Moreover, it employs Bayesian optimization for hyperparameter learning of both the model and loss function. VS-Opt-Net not only amplifies the contribution of minority examples in proportion to the imbalance level but also addresses the challenge of generalization in training deep networks. In our empirical study, we use MRI-based brain regional measurements as features to conduct the CN vs MCI and AD vs MCI binary classifications. We compare the balanced accuracy of our model with other machine learning models and deep neural network loss functions that also employ class-balanced strategies. Our findings demonstrate that after hyperparameter optimization, the deep neural network using the VS loss function substantially improves balanced accuracy. It also surpasses other models in performance on the AD dataset. Moreover, our feature importance analysis highlights VS-Opt-Net's ability to elucidate biomarker differences across dementia stages.",
+    "pmcid": "PMC10924683",
+    "pmid": "38463442",
+    "doi": "10.1007/978-3-031-45676-3_15",
+    "journal": "Machine learning in medical imaging. MLMI (Workshop)"
+   },
+   {
+    "source": "crossref",
+    "title": "Class-Balanced Deep Learning with Adaptive Vector Scaling Loss for Dementia Stage Detection",
+    "authors": [
+     "Boning Tong",
+     "Zhuoping Zhou",
+     "Davoud Ataee Tarzanagh",
+     "Bojian Hou",
+     "Andrew J. Saykin",
+     "Jason Moore",
+     "Marylyn Ritchie",
+     "Li Shen"
+    ],
+    "abstract": "",
+    "container": "Lecture Notes in Computer Science",
+    "doi": "10.1007/978-3-031-45676-3_15"
+   }
+  ]
+ },
+ "facims-uai23": {
+  "site_title": "Fairness-Aware Class Imbalanced Learning on Multiple Subgroups",
+  "records": [
+   {
+    "source": "europepmc",
+    "title": "Fairness-Aware Class Imbalanced Learning on Multiple Subgroups.",
+    "authors": [
+     "Tarzanagh DA",
+     "Hou B",
+     "Tong B",
+     "Long Q",
+     "Shen L"
+    ],
+    "abstract": "We present a novel Bayesian-based optimization framework that addresses the challenge of generalization in overparameterized models when dealing with imbalanced subgroups and limited samples per subgroup. Our proposed tri-level optimization framework utilizes local predictors, which are trained on a small amount of data, as well as a fair and class-balanced predictor at the middle and lower levels. To effectively overcome saddle points for minority classes, our lower-level formulation incorporates sharpness-aware minimization. Meanwhile, at the upper level, the framework dynamically adjusts the loss function based on validation loss, ensuring a close alignment between the global predictor and local predictors. Theoretical analysis demonstrates the framework's ability to enhance classification and fairness generalization, potentially resulting in improvements in the generalization bound. Empirical results validate the superior performance of our tri-level framework compared to existing state-of-the-art approaches. The source code can be found at https://github.com/PennShenLab/FACIMS.",
+    "pmcid": "PMC11003754",
+    "pmid": "38601022",
+    "doi": null,
+    "journal": "Proceedings of machine learning research"
+   }
+  ]
+ },
+ "dcsm-isbi23": {
+  "site_title": "Deep Clustering Survival Machines with Interpretable Expert Distributions",
+  "records": [
+   {
+    "source": "arxiv",
+    "title": "Deep Clustering Survival Machines with Interpretable Expert Distributions",
+    "authors": [
+     "Bojian Hou",
+     "Hongming Li",
+     "Zhicheng Jiao",
+     "Zhen Zhou",
+     "Hao Zheng",
+     "Yong Fan"
+    ],
+    "abstract": "Conventional survival analysis methods are typically ineffective to characterize heterogeneity in the population while such information can be used to assist predictive modeling. In this study, we propose a hybrid survival analysis method, referred to as deep clustering survival machines, that combines the discriminative and generative mechanisms. Similar to the mixture models, we assume that the timing information of survival data is generatively described by a mixture of certain numbers of parametric distributions, i.e., expert distributions. We learn weights of the expert distributions for individual instances according to their features discriminatively such that each instance's survival information can be characterized by a weighted combination of the learned constant expert distributions. This method also facilitates interpretable subgrouping/clustering of all instances according to their associated expert distributions. Extensive experiments on both real and synthetic datasets have demonstrated that the method is capable of obtaining promising clustering results and competitive time-to-event predicting performance.",
+    "comment": "",
+    "journal_ref": ""
+   },
+   {
+    "source": "crossref",
+    "title": "Deep Clustering Survival Machines with Interpretable Expert Distributions",
+    "authors": [
+     "Bojian Hou",
+     "Hongming Li",
+     "Zhicheng Jiao",
+     "Zhen Zhou",
+     "Hao Zheng",
+     "Yong Fan"
+    ],
+    "abstract": "",
+    "container": "2023 IEEE 20th International Symposium on Biomedical Imaging (ISBI)",
+    "doi": "10.1109/ISBI53787.2023.10230844"
+   }
+  ]
+ },
+ "glaucoma-bias-amia23": {
+  "site_title": "Evaluate Underdiagnosis and Overdiagnosis Bias of Deep Learning Model on Primary Open-Angle Glaucoma Diagnosis in Under-Served Populations",
+  "records": [
+   {
+    "source": "europepmc",
+    "title": "Evaluate underdiagnosis and overdiagnosis bias of deep learning model on primary open-angle glaucoma diagnosis in under-served populations.",
+    "authors": [
+     "Lin M",
+     "Xiao Y",
+     "Hou B",
+     "Wanyan T",
+     "Sharma MM",
+     "Wang Z",
+     "Wang F",
+     "Tassel SV",
+     "Peng Y"
+    ],
+    "abstract": "In the United States, primary open-angle glaucoma (POAG) is the leading cause of blindness, especially among African American and Hispanic individuals. Deep learning has been widely used to detect POAG using fundus images as its performance is comparable to or even surpasses diagnosis by clinicians. However, human bias in clinical diagnosis may be reflected and amplified in the widely-used deep learning models, thus impacting their performance. Biases may cause (1) underdiagnosis, increasing the risks of delayed or inadequate treatment, and (2) overdiagnosis, which may increase individuals' stress, fear, well-being, and unnecessary/costly treatment. In this study, we examined the underdiagnosis and overdiagnosis when applying deep learning in POAG detection based on the Ocular Hypertension Treatment Study (OHTS) from 22 centers across 16 states in the United States. Our results show that the widely-used deep learning model can underdiagnose or overdiagnose under-served populations. The most underdiagnosed group is female younger (< 60 yrs) group, and the most overdiagnosed group is Black older (≥ 60 yrs) group. Biased diagnosis through traditional deep learning methods may delay disease detection, treatment and create burdens among under-served populations, thereby, raising ethical concerns about using deep learning models in ophthalmology clinics.",
+    "pmcid": "PMC10283103",
+    "pmid": "37350910",
+    "doi": null,
+    "journal": "AMIA Joint Summits on Translational Science proceedings. AMIA Joint Summits on Translational Science"
+   }
+  ]
+ },
+ "old3s-tkde23": {
+  "site_title": "Online Learning from Evolving Feature Spaces with Deep Variational Models",
+  "records": [
+   {
+    "source": "crossref",
+    "title": "Online Learning From Evolving Feature Spaces With Deep Variational Models",
+    "authors": [
+     "Heng Lian",
+     "Di Wu",
+     "Bo-Jian Hou",
+     "Jian Wu",
+     "Yi He"
+    ],
+    "abstract": "",
+    "container": "IEEE Transactions on Knowledge and Data Engineering",
+    "doi": "10.1109/TKDE.2023.3326365"
+   }
+  ]
+ },
+ "chest-xray-cbm23": {
+  "site_title": "Enhancing thoracic disease detection using chest X-rays from PubMed Central Open Access",
+  "records": [
+   {
+    "source": "crossref",
+    "title": "Enhancing thoracic disease detection using chest X-rays from PubMed Central Open Access",
+    "authors": [
+     "Mingquan Lin",
+     "Bojian Hou",
+     "Swati Mishra",
+     "Tianyuan Yao",
+     "Yuankai Huo",
+     "Qian Yang",
+     "Fei Wang",
+     "George Shih",
+     "Yifan Peng"
+    ],
+    "abstract": "",
+    "container": "Computers in Biology and Medicine",
+    "doi": "10.1016/j.compbiomed.2023.106962"
+   }
+  ]
+ },
+ "detr-pretraining-arxiv23": {
+  "site_title": "Revisiting DETR Pre-training for Object Detection",
+  "records": [
+   {
+    "source": "arxiv",
+    "title": "Revisiting DETR Pre-training for Object Detection",
+    "authors": [
+     "Yan Ma",
+     "Weicong Liang",
+     "Bohan Chen",
+     "Yiduo Hao",
+     "Bojian Hou",
+     "Xiangyu Yue",
+     "Chao Zhang",
+     "Yuhui Yuan"
+    ],
+    "abstract": "Motivated by the remarkable achievements of DETR-based approaches on COCO object detection and segmentation benchmarks, recent endeavors have been directed towards elevating their performance through self-supervised pre-training of Transformers while preserving a frozen backbone. Noteworthy advancements in accuracy have been documented in certain studies. Our investigation delved deeply into a representative approach, DETReg, and its performance assessment in the context of emerging models like $\\mathcal{H}$-Deformable-DETR. Regrettably, DETReg proves inadequate in enhancing the performance of robust DETR-based models under full data conditions. To dissect the underlying causes, we conduct extensive experiments on COCO and PASCAL VOC probing elements such as the selection of pre-training datasets and strategies for pre-training target generation. By contrast, we employ an optimized approach named Simple Self-training which leads to marked enhancements through the combination of an improved box predictor and the Objects$365$ benchmark. The culmination of these endeavors results in a remarkable AP score of $59.3\\%$ on the COCO val set, outperforming $\\mathcal{H}$-Deformable-DETR + Swin-L without pre-training by $1.4\\%$. Moreover, a series of synthetic pre-training datasets, generated by merging contemporary image-to-text(LLaVA) and text-to-image (SDXL) models, significantly amplifies object detection capabilities.",
+    "comment": "",
+    "journal_ref": ""
+   }
+  ]
+ },
+ "doubly-streaming-mm22": {
+  "site_title": "Online Deep Learning from Doubly-Streaming Data",
+  "records": [
+   {
+    "source": "arxiv",
+    "title": "Online Deep Learning from Doubly-Streaming Data",
+    "authors": [
+     "Heng Lian",
+     "John Scovil Atwood",
+     "Bojian Hou",
+     "Jian Wu",
+     "Yi He"
+    ],
+    "abstract": "This paper investigates a new online learning problem with doubly-streaming data, where the data streams are described by feature spaces that constantly evolve, with new features emerging and old features fading away. The challenges of this problem are two folds: 1) Data samples ceaselessly flowing in may carry shifted patterns over time, requiring learners to update hence adapt on-the-fly. 2) Newly emerging features are described by very few samples, resulting in weak learners that tend to make error predictions. A plausible idea to overcome the challenges is to establish relationship between the pre-and-post evolving feature spaces, so that an online learner can leverage the knowledge learned from the old features to better the learning performance on the new features. Unfortunately, this idea does not scale up to high-dimensional media streams with complex feature interplay, which suffers an tradeoff between onlineness (biasing shallow learners) and expressiveness(requiring deep learners). Motivated by this, we propose a novel OLD^3S paradigm, where a shared latent subspace is discovered to summarize information from the old and new feature spaces, building intermediate feature mapping relationship. A key trait of OLD^3S is to treat the model capacity as a learnable semantics, yields optimal model depth and parameters jointly, in accordance with the complexity and non-linearity of the input data streams in an online fashion. Both theoretical analyses and empirical studies substantiate the viability and effectiveness of our proposal.",
+    "comment": "Have accepted by ACMMM 2022. Legends mistake in Figure 4 has been corrected",
+    "journal_ref": ""
+   },
+   {
+    "source": "crossref",
+    "title": "Online Deep Learning from Doubly-Streaming Data",
+    "authors": [
+     "Heng Lian",
+     "John Scovi Atwood",
+     "Bo-Jian Hou",
+     "Jian Wu",
+     "Yi He"
+    ],
+    "abstract": "",
+    "container": "Proceedings of the 30th ACM International Conference on Multimedia",
+    "doi": "10.1145/3503161.3548355"
+   }
+  ]
+ },
+ "glaucoma-scirep22": {
+  "site_title": "Automated diagnosing primary open-angle glaucoma from fundus image by simulating human’s grading with deep learning",
+  "records": [
+   {
+    "source": "crossref",
+    "title": "Automated diagnosing primary open-angle glaucoma from fundus image by simulating human’s grading with deep learning",
+    "authors": [
+     "Mingquan Lin",
+     "Bojian Hou",
+     "Lei Liu",
+     "Mae Gordon",
+     "Michael Kass",
+     "Fei Wang",
+     "Sarah H. Van Tassel",
+     "Yifan Peng"
+    ],
+    "abstract": "AbstractPrimary open-angle glaucoma (POAG) is a leading cause of irreversible blindness worldwide. Although deep learning methods have been proposed to diagnose POAG, it remains challenging to develop a robust and explainable algorithm to automatically facilitate the downstream diagnostic tasks. In this study, we present an automated classification algorithm, GlaucomaNet, to identify POAG using variable fundus photographs from different populations and settings. GlaucomaNet consists of two convolutional neural networks to simulate the human grading process: learning the discriminative features and fusing the features for grading. We evaluated GlaucomaNet on two datasets: Ocular Hypertension Treatment Study (OHTS) participants and the Large-scale Attention-based Glaucoma (LAG) dataset. GlaucomaNet achieved the highest AUC of 0.904 and 0.997 for POAG diagnosis on OHTS and LAG datasets. An ensemble of network architectures further improved diagnostic accuracy. By simulating the human grading process, GlaucomaNet demonstrated high accuracy with increased transparency in POAG diagnosis (comprehensiveness scores of 97% and 36%). These methods also address two well-known challenges in the field: the need for increased image data diversity and relying heavily on perimetry for POAG diagnosis. These results highlight the potential of deep learning to assist and enhance clinical POAG diagnosis. GlaucomaNet is publicly available onhttps://github.com/bionlplab/GlaucomaNet.",
+    "container": "Scientific Reports",
+    "doi": "10.1038/s41598-022-17753-4"
+   }
+  ]
+ },
+ "sf2el-aaai21": {
+  "site_title": "Storage Fit Learning with Feature Evolvable Streams",
+  "records": [
+   {
+    "source": "arxiv",
+    "title": "Storage Fit Learning with Feature Evolvable Streams",
+    "authors": [
+     "Bo-Jian Hou",
+     "Yu-Hu Yan",
+     "Peng Zhao",
+     "Zhi-Hua Zhou"
+    ],
+    "abstract": "Feature evolvable learning has been widely studied in recent years where old features will vanish and new features will emerge when learning with streams. Conventional methods usually assume that a label will be revealed after prediction at each time step. However, in practice, this assumption may not hold whereas no label will be given at most time steps. A good solution is to leverage the technique of manifold regularization to utilize the previous similar data to assist the refinement of the online model. Nevertheless, this approach needs to store all previous data which is impossible in learning with streams that arrive sequentially in large volume. Thus we need a buffer to store part of them. Considering that different devices may have different storage budgets, the learning approaches should be flexible subject to the storage budget limit. In this paper, we propose a new setting: Storage-Fit Feature-Evolvable streaming Learning (SF$^2$EL) which incorporates the issue of rarely-provided labels into feature evolution. Our framework is able to fit its behavior to different storage budgets when learning with feature evolvable streams with unlabeled data. Besides, both theoretical and empirical results validate that our approach can preserve the merit of the original feature evolvable learning i.e., can always track the best baseline and thus perform well at any time step.",
+    "comment": "",
+    "journal_ref": ""
+   },
+   {
+    "source": "crossref",
+    "title": "Storage Fit Learning with Feature Evolvable Streams",
+    "authors": [
+     "Bo-Jian Hou",
+     "Yu-Hu Yan",
+     "Peng Zhao",
+     "Zhi-Hua Zhou"
+    ],
+    "abstract": "Feature evolvable learning has been widely studied in recent years where old features will vanish and new features will emerge when learning with streams. Conventional methods usually assume that a label will be revealed after prediction at each time step. However, in practice, this assumption may not hold whereas no label will be given at most time steps. A good solution is to leverage the technique of manifold regularization to utilize the previous similar data to assist the refinement of the online model. Nevertheless, this approach needs to store all previous data which is impossible in learning with streams that arrive sequentially in large volume. Thus we need a buffer to store part of them. Considering that different devices may have different storage budgets, the learning approaches should be flexible subject to the storage budget limit. In this paper, we propose a new setting: Storage-Fit Feature-Evolvable streaming Learning (SF2EL) which incorporates the issue of rarely-provided labels into feature evolution. Our framework is able to fit its behavior for different storage budgets when learning with feature evolvable streams with unlabeled data. Besides, both theoretical and empirical results validate that our approach can preserve the merit of the original feature evolvable learning i.e., can always track the best baseline and thus perform well at any time step.",
+    "container": "Proceedings of the AAAI Conference on Artificial Intelligence",
+    "doi": "10.1609/aaai.v35i9.16944"
+   }
+  ]
+ },
+ "ovfm-icdm21": {
+  "site_title": "Online Learning in Variable Feature Spaces with Mixed Data",
+  "records": [
+   {
+    "source": "crossref",
+    "title": "Online Learning in Variable Feature Spaces with Mixed Data",
+    "authors": [
+     "Yi He",
+     "Jiaxian Dong",
+     "Bo-Jian Hou",
+     "Yu Wang",
+     "Fei Wang"
+    ],
+    "abstract": "",
+    "container": "2021 IEEE International Conference on Data Mining (ICDM)",
+    "doi": "10.1109/ICDM51629.2021.00028"
+   }
+  ]
+ },
+ "pufe-tnnls21": {
+  "site_title": "Prediction with Unpredictable Feature Evolution",
+  "records": [
+   {
+    "source": "arxiv",
+    "title": "Prediction with Unpredictable Feature Evolution",
+    "authors": [
+     "Bo-Jian Hou",
+     "Lijun Zhang",
+     "Zhi-Hua Zhou"
+    ],
+    "abstract": "Learning with feature evolution studies the scenario where the features of the data streams can evolve, i.e., old features vanish and new features emerge. Its goal is to keep the model always performing well even when the features happen to evolve. To tackle this problem, canonical methods assume that the old features will vanish simultaneously and the new features themselves will emerge simultaneously as well. They also assume there is an overlapping period where old and new features both exist when the feature space starts to change. However, in reality, the feature evolution could be unpredictable, which means the features can vanish or emerge arbitrarily, causing the overlapping period incomplete. In this paper, we propose a novel paradigm: Prediction with Unpredictable Feature Evolution (PUFE) where the feature evolution is unpredictable. To address this problem, we fill the incomplete overlapping period and formulate it as a new matrix completion problem. We give a theoretical bound on the least number of observed entries to make the overlapping period intact. With this intact overlapping period, we leverage an ensemble method to take the advantage of both the old and new feature spaces without manually deciding which base models should be incorporated. Theoretical and experimental results validate that our method can always follow the best base models and thus realize the goal of learning with feature evolution.",
+    "comment": "",
+    "journal_ref": ""
+   },
+   {
+    "source": "crossref",
+    "title": "Prediction With Unpredictable Feature Evolution",
+    "authors": [
+     "Bo-Jian Hou",
+     "Lijun Zhang",
+     "Zhi-Hua Zhou"
+    ],
+    "abstract": "",
+    "container": "IEEE Transactions on Neural Networks and Learning Systems",
+    "doi": "10.1109/TNNLS.2021.3071311"
+   }
+  ]
+ },
+ "clinical-evidence-engine-arxiv21": {
+  "site_title": "Clinical Evidence Engine: Proof-of-Concept For a Clinical-Domain-Agnostic Decision Support Infrastructure",
+  "records": [
+   {
+    "source": "arxiv",
+    "title": "Clinical Evidence Engine: Proof-of-Concept For A Clinical-Domain-Agnostic Decision Support Infrastructure",
+    "authors": [
+     "Bojian Hou",
+     "Hao Zhang",
+     "Gur Ladizhinsky",
+     "Gur Ladizhinsky",
+     "Stephen Yang",
+     "Volodymyr Kuleshov",
+     "Fei Wang",
+     "Qian Yang"
+    ],
+    "abstract": "Abstruse learning algorithms and complex datasets increasingly characterize modern clinical decision support systems (CDSS). As a result, clinicians cannot easily or rapidly scrutinize the CDSS recommendation when facing a difficult diagnosis or treatment decision in practice. Over-trust or under-trust are frequent. Prior research has explored supporting such assessments by explaining DST data inputs and algorithmic mechanisms. This paper explores a different approach: Providing precisely relevant, scientific evidence from biomedical literature. We present a proof-of-concept system, Clinical Evidence Engine, to demonstrate the technical and design feasibility of this approach across three domains (cardiovascular diseases, autism, cancer). Leveraging Clinical BioBERT, the system can effectively identify clinical trial reports based on lengthy clinical questions (e.g., \"risks of catheter infection among adult patients in intensive care unit who require arterial catheters, if treated with povidone iodine-alcohol\"). This capability enables the system to identify clinical trials relevant to diagnostic/treatment hypotheses -- a clinician's or a CDSS's. Further, Clinical Evidence Engine can identify key parts of a clinical trial abstract, including patient population (e.g., adult patients in intensive care unit who require arterial catheters), intervention (povidone iodine-alcohol), and outcome (risks of catheter infection). This capability opens up the possibility of enabling clinicians to 1) rapidly determine the match between a clinical trial and a clinical question, and 2) understand the result and contexts of the trial without extensive reading. We demonstrate this potential by illustrating two example use scenarios of the system. We discuss the idea of designing DST explanations not as specific to a DST or an algorithm, but as a domain-agnostic decision support infrastructure.",
+    "comment": "",
+    "journal_ref": ""
+   }
+  ]
+ },
+ "lisor-tnnls20": {
+  "site_title": "Learning with Interpretable Structure from Gated RNN",
+  "records": [
+   {
+    "source": "arxiv",
+    "title": "Learning with Interpretable Structure from Gated RNN",
+    "authors": [
+     "Bo-Jian Hou",
+     "Zhi-Hua Zhou"
+    ],
+    "abstract": "The interpretability of deep learning models has raised extended attention these years. It will be beneficial if we can learn an interpretable structure from deep learning models. In this paper, we focus on Recurrent Neural Networks~(RNNs) especially gated RNNs whose inner mechanism is still not clearly understood. We find that Finite State Automaton~(FSA) that processes sequential data has more interpretable inner mechanism according to the definition of interpretability and can be learned from RNNs as the interpretable structure. We propose two methods to learn FSA from RNN based on two different clustering methods. With the learned FSA and via experiments on artificial and real datasets, we find that FSA is more trustable than the RNN from which it learned, which gives FSA a chance to substitute RNNs in applications involving humans' lives or dangerous facilities. Besides, we analyze how the number of gates affects the performance of RNN. Our result suggests that gate in RNN is important but the less the better, which could be a guidance to design other RNNs. Finally, we observe that the FSA learned from RNN gives semantic aggregated states and its transition graph shows us a very interesting vision of how RNNs intrinsically handle text classification tasks.",
+    "comment": "",
+    "journal_ref": ""
+   },
+   {
+    "source": "crossref",
+    "title": "Learning With Interpretable Structure From Gated RNN",
+    "authors": [
+     "Bo-Jian Hou",
+     "Zhi-Hua Zhou"
+    ],
+    "abstract": "",
+    "container": "IEEE Transactions on Neural Networks and Learning Systems",
+    "doi": "10.1109/TNNLS.2020.2967051"
+   }
+  ]
+ },
+ "rnn-interpretability-ccfai19": {
+  "site_title": "Learning Interpretability from RNN with Feature Changing",
+  "records": []
+ },
+ "fesl-tkde19": {
+  "site_title": "Learning with Feature Evolvable Streams",
+  "records": []
+ },
+ "deep-forest-mil-jcrd19": {
+  "site_title": "Deep Forest for Multiple Instance Learning",
+  "records": []
+ },
+ "fesl-nips17": {
+  "site_title": "Learning with Feature Evolvable Streams",
+  "records": []
+ },
+ "sfl-ijcai17": {
+  "site_title": "Storage Fit Learning with Unlabeled Data",
+  "records": [
+   {
+    "source": "crossref",
+    "title": "Storage Fit Learning with Unlabeled Data",
+    "authors": [
+     "Bo-Jian Hou",
+     "Lijun Zhang",
+     "Zhi-Hua Zhou"
+    ],
+    "abstract": "By using abundant unlabeled data, semi-supervised learning approaches have been found very useful in various tasks. Existing approaches, however, neglect the fact that the storage available for the learning process is different under different situations, and thus, the learning approaches should be flexible subject to the storage budget limit. In this paper, we focus on graph-based semi-supervised learning and propose two storage fit learning approaches which can adjust their behaviors to different storage budgets. Specifically, we utilize techniques of low-rank matrix approximation to find a low-rank approximator of the similarity matrix so as to reduce the space complexity. The first approach is based on stochastic optimization, which is an iterative approach that converges to the optimal low-rank approximator globally. The second approach is based on Nystrom method, which can find a good low-rank approximator efficiently and is suitable for real-time applications. Experiments on classification tasks show that the proposed methods can fit dynamically different storage budgets and obtain good performances in different scenarios.",
+    "container": "Proceedings of the Twenty-Sixth International Joint Conference on Artificial Intelligence",
+    "doi": "10.24963/ijcai.2017/256"
+   }
+  ]
+ }
+}

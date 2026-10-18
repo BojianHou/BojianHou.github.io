@@ -1,0 +1,84 @@
+A Unified 3D Vision-Language Framework for
+Structured Multi-Study Volumetric Report
+Generation
+Rahul Shukla1⋆, Ruiming Wu2⋆, Hongzhuo Chen3, Shu Yang2, Duy
+Duong-Tran2, Duy Minh Ho Nguyen4, Mathias Niepert4, Cameron Beeche2,
+James Gee2, Jeffrey Duda2, Rakesh Sharma2, Christos Davatzikos2, Walter
+Witschey2, Bojian Hou2†, and Li Shen2†
+1 School of Engineering and Applied Science, University of Pennsylvania
+2 Perelman School of Medicine, University of Pennsylvania
+3 School of Arts and Sciences, University of Pennsylvania
+4 International Max Planck Research School for Intelligent Systems (IMPRS-IS)
+Abstract. While medical vision-language models (VLMs) show promise
+for automated radiology report generation, existing approaches typically
+rely on 2D encoders that discard essential volumetric data. Furthermore,
+they universally assume a single scan per patient, overlooking the multi-
+study imaging common in longitudinal clinical care. In this paper, we
+propose a unified native 3D VLM framework designed for structured
+multi-study CT and MRI report generation. Our dual-projector archi-
+tecture bridges specialized 3D vision encoders with a clinically adapted
+language model through a contrastively grounded intermediate semantic
+space. To prevent the degradation of vision-text representations during
+fine-tuning, we introduce a joint generative-contrastive objective that
+maintains contrastive alignment across all training stages. Additionally,
+we implement and evaluate distinct aggregation strategies to effectively
+process patients with multiple historical imaging studies. Evaluated on
+the Penn Medicine BioBank (9,384 patients; 29,523 scans), our frame-
+work outperforms existing 2D and 3D medical VLMs across standard lex-
+ical metrics and multi-dimensional clinical assessments spanning anatom-
+ical coverage, critical findings, diagnostic plausibility, and report quality.
+Keywords: 3D Medical Vision-Language Model · Radiology Report
+Generation · Contrastive Learning · Multi-study.
+1
+Introduction
+Radiology report generation directly guides patient care, yet drafting reports
+is cognitively complex and high-stakes: clinicians must synthesize 3D anatomy,
+detect subtle abnormalities across slices, and translate visual evidence into stan-
+dardized text. As imaging volumes outpace the available radiology workforce [22],
+⋆Equal contribution. †Corresponding authors.
+2
+R. Shukla, R. Wu et al.
+automated medical vision-language models (VLMs) offer a scalable way to re-
+duce clinician burden. More broadly, clinical NLP studies confirm the value of
+such task-specific adaptation: MentalGPT [29] instruction-tunes LLMs for em-
+pathetic mental-health support, MentalChat16K [30] supplies domain-specific
+dialogues for training and evaluation, and DALK [11] grounds biomedical ques-
+tion answering in a literature-derived knowledge graph. None of these, however,
+address structured, image-grounded radiology reporting. Healthcare VLMs built
+for imaging, such as LLaVA-Med [10] and Med-Flamingo [16], rely mainly on
+2D encoders such as CLIP [21], while treating volumes as independent slices, as
+in prior slice-based adaptations [4], discards spatial continuity essential for CT
+and MRI interpretation. Native 3D VLMs, including CT2Rep [6], RadFM [26],
+E3D-GPT [9], and Med3DVLM [28], narrow this gap, but key limitations re-
+main. First, they pair spatial encoders directly with general-purpose language
+models (e.g., Vicuna [5], LLaMA [23]) that lack clinical grounding. Second, they
+confine contrastive alignment [32, 13] to pretraining and discard it during genera-
+tive fine-tuning, allowing vision-text representations to degrade as the model fits
+language patterns—a phenomenon we term clinical drift. Finally, existing sys-
+tems assume a single study and cannot aggregate the longitudinal or multi-phase
+scans common in clinical practice.
+In this paper, we present a unified, native 3D vision-language framework for
+structured CT and MRI report generation that departs from prior approaches
+which retrofit 2D architectures to volumetric data. Instead, we (i) introduce a 3D
+dual-projector framework that couples state-of-the-art volumetric encoders (CT-
+FM [18] and Merlin [3]) with a domain-adapted clinical language model (MMed-
+Llama-3 [20]) within a clinically grounded ClinicalBERT [1] space. Building on
+this aligned representation, we (ii) formulate a joint Generative-InfoNCE ob-
+jective [17] that sustains cross-modal consistency during instruction tuning. To
+move beyond the single-scan assumption, we (iii) extend our framework to the
+multi-study setting through three aggregation strategies: semantic retrieval, to-
+ken stacking, and embedding averaging. Finally, to rigorously assess clinical relia-
+bility, we (iv) implement a multi-dimensional clinical LLM-as-a-Judge evaluation
+pipeline measuring anatomical coverage, critical findings, diagnostic plausibility,
+and overall report quality, thereby complementing traditional lexical metrics
+with clinically grounded fidelity assessment.
+2
+Method
+Our framework consists of a frozen 3D vision encoder E, a dual-projector align-
+ment module, and a medical language model L, trained in two stages following
+the visual instruction tuning paradigm [14]. An overview is shown in Fig. 1.
+3D Vision Encoding and Dual-Projector Alignment. Given a CT volume
+V ∈RD×H×W , we extract volumetric features zv = E(V ) using a pretrained
+frozen encoder. We evaluate CT-FM [18], a SegResNet pretrained on 148k CTs
+via contrastive learning, and Merlin [3], an I3D ResNet pretrained on 15k ab-
+dominal CTs with joint contrastive and EHR supervision.

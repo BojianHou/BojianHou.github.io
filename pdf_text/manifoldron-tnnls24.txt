@@ -1,0 +1,222 @@
+1
+Manifoldron: Direct Space Partition via Manifold
+Discovery
+Dayang Wang1†, Feng-Lei Fan2†, IEEE Member, Bo-Jian Hou2, Hao Zhang2, Zhen Jia3, Boce Zhang3,
+Rongjie Lai4∗, Hengyong Yu1∗, IEEE Senior Member, Fei Wang2∗, IEEE Senior Member
+Abstract—A neural network with the widely-used ReLU acti-
+vation has been shown to partition the sample space into many
+convex polytopes for prediction. However, the parameterized
+way a neural network and other machine learning models use
+to partition the space has imperfections, e.g., the compromised
+interpretability for complex models, the inﬂexibility in decision
+boundary construction due to the generic character of the model,
+and the risk of being trapped into shortcut solutions. In contrast,
+although the non-parameterized models can adorably avoid or
+downplay these issues, they are usually insufﬁciently powerful
+either due to over-simpliﬁcation or the failure to accommodate
+the manifold structures of data. In this context, we ﬁrst propose
+a new type of machine learning models referred to as Mani-
+foldron that directly derives decision boundaries from data and
+partitions the space via manifold structure discovery. Then, we
+systematically analyze the key characteristics of the Manifoldron
+such as manifold characterization capability and its link to neural
+networks. The experimental results on 4 synthetic examples, 20
+public benchmark datasets, and 1 real-world application demon-
+strate that the proposed Manifoldron performs competitively
+compared to the mainstream machine learning models. We have
+shared our code in https://github.com/wdayang/Manifoldron for
+free download and evaluation.
+I. INTRODUCTION
+Over the past few years, deep learning has transformed
+a huge variety of important applications [1]–[4]. With the
+development of research, the understanding of the inner-
+working mechanism of a deep neural network is gradually
+enhanced from both theoretical and engineering perspectives.
+One notable thread of studies [5]–[7] mathematically showed
+that a neural network with the widely-used ReLU activation
+partitions the sample space into many convex polytopes, and a
+neural network is essentially a piecewise linear function over
+these polytopes. In theory, a polytope and its underpinning
+linear function can be uniquely determined by the collective
+activation states of each and every neuron in a network [5],
+thereby realizing a complete and consistent interpretation of
+the original network. However, in practice, it is unrealistic to
+do so because the computational cost scales exponentially with
+the number of neurons.
+∗Rongjie Lai, Hengyong Yu, and Fei Wang are co-corresponding authors.
+†Dayang Wang and Feng-Lei Fan contribute equally.
+1Dayang Wang and Hengyong Yu are with Department of Electrical and
+Computer Engineering, University of Massachusetts, Lowell, MA, USA
+2Feng-Lei Fan, Bo-Jian Hou, Hao Zhang, and Fei Wang are with Weill
+Cornell Medicine, Cornell University, New York City, NY, USA
+3Zhen Jia and Boce Zhang are with Department of Food Science and
+Human Nutrition, University of Florida, Gainesville, FL, USA
+4Rongjie Lai is with Department of Mathematics, Rensselaer Polytechnic
+Institute, Troy, NY, USA
+Space partition is not a proprietary view exclusively owned
+by deep learning; it is also shared by other machine learning
+models. We categorize machine learning models as parame-
+terized and non-parameterized ones, which respectively corre-
+spond to encoding decision boundaries with model parameters
+to partition the space (parameterized) and directly partitioning
+the space with training data (non-parameterized).
+Compared to direct space partition, the use of parameterized
+decision boundaries is subjected to three limitations. (i) The
+compromised interpretability [8], [9]: As the model goes
+complex, e.g., a neural network gets deeper, or a decision tree
+[10] is ensembled into a forest, how model parameters shape
+the decision boundaries becomes more and more unclear,
+making the entire model less and less interpretable. (ii) The
+parameterized boundaries have to respect a certain standard
+about the form of the decision boundaries that concerns the
+generic character of the model, e.g., a single decision tree
+typically employs horizontal and vertical decision hyperplanes.
+These standards may not facilitate learning complicated pat-
+terns. (iii) Many studies [11], [12] have observed that the
+use of parameterized decision boundaries can be trapped into
+shortcut solutions instead of mining genuine features, because
+a shortcut solution resides in a large basin in the landscape of
+the loss function. For example, let us utilize a neural network
+to recognize 0-1 digits. If we purposely shift all 0-digits to the
+left region of an image and 1-digits to the right, the training
+of a neural network could probably learn parameters to make
+decisions just based on the location rather than digit features.
+In contrast, non-parameterized models directly partition the
+space with the training data. For example, the k-nearest neigh-
+bors algorithm [13] classiﬁes a sample according to how its
+k-nearest neighbors are classiﬁed, and the Naive Bayes model
+[14] classiﬁes a point with Bayes theorem on conditional
+distribution between the class and features. Although these
+models can avoid or downplay the issues of parameterized
+decision boundaries, they are usually insufﬁciently powerful
+either due to over-simpliﬁcation or the failure to accommodate
+the manifold structures of data. Our motivation is that can we
+develop a model that not only partitions the space in a non-
+parameterized way but also is sufﬁciently capable?
+To answer this question, in this paper, we ﬁrst propose
+a new type of classiﬁers referred to as Manifoldron that
+directly derives decision boundaries to partition the space from
+data via manifold discovery. Speciﬁcally, as Figure 1 shows,
+we triangulate the data of each class and trim the resultant
+triangulation to gain a compact envelope of the manifold of
+arXiv:2201.05279v2  [cs.LG]  2 May 2022
+2
+Simplex
+Envelope
+Train
+1
+Delaunay triangulation
+Simplex trimming
+Envelope detection
+Test
+2
+Distance estimation
+Sample prediction
+In-out simplex detection
+(a)
+(b)
+Fig. 1: (a) The pipeline of the proposed Manifoldron. In the
+training stage, Delaunay triangulation, simplex trimming, and
+envelope detection are sequentially performed to identify the
+manifold structure of data and establish decision boundaries.
+In the test stage, we classify new points based on in-out
+simplex detection and distance estimation. (b) An exemplary
+illustration of the Manifoldron.
+data. Naturally, the envelopes of all classes will serve as the
+decision boundaries for classiﬁcation. We also generalize the
+Manifoldron from a classiﬁer to a regressor by presenting
+a novel and concise regression formula. Furthermore, we
+propose to use feature bagging and point2point projection
+aided by parallel computation to greatly speed up the training
+and inference of the Manifoldron. Next, as a necessary step
+to roll out a new model, we systematically analyze the key
+characteristics of the Manifoldron, e.g., manifold character-
+ization capability and its link to neural networks. These
+characteristics also elaborate how and why the Manifoldron
+can overcome the issues of parameterized decision boundaries.
+Lastly, we apply the Manifoldron to 4 synthetic examples, 20
+benchmark datasets, and 1 real-world application to validate
+the advantages of the model and the model’s key components.
+Main contributions. (i) We propose a novel type of ma-
+chine learning models called Manifoldron for classiﬁcation
+tasks. (ii) We demonstrate the key properties of the Manifol-
+dron such as manifold characterization capability and the link
+to neural networks to pave the way for future applications.
+(iii) We conduct comprehensive experiments to validate that
+the Manifoldron performs competitively compared to other
+mainstream machine learning models.
+II. RELATED WORK
+There are two lines of works that are highly relevant to ours.
+General machine learning models. Despite different mo-
+tivations, in the supervised setting, machine learning models
+essentially learn a function that maps an input to the desired
+output. The commonly-used models consist of the k-nearest
+neighbors (kNN), support vector machine (SVM) [15], Gaus-
+sian process (GP) [16], decision tree, random forest (RF) [17],
+neural networks (NN), AdaBoost [18], Naive Bayes, quadratic
+discriminant analysis (QDA) [19], and so on. The Manifoldron
+is motivated by partitioning the space in a non-parameterized
+fashion, with an emphasis on leveraging the manifold structure
+of data. Our work conﬁrms the feasibility of directly con-
+structing decision boundaries by manifold discovery. To the
+best of our knowledge, the Manifoldron is not just another
+modiﬁcation to the existing models but a fundamentally novel
+model for machine learning.
+Manifold learning [20] is a class of unsupervised and
+supervised models assuming that data lie in a low-dimensional
+manifold embedded in a high-dimensional space. Methodolog-
+ically, the manifold assumption as a basic concept offers a
+ground-breaking view to many machine learning tasks such
+as dimension reduction [21], [22], representation learning
+[23], and so on. Practically, the manifold assumption can be
+embedded into the model to better characterize real-world
+problems. As a methodological innovation, our work is the ﬁrst
+endeavor to directly use the manifold structure to construct a
+classiﬁer, which has the potential to ﬁnd interesting application
+niches in the future.
+III. MANIFOLDRON
+A. Key Steps of the Manifoldron
+The key steps of the Manifoldron are shown in Figure 1.
+Now, let us introduce them in detail as follows.
+Deﬁnition 1 (Simplicial complex, [24]). A D-simplex S is a
+D-dimensional convex hull provided by a convex combination
+of D+1 afﬁnely independent vectors {vd}D
+d=0 ⊂RD. In other
+words, S =
+( D
+X
+d=0
+ξdvd | ξd ≥0,
+D
+X
+d=0
+ξd = 1
+)
+. The convex hull
+of any subset of {vd}D
+d=0 is called a face of S. A simplicial
+complex S =
+[
+α
+Sα is composed of a set of simplices {Sα}
+satisfying: 1) every face of a simplex from S is also in S; 2)
+the non-empty intersection of any two simplices S1, S2 ∈S is
+a face of both S1 and S2.
+Delaunay triangulation. Given the point cloud of a certain
+class, a triangulation to it ends up with a simplicial structure
+¯S whose proﬁle is a convex hull. This simplicial structure and
+its associated convex hull completely cover the entire point
+cloud and the corresponding manifold (see Figure 1). Here,
+we employ the commonly-used Delaunay triangulation [25]
+whose software implementation is conveniently accessible to
+the community.
+Simplex trimming. As mentioned above, a Delaunay tri-
+angulation leads to a convex hull of the point cloud, which
+is usually not the true proﬁle of the manifold. To resolve
+this issue, we trim simplices whose vertices are too far from
+one another. Mathematically, we build a KD tree [26], which
+is a data structure facilitating neighborhood search, for all
+data beforehand. By presetting the number of neighbors and
+querying the KD tree to ﬁnd neighbors, which has the time
+complexity of O(log n), where n is the number of samples, we
+delete those simplices in ¯S whose vertices are not neighbors,

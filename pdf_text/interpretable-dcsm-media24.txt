@@ -1,0 +1,165 @@
+Medical Image Analysis (2023)
+Contents lists available at ScienceDirect
+Medical Image Analysis
+journal homepage: www.elsevier.com/locate/media
+Interpretable Deep Clustering Survival Machines for Alzheimer’s Disease Subtype
+Discovery
+Bojian Houa,1, Zixuan Wena,1, Jingxuan Baoa, Richard Zhanga, Boning Tonga, Shu Yanga, Junhao Wenb,c, Yuhan Cuib, Jason H
+Moored, Andrew J. Saykine, Heng Huanga, Paul M. Thompsonc, Marylyn D. Ritchiea, Christos Davatzikosb, Li Shena,2, for the
+Alzheimer’s Disease Neuroimaging Initiative3
+aDepartment of Biostatistics, Epidemiology and Informatics, University of Pennsylvania Perelman School of Medicine, Philadelphia PA 19104, USA
+bCenter for Biomedical Image Computing and Analytics, University of Pennsylvania Perelman School of Medicine, Philadelphia, PA 19104, USA
+cStevens Neuroimaging and Informatics Institute, Keck School of Medicine of USC, University of Southern California, Marina del Rey, CA 90292, USA
+dDepartment of Computational Biomedicine, Cedars-Sinai Medical Center, West Hollywood, CA 90069, USA
+eDepartment of Radiology and Imaging Sciences, Indiana University School of Medicine, Indianapolis, IN 46202, USA
+A R T I C L E I N F O
+Article history:
+Keywords:
+Survival analysis
+Alzheimer’s disease
+Subtype discovery
+Interpretability
+A B S T R A C T
+Alzheimer’s disease (AD) is a complex neurodegenerative disorder that has impacted
+millions of people worldwide. The neuroanatomical heterogeneity of AD has made it
+challenging to fully understand the disease mechanism. Identifying AD subtypes during
+the prodromal stage and determining their genetic basis would be immensely valuable
+for drug discovery and subsequent clinical treatment. Previous studies that clustered
+subgroups typically used unsupervised learning techniques, neglecting the survival in-
+formation and potentially limiting the insights gained. To address this problem, we
+propose an interpretable survival analysis method called Deep Clustering Survival Ma-
+chines (DCSM), which combines both discriminative and generative mechanisms. Sim-
+ilar to mixture models, we assume that the timing information of survival data can be
+generatively described by a mixture of parametric distributions, referred to as expert
+distributions. We learn the weights of these expert distributions for individual instances
+in a discriminative manner by leveraging their features. This allows us to character-
+ize the survival information of each instance through a weighted combination of the
+learned expert distributions. We demonstrate the superiority of the DCSM method by
+applying this approach to cluster patients with mild cognitive impairment (MCI) into
+subgroups with different risks of converting to AD. Conventional clustering measure-
+ments for survival analysis along with genetic association studies successfully validate
+the effectiveness of the proposed method and characterize our clustering findings.
+© 2023 Elsevier B. V. All rights reserved.
+1The first two authors contribute to this paper equally.
+2Corresponding author: Email: li.shen@pennmedicine.upenn.edu.
+3Data used in preparation of this article were obtained from the Alzheimer’s
+Disease Neuroimaging Initiative (ADNI) database (adni.loni.ucla.edu).
+As
+such, the investigators within the ADNI contributed to the design and imple-
+mentation of ADNI and/or provided data, but did not participate in analysis
+or writing of this report. A complete listing of ADNI investigators can be
+found at: http://adni.loni.usc.edu/wp-content/uploads/how_to_
+apply/ADNI_Acknowledgement_List.pdf.
+2
+Given-name Surname et al. / Medical Image Analysis (2023)
+1. Introduction
+According to the World Health Organization (WHO)4, de-
+mentia has affected 55 million people worldwide in 2023. This
+number could increase to 139 million by 2050 as more people
+age. Alzheimer’s disease (AD) is the most common cause of de-
+mentia, accounting for over two-thirds of the cases. However,
+as a complex and heterogeneous brain disorder, AD remains
+poorly understood. Finding subtypes of AD and their genetic
+factors could help develop new drugs and guide treatments in
+the prodromal stage for this critical condition.
+Previous works usually use unsupervised learning methods
+such as KMeans (Hartigan and Wong, 1979), GMM (Reynolds
+et al., 2009), DBSCAN (Ester et al., 1996) etc. to stratify AD
+patients into different clusters/subtypes (Alashwal et al., 2019;
+Feng et al., 2022). They merely utilize the feature information
+to find different groups with distinct characteristics. However,
+these approaches ignore the fact that dementia patients often
+visit the hospital multiple times to track their disease progres-
+sion. These results in longitudinal trajectories that capture addi-
+tional survival information about the patients such as the prob-
+ability of conversion from mild cognitive impairment (MCI) to
+AD. Thus, it would be valuable if we can leverage the survival
+information to facilitate AD subtype discovery.
+The goal of survival analysis (Flynn, 2012) is to learn a sur-
+vival model to build the bridge between features and survival in-
+formation. When given the feature of a subject, survival models
+can predict the risk of death or occurrence of some event such as
+MCI converting to AD. In this way, we have an opportunity to
+utilize the predicted risk to stratify the MCI patients into differ-
+ent subgroups with different risks of converting to AD. It would
+thus enable customized treatment for different patients with dif-
+ferent risks. In this study, we aim to conduct subtypes discovery
+for Alzheimer’s disease from the survival analysis perspective,
+which has the potential to improve clinical decision-making by
+identifying high-risk MCI patients who may require more care
+or early treatment. It is worth noting that a big challenge in sur-
+vival analysis is censoring, which means the target event of a
+subject is unobservable after a period of time or no event hap-
+pens during the monitoring. Therefore, many subjects do not
+possess complete survival information and we face the problem
+of semi-supervised learning or weak supervised learning in-
+stead of fully supervised learning. Given these circumstances, it
+becomes impractical to directly employ survival information for
+the purpose of subgroup stratification. Thus, the development
+of an effective clustering technique that is capable of leveraging
+partial survival information becomes imperative.
+There are many survival models that have been proposed to
+predict the risk of an event happening, also known as “time-
+to-event prediction” (Kvamme et al., 2019). The most clas-
+sic method is called the Cox PH model (Cox, 1972). It as-
+sumes a constant hazard rate over time for every subject, known
+as the proportional hazard (PH) assumption. There are other
+methods that do not make any assumptions about the underly-
+ing distribution of survival times, such as Kaplan-Meier (Bland
+4https://www.who.int/news-room/fact-sheets/detail/dementia
+and Altman, 1998), Nelson-Aalen (Klein, 1991), and Life-
+Table (Tarone, 1975). However, these methods struggle with
+high-dimensional data. Machine learning techniques can help
+overcome this high-dimensional challenge and can learn the as-
+sociation between features and survival outcomes efficiently.
+For example, Deep Survival Machines (DSM) (Nagpal et al.,
+2021) uses deep neural networks to learn the compact represen-
+tation of the features and uses the negative log-likelihood as the
+loss to learn all the parameters, showing promising results in
+prediction accuracy. Deep Cox (Katzman et al., 2018) utilizes
+the derived Cox PH loss to optimize the parameter learning of
+deep neural networks.
+Nevertheless, all the survival models aforementioned are not
+specifically designed for clustering. They are mainly used to do
+risk prediction. To leverage them to do clustering, we need to
+set a threshold for the predicted risks to artificially cluster them
+into subgroups, such as two groups where one is with high risk
+and the other is with low risk. Survival Clustering Analysis
+(SCA) (Chapfuwa et al., 2020) and Variational Deep Survival
+Clustering (VaDeSC) (Manduchi et al., 2021) are two recent
+works that can do both risk prediction and clustering. However,
+SCA cannot control the number of clusters because it utilizes
+the truncated Dirichlet process to realize the automatic identi-
+fication of the cluster numbers., and VaDeSC as a fully gener-
+ative method is restricted to a specific distribution of features.
+Neural Survival Clustering (Jeanselme et al., 2022) is another
+recent model developed to perform clustering and time-to-event
+prediction simultaneously. It learns the survival probability for
+each instance by learning fixed neural networks without any as-
+sumptions in a thorough discriminative manner. However, the
+model requires a considerable amount of training data to avoid
+overfitting, which may not be feasible for small-scale datasets,
+particularly in the medical field.
+In this study, we propose a hybrid method that leverages both
+the discriminative and generative strategies to perform cluster-
+ing and risk prediction simultaneously. Specifically, we assume
+that there are a certain number of expert distributions in a latent
+space and each expert distribution can be modeled by parame-
+terized distributions in a generative way. The survival function
+for each instance is a weighted combination of all the expert
+distributions and the weight for each instance is learned by a
+multi-layer perceptron (MLP) directly from the features in a
+discriminative manner. Consequently, we can naturally cluster
+all the instances according to how the weights are allocated to
+different expert distributions for each instance. We demonstrate
+the advantage of our method by evaluating not only the con-
+ventional clustering measurements for survival analysis but also
+the genetic association discrepancies between different groups
+of patients with different risks of converting from MCI to AD.
+In summary, our contributions are five-fold:
+• We propose a hybrid survival analysis method called Deep
+Clustering Survival Machines (DCSM) that integrates the
+advantages of the discriminative and generative ideas and
+can perform both clustering and time-to-event prediction
+simultaneously.
+• We apply our method to Alzheimer’s imaging data to dis-

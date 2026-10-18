@@ -1,0 +1,218 @@
+Enabling Few-Shot Alzheimer’s Disease Diagnosis on Biomarker
+Data with Tabular LLMs
+Sophie Kearney∗
+Shu Yang∗
+University of Pennsylvania
+Philadelphia, PA, USA
+sophie.kearney@pennmedicine.upenn.edu
+yangsh@pennmedicine.upenn.edu
+Zixuan Wen
+Bojian Hou
+University of Pennsylvania
+Philadelphia, PA, USA
+zxwen@sas.upenn.edu
+houbo@pennmedicine.upenn.edu
+Duy Duong-Tran
+United States Naval Academy
+Annapolis, MD, USA
+duongtra@usna.edu
+Tianlong Chen
+University of North Carolina at
+Chapel Hill
+Chapel Hill, NC, USA
+tianlong@cs.unc.edu
+Jason Moore
+Cedars Sinai Medical Center
+West Hollywood, CA, USA
+Jason.Moore@csmc.edu
+Marylyn Ritchie
+Li Shen†
+University of Pennsylvania
+Philadelphia, PA, USA
+marylyn@pennmedicine.upenn.edu
+lishen@pennmedicine.upenn.edu
+Abstract
+Early and accurate diagnosis of Alzheimer’s disease (AD), a com-
+plex neurodegenerative disorder, requires analysis of heterogeneous
+biomarkers (e.g., neuroimaging, genetic risk factors, cognitive tests,
+and cerebrospinal fluid proteins) typically represented in a tabu-
+lar format. With flexible few-shot reasoning, multimodal integra-
+tion, and natural-language-based interpretability, large language
+models (LLMs) offer unprecedented opportunities for prediction
+with structured biomedical data. We propose a novel framework
+called TAP-GPT, Tabular Alzheimer’s Prediction GPT, that adapts
+TableGPT2, a multimodal tabular-specialized LLM originally de-
+veloped for business intelligence tasks, for AD diagnosis using
+structured biomarker data with small sample sizes. Our approach
+constructs few-shot tabular prompts using in-context learning ex-
+amples from structured biomedical data and finetunes TableGPT2
+using the parameter-efficient qLoRA adaption for a clinical binary
+classification task of AD or cognitively normal (CN). The TAP-GPT
+framework harnesses the powerful tabular understanding ability of
+TableGPT2 and the encoded prior knowledge of LLMs to outperform
+more advanced general-purpose LLMs and a tabular foundation
+model (TFM) developed for prediction tasks. To our knowledge, this
+is the first application of LLMs to the prediction task using tabular
+biomarker data, paving the way for future LLM-driven multi-agent
+frameworks in biomedical informatics.
+∗These authors contributed equally to this research.
+†Correspondence.
+Publication rights licensed to ACM. ACM acknowledges that this contribution was
+authored or co-authored by an employee, contractor or affiliate of the United States
+government. As such, the Government retains a nonexclusive, royalty-free right to
+publish or reproduce this article, or to allow others to do so, for Government purposes
+only. Request permissions from owner/author(s).
+BCB ’25, Philadelphia, PA, USA
+© 2025 Copyright held by the owner/author(s). Publication rights licensed to ACM.
+ACM ISBN 979-8-4007-2200-4/2025/10
+https://doi.org/10.1145/3765612.3767229
+CCS Concepts
+• Computer systems organization →Neural networks; • Applied
+computing →Health informatics; • Computing methodolo-
+gies →Transfer learning; Model development and analysis;
+Natural language processing.
+Keywords
+Alzheimer’s Disease Biomarkers, Tabular Prediction, Large Lan-
+guage Models, AI and Machine Learning in Healthcare
+ACM Reference Format:
+Sophie Kearney, Shu Yang, Zixuan Wen, Bojian Hou, Duy Duong-Tran,
+Tianlong Chen, Jason Moore, Marylyn Ritchie, and Li Shen. 2025. Enabling
+Few-Shot Alzheimer’s Disease Diagnosis on Biomarker Data with Tabular
+LLMs. In Proceedings of the 16th ACM International Conference on Bioinfor-
+matics, Computational Biology, and Health Informatics (BCB ’25), October
+11–15, 2025, Philadelphia, PA, USA. ACM, New York, NY, USA, 14 pages.
+https://doi.org/10.1145/3765612.3767229
+1
+Introduction
+Alzheimer’s disease (AD) is a neurodegenerative disease with a
+complex etiology and is the sixth leading cause of death in the
+United States. Globally, AD is the single most common form of de-
+mentia and accounts for over two-thirds of all 55 million dementia
+cases, according to World Health Organization1; and the projected
+number of AD and AD-related dementia cases could surge to more
+than 100 million by 2050 [20, 21]. AD, to date, is highly prevalent
+and has no curative treatments and post-treatment relapse rates
+remain high. An increasing number of studies have demonstrated
+that early detection could result in proactive treatment and a sig-
+nificant slow-down in AD progression. Diverse AD biomarkers
+(e.g., neuroimaging, genetics, cognitive tests, fluid biomarkers) offer
+unprecedented opportunities for early diagnosis [12, 13]. For exam-
+ple, Quantitative templates for the progression of AD (QT-PAD)2,
+the AD Modeling Challenge from ADNI, gathers a list of 16 clini-
+cal, cognitive, and imaging biomarkers, such as cerebrospinal fluid
+1https://www.who.int/news-room/fact-sheets/detail/dementia
+2www.pi4cs.org/qt-pad-challenge
+arXiv:2507.23227v2  [cs.CL]  15 Oct 2025
+BCB ’25, October 11–15, 2025, Philadelphia, PA, USA
+Kearney and Yang et al.
+(CSF) tau protein level, whole brain volume, as well as age, gender,
+education covariates. However, unlike text or imaging data, such
+biomarker data are naturally stored in a table format with columns
+representing each marker and rows representing each subject. The
+table often comprises of heterogeneous data types and lacks order
+or locality information, which presents unique challenges for devel-
+oping predictive models compared to the rich information provided
+in text or image data [6, 18].
+Most existing AI models developed to handle AD biomarkers
+can be categorized into machine learning or classic deep neural net-
+works with limited AD domain knowledge [2, 17, 22]. Traditional
+machine learning pipelines, e.g. ensembles of decision trees, have
+remained dominant for tabular biomedical data because they are
+robust to small data, whereas deep learning models often struggle
+to capture tabular patterns [6, 18]. However, conventional models
+offer limited flexibility in combining modalities and do not leverage
+prior biomedical knowledge beyond training data. This motivates
+exploration of foundation models for tabular data that can perform
+few-shot reasoning and incorporate broad prior knowledge, po-
+tentially improving prediction from biomedical tables. The recent
+advancements of Transformer-based LLMs open up new opportu-
+nities for handling tabular data [1, 5]. Pretrained on extensive text
+corpora, LLMs exhibit emergent abilities in tabular tasks, including
+tabular data generation, table understanding, tabular prediction,
+and reasoning, etc. [7, 8, 14, 16, 25, 34]. With prompting and fine-
+tuning, LLMs can be repurposed for tabular tasks, bridging the gap
+left by vanilla transformers which cannot directly input lage tables
+or generalize to tabular formats. TableGPT [31] unified tables, lan-
+guage, and functional commands, enabling GPT-style decoders to
+interpret and manipulate tables with natural language instructions.
+A dedicated table encoder allows an LLM access an entire table as
+a compact vector, overcoming token-length limitations and cap-
+turing schema-level context. TableGPT2 [23] scaled pretraining to
+593K tables and 2.36M table-question examples, introducing a novel
+schema-aware table encoder with a 7B–72B parameter QWen2.5
+decoder [11]. This large-scale multimodal LLM achieves remarkable
+accuracy gains (∼35–49% improvement over base LLMs) on sev-
+eral table-related business intelligence tasks, confirming the value
+of specialized tabular pretraining. Meanwhile, benchmarks like
+TableBench [30] evaluated LLM reasoning on complex Table QA
+tasks and found that LLMs still perform worse than human-level
+on challenging multi-step reasoning with real-world tables. These
+studies highlight both the promise of LLMs for structured data and
+the remaining gap in capturing real-world tabular complexity.
+Beyond LLM-based approaches, tabular foundation models spe-
+cialized for small- to medium-sized datasets have been developed.
+Notably, TabPFN [9, 10] is a transformer model that performs in-
+context learning (ICL) on tabular inputs: given a small training
+set in a table, it instantly predicts labels for new samples with-
+out any gradient updates. ICL first emerged in LLMs [3] and later
+studies revealed that transformers can use ICL to approximate ma-
+chine learning algorithms such as logistic regression and neural
+networks [19, 35]. TabPFN’s single forward-pass classification, en-
+abled by prior-fitting on 100 million synthetic datasets encoding
+diverse causal structures, yields impressive accuracy on par with
+state-of-the-art methods. In fact, TabPFN can often outperform
+gradient-boosted tree ensembles on small tables with many outliers
+or missing values, needing as little as 50% of the data to match
+the accuracy of conventional models. Subsequent work has ex-
+tended this paradigm: a retrieval-augmented finetuning strategy
+was proposed to adapt TabPFN to larger or more complex tasks
+by fetching nearest-neighbor subsets of data and finetuning the
+model on them [24]. This approach achieved impressive results on
+a 95-dataset benchmark, even outperforming tuned XGBoost mod-
+els and substantially boosting TabPFN’s base performance. Mean-
+while, researchers have also explored lighter-weight alternatives to
+full model training. For example, Wu and Hou [29] introduced an
+efficient retrieval-based method that uses a frozen LLM’s embed-
+ding capabilities to perform k-nearest-neighbor prediction in the
+LLM latent space. By avoiding any model finetuning and leverag-
+ing only the target dataset and the LLM’s pretrained knowledge,
+their method achieved surprisingly strong tabular prediction perfor-
+mance. This progress underscores a growing consensus that both
+LLMs and specialized tabular transformers can be harnessed for
+table data tasks.
+However, the above approaches have been applied to hetero-
+geneous biomedical tabular data like AD biomarkers, which pose
+unique challenges of multimodal feature integration and often lim-
+ited sample sizes (e.g. typically only a few hundred patients in
+research cohorts). Because interpretability is critical in clinical set-
+tings, LLMs may offer an advantage by producing natural language
+rationales for predictions. We aim to fill this gap by leveraging the
+recent tabular-focused LLM advancements for AD diagnosis. In this
+work, we propose TAP-GPT: Tabular Alzheimer’s Prediction GPT, a
+novel framework that adapts the TableGPT2 multimodal LLM to the
+task of classifying AD vs cognitively normal (CN) individuals from
+biomarker tables. We formulate the problem in a tabular few-shot
+in-context learning paradigm: the model is prompted with a small
+number of example subjects with biomarkers (including features
+from neuroimaging, genotyping, etc.) along with their diagnoses,
+and asked to predict the diagnosis for a new subject, all presented
+in a single table. To adapt TableGPT2 to this new task, we apply a
+parameter-efficient finetuning (qLoRA) [4] using a small training
+set. The resulting TAP-GPT framework combines the powerful ta-
+ble comprehension and reasoning abilities of TableGPT2 with prior
+medical knowledge encoded in the backbone LLM’s weights. Our
+experiments show that TAP-GPT achieves promising performance,
+compared to both general-purpose LLMs (which lack tabular spe-
+cialization) and the tabular foundation model TabPFN on the AD
+classification task. This work represents, to our knowledge, the
+first application of LLMs to tabular biomarker data in biomedicine,
+demonstrating the potential of finetuned table-language models to
+tackle structured prediction with limited data in biomedical domain.
+By uniting few-shot LLM reasoning with multimodal biomarker
+integration, the proposed TAP-GPT paves the way for future LLM-
+driven multi-agent systems in AD diagnosis and general health
+informatics.
+Our paper makes the following key contributions:
+• We propose TAP-GPT, a novel framework for few-shot tabu-
+lar classification on complex, multimodal AD biomarker data
+that leverages the powerful

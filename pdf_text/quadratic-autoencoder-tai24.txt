@@ -1,0 +1,209 @@
+1
+Quadratic Neuron-empowered Heterogeneous
+Autoencoder for Unsupervised Anomaly Detection
+Jing-Xiao Liao, Graduate Student Member, IEEE, Bo-Jian Hou, Hang-Cheng Dong, Hao Zhang
+Xiaoge Zhang, Member, IEEE, Jinwei Sun, Shiping Zhang, Feng-Lei Fan, Member, IEEE
+Abstract—Inspired by the complexity and diversity of bio-
+logical neurons, a quadratic neuron is proposed to replace the
+inner product in the current neuron with a simplified quadratic
+function. Employing such a novel type of neurons offers a
+new perspective on developing deep learning. When analyzing
+quadratic neurons, we find that there exists a function such that a
+heterogeneous network can approximate it well with a polynomial
+number of neurons but a purely conventional or quadratic
+network needs an exponential number of neurons to achieve the
+same level of error. Encouraged by this inspiring theoretical result
+on heterogeneous networks, we directly integrate conventional
+and quadratic neurons in an autoencoder to make a new type
+of heterogeneous autoencoders. To our best knowledge, it is the
+first heterogeneous autoencoder that is made of different types of
+neurons. Next, we apply the proposed heterogeneous autoencoder
+to unsupervised anomaly detection for tabular data and bearing
+fault signals. The anomaly detection faces difficulties such as
+data unknownness, anomaly feature heterogeneity, and feature
+unnoticeability, which is suitable for the proposed heterogeneous
+autoencoder. Its high feature representation ability can charac-
+terize a variety of anomaly data (heterogeneity), discriminate the
+anomaly from the normal (unnoticeability), and accurately learn
+the distribution of normal samples (unknownness). Experiments
+show that heterogeneous autoencoders perform competitively
+compared to other state-of-the-art models.
+Impact Statement—In this work, we present a novel perspective
+on neural network design by introducing neuronal diversity.
+Firstly, we prove that neural networks that combine two types
+of neurons have superior theoretical approximation efficiency
+compared to networks comprising solely homogeneous neurons.
+Secondly, we develop the first autoencoder that is made of
+different neurons, which is a new addition to the family of
+autoencoders. Lastly, the proposed heterogeneous autoencoder
+performs better than the state-of-the-art models in tabular
+and bearing fault unsupervised anomaly detection. In brief,
+The work described in this paper was partially supported by the Direct Grant
+for Research from the Chinese University of Hong Kong and ITS/173/22FP
+from the Innovation and Technology Fund of Hong Kong, was partially
+supported by a grant from the Research Grants Council of the Hong Kong
+Special Administrative Region, China (Project No. PolyU 25206422), and was
+partially supported by the Research Committee of The Hong Kong Polytechnic
+University under project code G-UAMR and student account code RL3C.
+(Corresponding Authors: Shiping Zhang, Feng-Lei Fan)
+Jing-Xiao Liao is with School of Instrumentation Science and Engineering,
+Harbin Institute of Technology, Harbin, China, and is also with Department of
+Industrial and Systems Engineering, The Hong Kong Polytechnic University,
+Hong Kong, SAR of China
+Hang-Cheng Dong, Jinwei Sun, Shiping Zhang are with School of Instru-
+mentation Science and Engineering, Harbin Institute of Technology, Harbin,
+China. (email: spzhang@hit.edu.cn)
+Bo-Jian Hou, Hao Zhang are with Weill Cornell Medicine, Cornell Univer-
+sity, New York City, US.
+Xiaoge Zhang is with Department of Industrial and Systems Engineering,
+The Hong Kong Polytechnic University, Hong Kong, SAR of China.
+Feng-Lei Fan is with Department of Mathematics, The Chinese University
+of Hong Kong, Hong Kong, SAR of China. (email: hitfanfenglei@gmail.com)
+both theoretical derivation and experimental results confirm the
+benefit of neuronal diversity in neural network design.
+Index Terms—Deep learning theory, heterogeneous autoen-
+coder, quadratic neuron, anomaly detection.
+I. INTRODUCTION
+D
+EEP learning has achieved great success in many im-
+portant fields [1]. However, so far, deep learning in-
+novations mainly revolve around structure design such as
+increasing depth and proposing novel shortcut architectures
+[2–4]. Almost exclusively, the existing advanced networks
+only involve the same type of neurons characterized by i) the
+inner product of the input and the weight vector; ii) a nonlinear
+activation function. For convenience, we call this type of
+neurons conventional neurons. Although these neurons can be
+interconnected to approximate a general function, we argue
+that the type of neurons useful for deep learning should not
+be unique. As we know, neurons in a biological neural system
+are diverse, collaboratively generating all kinds of intellectual
+behaviors. Since a neural network was initially devised to
+imitate a biological neural system, neuronal diversity should
+be carefully examined in neural network research.
+In this context, a new type of neurons called quadratic
+neurons was recently proposed in [5], which replace the
+inner product in a conventional neuron with a simplified
+quadratic function. Hereafter, we call a network made of
+quadratic neurons a quadratic network and a network made
+of conventional neurons a conventional network. The su-
+periority of quadratic networks over conventional networks
+in representation efficiency and capacity was demonstrated
+in [6]. Intuitively, nonlinear features ubiquitously exist in
+real world, and quadratic neurons are empowered with a
+quadratic function to represent nonlinear features efficiently
+and effectively. Mathematically, when the rectified linear unit
+(ReLU) is employed, a conventional model is a piecewise
+linear function, whereas a quadratic one is a more powerful
+piecewise nonlinear mapping. Since a quadratic neuron shows
+great potential, we are encouraged to keep pushing its theory
+and application boundaries.
+Previously, it was shown that there exists a function such
+that a conventional network needs an exponential number of
+neurons to approximate, but a quadratic network only needs
+a polynomial number of neurons to achieve the same level
+of error [7]. Despite the attraction of this construction, with
+the help of techniques in [8], we find that one can also
+construct a function that can realize the opposite situation,
+i.e., a function that is hard to approximate by a quadratic
+arXiv:2204.01707v2  [cs.NE]  25 Apr 2024
+network but easy to approximate by a conventional network
+(Theorem 2). Combining these two constructed functions, one
+can naturally get a function easy to approximate by a hetero-
+geneous network of both quadratic and conventional neurons
+but hard by a purely conventional or quadratic network, where
+the difference remains polynomial vs exponential (Theorem
+1). Moreover, the opposite case will not happen because the
+purely conventional or quadratic is a degenerated case of the
+heterogeneous network. Such a theoretical derivation makes
+the employment of heterogeneous models well grounded,
+implicating that there are at least some tasks pretty suitable
+for the combination of conventional and quadratic neurons so
+that an exponential difference is reached. While for the general
+task, heterogeneous networks’ performance will not be worse,
+since a purely conventional or quadratic network is the special
+case of a heterogeneous network.
+This theoretical derivation agrees with our intuition. There
+is no one-size-fits-all artificial neuron in deep learning. Both
+conventional and quadratic neurons cannot perform well on all
+kinds of tasks. Encouraged by the inspiring theoretical result
+on heterogeneous networks and the idea of neuronal synergy,
+here we directly integrate conventional and quadratic neurons
+in an autoencoder to make a new type of heterogeneous
+autoencoders. Autoencoders [5; 9–11] are widely used in
+unsupervised learning tasks such as feature extraction [12],
+denoising[13], anomaly detection [14], and so on. To the best
+of our knowledge, all the previous mainstream autoencoders
+use the same type of neurons regardless of their innovations.
+The proposed heterogeneous autoencoder is the first heteroge-
+neous autoencoder made up of diverse neurons in the family
+of autoencoders. Furthermore, we apply the heterogeneous
+autoencoder to solve the anomaly detection problem.
+Anomaly detection is widely applied in different contexts
+such as intelligent manufacturing, data management, and in-
+telligent transportation [15; 16]. However, anomaly detection
+is challenging due to the following issues [17]:
+• Unknownness. The anomaly features may include the un-
+known data, which requires an anomaly detection model
+to accurately construct the distribution of normal samples
+and be sensitive to anomalous samples.
+• Heterogeneity. Anomalies are irregular, and different
+anomalies may display completely different abnormal
+features. For instance, when detecting network traffic
+attacks, four types of attacks are all anomalies (DOS,
+R2L, U2R, Probing).
+• Unnoticeability. Anomalies are typically rare and are
+easily overwhelmed by normal instances. Therefore, it
+is difficult to detect the anomaly.
+Based on the above analyses, unsupervised anomaly detec-
+tion highly relies on the models’ ability to feature represen-
+tation. A model with a high feature representation ability can
+characterize a variety of anomaly data (heterogeneity), dis-
+criminate the anomaly from the normal (unnoticeability), and
+accurately learn the distribution of normal samples (unknown-
+ness). Our theory indicates that a heterogeneous network has
+a more powerful representation ability than a homogeneous
+network; therefore, a heterogeneous network is suitable to
+address the anomaly detection problem. Experiments demon-
+strate that a heterogeneous autoencoder achieves competi-
+tive performance relative to other state-of-the-art on anomaly
+detection datasets and real-world bearing fault detection. In
+summary, our contributions are
+1) We prove that to approximate a constructed function, a
+heterogeneous network is more efficient and has a more
+powerful capability than a homogeneous one. Different
+from ensemble learning, our result characterizes the abil-
+ity of heterogeneous networks from the perspective of
+approximation theory, which is a novel theoretical angle
+and paves a way for the employment of heterogeneous
+networks.
+2) To further verify our theory, we develop a first-of-its-
+kind autoencoder that integrates essentially different types
+of neurons in one model, which is a methodological
+contribution to autoencoder design.
+3) Experiments suggest that the proposed heterogeneous
+autoencoder delivers competitive performance compared
+to homogeneous autoencoders and other baselines on
+unsupervised tabular data anomaly detection.
+II. RELATED WORKS
+Anomaly Detection (AD) algorithms strive to identify out-
+liers that deviate significantly from the majority of data [18].
+This study concentrates on unsupervised AD, which exclu-
+sively utilizes samples from the normal class to construct
+a model for outlier detection [19]. Broadly, AD algorithms
+can be categorized into traditional machine learning (shallow)
+and deep learning-based (deep) methods [20]. First, traditional
+machine learning methods are roughly summarised as fol-
+lows: i) Classification-based method, one-class support vector
+machine (OCSVM) [21] and support vector data descrip-
+tion (SVDD) [22]; ii) Probabilistic-based method, Gaussian
+mixture model (GMM) [23] and kernel density estimation
+(KDE) [24]; iii) Reconstruction-based method, probabilistic
+principal component analysis (p-PCA) [25]; iv) Distance-
+based method, local outlier factor (LOF) [26] and empirical
+cumulative outlier detection (ECOD) [27].
+On the other hand, deep learning-based methods that are
+capable of handling larger and high-dimensional data have
+recently garnered increased attention. Compared to machine
+learning methods, deep neural network methods demonstrate
+the superior generaliz

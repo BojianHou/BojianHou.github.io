@@ -1,0 +1,228 @@
+Computers in Biology and Medicine 159 (2023) 106962
+Available online 20 April 2023
+0010-4825/© 2023 Elsevier Ltd. All rights reserved.
+Enhancing thoracic disease detection using chest X-rays from PubMed 
+Central Open Access 
+Mingquan Lin a, Bojian Hou b, Swati Mishra c, Tianyuan Yao d, Yuankai Huo d, Qian Yang c, 
+Fei Wang a, George Shih e, Yifan Peng a,* 
+a Department of Population Health Sciences, Weill Cornell Medicine, New York, USA 
+b Department of Biostatistics, Epidemiology and Informatics, University of Pennsylvania, Philadelphia, USA 
+c Department of Information Science, Cornell University, New York, USA 
+d Department of Computer Science, Vanderbilt University, Nashville, TN, USA 
+e Department of Radiology, Weill Cornell Medicine, New York, USA   
+A R T I C L E I N F O  
+Keywords: 
+PubMed 
+Artificial intelligence 
+Chest X-ray 
+A B S T R A C T  
+Large chest X-rays (CXR) datasets have been collected to train deep learning models to detect thorax pathology 
+on CXR. However, most CXR datasets are from single-center studies and the collected pathologies are often 
+imbalanced. The aim of this study was to automatically construct a public, weakly-labeled CXR database from 
+articles in PubMed Central Open Access (PMC-OA) and to assess model performance on CXR pathology classi­
+fication by using this database as additional training data. Our framework includes text extraction, CXR pa­
+thology verification, subfigure separation, and image modality classification. We have extensively validated the 
+utility of the automatically generated image database on thoracic disease detection tasks, including Hernia, Lung 
+Lesion, Pneumonia, and pneumothorax. We pick these diseases due to their historically poor performance in 
+existing datasets: the NIH-CXR dataset (112,120 CXR) and the MIMIC-CXR dataset (243,324 CXR). We find that 
+classifiers fine-tuned with additional PMC-CXR extracted by the proposed framework consistently and signifi­
+cantly achieved better performance than those without (e.g., Hernia: 0.9335 vs 0.9154; Lung Lesion: 0.7394 vs. 
+0.7207; Pneumonia: 0.7074 vs. 0.6709; Pneumothorax 0.8185 vs. 0.7517, all in AUC with p < 0.0001) for CXR 
+pathology detection. In contrast to previous approaches that manually submit the medical images to the re­
+pository, our framework can automatically collect figures and their accompanied figure legends. Compared to 
+previous studies, the proposed framework improved subfigure segmentation and incorporates our advanced self- 
+developed NLP technique for CXR pathology verification. We hope it complements existing resources and im­
+proves our ability to make biomedical image data findable, accessible, interoperable, and reusable.   
+1. Introduction 
+To improve prediction accuracy by artificial intelligence (AI), large 
+chest X-ray (CXR) databases have been collected to train sophisticated 
+deep learning models [1–5]. However, despite their well-documented 
+successes, some critical challenges remain to limit the performance of 
+the algorithms [6–8]. First, most CXR datasets were drawn from 
+single-center studies. For example, NIH-CXR was collected from the NIH 
+Clinical Center [2], and MIMIC-CXR was collected from Beth Israel 
+Deaconess Medical Center [1]. Second, labels collected from existing 
+datasets only focus on a few diseases of interest. A database containing 
+many images for comprehensive concepts classes, including rare 
+diseases, is highly demanded but less studied [9]. Finally, institutional 
+policy often restricts liberal redistribution and reuse of important 
+datasets. A recent example is the COVID-19 CXR dataset. The largest 
+open-source database was launched around eight months after the 
+outbreak of COVID-19 [10]. For these reasons, there is a critical need to 
+quickly create a public CXR database to facilitate the development of 
+advanced image analysis tools and decision support algorithms [11]. 
+To reduce this barrier, we investigate a framework that can accel­
+erate the automatic construction of CXR databases from PubMed Central 
+Open Access Subset (PMC-OA) using a combination of natural language 
+processing and image analysis. PMC-OA is an accessible digital re­
+pository that archives full-text scholarly articles published in biomedical 
+* Corresponding author. 
+E-mail address: yip4002@med.cornell.edu (Y. Peng).  
+Contents lists available at ScienceDirect 
+Computers in Biology and Medicine 
+journal homepage: www.elsevier.com/locate/compbiomed 
+https://doi.org/10.1016/j.compbiomed.2023.106962 
+Received 26 January 2023; Received in revised form 26 March 2023; Accepted 18 April 2023   
+Computers in Biology and Medicine 159 (2023) 106962
+2
+and life sciences journals. To date, more than three million full-text 
+articles have been added through the PMC [12,13]. Manuscript figures 
+are of paramount interest because they often contain graphical images 
+from CXR, CT, MRI, and ultrasound studies [14,15]. PMC also requires 
+images to be supplied in an uncompressed high-resolution file format 
+[16]. With an estimated 16 million figures (and subfigures) available, 
+PMC promises substantial medical imaging data in various domains. 
+More importantly, rare and new cases are strongly oversampled in the 
+biomedical literature compared to clinical archives [17]. 
+In this study, we hypothesize that we can obtain models with better 
+performance on CXR pathology classification by using the weakly- 
+labeled CXR extracted by our framework as additional training data 
+(called PMC-CXR). Our previous work demonstrated that we could 
+successfully construct a database for radiographs related to COVID-19 
+from PMC and use it as additional training data to improve deep- 
+learning models for COVID-19 detection [18]. However, the subfigure 
+segmentation model used in the previous study requires improvement as 
+it occasionally struggles to differentiate similar subfigures positioned 
+closely together. For example, in some cases, the model incorrectly 
+identifies the spine as empty space in AP chest X-rays, leading to the 
+erroneous splitting of large figures into two subfigures. Furthermore, the 
+method employed in the previous work to classify the pathology 
+mentioned in the text also requires further refinement. This work ex­
+tends the previous study but differs in threefold aspects. First, we 
+developed a new and more accurate method for subfigure segmentation 
+and modality detection [19]. Second, we applied Radtext to classify the 
+assertion status of the CXR pathology mentioned in the text [20]. Third, 
+we extensively validated the utility of the automatically generated 
+image database on thoracic disease detection tasks, including Hernia, 
+Lung Lesion, Pneumonia, and pneumothorax. We pick these diseases due 
+to their historically poor performance in the NIH-CXR [2] and 
+MIMIC-CXR [1] datasets. 
+2. Materials and methods 
+2.1. Materials 
+We measure the Area Under the Curve (AUC) in distinct chest x-ray 
+diagnosis models trained in three datasets: NIH-CXR dataset [2] (112, 
+120 CXR Posterior-Anterior and Anterior-Posterior images from 30,805 
+individuals), MIMIC-CXR dataset [1] (243,324 CXR Posterior-Anterior 
+and 
+Anterior-Posterior 
+images 
+from 
+227,827 
+studies), 
+and 
+newly-created PMC-CXR. More detailed summary statistics for the 
+datasets are listed in Table 1. For a fair comparison, we used the stan­
+dard training and testing split and added the additional data from 
+PMC-CXR only to the training set. We used a Pair T-test to compare the 
+difference between the two groups. 
+2.2. The pipeline to extract CXR from PMC-OA 
+Fig. 1 shows the overview of the proposed framework. First, we used 
+the PubMed API (i.e., Entrez Programming Utilities) to retrieve PMC-OA 
+articles with keywords mentioned in the titles and abstracts. Then, we 
+extracted figures and associated captions from the input PMC-OA article 
+and verified that the figure captions contained a positive mention of the 
+given CXR pathology. This step ensures the image is “about” the CXR 
+pathology of interest. Afterward, we separated the compound figures 
+into subfigures and classified the figures into CXR and non-CXR. Finally, 
+we created the PMC-CXR based on the following three criteria: (1) the 
+caption contains a positive mention of the disease, (2) the figure/sub­
+figure is a chest x-ray (CXR), and (3) the subfigure has a width-to-height 
+or height-to-width ratio greater than 0.5. We then trained a deep neural 
+network (DNN) with and without additional PMC-CXR. 
+2.2.1. PMC articles retrieval 
+We used the PubMed API (i.e., Entrez Programming Utilities or E- 
+utilities) to retrieve PMC-OA articles with keywords mentioned in the 
+titles and abstracts [21]. For example, the query term for hernia-relevant 
+articles is “Hernia [Title/Abstract]”. PubMed uses Medical Subject 
+Headings (MeSH terms) as a controlled vocabulary of biomedical and 
+health-related terms to describe the subject of a journal article [22]. 
+Therefore, the query automatically includes alternate spellings and 
+MeSH terms related to “Hernia”, such as “Abdominal Hernia” and 
+“Abdominal Wall Hernias”. The E-utilities retrieves PubMed Central 
+identification (PMCID), the unique reference number assigned to every 
+article accepted into PMC-OA. We then used PMCIDs to retrieve 
+full-length articles in the BioC format [12]. The BioC format is a data 
+structure in XML for text sharing and processing to facilitate the auto­
+mated processing of full-text articles [23]. 
+2.2.2. Figure and text extraction 
+We parsed the PMC-OA articles in the BioC format to identify figures 
+and their captions. Specifically, each figure block bears a caption, a label 
+such as “Fig. 3”, and a figure internal identifier (fig-id). We then used the 
+fig-id to collect the figures. It is worth noting that PMC requires images 
+to be supplied in an uncompressed high-resolution file format [16]. 
+Fig. 2 shows an example of a typical biomedical image in the article 
+“Pneumonia in Normal and Immunocompromised Children: An Over­
+view and Update” [24]. The examples contain figures and a figure 
+caption, and text that describes the case with rich information. 
+2.2.3. CXR pathology verification 
+Not all images in a PMC-OA article are “about” the pathology of 
+interest. Here, we hypothesize that the figure caption expresses the 
+interpretation of the image. Therefore, we applied a Natural Language 
+Processing technique to detect the pathology keywords in the figure 
+caption and filter out CXR if its caption has no mention or negative 
+mention of the CXR pathology keywords, such as “Hernia”. Specifically, 
+we used the previously reported extraction tool (RadText) [20] devel­
+oped ourselves. It was evaluated on the MIMIC-CXR dataset with five 
+new disease labels we annotated in our previous work [20], and ach­
+ieved highly accurate classification performances, with an average 
+precision of 0.91, a recall of 0.94, and an F-1 score of 0.92. 
+2.2.4. Subfigure separation 
+The figures extracted from PMC-OA articles are usually compound 
+and must be separated. In this study, we reused a deep learning model 
+with 53 convolutional layers proposed by TY and YH to separate com­
+pound figures [19]. In short, the model was pretrained on the 
+Table 1 
+Characteristics of NIH-CXR, MIMIC-CXR, and PMC-CXR.  
+Disease 
+Dataset 
+Training 
+Test 
+Positive/negative 
+Positive/negative 
+Hernia  
+NIH-CXR 
+141/86,383 
+86/25,510  
+PMC-CXR 
+100/- 
+–  
+Total 
+241/86,383 
+86/25,510 
+Lung Lesion  
+MIMIC-CXR 
+6,511/233,410 
+121/3,282  
+PMC-CXR 
+331/- 
+–  
+Total 
+6842/233,410 
+121/3282 
+Pneumothorax  
+NIH-CXR 
+2,637/83,887 
+2,665/22,931  
+MIMIC-CXR 
+11,127/228,794 
+108/3295  
+PMC-CXR 
+929/- 
+–  
+Total 
+34,693/312,681 
+2,773/26,226 
+Pneumonia  
+NIH-CXR 
+876/85,648 
+555/25,041  
+MIMIC-CXR 
+16,880/223,041 
+342/3,061  
+PMC-CXR 
+170/- 
+–  
+Total 
+17,926/308,689 
+897/28,102  
+M. Lin et al.                                                                                                                     

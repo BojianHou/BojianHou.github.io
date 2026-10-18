@@ -1,0 +1,201 @@
+Multi-Modal Deep Clustering Survival Machines
+for Alzheimer’s Disease Subtype Discovery
+Zixuan Wen, Bojian Hou, Weiqing He, Shu Yang
+University of Pennsylvania
+Philadelphia, PA 19104
+Jason H. Moore
+Cedars Sinai Medical Center
+West Hollywood, CA 90069
+Andrew J. Saykin
+Indiana University
+Indianapolis, IN 46202
+Heng Huang
+University of Maryland
+College Park, MD 20742
+Paul M. Thompson
+University of Southern California
+Los Angeles, CA 90007
+Marylyn D. Ritchie, Christos Davatzikos, Li Shen
+University of Pennsylvania
+Philadelphia, PA 19104
+Abstract
+Survival clustering approaches estimate time-to-event pre-
+diction and clustering simultaneously.
+Current methods,
+however, are often limited by their reliance on single data
+modalities and their separation of risk prediction from pa-
+tient subtyping.
+This creates a pressing need for a uni-
+fied framework that can simultaneously discover patient
+subgroups and predict their conversion risk by integrat-
+ing diverse biomarker data.
+Here, we introduce Multi-
+Modal Deep Clustering Survival Machines (MMDCSM),
+a unified framework that (1) encodes each modality via
+modality-specific MultiLayer Perceptrons (MLPs), (2) fuses
+embeddings into a joint representation, and (3) models sur-
+vival outcomes through a mixture of Weibull expert distri-
+butions whose soft assignments simultaneously define pa-
+tient subtypes and individualized survival curves. Applied
+to a cohort of 382 Mild Cognitive Impairment (MCI) pa-
+tients, MMDCSM significantly outperformed existing meth-
+ods in identifying distinct low- and high-risk subgroups
+for Alzheimer’s disease (AD) conversion while delivering
+competitive accuracy in predicting each patient’s personal-
+ized timeline to progression. Our model also identified key
+brain regions, including the hippocampus, that were most
+influential in distinguishing high-risk converters. This ap-
+proach enables more accurate, early-stage risk stratifica-
+tion, paving the way for targeted interventions designed to
+delay or prevent disease progression.
+1. Introduction
+Early prediction of conversion from Mild Cognitive Impair-
+ment (MCI) to Alzheimer’s disease (AD) is critical for ef-
+fective disease management and early intervention. In the
+current clinical practice, the diagnosis of dementia cannot
+be made until the patient exhibits clear signs of cognitive
+decline. Therefore, methods for predicting the probability
+of a patient developing dementia as a function of time, col-
+lectively known as survival analysis, are important tools in
+helping understanding the characteristics of dementia. Sur-
+vival analysis is typically used by medical researchers to
+evaluate how explanatory variables influence the time to
+an event, such as death, cancer recurrence, or other clini-
+cal outcomes that may be censored when only partial in-
+formation is available (e.g., due to study withdrawal) [2].
+A widely used approach is the Cox proportional hazards
+model (Cox PH) [4], which assumes a constant hazard ra-
+tio over time for different individuals. More recently, deep
+learning techniques have demonstrated comparable or supe-
+rior performance to traditional methods in survival predic-
+tion (DeepSurv [19], Deep Survival Machines (DSM) [26]).
+Clustering, on the other hand, serves as a valuable tool in
+data-driven discovery and subtyping of diseases. Clustering
+based on risk-profiles in survival analysis (survival cluster-
+ing) is critical in applications such as clinical decision mak-
+ing, but is relatively under-explored in deep learning. Only
+a few methods have been proposed in this context and they
+either have limited scalability in high-dimensional, unstruc-
+tured data [22], or they focus on the discovery of purely
+This ICCV Workshop paper is the Open Access version, provided by the Computer Vision Foundation.
+Except for this watermark, it is identical to the accepted version;
+the final published version of the proceedings is available on IEEE Xplore.
+2285
+outcome-driven clusters. For example, we can use survival
+analysis techniques [4, 19, 26] to predict the risk of an event
+for each subject and stratify them using the predicted risk in
+a post-hoc way. We can set a threshold (usually the me-
+dian or the mean of the whole risk scores) to get the sub-
+types. Recently, some models [3, 10, 11, 15, 23] have been
+proposed to perform both clustering and time-to-event pre-
+diction simultaneously. Deep Clustering Survival Machines
+(DCSM) [10, 11] combines both discriminative and gener-
+ative mechanisms, by assuming that the timing information
+can be generatively described by a mixture of expert distri-
+butions, then they assign the cluster by the weights learned
+from these expert distributions for individual instances in a
+discriminative manner.
+Although survival-clustering models have shown strong
+performance in both subtype discovery and risk predic-
+tion, nearly all existing frameworks are restricted to single-
+modality data. This limitation is especially problematic for
+dementia research, where Alzheimer’s disease (AD) pro-
+gression is driven by a constellation of factors—including
+structural Magnetic Resonance Imaging (MRI) atrophy pat-
+terns, amyloid-β/tau Positron Emission Tomography (PET)
+or cerebrospinal fluid (CSF) abnormalities, APOE-4 car-
+rier status, and cognitive assessments—that physicians rou-
+tinely evaluate in combination.
+A multimodal survival-
+clustering strategy could therefore provide a more nuanced
+picture of disease heterogeneity. To date, many machine-
+learning pipelines have accurately classified AD using mul-
+timodal inputs [18, 21, 34], but they treat diagnosis as a
+static outcome and ignore time-to-event information. Con-
+versely, recent multimodal survival models predict the prob-
+ability of conversion to AD [20, 25] yet do not identify
+latent patient clusters.
+An extension of Deep Clustering
+Survival Machines (DCSM) has begun to address this gap,
+demonstrating state-of-the-art clustering and competitive
+risk prediction [27]; however, its reliance on a prelimi-
+nary feature-selection step risks discarding complementary
+cross-modal signals.
+To overcome these problems, we introduce Multi-Modal
+Deep
+Clustering
+Survival
+Machines
+(MMDCSM)—a
+framework that fuses heterogeneous neuroimaging, fluid-
+biomarker, and clinical data to uncover patient subtypes and
+predict time-to-event in a single model. Applied to indi-
+viduals with mild cognitive impairment (MCI), MMDCSM
+partitions patients into clinically meaningful subgroups,
+each characterized by a distinct risk profile for conversion
+to Alzheimer’s disease (AD). Its key advantages are:
+• Comprehensive biomarker integration. AD pathology
+cannot be captured by any single marker.
+MMDCSM
+jointly models structural MRI atrophy patterns, PET-
+based amyloid-β abnormalities, yielding a fuller picture
+of disease heterogeneity.
+• Early-stage precision. Because MCI represents the pro-
+dromal phase between normal cognition and AD, strati-
+fying MCI patients by individualized conversion risk en-
+ables targeted interventions that may delay or prevent pro-
+gression.
+• Risk-aware clustering.
+Unlike conventional binary
+models that merely predict eventual conversion, MMD-
+CSM delivers both cluster membership and a personal-
+ized survival curve, quantifying how soon each subtype is
+likely to progress. In particular, we show that MMDCSM
+outperforms baseline methods in terms of both identify-
+ing clusters and time-to-event predictions.
+• Model interpretability.
+Post-hoc feature-importance
+analysis highlights the brain regions most influential in
+distinguishing low- versus high-risk clusters, offering in-
+sights that may guide future therapeutic targets for AD.
+2. Related Work
+Survival analysis estimates the probability that an event of
+interest has not yet occurred by time t given a subject’s
+covariates X [6]. This probability is expressed by the sur-
+vival function S(·|X) = P(T > t|X). Because many studies
+end before every subject experiences the event, the data are
+typically right-censored. Each record in the dataset D =
+{xi,ti,δi}N
+i=1 contains a feature vector xi ∈Rd, a follow-up
+time ti, and an event indicator δi ∈{0,1} (where δi = 1 indi-
+cates that the event was observed at time, and δi = 0 for cen-
+sored data). We denote the uncensored and censored subsets
+by DU and DC, respectively.
+Time-to-event prediction.
+Cox proportional hazards
+(Cox PH) [4] models the hazard as a multiplicative func-
+tion of the covariates and assumes that hazard ratios be-
+tween subjects remain constant over time – a restriction
+often violated in practice. Deep Cox model (also called
+DeepSurv) [19] relaxes Cox PH’s linearity by replacing
+the log-risk function with a deep neural network, capturing
+complex non-linear relationships while still relying on the
+proportional-hazards assumption. Deep Survival Machines
+(DSM) [26] discards the proportional-hazards constraint en-
+tirely, fitting a mixture of parametric survival distributions
+that can model arbitrary, time-varying hazards.
+Time-to-event prediction and Clustering.
+When used
+post-hoc, Cox PH, Deep Cox (DeepSurv), and DSM can
+stratify mild-cognitive-impairment (MCI) patients by con-
+verting the predicted risk scores into two groups using
+the median threshold. Deep Clustering Survival Machines
+(DCSM) [11] advances prior work by jointly learning risk
+prediction and patient clustering within a unified architec-
+ture, but it is limited to single-modal inputs. While an ex-
+tension of DCSM has begun to address this limitation [27],
+it still relies on a preliminary feature selection step and does
+not fully integrate multimodal information during training.
+We integrate multi-modal information—structural MRI
+and Amyloid PET biomarkers—to discover two clinically
+2286

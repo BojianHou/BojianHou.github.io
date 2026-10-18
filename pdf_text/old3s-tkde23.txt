@@ -1,0 +1,202 @@
+IEEE TRANSACTIONS ON KNOWLEDGE AND DATA ENGINEERING, VOL. XX, NO. X, AUGUST 2022
+1
+Online Learning from Evolving Feature Spaces
+with Deep Variational Models
+Heng Lian, Di Wu, Bo-Jian Hou, Jian Wu, and Yi He∗
+Abstract—In this paper, we explore a novel online learning setting, where the online learners are presented with “doubly-streaming”
+data. Namely, the data instances constantly streaming in are described by feature spaces that over-time evolve, with new features
+emerging and old features fading away. The main challenge of this problem lies in the fact that the newly emerging features are
+described by very few samples, resulting in weak learners that tend to make error predictions. A seemingly plausible idea to overcome
+the challenge is to establish a relationship between the old and new feature spaces, so that an online learner can leverage the
+knowledge learned from the old features to better the learning performance on the new features. Unfortunately, this idea does not scale
+up to high-dimensional feature spaces that entail very complex feature interplay. Specifically. a tradeoff between onlineness, which
+biases shallow learners, and expressiveness, which requires deep models, is inevitable. Motivated by this, we propose a novel
+paradigm, named Online Learning Deep models from Data of Double Streams (OLD3S), where a shared latent subspace is discovered
+to summarize information from the old and new feature spaces, building an intermediate feature mapping relationship. A key trait of
+OLD3S is to treat the model capacity as a learnable semantics, aiming to yield optimal model depth and parameters jointly in
+accordance with the complexity and non-linearity of the input data streams in an online fashion. To ablate its efficacy and applicability,
+two variants of OLD3S are proposed namely, OLD-Linear that learns the relationship by a linear function; and OLD-FD learns that two
+consecutive feature spaces pre-and-post evolution with fixed deep depth. Besides, instead of re-starting the entire learning process
+from scratch, OLD3S learns multiple newly emerging feature spaces in a lifelong manner, retaining the knowledge from the learned and
+vanished feature space to enjoy a jump-start of the new features’ learning process. Both theoretical analysis and empirical studies
+substantiate the viability and effectiveness of our proposed approach. The code is available online at github.com/ X1aoLian/ OLD3S-L.
+Index Terms—Data Streams, Online Learning, Streaming Algorithms, Open Feature Spaces
+✦
+1
+INTRODUCTION
+Machine learning has become a fundamental building block
+in many cyber infrastructures, provides an automated hence
+scalable apparatus to analyze the high-dimensional data
+streams (e.g., images, texts, videos) pervading all corners
+of the Internet [1]–[3]. Examples include multimedia re-
+trieval [4], [5], online speech analytics [6], [7], recommender
+systems [8]–[12], to just name a few. Generally speaking,
+wherever it is infeasible to inspect and process the data
+growing in an increasingly unmanageable volume with
+manpower, machine learning prevails.
+Despite their fashionability, a prominent drawback
+shared by most existing machine learning methods is their
+limited generalization capability [13]. As a matter of fact,
+machine learning models usually do well in practice only if
+the data arriving in future tend to follow a nearly identical
+distribution as the data they were trained on [14], [15].
+This so-called i.i.d. assumption inevitably limits the model
+expressiveness to our society that constantly evolves.
+To aid the situation, a new learning paradigm termed
+online learning from doubly-streaming data has emerged with
+•
+H.Lian, J.Wu, and Y.He were with the Department of Computer Science,
+Old Dominion University, Norfolk, VA 23529, USA.
+E-mail: {hlian, j1wu}@odu.edu, yihe@cs.odu.edu
+•
+D. Wu was with the College of Computer and Information Science,
+Southwest University, Chongqing, China. E-mail: wudi.cigit@gmail.com
+•
+B.J.
+Hou
+was
+with
+the
+Center
+for
+Biomedical
+Image
+Comput-
+ing and Analytics, University of Pennsylvania, PA, USA. E-mail:
+houbo@pennmedicine.upenn.edu
+∗Corresponding Author: Dr. Yi He (yihe@cs.odu.edu)
+both algorithmic designs [16]–[29] and domain applica-
+tions [30]–[34]. Its key idea is to generalize learning models
+in two spaces. First, the sample space, where the data in-
+stances are generated ceaselessly, requiring to train learners
+on-the-fly, making real-time predictions as the data arrive.
+As such, if the patterns underlying data changed, an online
+learner can be updated instantly to adapt to the shift,
+thereby retaining its accuracy over time [35]–[37].
+Second, the feature space, where sets of features describ-
+ing the arriving data samples evolve, with new features
+emerge and old features stop to be generated. To wit, a
+smart manufacturing pipeline may employ a set of sensing
+techniques to detect unqualified products [38], where each
+sensor coheres to a feature. The feature space evolves, when
+the old sensors wear out and a batch of new sensors are
+deployed [16]. Tangibly, as the new and old sensors (i.e.,
+features) often differ in terms of amount, version, metric,
+and positions, a new classifier needs to be initialized. Yet,
+this new classifier may stay weak and error-prone before
+the training samples carrying these new features grows to
+a sufficiently large volume. Meanwhile, the old classifier
+becomes unusable with the unobserved features, leading to
+substantial waste of the data collection and training effort.
+A relationship between the pre-and-post evolving feature
+spaces must be established, so that the old features can be
+reconstructed from the new ones. Online learners can thus
+harvest the information embedded in the old classifier to
+aid the weak new classifier, enjoying a boosted learning
+performance [21], [23], [24], [26]. One more advantage of es-
+tablishing such relationship is to avoid waste of multi train-
+This article has been accepted for publication in IEEE Transactions on Knowledge and Data Engineering. This is the author's version which has not been fully edited and 
+content may change prior to final publication. Citation information: DOI 10.1109/TKDE.2023.3326365
+© 2023 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission.
+See https://www.ieee.org/publications/rights/index.html for more information.
+Authorized licensed use limited to: Carnegie Mellon University Libraries. Downloaded on November 19,2023 at 20:35:33 UTC from IEEE Xplore.  Restrictions apply. 
+IEEE TRANSACTIONS ON KNOWLEDGE AND DATA ENGINEERING, VOL. XX, NO. X, AUGUST 2022
+2
+ings. Once observing new features, both straightforward
+methods which capture a new subspace from all features, or
+establish a relationship for each pair of adjacent spaces will
+cause a huge waste of computations. Instead, our method
+can always re-capture a new latent representation can be
+constructed combining existed subspace and new features.
+Such an adaptive growing subspace can, simultaneously,
+leverage old knowledge and absorb new information.
+Unfortunately, all existing studies suffer from a tradeoff
+between onlineness and expressiveness. Specifically, on the one
+hand, shallow learners (e.g., generalized linear models [39],
+Hoeffding trees [40]) possess a faster online convergence
+rate, thanks to their simple model structures with a small
+number of trainable parameters [41]. However, due to their
+limited learning capacity, they usually end up with inferior
+performance when dealing with high-dimensional media
+streams, of which the feature interplay is often complex.
+On the other hand, deep learners (e.g., neural net-
+works [42], [43], deep forests [44], [45]) enjoy a low-
+dimensional hidden representation to build accurate pre-
+dictive models on complex raw inputs. Yet, their large
+number of parameters residing in the entangled model
+structures invites stochastic updates, leading to a very slow
+convergence rate. In an online learning context, more error
+predictions tend to be made before the learners converge
+to an equilibrium. These additional errors are recognized as
+regrets, where the slower the convergence rate, the larger the
+learner regrets in a hindsight.
+Motivated by this tradeoff, this paper mainly explores
+one question: How can we build an online learner that joins
+the two merits, namely, 1) converges as fast as shallow models to
+minimize the online regrets and 2) learns latent representations
+as expressive as deep models from high-dimensional inputs with
+complex feature relationships.
+Our affirmative answer provides a novel learning
+paradigm, termed Online Learning Deep models from Data of
+Double Streams (OLD3S). Our key idea is to train an online
+learner that automatically adjusts its learning capacity in
+accordance with the complexities and temporal variation
+patterns of input data stream. Specifically, OLD3S is with an
+over-complete neural architecture [43], [46], [47] and starts
+from using its shallow layers, approximating a simple clas-
+sifier to attain fast convergence at initial rounds. Over time,
+the deeper layers are gradually mobilized, as more samples
+streaming in requires 1) a highly capable classifier that
+can learn expressive latent representations and 2) a precise
+delineation of complex feature interplay. Knowledge reuse
+is enabled in both aspects i) the shallow-to-deep model
+switch via representations sharing and ii) the pre-and-post
+evolving feature spaces via reconstructive mapping and
+ensemble learning [48]. This benefits our approach by expe-
+diting the convergence rate in a temporal continuum, so as
+to maximize its online efficiency and efficacy when learning
+from doubly-streaming data.
+Specific contributions of this paper are as follows:
+i) This is the first study to explore the doubly-streaming
+data mining problem in an online deep learning con-
+text, where the high-dimensional data streams with
+feature space evolution tend to incur a tradeoff between
+convergence rate and learning capacity. Section 3 man-
+ifest the technical challenges from empirical evidence.
+ii) A novel OLD3S approach is proposed to tackle the
+problem, where a modeling architecture with its depth
+learned from data is devised to adapt to minimize the
+online classification regrets and precisely approximate
+the feature-wise relationship on-the-fly. Detailed analy-
+sis can be found in Section 4.
+iii) A theoretical analysis substantiates that OLD3S can
+provably lead to performance improvement over in
+two aspects i) online learners with fixed depths and
+ii) a single classifier without feature space ensembling.
+Details are presented in Section 5.
+iv) Real-world high-dimensional datasets covering do-
+mains of machine translation and image classification
+are employed to benchmark our approach. Results
+suggest the viability and effectiveness of our proposal,
+documented in Section 6.
+2
+RELATED WORK
+Our learning problem relates to two research threads i)
+Online Learning with Doubly-Streaming Data and ii) Deep
+Learning with Adaptive Capacity, with the relationship
+and differences between the prior study efforts and our
+proposed approach discussed in this section as follows.
+Online Learning with Doubly-Streaming Data
+Online learning algorithms were devised for data stream
+processing [49], [50], where the reality of learning is in an
+on-the-fly setting hence lifts the memory constraint for data
+analysis at scale. In addition to allowing data to grow in
+terms of volume, in an orthogonal setting, hoping the features
+describing input data to stay strictly unchanging is unreal-
+istic over long time spans. As a response, the pioneering
+studies [51]–[55] explored a setting of incremental feature
+learning, allow the arriving data instances to carry different
+sets of features yet later instances are assumed to include
+monotonically more features than the earlier ones. Subse-
+quent works that strive to learn evolving feature spaces [16]–
+[24], [27]–[29] further relaxed the mon

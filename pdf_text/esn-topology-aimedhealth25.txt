@@ -1,0 +1,186 @@
+Accessing the topological properties of human brain
+functional sub-circuits in Echo State Networks
+Bach Nguyen1, Tianlong Chen2, Bojian Hou3, Shu Yang3, Li Shen3, and Duy
+Duong-Tran3,4,†
+1University of Texas, Dallas
+2University of North Carolina, Chapel Hill
+3University of Pennsylvania
+4United States Naval Academy
+†Corresponding email: duyanh.duong-tran@pennmedicine.upenn.edu
+ABSTRACT
+Recent years have witnessed an emerging trend in neuromorphic computing that centers around the use of brain connectomics
+as a blueprint for artificial neural networks. Connectomics-based neuromorphic computing has primarily focused on embedding
+human brain large-scale structural connectomes (SCs), as estimated from diffusion Magnetic Resonance Imaging (dMRI)
+modality, to echo-state networks (ESNs). A critical step in ESN embedding requires pre-determined read-in and read-out
+layers constructed by the induced subgraphs of the embedded reservoir. As a priori set of functional sub-circuits are derived
+from functional MRI (fMRI) modality, it is unknown, till this point, whether the embedding of fMRI-induced sub-circuits/networks
+onto SCs is well justified from the neuro-physiological perspective and ESN performance across a variety of tasks. This
+paper proposes a pipeline to implement and evaluate ESNs with various embedded topologies and processing/memorization
+tasks. To this end, we showed that different performance optimums highly depend on the neuro-physiological characteristics of
+these pre-determined fMRI-induced sub-circuits. In general, fMRI-induced sub-circuit-embedded ESN outperforms simple
+bipartite and various null models with feed-forward properties commonly seen in MLP for different tasks and reservoir criticality
+conditions. We provided a thorough analysis of the topological properties of pre-determined fMRI-induced sub-circuits and
+highlighted their graph-theoretical properties that play significant roles in determining ESN performance.
+1 Introduction
+One of the prominent directions in building high-performance
+or general intelligence artificial systems is implementing bi-
+ologically plausible models, particularly using human brain
+connectomes as the underlying graph of neural networks1–4.
+Most state-of-the-art biologically inspired artificial connec-
+tomes are realized as reservoir networks with structural human
+brain data. However, structural connectomes (SC) derived
+from diffusion Magnetic Resonance Imaging (MRI) are gen-
+erally rigid in both topology and scale compared to functional
+connectomes (FC) from functional MRI data. Thus, in this
+work, we explore the prospect of applying functional connec-
+tomes to reservoir Echo-state Networks (ESNs) under various
+conditions to comprehensively evaluate model performance,
+as well as build a consistent framework for implementations
+of connectomic data in artificial networks. Motivated by the
+fact that the topology of a neural network has a tangible im-
+pact on ESN performance, and that complex network topology
+sometimes improves the performance of the model, we sys-
+tematically explore more complex and biologically inspired
+topology in reservoir neural networks. A critical step in ESN
+embedding requires pre-determined read-in and read-out lay-
+ers with inputs sampled from the induced subgraphs of the
+embedded reservoir. Typically, a priori set of functional net-
+works (FNs), such as Yeo’s FNs5, is used as pre-determined
+subgraphs for read-in and read-out input selections. Since
+a priori set of FNs are derived from functional MRIs, yet,
+these pre-determined sub-circuits are mapped onto SC, it is
+unknown whether FN-to-SC embedding is well justified from
+i) neuro-physiological perspective and ii) ESN performance.
+In this paper, our contributions are as follows: i) We proposed
+a pipeline to implement and evaluate echo-state reservoir net-
+works with various embedded topology on various processing
+and memorization tasks. To this end, we tested various topo-
+logical embedding and evaluated their respective performance
+on diverse tasks, showing different performance optimums
+are highly dependent on the embedded neuro-physiological
+architecture of a priori functional networks and the corre-
+sponding task configurations; ii) we show that, in general,
+complex topology perform better than simple bipartite models
+or null models with feed-forward properties commonly seen
+in MLP for certain tasks and reservoir criticality conditions.
+As such, we also found that, contrary to earlier literature,
+the performance of the reservoir model is not strictly defined
+by the reservoir’s echo-state property defined by the spectral
+radius of the connectivity matrix; iii) we found that there
+exists a differentiated performance of functional networks in-
+duced from the human structural connectome with respect to
+1
+arXiv:2412.14999v2  [q-bio.NC]  26 Jan 2025
+different cognitive tasks and their corresponding computation-
+memorization balances. We analyzed the topological prop-
+erties of a priori functional networks and highlighted their
+graph-theoretical properties that play significant roles in de-
+termining the final performance of the echo-state model.
+2 Background and related works
+2.1 Topologically-Embedded artificial neural net-
+work and Echo-State-Networks (ESN)
+Echo-state networks are a variant of the classical reservoir
+computing (RC) paradigms, where the reservoir is a recur-
+rent layer of the classical recurrent neural network6. RCs
+are typically proposed in place of regular RNN variants as a
+lightweight model, where the hidden states are high dimen-
+sions while only the readout layer weights of the model must
+be updated during training. The frozen nature of the reservoir
+layer allows any topology and unit dynamics to be embed-
+ded. As a result, RCs have been implemented as predictors
+of chaotic dynamics in physics simulators, or used as a time-
+series prediction model in general7–11. ESNs model time as
+discrete steps, making them suitable for discrete-time sam-
+pling data seen in real-world time-series datasets12. In the
+current literature, the relationship between the topological
+structure of an NN and its performance is still unclear. While
+complex networks may yield higher predictive performance
+or parameter efficiency13, it is difficult to generalize randomly
+wired models outside the investigated context. Under the con-
+straint of MLP-random interpolation, several random network
+models rewired similarly to the small-world regimes perform
+well on several real-life problems14,15. Different topology
+perform well in limited tasks on small network sizes enabled
+by the learning matrix sequential algorithm for training di-
+rected acyclic graphs (DAGs). Random graph topology are
+also shown to perform well as image classifiers on the Ima-
+geNet dataset, especially the Watts-Strogatz (WS) model of
+small-world networks16.17 echoes the statement on the per-
+formance of small-world models in the case of synthetic data,
+albeit the difference between WS and other complex graph
+families is less pronounced, possibly owing to the sufficient
+degree of topological complexity for function representation.
+2.2 Brain Connectomics and human brain functional
+sub-circuits
+Human Brain connectomics studies how the human brain
+is structurally connected18–21 and how a heterogeneous
+repertoire of resting-state or task-related functional circuits
+emerge on top of it21–33. There are two types of mesoscopic
+structures in large-scale brain networks: localized and non-
+localized. In this paper, we focus on investigating local-
+ized mesoscopic structures which are sub-systems learned
+from local/quasi-local network properties such as brain re-
+gions of interest (ROIs) or functional edges, or correlations
+among neighboring nodes27. In brain connectomics, these
+sub-structures are induced from a wide array of techniques,
+including but not limited to clustering5,34 or low-dimensional
+approximation of high-dimensional dynamics35–37. The most
+commonly known localized mesoscopic structures in brain
+networks are often referred to as functional sub-circuits or
+functional networks (FNs)5,27,38,39. From here on, we will
+use the two terms functional sub-circuits and FNs interchange-
+ably.
+2.3 Human-Brain-Connectomics ESNs
+In the context of modeling the human brain connectome, ESNs
+are implemented as prototype models of the structural brain
+topology.2 shows that human brain connectivity captured
+through diffusion imaging performs better than random null
+network models in the critical regime, while also demonstrat-
+ing computationally relevant properties of resting-state func-
+tional brain network parcellation. Given a minimum level of
+randomness and connection diversity from the original struc-
+tural connectome, biologically inspired reservoir networks’
+performance matches that of any classical random network
+model1. The authors of40 conclude that the modular struc-
+ture of reservoirs significantly impacts prediction error among
+multiple other features. While the connections are modeled in
+a recurrent network rather than strictly an RC,41 shows that
+training an RNN constrained by reservoir features such as
+spatial wiring cost and neuron communicability leads to the
+emergence of structural and functional features commonly
+found in primate cerebral cortices.
+3 Connectome-based reservoir model
+3.1 Preliminary: Echo-state Implementation
+To examine different topologies as computational graphs, we
+utilized the implementation of the classical ESN42 from the
+conn2res package4 which has the following form:
+x[t] = tanh
+ WRx[t −1]+WIu[t]
+
+(1)
+z[t] = WOx[t]
+(2)
+The reservoir state x[t], data input u[t], and reservoir read-
+out output xout[t] are, respectively, real value vectors of Nr,
+Ni, and No dimensions. Matrices WR, WI, and WO are the
+recurrent reservoir internal weight matrix, the reservoir input
+weight matrix, and the readout weight matrix, respectively.
+Through experimentation, we chose the tangent function tanh
+as the nonlinearity for the entire reservoir. The reservoir is ini-
+tialized in the origin, i.e., x[0] = 0. We initialize input matrix
+WI ∈Rn×m (n is the number of input nodes, m is the input
+feature length):
+WI
+ij =
+(
+C,
+if i = j
+mod n
+0,
+otherwise,
+(3)
+where C is a predetermined input factoring constant, identical
+for all input features and read-in nodes.
+We train the ESN by optimizing the readout matrix WO,
+solving the linear regression problem y[t] = WOx[t] using the
+2/12

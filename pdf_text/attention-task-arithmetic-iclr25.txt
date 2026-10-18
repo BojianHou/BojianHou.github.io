@@ -1,0 +1,116 @@
+Published as a conference paper at ICLR 2025
+FINE-TUNING ATTENTION MODULES ONLY:
+ENHANCING WEIGHT DISENTANGLEMENT IN TASK
+ARITHMETIC
+Ruochen Jin*1,2, Bojian Hou*2, Jiancong Xiao*2, Weijie Su2, and Li Shen2
+1 East China Normal University, Shanghai, China,
+2 University of Pennsylvania, Philadelphia, PA, USA
+{kyrie.jin, li.shen}@pennmedicine.upenn.edu
+ABSTRACT
+In recent years, task arithmetic has garnered increasing attention. This approach
+edits pre-trained models directly in weight space by combining the fine-tuned
+weights of various tasks into a unified model. Its efficiency and cost-effectiveness
+stem from its training-free combination, contrasting with traditional methods that
+require model training on large datasets for multiple tasks. However, applying
+such a unified model to individual tasks can lead to interference from other tasks
+(lack of weight disentanglement). To address this issue, Neural Tangent Kernel
+(NTK) linearization has been employed to leverage a “kernel behavior”, facilitat-
+ing weight disentanglement and mitigating adverse effects from unrelated tasks.
+Despite its benefits, NTK linearization presents drawbacks, including doubled
+training costs, as well as reduced performance of individual models. To tackle
+this problem, we propose a simple yet effective and efficient method that is to
+finetune the attention modules only in the Transformer. Our study reveals that the
+attention modules exhibit kernel behavior, and fine-tuning the attention modules
+only significantly improves weight disentanglement. To further understand how
+our method improves the weight disentanglement of task arithmetic, we present
+a comprehensive study of task arithmetic by differentiating the role of the rep-
+resentation module and task-specific module. In particular, we find that the rep-
+resentation module plays an important role in improving weight disentanglement
+whereas the task-specific modules such as the classification heads can degenerate
+the weight disentanglement performance. 1
+1
+INTRODUCTION
+The emergence of large pre-trained models in the open-source community has significantly ex-
+panded the potential to enhance performance on downstream tasks (Ilharco et al., 2023; 2022;
+Zhuang et al., 2020), align with human preferences (Lu et al., 2022; Ouyang et al., 2022; Ribeiro &
+Lundberg, 2022; Glaese et al., 2022; Xiao et al., 2024), and improve robustness (Hou et al., 2017;
+Ortiz-Jim´enez et al., 2021; Santurkar et al., 2021; Tancik et al., 2020). However, traditional meth-
+ods often involve expensive joint fine-tuning across multiple tasks (Zhuang et al., 2020) and rely
+heavily on human feedback (Ouyang et al., 2022), which limits their scalability and broad adoption.
+Moreover, optimizing performance for specific downstream tasks usually compromises the model’s
+initial pre-training performance or zero-shot accuracy (French, 1999; McCloskey & Cohen, 1989).
+In light of these challenges, the necessity of task arithmetic in multitask learning has become increas-
+ingly evident. Task arithmetic offers a cost-effective and efficient alternative by enabling training-
+free combinations in the weight space of pre-trained models without sacrificing the model’s original
+capabilities (Ilharco et al., 2023). Central to this approach is the concept of a task vector, which
+represents a set of weight adjustments specifically calibrated for a given task through fine-tuning,
+obtained by subtracting the task-specific weights from the original pre-trained weights (Ilharco et al.,
+2023). Each task vector encodes a unique representational signature tailored to a particular task.
+1The code is available at https://github.com/kyrie-23/task_arithmetic_tangent
+1
+arXiv:2407.07089v2  [cs.LG]  29 Jan 2025
+Published as a conference paper at ICLR 2025
+Table 1: Taks arithmetic performance comparison between different methods. The task arith-
+metic performance (the average accuracy of the unified model over all the tasks) of our method
+outperforms the state-of-the-art due to both good performance of individual models and good kernel
+behavior (weight disentanglement).
+Performance of
+Individual Models
+Kernel Behavior
+(Weight Disentanglement)
+Task Arithmetic
+Performance
+Ilharco et al. (2023)
+✓
+-
+70.00%
+Ortiz-Jimenez et al. (2024)
+-
+✓
+76.26%
+Ours
+✓
+✓
+78.37%
+Pre-trained Model
+Finetuning
+...
+Task Arithmetic
+Task 1
+Task 2
+Task T
+...
+Nearly Equal Performance
+Weight Disentanglement
+Unified Model
+Individual Model
+Figure 1: Illustration of the concepts of task arithmetic and weight disentanglement. On the
+left-hand side, in task arithmetic, we first finetune the pre-trained model θ0 and get the finetuned
+individual model θ0 + αtτt where τt is the tth task vector. We eventually obtain the unified model
+by adding all the task vectors to the pre-trained model: θ0 + PT
+t=1 αtτt. On the right-hand side,
+weight disentanglement means that the prediction of the unified model on a specific task will not be
+affected by other tasks.
+As illustrated in Figure 1 (left), θ0 is the pretrained model and τt, t = 1, · · · , T is the tth task
+vector. The individual model on each task is derived by θ0 + αtτt. Task arithmetic is to add all
+the task vectors to the pre-trained model to obtain the unified model θ0 + PT
+t=1 αtτt. A main goal
+in task arithmetic is to achieve weight disentanglement as shown in Figure 1 (right) which means
+the prediction performance of the unified model such as the accuracy on a specific task will not be
+affected by other tasks. In other words, the unified model has nearly equal performance with the
+individual model.
+The reason that we aim to achieve weight disentanglement is because task arithmetic primarily fo-
+cuses on competing tasks rather than synergistic ones (Ilharco et al., 2023), as the challenge lies
+in balancing and optimizing performance across tasks that may have conflicting objectives or re-
+quire different model behaviors. This emphasis on competing tasks is crucial for developing robust
+multi-task models that can effectively handle a diverse range of applications without performance
+degradation.
+However, weight disentanglement remains the most formidable challenge in task arithmetic. Recent
+research (Ortiz-Jimenez et al., 2024) has shown that constraining models to fine-tune within the tan-
+gent space significantly improves weight disentanglement, thanks to the inherent kernel behavior of
+models during early fine-tuning stages. This kernel behavior, formalized by the Neural Tangent Ker-
+nel (NTK) theory (Jacot et al., 2018), refers to neural networks updating primarily around pre-trained
+parameter initializations. While NTK linearization is effective, it compromises the performance of
+individual models and demands two to three times more computational resources, conflicting with
+task arithmetic’s original efficiency goals.
+2

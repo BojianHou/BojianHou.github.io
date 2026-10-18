@@ -1,0 +1,136 @@
+ 
+中国计算机学会人工智能会议 2019 
+ 
+2019 年8 月 
+CCF Conference on Artificial Intelligence (CCFAI 2019) 
+Aug. 2019 
+——————————————— 
+收稿日期：2019年8月13日；最终修改稿收到日期：2020年2月-日。本课题得到国家自然科学基金项目(资源受限的多视图学习技术研究, 61673201)
+的资助。侯博建，男，1992年生，博士研究生，主要研究领域为人工智能、机器学习和数据挖掘。E-mail: houbj@lamda.nju.edu.cn。姜远（通信作者），
+女，1976年生，博士，教授，中国计算机学会(CCF)会员(10759M)，主要研究领域为人工智能、机器学习和数据挖掘。E-mail: jiangyuan@nju.edu.cn。 
+ 
+特征变化下循环神经网络的可解释性研究 
+侯博建1),2)  姜远1),2)  
+1)(计算机软件新技术国家重点实验室(南京大学) 南京 210023) 
+2)(软件新技术与产业化协同创新中心(南京大学) 南京 210023) 
+ 
+摘  要 
+循环神经网络（RNN）已经成功应用在诸多领域，比如语音识别、文本分类等。但是他们的内在工作机制尚没有
+被很好的解释。在本文中，我们关注循环神经网络（RNN）并尝试研究其可解释性。我们发现处理序列数据的有限状态自
+动机（FSA）具有更多可解释的内部机制，并可以从RNN 中学得。另外，在开放环境中，特征经常发生变化，因此我们也
+需要将这种特征改变的情况融入我们的设定中。我们提出了一种从RNN 学习FSA 的方法，并研究了特征变化带来的影响。
+我们首先分析了RNN 的性能如何受到特征变化和门的数量的影响，然后给出了人类可以模拟从而易于理解的FSA 的图示、
+分析了以数值计算为依托的隐层节点跳转背后的语义。我们的结果表明，具有简单门控结构的RNN（例如最小门控单元
+（MGU））是更理想的RNN 结构，并且FSA 中导致特定分类结果的跳转的词具有相同词性，这在语义层面是更容易让人理
+解的。此外，我们发现不同的特征不会对性能产生严重影响，这表明我们为了减少时间和空间复杂度而应该选择较短的特征。 
+关键词 
+机器学习；循环神经网络；有限状态自动机；可解释性；特征变化 
+ 
+Learning Interpretability from RNN with Feature Changing 
+HOU Bo-Jian1),2)  JIANG Yuan1),2) 
+1)( National Key Laboratory for Novel Software Technology, Nanjing University, Nanjing 210023)  
+2)( Collaborative Innovation Center of Novel Software Technology and Industrialization, Nanjing 210023) 
+ 
+Abstract Recurrent Neural Networks (RNNs) have been successfully applied to many practical tasks, such as 
+speech recognition, text classification, etc. However, their inner working mechanisms are not clearly understood. 
+In this paper, we focus on Recurrent Neural Networks (RNNs) and attempt to learn interpretability from it. We 
+find that Finite State Automaton (FSA) that processes sequential data has more interpretable inner mechanism 
+and can be learned from RNNs. Besides, in open environment, the features often change and thus we need to 
+incorporate this situation into our setting. In our work, we propose a method to learn FSA from RNN and study 
+the impact of feature changing. From the FSA's point of view, we analyze how the performance of RNNs are 
+affected by feature changing and the number of gates. We then give the graphical illustration of FSA for human 
+beings to simulate, which shows the interpretability. With the graphical illustration, we also analyze the semantic 
+meaning behind the transition of numerical hidden states. Our results suggest that RNNs with simple gated 
+structure such as Minimal Gated Unit (MGU) is more desirable and the words on the transitions in FSA leading 
+to specific classification result are within the same class, which are understandable by human beings semantically. 
+Furthermore, we find that different features will not make a serious difference to the performance, which suggest 
+us to choose a short one for the sake of saving time and space complexity. 
+2 
+中国计算机学会人工智能会议（CCFAI 2019） 
+2019 年 
+ 
+Key words machine learning; recurrent neural network; finite state automata; interpretability; feature changing 
+ 
+ 
+1 引言 
+现如今，循环神经网络[1]（Recurrent Neural 
+Network，以下简称RNN）技术已经取得了很大的
+成功，但是依然存在很多不足和亟待解决的问题，
+比如模型不容易解释、很难适应环境变化、数据量
+不够等。学件（learnware）[2]针对这些问题强调一
+个好的模型应该是可解释的（comprehensible 或者
+interpretable）、可发展变化的（evolvable）和可重
+用的（reusable）。同时研究这三个问题比较困难，
+所以本文先尝试同时研究前两者，也即RNN 的可
+解释性和可发展变化性。 
+可解释性还没有一致的定义，但已经有一些比
+较合理的定义值得一提。例如Kim 等人在2016 年
+提出了一个大家比较认可的定义[3]：可解释性是人
+类可以和模型预测一致的程度。另外一个被广泛接
+受的定义是由Miller[4]提出的：可解释性是人类理
+解模型做相应决策的原因的程度。Lipton 在2016
+年也提出了一个可解释性的具体定义[5]，也即可模
+拟性（human-simulability）：一个具有可解释性的模
+型，人类是可以模拟其运行过程的。更确切来说，
+如果一个模型可模拟，那么人类输入数据和此模型
+的参数，能够在合理时间范围内计算每一步骤，最
+终获得和模型一致的预测结果。这三种定义其实是
+一致的：如果一个人可以模拟某个模型的运行过程 
+(Lipton)，那么这个人就可以和模型的预测结果一致 
+(Kim)，也可以理解这个模型做出相应决策的原因 
+(Miller)，所以我们关注可模拟性。 
+可发展变化性指的是模型可以适应环境的变
+化：在开放环境中数据的分布、特征和类别都会经
+常发生变化。我们关注和研究比较常发生的特征的
+变化[6]，而同时考虑可解释性和特征变化就很自然
+地想到去研究特征变化对RNN 可解释性的影响。 
+从深度模型中获取可解释性通常来说是困难
+的，但是对于循环神经网络却有解决的办法。作为
+深度神经网络的主要成员RNN，尤其是带有门控机
+制的RNN，比如带有一个门的MGU[7]、带有两个
+门的GRU[8]和带有三个门的LSTM[9]在学习序列数
+据上都有着丰富的应用，比如语音识别[10]、给图片
+加标题[11]、情感分析[12]等。而除了RNN，有限状
+态自动机（英文Finite State Automata，缩写为FSA）
+[13],[14],[15]也是具有处理序列数据能力的工具。FSA
+主要包含有限的状态和状态之间的转移，它会根据
+外界的序列输入在状态之间跳转。FSA 这样的状态
+跳转过程和RNN 在接收序列输入后从一个隐层跳
+转到下一个隐层的过程很相似；而不同之处在于
+FSA 的内部工作机制可以被人类模拟，这符合前文
+所说的可模拟性，从而具有了更好的可解释性。而
+RNN 内部工作机制却由于全是数值上的计算而很
+难让人明白里面到底发生了什么。因此FSA 的这一
+特性启发我们从RNN 中学得FSA，用FSA 的天然
+可以理解的特性来尝试理解RNN 的内部机理。 
+为了从RNN 中学得FSA 并使用它来理解RNN
+的内部机理，我们需要回答两个问题：一个是怎么
+学，一个是到底要理解哪些内容。对于第一个问题，
+我们了解到传统的不带门控机制的RNN 的隐层节
+点的输出是有聚类特质的[16],[17]，我们可以利用这一
+特质来学得FSA，但是我们不知道这样的聚类特质
+是否在带有门控机制的RNN 内部依然存在；并且
+我们还要考虑效率问题，因为带有门控机制的RNN
+经常处理大规模的数据。对于第二个问题，我们需
+要分析门在这些门控机制的RNN 内部起到了多大
+的作用，尤其是不同的数量的门会有怎样不同的影
+响；再者，FSA 内状态之间的跳转是有物理含义的，
+或许可以从这个角度来获取RNN 内部隐层之间跳
+转所蕴含的语义信息，从而更好的理解RNN 的内
+部机理；另外，在开放动态环境下，数据的特征可
+能会发生变化[6]，可能会对RNN 的可解释性造成影
+响，因此我们还要考虑和分析特征变化对RNN 的
+可解释性的影响。 
+本文首先验证了带有门控机制的RNN 的隐层
+节点的输出同样具有聚类的特质，然后用高效的
+k-means++[18]来对这些隐层节点的输出做聚类。虽
+然我们使用了更先进的聚类方法，但是聚类方法并
+不是本文的核心问题，只要能在多项式时间内做有
+效的聚类都是可行的。聚类后我们把隐层节点的类
+簇作为状态，设计出五个必要元素来学得FSA。这
+五个元素分别是词汇集合、状态集合、开始状态、
+接受状态集合和状态转换函数。从RNN 学得FSA
+之后，我们便可以画出它们的图示，从而通过模拟
+其运行过程来方便理解内部的运行机理，我们同样
+也可以用其来进行分类。在人工数据集和真实数据
+集上的分类结果表明RNN 与其学得的FSA 在性能

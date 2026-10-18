@@ -1,0 +1,464 @@
+{
+ "sem-ece-neurips26": {
+  "pdf": "https://arxiv.org/pdf/2605.08432",
+  "tried": [
+   "https://arxiv.org/pdf/2605.08432"
+  ]
+ },
+ "3d-vlm-report-mlmi26": {
+  "pdf": "/files/MLMI26-3D-VLM-report.pdf",
+  "tried": [
+   "/files/MLMI26-3D-VLM-report.pdf"
+  ]
+ },
+ "bilevel-calibration-colm26": {
+  "pdf": "https://arxiv.org/pdf/2608.07419",
+  "tried": [
+   "https://arxiv.org/pdf/2608.07419"
+  ]
+ },
+ "kunlun-kdd26": {
+  "pdf": "https://arxiv.org/pdf/2602.10016",
+  "tried": [
+   "https://arxiv.org/pdf/2602.10016"
+  ]
+ },
+ "ct-vlm-npjdm26": {
+  "pdf": null,
+  "tried": [
+   "https://www.nature.com/articles/s41746-026-03257-2.pdf",
+   "https://www.medrxiv.org/content/10.1101/2025.07.03.25330654v4.full.pdf"
+  ],
+  "figure": {
+   "image": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41746-026-03257-2/MediaObjects/41746_2026_3257_Fig1_HTML.png"
+  }
+ },
+ "tabular-llm-multimodal-ad-arxiv26": {
+  "pdf": "https://arxiv.org/pdf/2603.17191",
+  "tried": [
+   "https://arxiv.org/pdf/2603.17191"
+  ]
+ },
+ "iris-bigdata25": {
+  "pdf": null,
+  "tried": [
+   "https://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC12971063&blobtype=pdf",
+   "https://europepmc.org/articles/PMC12971063?pdf=render",
+   "https://pmc.ncbi.nlm.nih.gov/articles/PMC12971063/pdf/"
+  ],
+  "pmcid": "PMC12971063",
+  "figure": {
+   "image": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/069f/12971063/ed1877f50ec1/nihms-2136804-f0001.jpg"
+  }
+ },
+ "online-bilevel-regret-neurips25": {
+  "pdf": "https://arxiv.org/pdf/2511.01126",
+  "tried": [
+   "https://arxiv.org/pdf/2511.01126"
+  ]
+ },
+ "tabular-llm-ad-bcb25": {
+  "pdf": "https://arxiv.org/pdf/2507.23227",
+  "tried": [
+   "https://arxiv.org/pdf/2507.23227"
+  ]
+ },
+ "fair-cca-adni-bcb25": {
+  "pdf": "https://arxiv.org/pdf/2507.09382",
+  "tried": [
+   "https://arxiv.org/pdf/2507.09382"
+  ]
+ },
+ "mentalchat16k-kdd25": {
+  "pdf": "https://arxiv.org/pdf/2503.13509",
+  "tried": [
+   "https://arxiv.org/pdf/2503.13509"
+  ]
+ },
+ "calibration-aligned-llm-icml25": {
+  "pdf": "https://arxiv.org/pdf/2505.01997",
+  "tried": [
+   "https://arxiv.org/pdf/2505.01997"
+  ]
+ },
+ "attention-task-arithmetic-iclr25": {
+  "pdf": "https://arxiv.org/pdf/2407.07089",
+  "tried": [
+   "https://arxiv.org/pdf/2407.07089"
+  ]
+ },
+ "genotype-feature-selection-amia25": {
+  "pdf": "https://arxiv.org/pdf/2410.01795",
+  "tried": [
+   "https://arxiv.org/pdf/2410.01795"
+  ]
+ },
+ "sdoh-kg-amia25": {
+  "pdf": null,
+  "tried": [
+   "https://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC12150755&blobtype=pdf",
+   "https://europepmc.org/articles/PMC12150755?pdf=render",
+   "https://pmc.ncbi.nlm.nih.gov/articles/PMC12150755/pdf/"
+  ],
+  "pmcid": "PMC12150755",
+  "figure": {
+   "image": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/9a25/12150755/3a92ca81334e/6556f1.jpg"
+  }
+ },
+ "clinical-modalities-amia25": {
+  "pdf": null,
+  "tried": [
+   "https://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC12150751&blobtype=pdf",
+   "https://europepmc.org/articles/PMC12150751?pdf=render",
+   "https://pmc.ncbi.nlm.nih.gov/articles/PMC12150751/pdf/"
+  ],
+  "pmcid": "PMC12150751",
+  "figure": {
+   "image": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/f533/12150751/ea7b93ba5e88/6058f4.jpg"
+  }
+ },
+ "association-mining-psb25": {
+  "pdf": "https://psb.stanford.edu/psb-online/proceedings/psb25/noshin.pdf",
+  "tried": [
+   "https://psb.stanford.edu/psb-online/proceedings/psb25/noshin.pdf"
+  ]
+ },
+ "llm-topic-modeling-innovaging25": {
+  "pdf": null,
+  "tried": [
+   "https://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC12742845&blobtype=pdf",
+   "https://europepmc.org/articles/PMC12742845?pdf=render",
+   "https://pmc.ncbi.nlm.nih.gov/articles/PMC12742845/pdf/"
+  ],
+  "pmcid": "PMC12742845",
+  "figure": {
+   "image": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/f266/12742845/e32e2aca46ae/igaf120f1.jpg"
+  }
+ },
+ "fair-multimodal-cca-amia25": {
+  "pdf": null,
+  "tried": [
+   "https://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC12919458&blobtype=pdf",
+   "https://europepmc.org/articles/PMC12919458?pdf=render",
+   "https://pmc.ncbi.nlm.nih.gov/articles/PMC12919458/pdf/"
+  ],
+  "pmcid": "PMC12919458",
+  "figure": {
+   "image": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/a330/12919458/bd271839b890/AMIASYMPROC-2025-9245-f1.jpg"
+  }
+ },
+ "icafs-tai25": {
+  "pdf": "https://arxiv.org/pdf/2504.10851",
+  "tried": [
+   "https://arxiv.org/pdf/2504.10851"
+  ]
+ },
+ "sdoh-ehr-kg-innovaging25": {
+  "pdf": null,
+  "tried": [
+   "https://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC12742847&blobtype=pdf",
+   "https://europepmc.org/articles/PMC12742847?pdf=render",
+   "https://pmc.ncbi.nlm.nih.gov/articles/PMC12742847/pdf/"
+  ],
+  "pmcid": "PMC12742847",
+  "figure": {
+   "image": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/7f53/12742847/c6f635237dd9/igaf102f1.jpg"
+  }
+ },
+ "pmbb-vlm-iccvw25": {
+  "pdf": "https://openaccess.thecvf.com/content/ICCV2025W/VADH/papers/Chen_Adapting_Vision-Language_Models_for_3D_CTMRI_Understanding_on_PMBB_via_ICCVW_2025_paper.pdf",
+  "tried": [
+   "https://openaccess.thecvf.com/content/ICCV2025W/VADH/papers/Chen_Adapting_Vision-Language_Models_for_3D_CTMRI_Understanding_on_PMBB_via_ICCVW_2025_paper.pdf"
+  ]
+ },
+ "multimodal-dcsm-iccvw25": {
+  "pdf": "https://openaccess.thecvf.com/content/ICCV2025W/VADH/papers/Wen_Multi-Modal_Deep_Clustering_Survival_Machines_for_Alzheimers_Disease_Subtype_Discovery_ICCVW_2025_paper.pdf",
+  "tried": [
+   "https://openaccess.thecvf.com/content/ICCV2025W/VADH/papers/Wen_Multi-Modal_Deep_Clustering_Survival_Machines_for_Alzheimers_Disease_Subtype_Discovery_ICCVW_2025_paper.pdf"
+  ]
+ },
+ "sdoh-dcsm-aimedhealth25": {
+  "pdf": "https://raw.githubusercontent.com/mlresearch/v281/main/assets/noshin25a/noshin25a.pdf",
+  "tried": [
+   "https://proceedings.mlr.press/v281/noshin25a/noshin25a.pdf",
+   "https://raw.githubusercontent.com/mlresearch/v281/main/assets/noshin25a/noshin25a.pdf"
+  ]
+ },
+ "esn-topology-aimedhealth25": {
+  "pdf": "https://arxiv.org/pdf/2412.14999",
+  "tried": [
+   "https://proceedings.mlr.press/v281/nguyen25a/nguyen25a.pdf",
+   "https://arxiv.org/pdf/2412.14999"
+  ]
+ },
+ "rna-structure-survey-arxiv25": {
+  "pdf": "https://arxiv.org/pdf/2501.04056",
+  "tried": [
+   "https://arxiv.org/pdf/2501.04056"
+  ]
+ },
+ "sefd-bigdata24": {
+  "pdf": "https://arxiv.org/pdf/2411.12764",
+  "tried": [
+   "https://arxiv.org/pdf/2411.12764"
+  ]
+ },
+ "fair-graphical-models-neurips24": {
+  "pdf": "https://arxiv.org/pdf/2408.17396",
+  "tried": [
+   "https://arxiv.org/pdf/2408.17396"
+  ]
+ },
+ "dalk-emnlp24": {
+  "pdf": "https://arxiv.org/pdf/2405.04819",
+  "tried": [
+   "https://arxiv.org/pdf/2405.04819"
+  ]
+ },
+ "caregivers-twitter-amia24": {
+  "pdf": null,
+  "tried": [
+   "https://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC12099380&blobtype=pdf",
+   "https://europepmc.org/articles/PMC12099380?pdf=render",
+   "https://pmc.ncbi.nlm.nih.gov/articles/PMC12099380/pdf/"
+  ],
+  "pmcid": "PMC12099380",
+  "figure": {
+   "image": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/9ee8/12099380/4ad7dc58e5b6/5629f1.jpg"
+  }
+ },
+ "fair-mci-mri-amia24": {
+  "pdf": null,
+  "tried": [
+   "https://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC12099326&blobtype=pdf",
+   "https://europepmc.org/articles/PMC12099326?pdf=render",
+   "https://pmc.ncbi.nlm.nih.gov/articles/PMC12099326/pdf/"
+  ],
+  "pmcid": "PMC12099326",
+  "figure": {
+   "image": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/d1ad/12099326/706e9e44796f/5191f1.jpg"
+  }
+ },
+ "online-bilevel-aistats24": {
+  "pdf": "https://arxiv.org/pdf/2207.02829",
+  "tried": [
+   "https://arxiv.org/pdf/2207.02829"
+  ]
+ },
+ "interview-interpretability-amia24": {
+  "pdf": null,
+  "tried": [
+   "https://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC11141819&blobtype=pdf",
+   "https://europepmc.org/articles/PMC11141819?pdf=render",
+   "https://pmc.ncbi.nlm.nih.gov/articles/PMC11141819/pdf/"
+  ],
+  "pmcid": "PMC11141819",
+  "figure": {
+   "image": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/1978/11141819/94dd933b0ca7/2124f1.jpg"
+  }
+ },
+ "pferm-amia24": {
+  "pdf": null,
+  "tried": [
+   "https://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC11141835&blobtype=pdf",
+   "https://europepmc.org/articles/PMC11141835?pdf=render",
+   "https://pmc.ncbi.nlm.nih.gov/articles/PMC11141835/pdf/"
+  ],
+  "pmcid": "PMC11141835",
+  "figure": {
+   "image": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/7e86/11141835/344b09c98e59/2420f1.jpg"
+  }
+ },
+ "amyloid-subtypes-amia24": {
+  "pdf": null,
+  "tried": [
+   "https://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC11141862&blobtype=pdf",
+   "https://europepmc.org/articles/PMC11141862?pdf=render",
+   "https://pmc.ncbi.nlm.nih.gov/articles/PMC11141862/pdf/"
+  ],
+  "pmcid": "PMC11141862",
+  "figure": {
+   "image": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/2f25/11141862/ac318eeaffb5/2297f2.jpg"
+  }
+ },
+ "manifoldron-tnnls24": {
+  "pdf": "https://arxiv.org/pdf/2201.05279",
+  "tried": [
+   "https://arxiv.org/pdf/2201.05279"
+  ]
+ },
+ "mg-tcca-tcbb24": {
+  "pdf": null,
+  "tried": [
+   "https://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC11954983&blobtype=pdf",
+   "https://europepmc.org/articles/PMC11954983?pdf=render",
+   "https://pmc.ncbi.nlm.nih.gov/articles/PMC11954983/pdf/"
+  ],
+  "pmcid": "PMC11954983",
+  "figure": {
+   "image": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4e11/11954983/cb903bd10d55/nihms-2056156-f0012.jpg"
+  }
+ },
+ "interpretable-dcsm-media24": {
+  "pdf": "https://par.nsf.gov/servlets/purl/10525276",
+  "tried": [
+   "https://par.nsf.gov/servlets/purl/10525276"
+  ]
+ },
+ "quadratic-autoencoder-tai24": {
+  "pdf": "https://arxiv.org/pdf/2204.01707",
+  "tried": [
+   "https://arxiv.org/pdf/2204.01707"
+  ]
+ },
+ "sinkhorn-iscience24": {
+  "pdf": null,
+  "tried": [
+   "https://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC10906516&blobtype=pdf",
+   "https://europepmc.org/articles/PMC10906516?pdf=render",
+   "https://pmc.ncbi.nlm.nih.gov/articles/PMC10906516/pdf/"
+  ],
+  "pmcid": "PMC10906516",
+  "figure": {
+   "image": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/b481/10906516/bed37e1cd1f2/gr1.jpg"
+  }
+ },
+ "fair-cca-neurips23": {
+  "pdf": "https://arxiv.org/pdf/2309.15809",
+  "tried": [
+   "https://arxiv.org/pdf/2309.15809"
+  ]
+ },
+ "mg-tcca-bcb23": {
+  "pdf": null,
+  "tried": [
+   "https://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC10593155&blobtype=pdf",
+   "https://europepmc.org/articles/PMC10593155?pdf=render",
+   "https://pmc.ncbi.nlm.nih.gov/articles/PMC10593155/pdf/"
+  ],
+  "pmcid": "PMC10593155",
+  "figure": {
+   "image": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/6522/10593155/01088ba4c78a/nihms-1937793-f0002.jpg"
+  }
+ },
+ "avs-loss-mlmi23": {
+  "pdf": null,
+  "tried": [
+   "https://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC10924683&blobtype=pdf",
+   "https://europepmc.org/articles/PMC10924683?pdf=render",
+   "https://pmc.ncbi.nlm.nih.gov/articles/PMC10924683/pdf/"
+  ],
+  "pmcid": "PMC10924683",
+  "figure": {
+   "image": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/a7b8/10924683/bc3018654648/nihms-1972101-f0001.jpg"
+  }
+ },
+ "facims-uai23": {
+  "pdf": "https://proceedings.mlr.press/v216/tarzanagh23a/tarzanagh23a.pdf",
+  "tried": [
+   "https://proceedings.mlr.press/v216/tarzanagh23a/tarzanagh23a.pdf"
+  ]
+ },
+ "dcsm-isbi23": {
+  "pdf": "https://arxiv.org/pdf/2301.11826",
+  "tried": [
+   "https://arxiv.org/pdf/2301.11826"
+  ]
+ },
+ "glaucoma-bias-amia23": {
+  "pdf": "/files/glaucoma_bias.pdf",
+  "tried": [
+   "/files/glaucoma_bias.pdf"
+  ]
+ },
+ "old3s-tkde23": {
+  "pdf": "/files/OLD3S.pdf",
+  "tried": [
+   "/files/OLD3S.pdf"
+  ]
+ },
+ "chest-xray-cbm23": {
+  "pdf": "/files/pubmed.pdf",
+  "tried": [
+   "/files/pubmed.pdf"
+  ]
+ },
+ "detr-pretraining-arxiv23": {
+  "pdf": "https://arxiv.org/pdf/2308.01300",
+  "tried": [
+   "https://arxiv.org/pdf/2308.01300"
+  ]
+ },
+ "doubly-streaming-mm22": {
+  "pdf": "https://arxiv.org/pdf/2204.11793",
+  "tried": [
+   "https://arxiv.org/pdf/2204.11793"
+  ]
+ },
+ "glaucoma-scirep22": {
+  "pdf": "/files/glaucoma.pdf",
+  "tried": [
+   "/files/glaucoma.pdf"
+  ]
+ },
+ "sf2el-aaai21": {
+  "pdf": "https://arxiv.org/pdf/2007.11280",
+  "tried": [
+   "https://arxiv.org/pdf/2007.11280"
+  ]
+ },
+ "ovfm-icdm21": {
+  "pdf": "/files/OVFM.pdf",
+  "tried": [
+   "/files/OVFM.pdf"
+  ]
+ },
+ "pufe-tnnls21": {
+  "pdf": "https://arxiv.org/pdf/1904.12171",
+  "tried": [
+   "https://arxiv.org/pdf/1904.12171"
+  ]
+ },
+ "clinical-evidence-engine-arxiv21": {
+  "pdf": "https://arxiv.org/pdf/2111.00621",
+  "tried": [
+   "https://arxiv.org/pdf/2111.00621"
+  ]
+ },
+ "lisor-tnnls20": {
+  "pdf": "/files/LISOR.pdf",
+  "tried": [
+   "/files/LISOR.pdf"
+  ]
+ },
+ "rnn-interpretability-ccfai19": {
+  "pdf": "/files/CCFAI19.pdf",
+  "tried": [
+   "/files/CCFAI19.pdf"
+  ]
+ },
+ "fesl-tkde19": {
+  "pdf": "/files/FESL-tkde.pdf",
+  "tried": [
+   "/files/FESL-tkde.pdf"
+  ]
+ },
+ "deep-forest-mil-jcrd19": {
+  "pdf": "/files/MIDF.pdf",
+  "tried": [
+   "/files/MIDF.pdf"
+  ]
+ },
+ "fesl-nips17": {
+  "pdf": "/files/FESL.pdf",
+  "tried": [
+   "/files/FESL.pdf"
+  ]
+ },
+ "sfl-ijcai17": {
+  "pdf": "/files/SFL.pdf",
+  "tried": [
+   "/files/SFL.pdf"
+  ]
+ }
+}

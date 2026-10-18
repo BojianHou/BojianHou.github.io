@@ -1,0 +1,238 @@
+Storage Fit Learning with Feature Evolvable Streams*
+Bo-Jian Hou, Yu-Hu Yan, Peng Zhao, Zhi-Hua Zhou
+National Key Laboratory for Novel Software Technology,
+Nanjing University, Nanjing 210023, China
+{houbj, yanyh, zhaop, zhouzh}@lamda.nju.edu.cn
+Abstract
+Feature evolvable learning has been widely studied in recent
+years where old features will vanish and new features will
+emerge when learning with streams. Conventional methods
+usually assume that a label will be revealed after prediction at
+each time step. However, in practice, this assumption may not
+hold whereas no label will be given at most time steps. A good
+solution is to leverage the technique of manifold regulariza-
+tion to utilize the previous similar data to assist the reﬁne-
+ment of the online model. Nevertheless, this approach needs
+to store all previous data which is impossible in learning with
+streams that arrive sequentially in large volume. Thus we
+need a buffer to store part of them. Considering that differ-
+ent devices may have different storage budgets, the learning
+approaches should be ﬂexible subject to the storage budget
+limit. In this paper, we propose a new setting: Storage-Fit
+Feature-Evolvable streaming Learning (SF2EL) which incor-
+porates the issue of rarely-provided labels into feature evo-
+lution. Our framework is able to ﬁt its behavior for different
+storage budgets when learning with feature evolvable streams
+with unlabeled data. Besides, both theoretical and empirical
+results validate that our approach can preserve the merit of
+the original feature evolvable learning i.e., can always track
+the best baseline and thus perform well at any time step.
+Introduction
+Over the last several years, feature evolvable learning has
+drawn extensive attentions (Zhang et al. 2016; Hou, Zhang,
+and Zhou 2017a; Hou and Zhou 2018; Ye et al. 2018; Zhang
+et al. 2020), where old features will vanish and new fea-
+tures will emerge when data streams come continuously or
+in an online manner. There are various problem settings
+proposed in previous studies. For instance, in FESL (Hou,
+Zhang, and Zhou 2017a), there is an overlapping period
+where old and new features exist simultaneously when fea-
+ture space switches. Hou and Zhou (2018) investigate the
+scenario when old features disappear, part of them will sur-
+vive and continue to exist with new arriving features. Zhang
+et al. (2016) study that features of new samples are always
+equal to or larger than the old samples so as to render trape-
+zoidal data streams. Subsequent works consider the situ-
+ation that features could vary arbitrarily at different time
+*This research was supported by NSFC (61921006).
+Copyright © 2021, Association for the Advancement of Artiﬁcial
+Intelligence (www.aaai.org). All rights reserved.
+steps under certain assumptions (Beyazit, Alagurajah, and
+Wu 2019; He et al. 2019).
+Note that the setting of feature evolvable learning is dif-
+ferent from transfer learning (Pan and Yang 2010) or domain
+adaptation (Jiang 2008; Sun, Shi, and Wu 2015). Trans-
+fer learning usually assumes that data come in batches in-
+stead of the streaming form. One exception is online trans-
+fer learning (Zhao et al. 2014) in which data from both sets
+of features arrive sequentially. However, they assume that
+all the feature spaces must appear simultaneously during
+the whole learning process while such an assumption does
+not hold in feature evolvable learning. Domain adaptation
+usually assumes the data distribution changes across the do-
+mains, yet the feature spaces are the same, which is evidently
+different from the setting of feature evolvable learning.
+These conventional feature evolvable learning methods all
+assume that a label can be revealed in each round. However,
+in real applications, labels may be rarely given during the
+whole learning process. For example, in an object detecting
+system, a robot takes high-frame rate pictures to learn the
+name of different objects. Like a child learning in real world,
+the robot receives names rarely from human. Thus we will
+face the online semi-supervised learning problem. We focus
+on manifold regularization which assumes that similar sam-
+ples should have the same label and has been successfully
+applied in many practical tasks (Zhu, Lafferty, and Rosen-
+feld 2005). However, this method needs to store previous
+samples and render a challenge on storage. Besides, differ-
+ent devices have different storage budget limitations, or even
+the available storage in the same device could be different at
+different times. Thus it is important to make our method ad-
+just its behavior to ﬁt for different storage budgets (known
+as storage-ﬁt issues) (Zhou et al. 2009; Hou, Zhang, and
+Zhou 2017b) which means the method should fully exploit
+the storage budget to optimize its performance.
+In this paper, we propose a new setting: Storage-Fit
+Feature-Evolvable streaming Learning (SF2EL) which con-
+cerns both the lack of labels and the storage-ﬁt issue
+in the feature evolvable learning scenario. We focus on
+FESL (Hou, Zhang, and Zhou 2017a), and other feature
+evolvable learning methods based on online learning tech-
+nique can also adapt to our framework since our framework
+is not affected by speciﬁc forms of feature evolution. Due to
+the lack of labels, the loss function of FESL cannot be used
+arXiv:2007.11280v3  [cs.LG]  23 Feb 2021
+anymore. We leverage manifold regularization technique to
+convert its loss function to a “risk function” without the need
+to consider if there exists a label or not. We also make use
+of a buffer strategy named reservoir sampling (Vitter 1985)
+when encountering the storage-ﬁt problem. Our contribu-
+tions are threefold as follows.
+• Both theoretical and experimental results demonstrate
+that our method is able to always follow the best baseline
+at any time step. Thus our model can always perform well
+during the whole learning process in new feature space
+regardless of the limitation that only few data emerge in
+the beginning. This is a very fundamental requirement in
+feature evolvable learning scenario and FESL as well as
+other feature evolvable learning methods cannot achieve
+this goal when labels are barely given.
+• In addition, the experimental results indicate that mani-
+fold regularization plays an important role when there are
+only few labels.
+• Finally, we theoretically and experimentally validate that
+larger buffer brings better performance. Therefore, our
+method can ﬁt for different storages by taking full advan-
+tage of the budget.
+The rest of this paper is organized as follows. Section 2 in-
+troduces the preliminary about the basic scenario on feature
+evolution and the framework of our approach. Our proposed
+approach with two corresponding analyses is presented in
+Section 3. Section 4 reports experimental results. Finally,
+Section 5 concludes our paper.
+Preliminary and Framework
+We focus on binary classiﬁcation task. On each round of the
+learning process, the learner observes an instance and gives
+its prediction. After the prediction has been made, with a
+small probability pl, the true label is revealed. Otherwise, the
+instance remains unlabeled. The learner updates its predictor
+based on the observed instance and the label, if any. In the
+following, we introduce FESL that we are interested in.
+FESL deﬁnes “feature space” by a set of features. And
+“the feature space changes” means both the underlying
+distribution of the feature set and the number of features
+change. Figure 1 illustrates how data stream comes in FESL.
+There are three repeating periods: in the ﬁrst period a large
+amount of data streams come from the old feature space S1;
+then in the second period named “overlapping period”, few
+of data come from both the old and the new feature space,
+i.e., S1 and S2; soon afterwards in the third period, data
+streams only come from the new feature space S2. These
+three periods will continue again and again and form cycles.
+Each cycle merely includes two feature spaces and thus, we
+only need to focus on one cycle and it is easy to extend to
+the case with multiple cycles. Besides, FESL assumes that
+the old features in one cycle will vanish simultaneously ac-
+cording to the example of ecosystem protection where all the
+sensors share the same expected lifespan and thus they will
+wear out at the same time. The case where old features van-
+ish asynchronously has been studied in PUFE (Hou, Zhang,
+and Zhou 2019), which can adapt to our framework as well.
+Feature Evolution
+Data Streaming
+𝑆1
+𝑆2
+𝑆3
+⋯
+𝐱1
+𝑆1
+…
+𝐱𝑇1−𝐵
+𝑆1
+𝐱𝑇1−𝐵+1…𝑇1
+𝑆1
+𝐱𝑇1−𝐵+1…𝑇1
+𝑆2
+𝐱𝑇1+1
+𝑆2
+…
+𝐱𝑇1+𝑇2
+𝑆2
+…
+…
+𝑇2
+First Period
+Second Period
+𝑇1
+Third Period
+Figure 1: Illustration of how data stream comes.
+Based on the above discussion, we only consider two fea-
+ture spaces denoted by S1 and S2, respectively. Suppose that
+in the overlapping period, there are B rounds of instances
+both from S1 and S2. As can be seen from Figure 1, the
+process can be summarized as follows.
+• For t = 1, . . . , T1−B, in each round, the learner observes
+a vector xS1
+t
+∈Rd1 sampled from S1 where d1 is the
+number of features of S1, T1 is the number of total rounds
+in S1.
+• For t = T1 −B + 1, . . . , T1, in each round, the learner
+observes two vectors xS1
+t
+∈Rd1 and xS2
+t
+∈Rd2 from S1
+and S2 where d2 is the number of features of S2.
+• For t = T1 + 1, . . . , T1 + T2, in each round, the learner
+observes a vector xS2
+t
+∈Rd2 sampled from S2 where T2
+is the number of rounds in S2. Note that B is small, so
+we can omit the streaming data from S2 on rounds T1 −
+B +1, . . . , T1 since they have minor effect on training the
+model in S2.
+FESL adopts linear predictor, whereas to be general, non-
+linear predictor is chosen in our paper. Let Ki denote a
+kernel over xSi and HKi the corresponding Reproducing
+Kernel Hilbert Space (RKHS) (Sch¨olkopf and Smola 2002)
+where i = 1, 2 that indexes the feature space. We deﬁne
+the projection as ΠHK(b) = argmina∈HK ∥a −b∥K. The
+predictor learned from the sequence is denoted as f
+∈
+HK. Denote by fi,t, i = 1, 2 the predictor learned from
+the ith feature space in the tth round. The loss function
+ℓ(f(x), y) is convex in its ﬁrst argument such as logistic loss
+ℓ(f(x), y) = ln(1 + exp(−yf(x))), hinge loss ℓ(f(x), y) =
+max(0, 1 −yf(x)), etc., for classiﬁcation tasks.
+If the label is fully provided, the risk suffered by the pre-
+dictor in each round can be merely the prediction loss men-
+tioned above. Then the most straightforward or baseline al-
+gorithm is to apply online gradient descent (Zinkevich 2003)
+on rounds 1, . . . , T1 with streaming data xS1
+t , and invoke it
+again on rounds T1 + 1, . . . , T1 + T2 with streaming data
+xS2
+t . The models are updated according to:
+fi,t+1 = ΠHKi
+
+fi,t −τt∇ℓ(fi,t(xSi
+t ), yt)
+
+, i = 1, 2,
+(1)
+where ∇ℓ(fi,t(xSi
+t ), yt) is the gradient of the loss function
+on fi,t and τt is a time-varying step size, e.g., τt = 1/
+√
+t.

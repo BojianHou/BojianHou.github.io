@@ -1,0 +1,265 @@
+JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, AUGUST 2021
+1
+ICAFS: Inter-Client-Aware Feature Selection for
+Vertical Federated Learning
+Ruochen Jin1,2, Boning Tong1, Shu Yang1, Bojian Hou1,*, Li Shen1,*,
+for the Alzheimer’s Disease Neuroimaging Initiative3
+Abstract—Vertical federated learning (VFL) enables a paradigm
+for vertically partitioned data across clients to collaboratively
+train machine learning models. Feature selection (FS) plays a
+crucial role in Vertical Federated Learning (VFL) due to the
+unique nature that data are distributed across multiple clients.
+In VFL, different clients possess distinct subsets of features for
+overlapping data samples, making the process of identifying and
+selecting the most relevant features a complex yet essential task.
+Previous FS efforts have primarily revolved around intra-client
+feature selection, overlooking vital feature interaction across
+clients, leading to subpar model outcomes. We introduce ICAFS,
+a novel multi-stage ensemble approach for effective FS in VFL
+by considering inter-client interactions. By employing conditional
+feature synthesis alongside multiple learnable feature selectors,
+ICAFS facilitates ensemble FS over these selectors using synthetic
+embeddings. This method bypasses the limitations of private
+gradient sharing and allows for model training using real data
+with refined embeddings. Experiments on multiple real-world
+datasets demonstrate that ICAFS surpasses current state-of-the-
+art methods in prediction accuracy.
+I. INTRODUCTION
+Federated learning (FL), a paradigm that enables distributed
+machine learning without revealing local private data, has
+found extensive applications across various domains [1]–[3]. A
+specific form of FL, known as vertical federated learning (VFL)
+[4], deals with scenarios where different entities possess data
+with common samples but distinct feature spaces. This approach
+is particularly vital in the fields that depend on the analysis of
+high-dimensional data, such as medicine and biology [5], where
+it has become increasingly prevalent. An illustrative example of
+VFL is in collaborative medical research, where some medical
+centers contribute genomics data and others provide imaging
+data for the same patient cohort, thereby enhancing the disease
+diagnosis [6].
+In machine learning practice, the identification of target-
+related features is crucial in many applications, such as
+biomarker discovery for the design of clinical treatments
+[5]. The technique that discovers features responsible for the
+target variable is known as feature selection (FS) [7]–[10].
+1University of Pennsylvania, Philadelphia, PA, USA.
+2East China Normal University, Shanghai, China.
+3Data used in preparation of this article were obtained from the Alzheimer’s
+Disease Neuroimaging Initiative (ADNI) database (adni.loni.usc.edu). As
+such, the investigators within the ADNI contributed to the design and
+implementation of ADNI and/or provided data but did not participate in
+analysis or writing of this report. A complete listing of ADNI investigators
+can be found at: http://adni.loni.usc.edu/wp-content/uploads/how to apply/
+ADNI Acknowledgement List.pdf
+*Corresponding authors:
+bojian.hou@pennmedicine.upenn.edu, li.shen@pennmedicine.upenn.edu.
+Existing studies focused on the centralized setting, where
+algorithms have full access to the entire dataset, allowing
+for comprehensive analysis and selection of the most relevant
+features for the targeted task. These FS techniques can be
+broadly classified into three distinct categories: 1) filter-based
+methods, which evaluate individual feature relevance using
+statistical metrics such as Gini impurity, and filter out irrelevant
+features before model training [11]–[13]; 2) wrapper-based
+methods, which explore extensive search spaces to identify the
+optimal subset of features [14], [15]; and 3) embedding-based
+methods, which aim to simultaneously select essential features
+and learn the model, integrating the feature selection process
+within the model training [16]–[18]. There is a growing interest
+in adapting these methods for decentralized settings. This shift
+presents unique challenges in maintaining data privacy while
+ensuring effective feature analysis.
+Filter-based feature selection methods offer several key
+advantages over embedding-based or wrapper-based approaches,
+making them a compelling choice for many applications. These
+methods are computationally efficient, model-independent, and
+highly scalable, allowing them to handle high-dimensional
+datasets with ease. Their simplicity makes them easy to
+implement and interpret, while their independence from specific
+learning algorithms helps prevent overfitting. Importantly, filter
+methods preserve the original feature space, maintaining feature
+interpretability and allowing for direct validation by domain
+experts. This preservation of the original features is particularly
+valuable in fields like healthcare and scientific research, where
+understanding the specific features driving predictions is crucial.
+By offering these benefits, filter-based feature selection methods
+provide a robust and interpretable approach to identifying
+relevant features, especially in scenarios with limited labeled
+data or high-dimensional datasets [7]–[10].
+Facing the increased feature dimensionality in VFL compared
+with learning within a single client, training a global model
+in VFL is more vulnerable to noisy and spurious features.
+Recent studies have explored FS in VFL settings [19]–[26].
+These methods determine the important features based on their
+local model performance within each client only. However,
+neglecting the interactions between clients’ features will restrict
+the overall performance of the FS. For example, on the one
+hand, an unselected feature determined by client A’s local model
+can be important when considering client B’s feature together
+for the global model; on the other hand, some of the selected
+features from client A and B can be highly correlated, resulting
+in redundancy. Furthermore, the correlation among feature sets
+from different clients will become more complicated as the
+arXiv:2504.10851v1  [cs.LG]  15 Apr 2025
+JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, AUGUST 2021
+2
+Inter-Client FS (ours)
+Intra-Client FS
+Client
+Client
+Server
+Server
+Client
+Client
+...
+...
+...
+Fig. 1. VFL feature selection architecture comparison between Intra-Client
+FS and Inter-Client FS (ours). Significant embedding components (in gray) are
+selected. In the left panel, each client selects their own features. In the right
+panel, the selection is processed after concatenating embeddings from clients.
+number of clients increases. Therefore, FS should be performed
+considering the inter-client correlations.
+To address the limitation of previous methods that only
+focused on individual clients, a recent method named LESS-
+VFL has investigated the possibility of concurrently learning
+FS across multiple clients in the embedding space [27].
+However, despite its superior prediction performance, this
+method requires sharing of raw gradients (i.e., the gradient of
+loss on the true label with respect to model parameters and
+data features) across all the clients. This may put clients at risk
+of data leakage, making them vulnerable to attacks like label
+inference [28], gradient inversion [29], data reconstruction [30],
+and other similar threats. Therefore, designing a suitable FS
+strategy that does not require raw gradient sharing is crucial
+but difficult in the field of VFL.
+In this work, we consider the inter-client FS setting in VFL
+where the concatenated embeddings from clients can be viewed
+as the inputs for the global server model and perform FS
+interactively based on server model outputs (Fig. 1 right). The
+inter-client mechanism might present a greater challenge to
+preserving privacy due to increased data sharing. We seek to
+solve the challenging problem “How to perform FS in VFL that
+considers inter-client feature interaction while avoiding private
+information sharing for training neural networks?” To this end,
+we propose Inter-Client-Aware Feature Selection, referred to
+as ICAFS which includes three stages. In Stage 1 (Sec. IV-A),
+to avoid asking the client to share raw gradients with others,
+we use federated global conditional feature synthesis [31] to
+generate synthetic data. Note that there is no private gradient
+sharing in this stage. In Stage 2 (Sec. IV-B), we propose to
+use filter-based FS method to do feature selection. Unlike
+LESS-VFL [27] or other shrinkage or embedding-based FS
+methods, the filter-based FS can avoid overfitting when working
+on small data. This approach involves introducing multiple
+learnable gates1 that are trained using the synthetic features and
+labels for FS backpropagation. The automatic gating mechanism
+takes into account the correlation structure of input features,
+enhancing the model’s decision-making process. The ensemble
+of different feature selectors further guarantee the robustness
+1The feature selector is essentially parameterized by the learnable gate.
+TABLE I
+VFL FEATURE SELECTION ALGORITHMS.
+VFL FS
+Algorithm
+Neural
+networks
+Task-aware
+(in-training)
+Inter-client
+FS
+w/o private
+gradient
+MMVFL(2020)
+✕
+✓
+✕
+✓
+Fed-EINI(2021)
+✕
+✓
+✕
+✓
+Hou et al.(2022)
+✕
+✓
+✕
+–
+Zhang et al.(2022a)
+✕
+✓
+✕
+✕
+Zhang et al.(2022b)
+✓
+✕
+✕
+✓
+EVFL(2022)
+✓
+✕
+✕
+✓
+VFLFS(2022)
+✓
+✓
+✕
+✓
+FedSDG-FS(2023)
+✓
+✕
+✕
+✓
+LESS-VFL(2023)
+✓
+✓
+✓
+✕
+ICAFS(ours)
+✓
+✓
+✓
+✓
+of the final prediction. In Stage 3 (Sec. IV-C), we use the
+feature selectors learned from Stage 2 to select features from
+real data. They are further used to refine the prediction heads
+in the server and the local encoders, eliminating the need for
+private gradient sharing.
+Our method ICAFS exhibits several distinctive and superior
+characteristics when compared to other state-of-the-art FS in
+VFL algorithms listed in Table I.
+• Firstly, it is feasible to apply to neural networks, making
+it a versatile tool in commonly used VFL settings with
+deep learning algorithms.
+• Secondly, it is designed to be task-aware, improving the
+relevance and performance of selected features for the
+given task.
+• Thirdly, it performs inter-client feature selection, leading
+to a more comprehensive feature set that leverages the
+strength of distributed data sources.
+• Lastly, it operates without the need for private gradients,
+which is facilitated via our novel federated conditional
+feature synthesis.
+While individual elements draw inspiration from existing
+techniques, their integration creates a unique approach that
+balances feature selection accuracy, privacy, and efficiency.
+This combination allows ICAFS to overcome the limitations
+of previous methods, particularly in handling complex neural
+network architectures and preserving privacy in multi-client
+scenarios. Comprehensive experiments on real-world datasets
+demonstrate the effectiveness of this integrated approach across
+various settings.
+II. RELATED WORK
+Different capabilities of Current Feature Selection in
+Vertical Federated Learning: VFL has emerged as a powerful
+paradigm for distributed learning across multiple clients without
+sharing raw data. However, the current state-of-the-art methods
+for feature selection in VFL have several drawbacks, partic-
+ularly concerning the handling of correlations from different
+clients, see Table I. There is a growing interest in designing FS
+methods for training neural networks in VFL. It is important to
+take into account the interaction of features between clients and
+to maintain data privacy, which means that private gradients
+should not be shared across clients. However, none of the
+existing methods meet these requirements.

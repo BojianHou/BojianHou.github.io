@@ -1,0 +1,99 @@
+Advances in RNA secondary structure prediction and RNA modifications:
+Methods, data, and applications
+Shu Yang1,∗, Nhat Truong Pham2,∗, Ziyang Li3,∗, Jae Young Baik1,∗, Joseph Lee1, Tianhua
+Zhai1, Weicheng Yu1, Bojian Hou1, Tianqi Shang1, Weiqing He1, Duy Duong-Tran1,4,†,
+Mayur Naik3,†, Li Shen1,†
+1 Dept. of Biostatistics, Epidemiology and Informatics, University of Pennsylvania, Philadelphia, USA
+2 Dept. of Integrative Biotechnology, Sungkyunkwan University, Suwon, Republic of Korea
+3 Dept. of Computer and Information Science, University of Pennsylvania, Philadelphia, USA
+4 Dept. of Mathematics, United States Naval Academy, Annapolis, USA
+Abstract
+Due to the hierarchical organization of RNA structures and their pivotal roles in fulfilling RNA functions, the formation
+of RNA secondary structure critically influences many biological processes and has thus been a crucial research topic.
+This review sets out to explore the computational prediction of RNA secondary structure and its connections to RNA
+modifications, which have emerged as an active domain in recent years. We first examine the progression of RNA
+secondary structure prediction methodology, focusing on a set of representative works categorized into thermodynamic,
+comparative, machine learning, and hybrid approaches. Next, we survey the advances in RNA modifications and
+computational methods for identifying RNA modifications, focusing on the prominent modification types. Subsequently,
+we highlight the interplay between RNA modifications and secondary structures, emphasizing how modifications such
+as m6A dynamically affect RNA folding and vice versa. In addition, we also review relevant data sources and provide
+a discussion of current challenges and opportunities in the field. Ultimately, we hope our review will be able to
+serve as a cornerstone to aid in the development of innovative methods for this emerging topic and foster therapeutic
+applications in the future.
+Keywords: RNA secondary structures, RNA modifications, bioinformatics, machine learning, deep learning, RNA
+language models
+1
+Introduction
+Ribonucleic acids (RNAs) are crucial for fundamental biological processes, from catalyzing biochemical reactions
+to regulating gene expression in all organisms. Beyond their well-known role as intermediaries in the central dogma,
+RNAs exhibit extraordinary functional versatility. Ribozymes catalyze essential biochemical reactions, such as peptide
+bond formation in the ribosome, while riboswitches sense metabolites and regulate gene expression in response to
+environmental changes. Regulatory RNAs, including microRNAs and long non-coding RNAs, orchestrate complex
+cellular processes, ranging from development and differentiation to stress response and disease progression. Emerging
+classes, such as circular RNAs and RNA aptamers, continue to expand our understanding of RNA’s regulatory and
+structural repertoire.
+This functional diversity is underpinned by the structure of RNA, where its precise shape
+and structure enable it to carry out catalytic functions, bind to diverse molecules, and regulate complex cellular
+processes1,2,3,4,5. As a result, understanding RNA structure is not only fundamental to biological mechanisms but
+also holds promise for therapeutic innovation, including the development of RNA-based drugs and vaccines6.
+The structure of RNA exhibits a hierarchical and sequential organization: the primary structure consists of a linear
+sequence of nucleotides, the secondary structure such as stems and loops is dictated by base pair interactions, the
+tertiary structure builds upon these shapes with three-dimensional folding, and this determines quaternary interactions
+with other molecules7,8,9. Among these, the secondary structure holds particular significance as it serves as a critical
+scaffold for higher-order folding and governs key aspects of RNA function. RNA secondary structure (RSS) formation
+is driven by the ability of nucleotides to engage in both canonical Watson–Crick basepairings and noncanonical ones,
+∗These authors contributed equally to this work.
+†Corresponding authors: (DDT) duongtra@usna.edu; 121 Blake Rd, Annapolis, MD 21402, USA. (MN) mhnaik@cis.upenn.edu; 610 Levine
+Hall, 3330 Walnut St, Philadelphia, PA 19104, USA. (LS) li.shen@pennmedicine.upenn.edu; B306 Richards Building, 3700 Hamilton Walk,
+Philadelphia, PA 19104, USA.
+arXiv:2501.04056v1  [q-bio.BM]  7 Jan 2025
+such as GU pairs. These pairings give rise to distinct secondary structural motifs (see Figure 1 for an example),
+including stems, bulges, different types of loops, and pseudoknots, which consist of various configurations of paired
+and unpaired nucleotides. These secondary elements further interact with each other through mechanisms like coaxial
+stacking and kissing loop interactions, ultimately assembling into the more complex tertiary or quaternary structures
+of RNA. Notably, RNA secondary structure is often more conserved than its primary sequence across homologous
+RNAs, emphasizing its central role in defining RNA behavior and function10.
+Determining RNA structures through experimental techniques (e.g., X-ray crystallography) remains a significant
+challenge due to their low throughput, high resource demands, and technical limitations. These methods have resolved
+only a fraction of known RNA molecules, leaving significant gaps in our understanding of RNA structure. To address
+these limitations, computational prediction has emerged as an essential tool for scaling RNA structural analysis.
+However, while protein folding has seen transformative advancements, such as AlphaFold’s ability to predict 3D
+structures with remarkable accuracy11, RNA folding remains a difficult challenge. Firstly, one fundamental obstacle
+in RNA structure prediction is the inadequacy and bias of existing datasets. While protein structure prediction has
+benefited from large, high-quality databases, RNA data in repositories like the Protein Data Bank (PDB) is both
+limited and heavily skewed towards simpler structures, such as tRNAs and rRNA subunits. For example, there are 25
+times more proteins structure data entries than RNAs in PDB. There are >19,600 protein families in Pfam, but only
+>4,100 RNA families in Rfam. Moreover, the lack of structural diversity also hinders the development of models that
+can accurately predict the wide variety of RNA structural motifs, e.g. long-range interactions in lncRNAs. In addition,
+unlike proteins, whose folding is driven by well-characterized forces like hydrophobic interactions and standardized
+motifs, RNA folding is more dynamic and involves intricate secondary structures that form the scaffold for complex
+tertiary interactions. This makes secondary structure prediction an essential focus in RNA research.
+Over the years, three major computational prediction strategies have emerged for RSS folding: thermodynamic,
+comparative, and machine learning (including deep learning). Thermodynamic models predict structures by minimizing
+free energy, using experimentally derived parameters to estimate the stability of base-pair interactions and loops. While
+effective for canonical structures, these methods are limited by incomplete energy models and challenges in handling
+non-canonical pairs and pseudoknots. Comparative approaches leverage evolutionary conservation to predict RNA
+secondary structures, assuming that functionally important structures are preserved through compensatory mutations.
+These methods typically rely on a multiple sequence alignment (MSA) of homologous RNA sequences and use
+probabilistic models, such as stochastic context-free grammars (SCFGs), to identify co-varying base pairs. Instead
+of minimizing energy, they predict the structure that best explains the observed evolutionary covariation, selecting the
+one with the highest likelihood. Machine learning and deep learning methods, in contrast, learn structural patterns in
+a data-driven way, capturing complex interactions without explicit reliance on energy models or sequence homology.
+These models, exemplified by SPOT-RNA12 and Ufold13, offer state-of-the-art accuracy for diverse RNA structures,
+including those with intricate motifs and pseudoknots, marking a paradigm shift in RNA structure prediction. Notably,
+foundational models like RNA-FM14 have further advanced the field, leveraging vast amounts of RNA sequences with
+unsupervised learning.
+Accurate prediction of RSS from the RNA sequence is fundamental to understanding RNA function and interactions;
+however, there are many other factors affecting RNA folding in the cell. Among them, chemical modifications of
+RNA, such as methylation and pseudouridylation, play pivotal roles in influencing RNA thermodynamic stability by
+altering the free energy landscape. These modifications can impact base pairing, reshape the secondary structure,
+and modulate RNA interactions with proteins and other biomolecules, thereby influencing key biological processes
+such as translation, splicing, and RNA stability. Indeed, the so-called epitranscriptome of RNA modifications is
+suggested to have broad regulation of RNA structuredness, supported by observations of transcriptome wide RNA
+modifications15,16. Notably, RNA modifications are remarkably diverse and widely distributed across various RNA
+species. While covalent nucleotide modifications were traditionally recognized as abundant in transfer RNAs (tRNAs),
+advances in high-throughput sequencing technologies have revealed their widespread occurrence in messenger RNAs
+(mRNAs) and non-coding RNAs. As of this review, the Modomics database catalogs over 335 natural RNA modifications17,
+though most remain incompletely characterized. Emerging evidence underscores the critical roles of these modifications
+in shaping RNA secondary and tertiary structures16,18, facilitating RNA-protein interactions19,20, and regulating splicing21.
+A comprehensive understanding of the interplay between RNA modifications and structural dynamics is crucial for

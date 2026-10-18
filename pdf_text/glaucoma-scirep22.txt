@@ -1,0 +1,127 @@
+1
+Vol.:(0123456789)
+Scientific Reports |        (2022) 12:14080  
+| https://doi.org/10.1038/s41598-022-17753-4
+www.nature.com/scientificreports
+Automated diagnosing primary 
+open‑angle glaucoma from fundus 
+image by simulating human’s 
+grading with deep learning
+Mingquan Lin1, Bojian Hou1, Lei Liu2, Mae Gordon3, Michael Kass3, Fei Wang1,5*, 
+Sarah H. Van Tassel4,5* & Yifan Peng1,5*
+Primary open-angle glaucoma (POAG) is a leading cause of irreversible blindness worldwide. Although 
+deep learning methods have been proposed to diagnose POAG, it remains challenging to develop 
+a robust and explainable algorithm to automatically facilitate the downstream diagnostic tasks. In 
+this study, we present an automated classification algorithm, GlaucomaNet, to identify POAG using 
+variable fundus photographs from different populations and settings. GlaucomaNet consists of two 
+convolutional neural networks to simulate the human grading process: learning the discriminative 
+features and fusing the features for grading. We evaluated GlaucomaNet on two datasets: Ocular 
+Hypertension Treatment Study (OHTS) participants and the Large-scale Attention-based Glaucoma 
+(LAG) dataset. GlaucomaNet achieved the highest AUC of 0.904 and 0.997 for POAG diagnosis on 
+OHTS and LAG datasets. An ensemble of network architectures further improved diagnostic accuracy. 
+By simulating the human grading process, GlaucomaNet demonstrated high accuracy with increased 
+transparency in POAG diagnosis (comprehensiveness scores of 97% and 36%). These methods also 
+address two well-known challenges in the field: the need for increased image data diversity and 
+relying heavily on perimetry for POAG diagnosis. These results highlight the potential of deep learning 
+to assist and enhance clinical POAG diagnosis. GlaucomaNet is publicly available on https://​github.​
+com/​bionl​plab/​Glauc​omaNet. 
+Primary open-angle glaucoma (POAG) is one of the leading causes of blindness in the US and ­worldwide1. It 
+has been projected to affect approximately 111.8 million people by 2040. Among these patients, 5.3 million may 
+be bilaterally ­blind2. In the United States, POAG is the most common form of glaucoma and is the leading cause 
+of blindness among African-Americans3 and ­Hispanics4. POAG is asymptomatic until it reaches an advanced 
+stage when visual field (VF) loss occurs. Therefore, accurately identifying individuals with glaucoma is critical 
+to clinical decision-making, which can help inform the need for medical and surgical treatments and patient 
+­monitoring5,6.
+Screening is an efficient and effective way to detect POAG to prevent ­blindness7. However, screening needs 
+expensive facilities and experienced ophthalmologists, which causes low ­prevalence7. Meanwhile, fundus pho-
+tography is convenient and inexpensive for recording optic nerve head structure. But detecing POAG on fundus 
+photographs still requires human labor and severely depends on experienced ophthalmologists. Therefore, it 
+is important to develop an automatic model to detect POAG with high accuracy and low cost from fundus 
+photographs.
+Developments in artificial intelligence have provided potential opportunities for automatic POAG diagnosis 
+using fundus photographs. Singh et al. segmented optic disc and optic cup images to obtain the vertical cup-
+to-disc ratio (VCDR) and extracted the handcrafted features from the VCDR to perform the ­classification8. 
+Acharya et al. extracted texture features and higher-order spectral features to detect POAG based on a Support 
+Vector Machine (SVM) and Naïve Bayesian (NB) ­classifier9. Dua et al. also used SVM and NB to classify the 
+OPEN
+1Department of Population Health Sciences, Weill Cornell Medicine, New York, NY, USA. 2Institute for Public 
+Health, Washington University School of Medicine, St. Louis, MO, USA. 3Department of Ophthalmology and Visual 
+Sciences, Washington University School of Medicine, St. Louis, MO, USA. 4Department of Ophthalmology, Weill 
+Cornell Medicine, New York, NY, USA. 5These authors jointly supervised this work: Fei Wang, Sarah H. Van Tassel 
+and Yifan Peng. *email: few2001@med.cornell.edu; sjh2006@med.cornell.edu; yip4002@med.cornell.edu
+2
+Vol:.(1234567890)
+Scientific Reports |        (2022) 12:14080  | 
+https://doi.org/10.1038/s41598-022-17753-4
+www.nature.com/scientificreports/
+wavelet-based energy ­features10. An adaptive threshold-based image processing method was adopted by Issac 
+et al. for POAG ­classification11. However, these methods are influenced by the segmentation accuracy of the optic 
+disc and optic cup or have relatively low classification accuracy because they only consider handcrafted features. 
+Recently, deep learning methods have demonstrated promising results in biology and ­medicine12–27. For POAG 
+detection, several works directly used Convolutional Neural Networks (CNN) to detect ­glaucoma28–33. Fu et al. 
+provided a novel dis-aware ensemble network for glaucoma screening from fundus ­images34. Li et al. put forward 
+a framework that integrates holistic and local deep features for glaucoma ­classification35.
+While these studies have brought significant improvements, several limitations hinder their translation into 
+clinical practice. First, most models were developed on small datasets from a single ­institution28,29,34,35. It makes 
+the methods less generalizable to different populations and settings. Second is the requirement of refined image 
+annotation such as attention ­maps30, image ­cropping32, and optic nerve head ­segmentation33. Today, it remains 
+challenging to build highly-accurate systems using image-level labels. Finally, all these works lack interpretabil-
+ity which reduces their utility for medical applications. Thus, it is critical to develop an interpretable AI system 
+for ophthalmologists besides providing a fast and accurate POAG diagnosis. Specifically, interest has recently 
+grown in designing clinical systems that can reveal why models make specific ­predictions36–38. To the best of our 
+knowledge, few works in POAG diagnosis have been studied in this direction.
+This work addresses these issues by proposing a joint fusion network (GlaucomaNet) to accurately and 
+robustly diagnose POAG using variable fundus photographs. Different from previous studies, GlaucomaNet 
+consists of two convolutional neural networks to simulate the human grading process: one performing prelimi-
+nary grading and the other detailed grading. It is trained in an end-to-end strategy without manual cropping 
+so that the whole training process is fast and less labor-intensive and can be quickly deployed to provide a first-
+line assessment. In addition, an ensemble of network architectures further improved diagnostic accuracy. We 
+validated the models on two independent datasets (Table 1). One is the Ocular Hypertension Treatment Study 
+(OHTS) cohort, one of the largest longitudinal clinical trials in POAG (1636 participants and 37,399 images) 
+from 22 centers in the United ­States39. The other is the Large-scale Attention-based Glaucoma (LAG) database, 
+a publicly available database collected at the Chinese Glaucoma Study Alliance and Beijing Tongren ­Hospital30. 
+GlaucomaNet achieved the highest AUC for POAG diagnosis on these two datasets. To further evaluate the 
+rationale of our model, we consider the prediction from the model for the POAG diagnosis once the supporting 
+rationales (optic disc) are stripped. To this end, we constructed a new dataset by masking the optic disc portion 
+of the fundus photographs. When stripping the bounding box of optic discs and random bounding boxes were 
+masked, we showed that the rationales (optic disc) are influential in the POAG diagnosis in our network.
+Methods
+Data acquisition. 
+In this study, we include two independent datasets. These two databases are large, cross-
+sectional, longitudinal, and population-based studies. All participants provided informed consent at original 
+study entry. This study does not need institutional review board approval because it does not constitute human 
+subjects research. All experiments were performed in accordance with relevant guidelines and regulations.
+Ocular hypertension treatment study.  The first dataset was obtained from the Ocular Hypertension Treatment 
+Study (OHTS)39. It is one of the largest longitudinal clinical trials in POAG from 22 centers in the United States. 
+The study protocol was approved by an independent Institutional Review Board at each clinical center.
+The participants in this dataset were selected according to both eligibility and exclusion ­criteria39. Briefly, 
+the eligibility criteria include intraocular pressure (IOP) (between 24 and 32 mmHg in one eye and between 21 
+and 32 mmHg in the fellow eye) and age (between 40 and 80 years old). The visual field tests were interpreted by 
+the Visual Field Reading Center, and stereoscopic photographs of the optics discs were interpreted by the Optic 
+Disc Reading Center. Exclusion criteria included previous intraocular surgery, visual acuity worse than 20/40 in 
+either eye, and diseases that may cause optic disc deterioration and visual field loss (such as diabetic retinopathy).
+The reading center workflow has been described in detail in Kass et al.39. In brief, two certified readers 
+independently assessed optic disc deterioration. If there was disagreement between two readers, a senior reader 
+adjudicated in a masked fashion. The POAG diagnosis in a quality control sample of 86 eyes (50 normal eyes 
+and 36 with progression) showed test–retest agreement at κ = 0.70 (95% confidence interval [CI], 0.55–0.85).
+Figure 1 shows the creation of the OHTS dataset in our study. Because of the inherent redundancy in a pair 
+of stereoscopic photographs, we used only one of the photographs for each eye. There are 7964 images (11.9%) 
+that contain the stereo pair in a single image file. We split them into two images. In the end, we obtained 39,339 
+fundus photographs from 3272 eyes of 1636 subjects. On the image level, 6.2% (2321) of fundus photographs 
+were diagnosed with POAG (Table 1).
+Table 1.   Characteristics of the OHTS and LAG datasets.
+Dataset
+OHTS
+LAG
+#Participants
+1636
+4855
+#Images
+37,339
+4915
+  #POAG
+2321
+1711
+  #Normal
+35,018
+3144

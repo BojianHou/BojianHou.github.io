@@ -1,0 +1,217 @@
+Restoring Calibration for Aligned Large Language Models:
+A Calibration-Aware Fine-Tuning Approach
+Jiancong Xiao * 1 Bojian Hou * 1 Zhanliang Wang * 1 Ruochen Jin 1 Qi Long 1 Weijie J. Su 1 Li Shen 1
+Abstract
+One of the key technologies for the success of
+Large Language Models (LLMs) is preference
+alignment. However, a notable side effect of pref-
+erence alignment is poor calibration: while the
+pre-trained models are typically well-calibrated,
+LLMs tend to become poorly calibrated after
+alignment with human preferences. In this pa-
+per, we investigate why preference alignment af-
+fects calibration and how to address this issue.
+For the first question, we observe that the pref-
+erence collapse issue in alignment undesirably
+generalizes to the calibration scenario, causing
+LLMs to exhibit overconfidence and poor cal-
+ibration. To address this, we demonstrate the
+importance of fine-tuning with domain-specific
+knowledge to alleviate the overconfidence is-
+sue. To further analyze whether this affects the
+model’s performance, we categorize models into
+two regimes: calibratable and non-calibratable,
+defined by bounds of Expected Calibration Error
+(ECE). In the calibratable regime, we propose a
+calibration-aware fine-tuning approach to achieve
+proper calibration without compromising LLMs’
+performance. However, as models are further fine-
+tuned for better performance, they enter the non-
+calibratable regime. For this case, we develop an
+EM-algorithm-based ECE regularization for the
+fine-tuning loss to maintain low calibration error.
+Extensive experiments validate the effectiveness
+of the proposed methods.
+1. Introduction
+Large Language Models (LLMs) (OpenAI, 2023; Anthropic,
+2024) have emerged as powerful tools for a wide range
+*Equal contribution
+1University of Pennsylvania, PA, USA.
+Correspondence to: Qi Long <qlong@upenn.edu>, Weijie J. Su
+<suw@wharton.upenn.edu>, Li Shen <lishen@upenn.edu>.
+Proceedings of the 42 nd International Conference on Machine
+Learning, Vancouver, Canada. PMLR 267, 2025. Copyright 2025
+by the author(s).
+of natural language processing tasks (Bubeck et al., 2023;
+Chowdhery et al., 2023; Touvron et al., 2023; Team et al.,
+2023). These models, built upon the Transformer architec-
+ture (Vaswani et al., 2017), have demonstrated remarkable
+abilities to process and generate human-like text, making
+them increasingly integral to various applications. A crucial
+development in making LLMs more reliable and aligned
+with human values is preference alignment techniques, par-
+ticularly Reinforcement Learning from Human Feedback
+(RLHF) (Ouyang et al., 2022) and Direct Preference Opti-
+mization (DPO) (Rafailov et al., 2023). However, an im-
+portant side effect of preference alignment is its impact
+on model calibration—the relationship between a model’s
+predicted probabilities and its actual accuracy. While pre-
+trained LLMs typically demonstrate good calibration prop-
+erties, preference-aligned models become poorly calibrated,
+as initially observed in GPT-4 with RLHF (OpenAI, 2023).
+Our investigation reveals that this is a universal issue across
+different models aligned with various alignment methods.
+An example is shown in Figure 1 (left), where the calibra-
+tion performance of a model aligned by DPO illustrates a
+poor calibration performance.
+Understanding and addressing this calibration issue is cru-
+cial. First, well-calibrated prediction is essential for reliable
+decision-making in real-world applications, particularly in
+high-stakes domains such as legal or healthcare analysis
+(Savage et al., 2025). Second, overconfident models may
+mislead users about their capabilities and limitations, poten-
+tially leading to inappropriate reliance on model outputs.
+In this paper, we conduct a systematic investigation into two
+fundamental questions: (1) Why does preference alignment
+affect calibration? and (2) How can we effectively restore
+calibration while maintaining the benefits of alignment? Our
+analysis reveals that the preference collapse phenomenon
+(Xiao et al., 2024a; Chakraborty et al., 2024), a known issue
+in alignment methods where models excessively favor cer-
+tain responses, undesirably generalizes to multiple-choice
+questions, a crucial scenario where calibration performance
+can be conveniently evaluated. This generalization leads
+to overconfidence and poor calibration, as models tend to
+collapse their prediction to one option while ignoring oth-
+ers, regardless of the correctness of their chosen option.
+1
+arXiv:2505.01997v3  [cs.LG]  16 Oct 2025
+Restoring Calibration for Aligned Large Language Models: A Calibration-Aware Fine-Tuning Approach
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+Prob. of A, B, C, D
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+Prob. of Correct
+Classwise Calibration Curve
+Underconfidence
+Overconfidence
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+Prob. of A, B, C, D
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+Prob. of Correct
+Classwise Calibration Curve
+Underconfidence
+Overconfidence
+Pre-trained
+SFT
+DPO
+Ours
+Stages
+0.02
+0.04
+0.06
+0.08
+0.10
+0.12
+0.14
+0.16
+0.18
+conf-ECE / cw-ECE
+conf-ECE
+cw-ECE
+Figure 1. Calibration performance comparison between DPO and our approach on Llama3.1-8B-Tulu (a DPO-aligned version of Llama-
+3.1 (Touvron et al., 2023)). Left: Model calibration plots after DPO alignment, showing significant overconfidence. Middle: Calibration
+plots after applying our fine-tuning approach, demonstrating improved calibration. Right: The evolution of confidence ECE and classwise
+ECE across different stages (pre-trained, SFT, DPO, and our method) shows how our approach effectively restores calibration errors.
+Building on these insights, we demonstrate that fine-tuning
+with domain-specific knowledge can extensively alleviate
+overconfidence on incorrect answers and marginally am-
+plify overconfidence on correct answers, thus improving
+calibration performance.
+For further analysis, we develop a theoretical framework
+that characterizes the conditions under which calibration
+can be restored. We introduce the concepts of calibratable
+and non-calibratable regimes, defined by upper and lower
+bounds of Expected Calibration Error (ECE) and a criti-
+cal accuracy threshold. This framework provides insights
+into when and how models can achieve good calibration
+while maintaining performance. We consider fine-tuning
+the model after RLHF or DPO, rather than modifying these
+methods directly, as in many practical cases only the fi-
+nal DPO/RLHF model is available, while the pretrained or
+SFT model is not. We find that preference-aligned mod-
+els typically lie in the calibratable regime, and propose a
+calibration-aware fine-tuning (CFT) approach that restores
+calibration without compromising performance. However,
+when we overly fine-tune these models to achieve better
+performance, they shift into the non-calibratable regime. In
+this case, we identify a fundamental trade-off between ECE
+and performance, and develop an EM-algorithm-based ECE
+regularization for the CFT loss to effectively navigate this
+trade-off.
+Through extensive experiments, we demonstrate that our
+proposed methods significantly improve calibration perfor-
+mance while preserving or even enhancing model’s lan-
+guage and knowledge capabilities. Figure 1 (middle) illus-
+trates the calibration plots of our approach and Figure 1
+(right) shows the evolution of ECE across different training
+stages. Our approach reduces the ECE of preference-aligned
+models from 14.22%–20.10% to 2.39%–6.51% across dif-
+ferent model architectures and alignment approaches, which
+validates the effectiveness of the proposed methods.
+2. Related Work
+Calibration of Traditional Deep Learning Models. Prior
+work has explored various approaches to model calibra-
+tion. Some researchers have investigated parameterized
+temperature scaling methods (Guo et al., 2017; Joy et al.,
+2023; Yu et al., 2022), primarily focusing on vision models.
+Beyond temperature scaling, researchers have proposed al-
+ternative approaches including Dirichlet calibration (Kull
+et al., 2019), training with label-smoothing (Szegedy et al.,
+2016), mix-up augmentations (Zhang et al., 2017), and fo-
+cal loss-based methods (Mukhoti et al., 2020), though these
+approaches are challenging to implement with LLMs due to
+their computational demands. Notably, Kumar et al. (2019)
+conducted rigorous verification of uncertainty calibration,
+revealing that temperature scaling may be less effective than
+initially reported.
+Calibration for LLMs. Several studies have specifically
+examined LLM calibration (Jiang et al., 2021; Xiao et al.,
+2022; Chen et al., 2022), identifying miscalibration issues
+and evaluating various interventions. Some researchers
+have explored auxiliary models (Zhang et al., 2021; Ka-
+davath et al., 2022; Shen et al., 2024) to improve calibration,
+while others have investigated prompt-based approaches for
+RLHF-tuned LLMs (Xiong et al., 2023). Other researchers
+teach the LLMs to express their uncertainty and calibra-
+tion (Lin et al., 2022; Tian et al., 2023; Xu et al., 2024b).
+A distinct line of research focuses on debiasing in-context
+learning (Abbas et al., 2024; Han et al., 2023; Jiang et al.,
+2023b), though this differs from statistical calibration. Re-
+searchers have studied improving the calibration of LLMs
+during the SFT phase (Han et al., 2024) as well as during
+the PPO/DPO phase (Tao et al., 2024; Leng et al., 2024).
+Notably, previous studies consistently identify temperature
+scaling as the most effective calibration method. Given
+its strong performance, we use temperature scaling as our
+primary baseline for comparison.
+2

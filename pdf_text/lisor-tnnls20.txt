@@ -1,0 +1,207 @@
+SUBMITTED TO THE SPECIAL ISSUE ON STRUCTURED MULTI-OUTPUT LEARNING: MODELLING, ALGORITHM, THEORY AND APPLICATIONS
+1
+Learning with Interpretable Structure
+from Gated RNN
+Bo-Jian Hou, and Zhi-Hua Zhou, Fellow, IEEE
+Abstract—The interpretability of deep learning models has
+raised extended attention these years. It will be beneﬁcial if we
+can learn an interpretable structure from deep learning models.
+In this paper, we focus on Recurrent Neural Networks (RNNs)
+especially gated RNNs whose inner mechanism is still not clearly
+understood. We ﬁnd that Finite State Automaton (FSA) that
+processes sequential data has more interpretable inner mecha-
+nism according to the deﬁnition of interpretability and can be
+learned from RNNs as the interpretable structure. We propose
+two methods to learn FSA from RNN based on two different
+clustering methods. With the learned FSA and via experiments
+on artiﬁcial and real datasets, we ﬁnd that FSA is more trustable
+than the RNN from which it learned, which gives FSA a chance
+to substitute RNNs in applications involving humans’ lives or
+dangerous facilities. Besides, we analyze how the number of gates
+affects the performance of RNN. Our result suggests that gate
+in RNN is important but the less the better, which could be
+a guidance to design other RNNs. Finally, we observe that the
+FSA learned from RNN gives semantic aggregated states and its
+transition graph shows us a very interesting vision of how RNNs
+intrinsically handle text classiﬁcation tasks.
+Index Terms—machine learning, structured output, recurrent
+neural network, gated unit, ﬁnite state automata, interpretability.
+I. INTRODUCTION
+In the last several years, great advances have been produced
+in Recurrent Neural Networks (RNNs), and especially those
+with gates (gated RNNs, such as MGU with one gate [1],
+GRU with two gates [2] and LSTM with three gates [3]) have
+been successfully applied to various tasks, such as speech
+recognition [4], image caption [5], sentiment analysis [6], etc.
+However, nowadays, as the inner mechanisms of learning algo-
+rithms become more and more complex, their interpretability is
+also becoming more and more important [7], [8], [9], [10]. For
+example, Freitas (2013) [11] stressed that the comprehensibility
+(interpretability) of a model to the user is important. Concretely,
+in applications involving human being’s lives or dangerous
+facilities such as nuclear power plant, reliable models are
+required which should not only give high accuracy but also have
+explanation why they made the decision. In learnware [12],
+Zhou also stressed this point where people usually want to
+know what have been learned by models, particularly in real
+tasks where decision reliability is crucial and rigorous judgment
+by human beings are critical.
+It is worthy to note that there are no uniﬁed deﬁnitions
+on the interpretability in machine learning. We are satisﬁed
+with the deﬁnitions provided by Kim et al. (2016) [13] that
+All authors are with the National Key Laboratory for Novel Soft-
+ware Technology, Nanjing University, Nanjing 210023, China. E-mail:
+{houbj,zhouzh}@lamda.nju.edu.cn.
+interpretability is the degree to which a human can consistently
+predict the model’s result. Another deﬁnition we appreciate
+is that interpretability is the degree to which a human can
+understand the cause of a decision [14]. Lipton (2016) [7]
+also discussed a speciﬁc form of interpretability known as
+human-simulability where a human-simulatable model is one in
+which a human user can take in input data with the parameters
+of the model and in reasonable time steps through every
+calculation required to produce a prediction or brieﬂy the one
+can be simulated by human beings. These three perspectives of
+interpretability are actually consistent with each other. That is,
+if a human can simulate what the model did or can consistently
+predict the model’s result, the human can understand the cause
+of the model’s decision and trust it.
+The inner mechanism of gated RNNs is complex due to
+three factors. One is their recurrent structure inherited from
+classical RNN [15]. Despite that the recurrent structure has
+shown to be the key in handling sequential data, using the
+same unit recurrently for different inputs will make human
+beings confused about the inner process of classiﬁcation.
+Another complexity of gated RNNs comes from the gates
+used on the unit. Although gates can bring the beneﬁts of
+remembering long memory, the function of gates has not been
+fully understood; especially how many gates are inherently
+required for a gated RNN model. Gates also increase the
+amount of parameters intensively. Thirdly, the inner process of
+gated RNN is in the form of non-linear numerical calculation,
+while non-linear operations and numerical vectors could not
+be directly associated to a concrete meaning for people to
+understand. Gated RNNs are more like black boxes compared
+to many other machine learning models, such as SVMs [16]
+or decision trees [17], and there is still no clear understanding
+of the inner working mechanisms of recurrent neural networks.
+In a word, besides successful applications, we also require
+understanding of the inner mechanisms of gated RNNs.
+We realize that besides RNNs, there is another tool capable
+of processing sequential data, i.e. Finite State Automaton
+(FSA) [18]. FSA is composed of ﬁnite states and transitions
+between states. Its state will transit from one to another in
+response to external sequential inputs. The transition process
+of FSA is similar to that of RNN when both models accept
+items from some sequence one by one, and transit between
+states accordingly. The inner mechanism of FSA is easier to
+be simulated by human beings since a human can take in input
+data together with the transition function or the illustration
+of FSA and in reasonable time steps through every transition
+required to produce a prediction. This characteristic exactly
+conforms to the deﬁnition of interpretability aforementioned.
+Thus, FSA is an interpretable model. It would be interesting if
+SUBMITTED TO THE SPECIAL ISSUE ON STRUCTURED MULTI-OUTPUT LEARNING: MODELLING, ALGORITHM, THEORY AND APPLICATIONS
+2
+we can learn this interpretable structure from gated RNNs. In
+this way, we may have a chance to use the interpretability of
+FSA to probe into gated RNNs and ﬁnd some interesting or
+even insightful phenomena to help us interpret or understand
+gated RNNs to some degree. Besides, with this interpreting
+or understanding, we may have a rule or guidance to design
+other RNNs. The idea of learning a simple and interpretable
+structure is inspired by an early work NeC4.5 [19] which learns
+an understandable decision tree by observing the behavior of
+the ensemble of several neural networks instead of using the
+true labels directly. This operation is also adopted later in
+knowledge distillation [20] which is an effective approach and
+improves the understandability of deep neural networks.
+As for how to learn the interpretable structure, i.e., FSA,
+we are inspired by early studies about rule extraction from
+neural networks [21], in particular, pioneering works about rule
+extraction from RNNs [22], [23]. They found that hidden states
+of classical non-gated RNNs tend to form clusters, with which
+an FSA can be extracted to represent the rules or grammars
+learned by the corresponding non-gated RNNs. We want to
+follow this idea to learn FSAs from gated RNNs and to use
+this interpretable structure to probe into RNNs. We cannot
+directly extend [22], [23] to gated RNNs since there are several
+differences between these two works and ours. First, we do
+not know whether the tendency to form clusters will also hold
+for gated RNNs. Besides, they mainly focus on rule extraction
+or how well the grammar is extracted by FSA while we focus
+on interpretability. Furthermore, the clustering method they
+used are based on quantization which may cause the number
+of clusters grows exponentially as the number of hidden units
+increases. Thus, it is not possible to directly extend
+[22],
+[23] to gated RNNs. Some recent works [24], [25] use k-
+means [26] to cluster the hidden states of RNNs, but they still
+focus on the quality of grammar that FSA learned. Although
+we use more advanced clustering methods, note that clustering
+method is not the key problem here since various effective
+clustering methods have been proposed without the exponential
+computing problem [27]. The principles to choose clustering
+method are the simplicity and efﬁciency. We believe other
+clustering methods can also provide similar results.
+Learning from multiple data resources [28], [29], or training
+several basic models and then combining them [30] usually
+produce better results. Thus, besides learning only one FSA
+from RNNs, we also generate multiple FSAs to do ensem-
+ble [30], where the diversity of individuals is crucial for the
+improvement of performance [31], [32]. Furthermore, single
+structure may contain limited semantic information, whereas
+multiple structures might make the semantic information more
+plentiful and better to understand.
+In this paper, we probe into RNNs through learning FSA
+from them. We ﬁrst verify that besides RNN without gates,
+gated RNNs’ hidden states also have the natural tendency
+to form clusters. Then we propose two methods. One is
+based on the stable and high-efﬁcient clustering methods k-
+means++ [33]. The other makes use of the observations that
+hidden states close in the same sequence also tend to be near
+in geometrical spaces, named as k-means-x. We then learn FSA
+by designing its ﬁve necessary elements, i.e., alphabet, a set of
+states, start state, a set of accepting state and state transitions.
+We apply our methods on artiﬁcial data and real-world data.
+We ﬁnd that FSA is more trustable than the RNN from which
+it learned, which gives FSA a chance to substitute RNNs in
+applications involving humans’ lives or dangerous facilities,
+etc. Besides, we analyze how the number of gates affects the
+performance of RNN. Our result suggests that gate in RNN is
+important but the less the better, which could be a guidance
+to design other RNNs. Additionally, we observe that the FSA
+learned from RNN gives semantic aggregated states and its
+transition graph shows us a very interesting vision of how
+RNNs intrinsically handle text classiﬁcation tasks. We also
+explore the multiple structures and ﬁnd that multiple FSAs
+can improve performance and make the semantic information
+more plentiful. Overall, our contributions are mainly fourfold:
+1) We propose two effective methods to learn the inter-
+pretable structure, i.e., FSA from gated RNNs. The
+state transitions in RNNs can be well visualized in a
+simpliﬁed FSA graph. Through this graph, people can
+easily simulate the running process of FSA so as to
+validate the interpretability of FSA. We also show that
+FSA is consistent with its RNN from which it learned.
+In this way, FSA has a chance to substitute its RNN in
+applications that need trust.
+2) By studying the learned FSA from four main versions of
+RNNs with different number of gates from zero to three
+(i.e., SRN, MGU, GRU and LSTM), we ﬁnd that RNNs
+with a single gate (i.e., MGU) enjoys a more compact
+hidden state representation (could be clustered into fewer
+clusters for FSA state deﬁnition) than RNNs with no
+gate or more than one gates. This phenomenon suggests
+us that gate in RNN is necessary, but RNN with simple
+gate structure such as MGU is more desirable and this
+rule can be our guidance to design other RNN models.
+3) On real-world sentiment analysis data, the FSA learned
+from RNN gives semantic aggregated states and its
+transition graph shows us a very interesting vision of
+how RNNs intrinsically handle text classiﬁcation tasks.
+Concretely speaking, we ﬁnd that the words leading the
+same transitions tend to form word class and possess the
+same sentiment. The word class leading transitions to
+accepting state contains mainly positive words while the
+word class leading transi

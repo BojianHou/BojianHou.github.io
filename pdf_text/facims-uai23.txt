@@ -1,0 +1,181 @@
+Fairness-Aware Class Imbalanced Learning on Multiple Subgroups
+Davoud Ataee Tarzanagh1
+Bojian Hou1
+Boning Tong1
+Qi Long1
+Li Shen1
+1 University of Pennsylvania
+Abstract
+We present a novel Bayesian-based optimization
+framework that addresses the challenge of gener-
+alization in overparameterized models when deal-
+ing with imbalanced subgroups and limited sam-
+ples per subgroup. Our proposed tri-level optimiza-
+tion framework utilizes local predictors, which
+are trained on a small amount of data, as well as
+a fair and class-balanced predictor at the middle
+and lower levels. To effectively overcome saddle
+points for minority classes, our lower-level formu-
+lation incorporates sharpness-aware minimization.
+Meanwhile, at the upper level, the framework dy-
+namically adjusts the loss function based on val-
+idation loss, ensuring a close alignment between
+the global predictor and local predictors. Theoret-
+ical analysis demonstrates the framework’s abil-
+ity to enhance classification and fairness general-
+ization, potentially resulting in improvements in
+the generalization bound. Empirical results val-
+idate the superior performance of our tri-level
+framework compared to existing state-of-the-art ap-
+proaches. The source code can be found at https:
+//github.com/PennShenLab/FACIMS.
+1
+INTRODUCTION
+Machine learning has achieved exceptional performance
+through overparameterization and advanced techniques.
+This progress is supported by high-quality datasets with suf-
+ficient samples for each data class and subgroup. However,
+real-world datasets frequently exhibit imbalances of differ-
+ent types and magnitudes, reflecting the significance and
+diversity of the underlying domains (Barocas et al., 2023).
+Two common imbalances are observed in label-imbalanced
+and group-sensitive classification scenarios.
+Label-imbalanced classification (LIC) suffers from a signifi-
+cant discrepancy in the number of examples across classes,
+requiring the use of balanced accuracy as a more suitable
+metric than conventional misclassification error. To improve
+model performance and balanced accuracy, various methods
+have been developed, including (Buda et al., 2018) and loss
+re-weighting (He and Garcia, 2009). Weighted cross-entropy
+(wCE) loss, a classical approach, amplifies the contribution
+of minority examples in proportion to the imbalance level.
+However, wCE may not effectively handle the imbalance
+in overparameterized models (Cao et al., 2019), which can
+result in poor generalization. Recent studies propose alterna-
+tive loss functions, such as logit-adjusted loss (Menon et al.,
+2020; Cao et al., 2019), class-dependent temperature loss
+(Ye et al., 2020), and vector-scaling loss (Kini et al., 2021),
+aiming to address the challenges associated with overparam-
+eterization. Nonetheless, there is still a risk of overfitting on
+minority class samples despite these advancements (Rang-
+wani et al., 2022).
+In group-sensitive classification (GSC), the goal is to en-
+sure fairness concerning protected attributes like gender
+or race, addressing the issue of stereotyping where certain
+target labels are more frequently associated with specific
+groups (Mehrabi et al., 2021). For instance, the occupation
+of "nurse" being commonly associated with females. While
+there is no universal fairness metric (Kleinberg et al., 2016),
+one suggestion is group sufficiency, which aims to maintain
+identical conditional expectations of the ground-truth label
+(E[Y |f(X), A]) across different subgroups A = 1, . . . , A
+given the predictor’s output f(X). However, in overparam-
+eterized models with limited samples per subgroup, this
+control of group sufficiency may not always hold, despite
+its effectiveness under certain assumptions in unconstrained
+learning (Liu et al., 2019; Shui et al., 2022c).
+Given the aforementioned challenges regarding the perfor-
+mance of LIC and GSC in overparameterized models, we
+pose the following question:
+Q: How can a classifier be designed to effectively
+generalize on imbalanced subgroups with limited
+samples?
+Proceedings of the 39th Conference on Uncertainty in Artificial Intelligence (UAI 2023), PMLR 216:2123–2133.
+Figure 1: An illustration of the FACIMS model defined in (7). f a and f b maximize the margin for minority classes for
+groups a and b in (7b). In the upper level problem (7a), FACIMS finds Z ∈Z to achieve a small balanced accuracy while
+minimizing the discrepancy between (Za,⋆, Zb,⋆). The approximation term KL(Za,⋆|Z) is based on the distribution family
+Z (orange region). If the predefined Z has good expressive power, the approximation is treated as a small constant.
+To address Q, we establish a link between LIC and GSC
+and propose a novel Bayesian framework that maintains in-
+formative predictions for imbalanced data while minimizing
+generalization error. Our contributions can be summarized
+as follows.
+• We design a Bayesian-based tri-level optimization frame-
+work called Fairness-Aware Class Imbalanced Learning on
+Multiple Subgroups (FACIMS). In FACIMS, local predic-
+tors are learned using a small amount of training data and
+a fair, class-balanced predictor. The lower-level formula-
+tion utilizes the sharpness-aware minimization (Foret et al.,
+2020) to encourage convergence to a flat minimum and
+effectively avoid saddle points for minority classes. The
+upper-level problem dynamically adjusts the loss function
+by monitoring the validation loss, following a similar ap-
+proach to (Li et al., 2021), and updates the global predictor
+to align with all subgroup-specific predictors.
+• We establish the O(1/
+√
+T) convergence rate of our pro-
+posed three-level optimization framework, corresponding to
+a O(ϵ−2) sample complexity with a fixed number of sam-
+ples used per iteration.
+• We quantify the generalization performance of the models
+trained using our proposed tri-level FACIMS approach. The
+generalization bound analysis demonstrates that our method
+can achieve superior generalization performance compared
+to bilevel variants, such as (Rangwani et al., 2022), for fair
+learning on multiple subgroups.
+• We conduct experiments on synthetic and real-world
+datasets to evaluate the balanced accuracy, demographic
+parity, equalized odds, and group sufficiency. The results
+showcase the effectiveness of our proposed method.
+2
+PRELIMINARIES
+We consider a joint random variable (X, Y, A) that follows
+an underlying distribution P(X, Y, A), where X ∈X ⊂Rd
+represents the input, Y ∈Y = {1, . . . , K} represents the
+label, A ∈A = {1, . . . , A} is a scalar discrete random vari-
+able that denotes the sensitive attribute or subgroup index.
+For instance, A could represent gender or race. Throughout,
+E[Y |X] denotes the conditional expectation of Y , which
+can be seen as a function of X. EA,X[·] represents the ex-
+pectation over the marginal distribution of P(A, X).
+Suppose we have a dataset S
+= (xi, yi)n
+i=1 sampled
+i.i.d. from a distribution P with input space X and K
+classes. Let f = [f1, . . . , fK] : X →RK be a model
+that outputs a distribution over classes and let hf(x) =
+arg maxk∈[K] fk(x). The standard classification error is de-
+noted by ACC = PS[y̸ = ˆyf(x)]. For a loss function ℓ(y, ˆy),
+we similarly denote
+Population risk: L(f; P) := EP[ℓ(y, ˆyf(x))],
+(1a)
+Empirical risk: L(f; S) := 1
+n
+Pn
+i=1 ℓ(yi, ˆyf(xi)). (1b)
+We denote the frequency of the k’th class via πk
+=
+P(x,y)∼P(y = k). Label/class-imbalance occurs when the
+class frequencies differ substantially, i.e., maxk∈[K] πk >>
+mink∈[K] πk. We define
+Class-conditional risk: EPk[ℓ(y, ˆyf(x))],
+(2a)
+Balanced risk:
+1
+K
+PK
+k=1 EPk[ℓ(y, ˆyf(x))].
+(2b)
+2.1
+PARAMETRIC LOSSES
+We review some of the SOTA re-weighting methods for
+training on imbalanced data with distribution shifts.
+Label-Distribution-Aware Margin (LDAM) (Cao et al.,
+2019) determines optimal margins for each class by mini-
+mizing errors using a generalization bound. It utilizes ∆j as
+the margin for each class, defined as follows:
+ℓ∆(f; x, y) = −log
+ef(x)y−∆y
+ef(x)y−∆y + P
+j̸=y ef(x)j ,
+where ∆j =
+C
+n1/4
+j
+for j ∈{1, . . . , K}.
+(LDAM)
+LDAM prioritizes classes with low sample sizes (nj)
+over those with high frequencies. Deferred Re-Weighting
+(DRW) (Cao et al., 2019) involves training the model with
+2124

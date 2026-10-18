@@ -1,0 +1,85 @@
+Uncovering Important Diagnostic Features for Alzheimer’s, Parkinson’s and
+Other Dementias Using Interpretable Association Mining Methods
+Kazi Noshin1∗, Mary Regina Boland3∗, Bojian Hou4, Victoria Lu1,
+Carol Manning2, Li Shen4†, Aidong Zhang1†
+1Department of Computer Science, 2Department of Neurology
+University of Virginia, VA 22903, USA
+3Data Science Program, Department of Mathematics,
+Saint Vincent College, Latrobe, PA 15650, USA
+4Department of Biostatistics, Epidemiology and Informatics,
+University of Pennsylvania, Philadelphia, PA 19104, USA
+E-mail: epw9kz@virginia.edu, mary.boland@stvincent.edu
+Bojian.Hou@Pennmedicine.upenn.edu, gbp7sb@virginia.edu
+CM4R@uvahealth.org, li.shen@pennmedicine.upenn.edu, aidong@virginia.edu
+Alzheimer’s Disease and Related Dementias (ADRD) afflict almost 7 million people in the
+USA alone. The majority of research in ADRD is conducted using post-mortem samples
+of brain tissue or carefully recruited clinical trial patients. While these resources are excel-
+lent, they suffer from lack of sex/gender, and racial/ethnic inclusiveness. Electronic Health
+Records (EHR) data has the potential to bridge this gap by including real-world ADRD pa-
+tients treated during routine clinical care. In this study, we utilize EHR data from a cohort
+of 70,420 ADRD patients diagnosed and treated at Penn Medicine. Our goal is to uncover
+important risk features leading to three types of Neuro-Degenerative Disorders (NDD), in-
+cluding Alzheimer’s Disease (AD), Parkinson’s Disease (PD) and Other Dementias (OD).
+We employ a variety of Machine Learning (ML) Methods, including uni-variate and multi-
+variate ML approaches and compare accuracies across the ML methods. We also investigate
+the types of features identified by each method, the overlapping features and the unique
+features to highlight important advantages and disadvantages of each approach specific for
+certain NDD types. Our study is important for those interested in studying ADRD and NDD
+in EHRs as it highlights the strengths and limitations of popular approaches employed in
+the ML community. We found that the uni-variate approach was able to uncover features
+that were important and rare for specific types of NDD (AD, PD, OD), which is important
+from a clinical perspective. Features that were found across all methods represent features
+that are the most robust.
+Keywords: Electronic Health Records; Machine Learning; Alzheimers Disease and Related
+Dementias; Data Mining
+∗Equal-Contribution First-Authors.
+†Equal-Contribution Senior-Authors.
+© 2024 The Authors. Open Access chapter published by World Scientific Publishing Company and 
+distributed under the terms of the Creative Commons Attribution Non-Commercial (CC BY-NC) 
+4.0 License.
+Pacific Symposium on Biocomputing 2025
+631
+1. Introduction
+1.1 Alzheimer’s Disease and Related Dementias
+ADRD afflicts an estimated 6.9 million people in the United States of America (USA), us-
+ing current July 2024 statistics.1 ADRD and dementia collectively kill more patients per year
+than breast and prostate cancers combined.1 However, despite its frequency of incidence, not
+much is known about ADRD patients in community-based settings. This is because the major-
+ity of Alzheimer’s Disease (AD) research focuses on post-mortem (after the patient has died)
+samples or patients recruited through expensive clinical trials (that often lack racial/ethnic di-
+versity). In addition, there remains a paucity of research among diverse populations, including
+investigating sex-disparities2 and racial disparities3 in outcomes. Additionally, many state-of-
+the-art studies on ADRD have limited generalizability because of the almost exclusive use of
+trials that lack race/ethnicity/socioeconomic inclusiveness,4 leading to a diversity dearth.5
+1.2 Electronic Health Records (EHRs)
+The recent development and implementation of EHRs now provide a tremendous opportu-
+nity to evaluate ADRD patients from community-based settings that includes in-patient and
+outpatient medical records data obtained through routine clinical care. EHR data contain
+information on millions of patients from both in-patient and out-patient settings. They often
+contain more representative patient populations (in terms of race, ethnicity, and socioeconomic
+inclusiveness) than clinical trials due to their community-based settings. Several studies have
+used EHR data for AD research. Xu et al.6 developed a data-driven method to uncover four
+subphenotypes of AD from EHRs. Their subphenotypes were correlated with common co-
+morbidities of ADRD, including mental health diseases and cardiovascular disease.6 None of
+these prior studies (as far as we are able to glean from the reported papers) have incorporated
+socioeconomic or racial/ethnic disparities into their algorithm development. This is important
+as not properly capturing these features can lead to biased research results.7,8
+1.3 Uni-variate Association Mining
+While Xu et al.6 utilized unsupervised Machine Learning (ML) methods to learn types of
+ADRD (a form of neurodegenerative disorder (NDD)) from the data itself, another common
+method for uncovering important features or characteristics of a dataset is to utilize associa-
+tion mining. Association mining is used extensively in EHR research through a process called
+Phenotype-Wide Association Studies (PheWAS) first introduced in 2010 by Denny et al.9 In
+their study they held the genetic variant constant while looping over a wide range of clini-
+cal EHR-derived phenotypes.9 This process was then employed by BioBanks throughout the
+USA and abroad, but also applied to EHR datasets not linked to BioBank data.9–23 Others
+used EHR data without genetic information to perform association mining or PheWAS style
+studies.18 Boland et al. employed a similar algorithmic approach when exploring the relation-
+ship between birth seasonality and later risk of disease through a method first published in
+201519 and later replicated in several studies.20–23 The essence of association mining is to test
+for an association (using some statistical method, e.g., chi-square test, fisher’s exact test, or
+regression) between each phenotype (typically represented as columns in a matrix) and the
+outcome of interest. In this study, our outcomes are three different NDD types. Therefore,
+the outcome is set (in this work either AD, PD or OD) a priori and then each phenotype
+Pacific Symposium on Biocomputing 2025
+632

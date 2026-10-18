@@ -1,0 +1,220 @@
+Fair CCA for Fair Representation Learning: An ADNI Study
+Bojian Hou∗
+bojianh@upenn.edu
+University of Pennsylvania
+Philadelphia, Pennsylvania, USA
+Zhanliang Wang∗
+aaronwzl@sas.upenn.edu
+University of Pennsylvania
+Philadelphia, Pennsylvania, USA
+Zhuoping Zhou
+zhuopinz@sas.upenn.edu
+University of Pennsylvania
+Philadelphia, Pennsylvania, USA
+Boning Tong
+boningt@seas.upenn.edu
+University of Pennsylvania
+Philadelphia, Pennsylvania, USA
+Zexuan Wang
+zxwang@sas.upenn.edu
+University of Pennsylvania
+Philadelphia, Pennsylvania, USA
+Jingxuan Bao
+bao96@sas.upenn.edu
+University of Pennsylvania
+Philadelphia, Pennsylvania, USA
+Duy Duong-Tran
+dduongtr@upenn.edu
+University of Pennsylvania
+Philadelphia, Pennsylvania, USA
+Qi Long
+qlong@pennmedicine.upenn.edu
+University of Pennsylvania
+Philadelphia, Pennsylvania, USA
+Li Shen†
+li.shen@pennmedicine.upenn.edu
+University of Pennsylvania
+Philadelphia, Pennsylvania, USA
+Abstract
+Canonical correlation analysis (CCA) is a technique for finding
+correlations between different data modalities and learning low-
+dimensional representations. As fairness becomes crucial in ma-
+chine learning, fair CCA has gained attention. However, previous
+approaches often overlook the impact on downstream classification
+tasks, limiting applicability. We propose a novel fair CCA method
+for fair representation learning, ensuring the projected features are
+independent of sensitive attributes, thus enhancing fairness without
+compromising accuracy. We validate our method on synthetic data
+and real-world data from the Alzheimer’s Disease Neuroimaging
+Initiative (ADNI), demonstrating its ability to maintain high correla-
+tion analysis performance while improving fairness in classification
+tasks. Our work enables fair machine learning in neuroimaging
+studies where unbiased analysis is essential. Code is available in
+https://github.com/ZhanliangAaronWang/FR-CCA-ADNI.
+CCS Concepts
+• Computing methodologies →Machine learning algorithms;
+Keywords
+CCA, Fairness, Representation Learning, Alzheimer’s Disease
+ACM Reference Format:
+Bojian Hou, Zhanliang Wang, Zhuoping Zhou, Boning Tong, Zexuan Wang,
+Jingxuan Bao, Duy Duong-Tran, Qi Long, and Li Shen. 2025. Fair CCA for
+Fair Representation Learning: An ADNI Study. In Proceedings of the 16th
+ACM International Conference on Bioinformatics, Computational Biology, and
+∗Equal contributions
+†Corresponding author
+Publication rights licensed to ACM. ACM acknowledges that this contribution was
+authored or co-authored by an employee, contractor or affiliate of the United States
+government. As such, the Government retains a nonexclusive, royalty-free right to
+publish or reproduce this article, or to allow others to do so, for Government purposes
+only. Request permissions from owner/author(s).
+BCB ’25, October 11–15, 2025, Philadelphia, PA, USA
+© 2025 Copyright held by the owner/author(s). Publication rights licensed to ACM.
+ACM ISBN 979-8-4007-2200-4/2025/10
+https://doi.org/10.1145/3765612.3767215
+Health Informatics (BCB ’25), October 11–15, 2025, Philadelphia, PA, USA.
+ACM, New York, NY, USA, 10 pages. https://doi.org/10.1145/3765612.3767215
+1
+Introduction
+Canonical correlation analysis (CCA) is a well-established tech-
+nique for exploring the relationship between two sets of multi-
+dimensional variables. By finding a pair of linear transformations
+that maximize the correlation between the projected variables, CCA
+enables the discovery of latent factors that capture the shared infor-
+mation across different modalities [13]. CCA’s ability to preserve
+cross-modal correlations has made it widely used in biology [23],
+neuroscience [2] to medicine [35], and engineering [8].
+Despite widespread adoption, conventional CCA methods do not
+account for potential biases concerning sensitive attributes such
+as sex, race, or age. This lack of fairness consideration can lead
+to learned representations that capture and amplify undesirable
+societal biases, resulting in discriminatory outcomes in downstream
+applications [5, 26]. As machine learning models are increasingly
+deployed in high-stakes decision-making scenarios, it is imperative
+to develop fair representation learning techniques that mitigate
+these biases while preserving the utility of the learned features [33].
+A recent study [36] developed fair CCA methods that minimize
+correlation disparity errors associated with protected attributes,
+ensuring equitable correlation levels across different groups. The
+authors proposed a single-objective fair CCA (SF-CCA) and a multi-
+objective fair CCA (MF-CCA). SF-CCA is more efficient with a
+fixed set of hyperparameters, while MF-CCA can automatically
+identify the optimal hyperparameters. However, these fair CCA
+methods primarily focus on correlation analysis without explicitly
+considering the subsequent classification or prediction tasks that
+often motivate using CCA. Such disconnection between the state-of-
+the-art CCA learnings and the downstream tasks could significantly
+hinder the broader applicability of fair CCA. Furthermore, although
+MF-CCA has the advantage of automatic hyperparameter tuning,
+its complex optimization techniques limit its efficiency, which, in
+turns, prevent its wider adoption in application domain.
+In this paper, we introduce a novel fair CCA method that im-
+plicitly optimizes for both fairness and classification performance.
+arXiv:2507.09382v2  [cs.LG]  1 Oct 2025
+BCB ’25, October 11–15, 2025, Philadelphia, PA, USA
+Hou, Wang, et al.
+(c) Two pairs of samples
+after projection
+(f) CCA
+Female Pair
+Male Pair
+(d) CCA for Male
+(e) CCA for Female
+(g) Fair CCA
+(a) Two samples in the first data matrix
+(b) Two samples in the second data matrix
+(k) Second data matrix and their
+projections after FR-CCA
+(h) First data matrix and their
+projections after FR-CCA
+(i) Biased Classification in
+(j) Fair Classification in 
+Male
+Female
+Male
+Female
+(l) Biased Classification in
+(m) Fair Classification in
+Male
+Female
+Male
+Female
+Figure 1: Illustration of FR-CCA with the sensitive attribute sex as an example (female and male). (a)–(c) demonstrate the general framework
+of CCA, while (d)–(g) provide a comparison of the projected results using various strategies. It is important to note that the correlation between
+two corresponding samples is inversely associated with the angle formed by their projected vectors. FR-CCA aims to equalize the average
+angles among different groups. After projection ((h) and (k)), our FR-CCA can lead to fair classification ((j) and (m)), where the classification
+results will not be affected by the sex information.
+Our approach enforces independence between the learned repre-
+sentations and sensitive attributes, thereby promoting fairness. By
+utilizing CCA, we maintain high correlation between multimodal
+data, which facilitates improved performance in subsequent classi-
+fication tasks.
+Specifically, as illustrated in Figure 1, panels (a)–(c) showcase
+the general framework of CCA. Two samples x1 and x2 from the
+first data matrix X, and y1 and y2 from the second data matrix Y
+are projected into the same feature space. This projection aims to
+maximize correlations between corresponding samples, which are
+inversely related to the angles between the sample vectors x𝑖and y𝑖
+(𝑖= 1 or 2). Panels (d)–(g) compare the results of different learning
+strategies. Four pairs of samples are shown, with female pairs high-
+lighted in red and male pairs in blue. Sex-based projection matrices
+heavily bias the final projection, favoring one sex over the other
+(panels (d) and (e)). While CCA reduces angles compared to random
+projection (panel (f)), significant angle differences between male
+and female pairs indicate persistent bias. Our proposed FR-CCA
+addresses this bias by maximizing correlation within pairs while
+ensuring equal correlations across different groups, such as males
+and females (panel (g)). Panels (h) and (k) illustrate the original data
+matrices X and Y and their projections after FR-CCA, XU and YV,
+respectively. Panels (i) and (j) demonstrate biased and fair classifica-
+tion on XU before and after FR-CCA. The biased classification sig-
+nificantly relies on sex information, while fair classification shows
+more balanced sex representation in each class. Similar results are
+shown in panels (l) and (m) for YV before and after FR-CCA.
+We evaluate the proposed fair CCA method on various datasets,
+including synthetic and real datasets, with a particular focus on
+Alzheimer’s disease (AD) diagnosis. In the clinical context of AD,
+ensuring fairness is crucial due to the demographic diversity of
+the patient population and the high stakes of diagnostic decisions.
+Traditional diagnostic models may inadvertently incorporate biases
+related to age, sex, or race, potentially leading to unequal access to
+diagnosis and treatment options.
+Applying our fair CCA method to AD diagnosis involves lever-
+aging multimodal data, such as PET and MRI imaging information,
+to uncover latent factors critical for accurate diagnosis. By ensuring
+that these latent factors are unbiased regarding sensitive attributes,
+our method helps develop equitable diagnostic tools that are equi-
+table across different demographic groups. This fairness aspect is
+particularly important in clinical settings, where biased diagnostic
+outcomes can significantly affect implications for patient care and
+treatment strategies [22].
+Our empirical results demonstrate that the proposed method
+achieves superior fairness-accuracy trade-offs compared to existing
+fair CCA techniques. In the clinical context of AD, this means more
+accurate and equitable diagnosis across diverse patient groups,
+enhancing the reliability and inclusiveness of diagnostic tools. By
+addressing both fairness and performance, our method offers a
+practical solution for fair representation learning in real-world
+scenarios, particularly in high-stakes fields like medicine, where
+equitable treatment is paramount.
+2
+Related Work
+Canonical Correlation Analysis CCA, introduced by Hotelling in
+1936 [12], has been widely applied across various domains. In the
+context of representation learning, particularly for cross-modal
+applications, Deep CCA [3] extended traditional CCA to learn
+nonlinear transformations of two views of data, enabling the dis-
+covery of complex correlations in high-dimensional spaces. This
+advancement has been particularly relevant in fields such as neu-
+roscience [2] and medicine [35], where multimodal data analysis
+[21] is crucial. Recent work has also explored probabilistic formu-
+lations of CCA [4], further expanding its utility in domains like
+bioinformatics and computer vision.
+Fairness in Machine Learning As machine learning models are
+increasingly deployed in high-stakes decision-making scenarios,
+ensuring fairness has become a critical concern. Seminal work
+by Dwork et al. (2012) [10] introduced the concept of individual
+fairness, while subsequent research has explored various group
+fairness metrics and their implications [5, 14, 26]. In the context of
+representation learning, Zemel et al. (2013) [33] proposed methods
+for learning fair representations independent of protected attributes.
+This line of research is particularly relevant to our work, as we aim

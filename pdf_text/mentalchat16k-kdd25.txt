@@ -1,0 +1,221 @@
+arXiv:2503.13509v2  [cs.LG]  2 Jun 2025
+MentalChat16K: A Benchmark Dataset for Conversational Mental
+Health Assistance
+Jia Xu∗†
+jiaxu@alumni.upenn.edu
+University of Pennsylvania
+Philadelphia, Pennsylvania, USA
+Tianyi Wei∗‡
+tywei@alumni.upenn.edu
+University of Pennsylvania
+Philadelphia, Pennsylvania, USA
+Bojian Hou∗
+bojian.hou@Pennmedicine.upenn.edu
+University of Pennsylvania
+Philadelphia, Pennsylvania, USA
+Patryk Orzechowski§
+patryk.orzechowski@gmail.com
+University of Pennsylvania
+Philadelphia, Pennsylvania, USA
+Shu Yang
+shu.yang@pennmedicine.upenn.edu
+University of Pennsylvania
+Philadelphia, Pennsylvania, USA
+Ruochen Jin
+2kyrie.jin@gmail.com
+University of Pennsylvania
+Philadelphia, Pennsylvania, USA
+Rachael Paulbeck
+paulbeck@nursing.upenn.edu
+University of Pennsylvania
+Philadelphia, Pennsylvania, USA
+Joost Wagenaar
+joostw@seas.upenn.edu
+University of Pennsylvania
+Philadelphia, Pennsylvania, USA
+George Demiris
+gdemiris@nursing.upenn.edu
+University of Pennsylvania
+Philadelphia, Pennsylvania, USA
+Li Shen¶
+li.shen@pennmedicine.upenn.edu
+University of Pennsylvania
+Philadelphia, Pennsylvania, USA
+ABSTRACT
+We introduce MentalChat16K, an English benchmark dataset com-
+bining a synthetic mental health counseling dataset and a dataset
+of anonymized transcripts from interventions between Behavioral
+Health Coaches and Caregivers of patients in palliative or hos-
+pice care. Covering a diverse range of conditions like depression,
+anxiety, and grief, this curated dataset is designed to facilitate the
+development and evaluation of large language models for con-
+versational mental health assistance. By providing a high-quality
+resource tailored to this critical domain, MentalChat16K aims to
+advance research on empathetic, personalized AI solutions to im-
+prove access to mental health support services. The dataset pri-
+oritizes patient privacy, ethical considerations, and responsible
+data usage. MentalChat16K presents a valuable opportunity for
+the research community to innovate AI technologies that can posi-
+tively impact mental well-being. The dataset is available at https:
+//huggingface.co/datasets/ShenLab/MentalChat16K and the code
+∗Equal contributions
+†The Roux Institute, Northeastern University, Portland, Maine, USA (second affiliation)
+‡The Rockefeller University, New York, NY, USA (second affiliation)
+§AGH University of Krakow, Kraków, Poland (second affiliation)
+¶Corresponding author
+Permission to make digital or hard copies of all or part of this work for personal or
+classroom use is granted without fee provided that copies are not made or distributed
+for profit or commercial advantage and that copies bear this notice and the full citation
+on the first page. Copyrights for components of this work owned by others than the
+author(s) must be honored. Abstracting with credit is permitted. To copy otherwise, or
+republish, to post on servers or to redistribute to lists, requires prior specific permission
+and/or a fee. Request permissions from permissions@acm.org.
+KDD ’25, August 3–7, 2025, Toronto, ON, Canada.
+© 2025 Copyright held by the owner/author(s). Publication rights licensed to ACM.
+ACM ISBN 979-8-4007-1454-2/25/08...$15.00
+https://doi.org/10.1145/XXXXXX.XXXXXX
+and documentation are hosted on GitHub at https://github.com/
+ChiaPatricia/MentalChat16K.
+ACM Reference Format:
+Jia Xu, Tianyi Wei, Bojian Hou, Patryk Orzechowski, Shu Yang, Ruochen
+Jin, Rachael Paulbeck, Joost Wagenaar, George Demiris, and Li Shen. 2025.
+MentalChat16K: A Benchmark Dataset for Conversational Mental Health
+Assistance. In Proceedings of the 31st ACM SIGKDD Conference on Knowl-
+edge Discovery and Data Mining V.2 (KDD ’25), August 3–7, 2025, Toronto,
+ON, Canada. ACM, New York, NY, USA, 27 pages. https://doi.org/10.1145/
+XXXXXX.XXXXXX
+1
+INTRODUCTION
+The proliferation of Large Language Models (LLMs) has trans-
+formed artificial intelligence’s capability to understand and gener-
+ate human-like text, unlocking new opportunities for applications
+in various domains, including mental health support [27, 68]. This
+advancement is particularly timely, given the rising global preva-
+lence of mental health disorders such as depression and anxiety
+[5, 51], highlighting an urgent need for innovative and accessi-
+ble support solutions [23, 25, 37, 64]. Notably, most recent studies
+have demonstrated that LLMs, even at the 7B scale, are capable of
+generating empathic responses that can be more empathic than
+human-written responses, thus enhancing human peer support in
+contexts where empathy is crucial [38, 74].
+Recent years have witnessed the emergence of several AI models
+aimed at addressing mental health challenges, including Psy-LLM
+[34], Mental-LLM [72], ChatPsychiatrist [42], and MentalBERT [29].
+Despite the advancements in the field, there is a notable paucity of
+LLMs that concentrate on mental health counseling. Among the
+aforementioned work, ChatPsychiatrist is the only open-source
+KDD ’25, August 3–7, 2025, Toronto, ON, Canada.
+Xu, Wei, Hou, et al.
+English LLM focusing on question-answering in psychological con-
+sultation settings. The majority of existing work has primarily em-
+phasized mental health detection, diagnosis, and prediction [29, 72].
+This disparity can be attributed to several obstacles, including lan-
+guage limitations, a scarcity of domain-specific training data, and
+privacy concerns surrounding the use of such data.
+To overcome these challenges and advance research in this criti-
+cal domain, we introduce MentalChat16K, an English benchmark
+dataset consisting of 16K question-answer pairs of synthetic mental
+health counseling conversations and anonymized interview conver-
+sations from interventions between Behavioral Health Coaches and
+Caregivers of patients in palliative or hospice care. This curated
+dataset is available at https://huggingface.co/datasets/ShenLab/
+MentalChat16K. It covers a diverse range of conditions, includ-
+ing depression, anxiety, and grief, enabling the development and
+evaluation of LLMs tailored for conversational mental health assis-
+tance. Notably, MentalChat16K is twice the size of the training data
+for ChatPsychiatrist [42], providing a broader and deeper coverage
+of real-life mental health issues to enhance the capabilities of AI
+models in offering comprehensive and empathetic support.
+MentalChat16K presents a valuable opportunity for the research
+community to innovate AI technologies that can positively impact
+mental well-being. By leveraging this dataset, researchers can fine-
+tune and evaluate LLMs, enabling the development of empathetic
+and personalized AI solutions that can engage in warm and nuanced
+interactions, simulating the communication typically expected in
+human counseling sessions. The dataset prioritizes patient privacy,
+ethical considerations, and responsible data usage, ensuring that the
+development of AI technologies in this sensitive area is conducted
+with the utmost care and responsibility.
+To demonstrate the effectiveness of the MentalChat16K dataset
+in tailoring LLMs for mental health counseling, We fine-tuned
+seven state-of-the-art LLMs. We employed the Quantized Low-
+Rank Adapter (QLoRA) technique [15] for efficient fine-tuning of
+state-of-the-art LLMs, thereby reducing computational demands
+without sacrificing model performance. We mainly focus on 7B
+local open-source models because we want to demonstrate a fine-
+tuned pipeline with limited resources (such as one single A40 or
+A100 GPU). There are mainly two families of local LLMs in the mar-
+ket, one is the LLaMA family including LLaMA, LLaMA2, Alpaca,
+Vicuna etc. and the other is the Mistral family including Mistral,
+Mixtral, Zephyr, etc. Mistral 7B 1 has been validated as one of the
+most powerful local open-sourced models.
+To evaluate the ability of LLMs fine-tuned on MentalChat16K, we
+curated a specialized counseling evaluation benchmark consisting
+of 200 questions and developed 7 metrics to rigorously assess the
+performance of LLMs in the context of mental health counseling.
+The evaluation is automated by leveraging strong LLMs like GPT-4
+Turbo Preview [49] and Gemini Pro 1.0 [61] as impartial judges. We
+also incorporated real human evaluations for a more comprehensive
+and convincing comparison. Our four evaluators include one senior
+Postdoc, and three Master students , providing interdisciplinary
+expertise in both computer science and medical sciences, making
+them well-suited to assess the technical and healthcare aspects of
+the models’ responses. The human evaluation results are consistent
+1https://mistral.ai/news/announcing-mistral-7b/
+with the evaluation results of GPT-4 and Gemini Pro. The complete
+architecture is summarized in Figure 1.
+In summary, our contributions are three-fold:
+• We introduce MentalChat16K, a benchmark dataset that con-
+tains anonymized transcripts from interventions between
+Behavioral Health Coaches and Caregivers of patients in
+palliative or hospice care. This dataset can be used for fine-
+tuning pre-trained large language models to provide empa-
+thetic, personalized AI solutions to improve access to mental
+health support services.
+• We curate a synthetic counseling conversation dataset cov-
+ering a broad range of topics in mental health such as de-
+pression, and anxiety. This synthetic data works as a com-
+plimentary of the real dataset and composes the complete
+MentalChat16K benchmark together with the real dataset.
+• We provide a pipeline for data collection, data filtering, LLMs
+fine-tuning, and evaluation. Our extensive experiments demon-
+strate that the fine-tuned LLMs on the MentalChat16K dataset
+outperform existing models in providing mental health sup-
+port, validating the effectiveness of MentalChat16K. This
+pipeline also serves as a valuable demo for institutions lack-
+ing computing resources, enabling them to fine-tune their
+own large language models.
+2
+RELATED WORK
+Mental Health Mental health disorders like depression and anxiety
+have a profound impact, leading to substantial challenges and socio-
+economic consequences. The global economy faces an estimated
+annual productivity loss of $1 trillion due to these disorders [62].
+Depression prevalence among older adults ranges from 7.2% to 49%
+[16], even higher than dementia [1]. AI integration in healthcare,
+especially through LLMs like GPT, LLaMA, and BERT, offers promis-
+ing prospects for innovative mental health solutions [21, 72, 75].
+LLMs in Mental Health Care Depression is the leading cause of
+disability globally [63]. LLMs, including GPT3.5, GPT4, LLaMA1,
+and LLaMA2, have transformed mental health care with their abil-
+ity to grasp natural language context and produce human-like
+outputs [14]. Researchers have integrated open-source LLMs into
+mental health chatbots like ChatPsychiatrist [42], MentalBERT [29],
+Mental-LLM [72], and Psy-LLM [34]. LLMs have been employed
+in various mental health tasks, such as suicide risk detection [6],
+psychotherapy homework assignment [52], and emotion recogni-
+tion [76]. They have also aided non-professional counselors [20]
+and supported depression diagnosis and treatment [69].
+Benchmark Datasets Benchmark datasets are crucial for advanc-
+ing NLP research in mental health. Althoff et al. (2016) presented
+a large-scale, quantitative study on the SNAP dataset [2], a text-
+message-based counseling conversation dataset containing over 13
+million messages. The PsyQA dataset contains Chinese counseling
+conversations, and Na et al. used CBT prompts with GPT-3.5-turbo-
+16k to generate CBT-informed responses [48, 59]. CounselChat [7]
+includes 3.6k questions and answers from online counseling plat-
+forms. The HOPE dataset [46] includes 12.9k annotated utterances
+from counseling session videos for dialog-act classification, and
+the MEMO dataset annotates these for mental health counseling
+summarization [58]. ChatPsychiatrist’s Psych8K dataset [42] com-
+prises data from 260 real counseling recordings. Our MentalChat16K

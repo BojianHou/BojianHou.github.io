@@ -1,0 +1,164 @@
+Stochastic Regret Guarantees for Online Zeroth- and
+First-Order Bilevel Optimization
+Parvin Nazari
+Amirkabir University of Technology
+p.nazari17@gmail.com
+Bojian Hou
+University of Pennsylvania
+bojianh@upenn.edu
+Davoud Ataee Tarzanagh ∗
+Samsung SDS Research America
+d.tarzanagh@samsung.com
+Li Shen
+University of Pennsylvania
+li.shen@pennmedicine.upenn.edu
+George Michailidis
+University of California, Los Angeles
+gmichail@ucla.edu
+Abstract
+Online bilevel optimization (OBO) is a powerful framework for machine learning
+problems where both outer and inner objectives evolve over time, requiring dynamic
+updates. Current OBO approaches rely on deterministic window-smoothed regret
+minimization, which may not accurately reflect system performance when functions
+change rapidly. In this work, we introduce a novel search direction and show
+that both first- and zeroth-order (ZO) stochastic OBO algorithms leveraging this
+direction achieve sublinear stochastic bilevel regret without window smoothing.
+Beyond these guarantees, our framework enhances efficiency by: (i) reducing oracle
+dependence in hypergradient estimation, (ii) updating inner and outer variables
+alongside the linear system solution, and (iii) employing ZO-based estimation of
+Hessians, Jacobians, and gradients. Experiments on online parametric loss tuning
+and black-box adversarial attacks validate our approach.
+1
+Introduction
+Bilevel optimization (BO) minimizes an outer objective dependent on an inner problem’s solu-
+tion. Originating in game theory [66] and formalized in mathematical optimization [10], BO finds
+applications in operations research, engineering, economics [17], and image processing [15]. Re-
+cently, BO has gained traction in machine learning, including hyperparameter optimization [23],
+meta-learning [19], reinforcement learning [67], and neural architecture search [52].
+In the offline setting, BO solves the following problem:
+x∗∈argminx∈X f(x, y∗(x))
+subj. to
+y∗(x) = argminy∈Rd2g(x, y),
+(BO)
+where f and g are the outer and inner objectives, with x and y as their respective variables.
+OBO [69] addresses dynamic scenarios where objectives evolve over time, requiring the agent
+to update the outer decision in response to the optimal inner decision. Similar to online single-
+level optimization (OSO) [74], OBO involves iterative decision-making without prior knowledge of
+outcomes [69, 51, 9]. Let T be the total number of rounds. Define xt ∈X ⊂Rd1 as the decision
+∗Corresponding author
+39th Conference on Neural Information Processing Systems (NeurIPS 2025).
+arXiv:2511.01126v3  [cs.LG]  19 May 2026
+OBO
+Window Size
+System
+Stochastic
+Const.
+Only Func.
+Local
+Method
+in Regret (w)
+Iters.
+Regret
+Regret Min.
+Feedback
+Regret Bound
+OAGD [69]
+o(T)
+N.A. (Exact)
+✗
+✗
+✗
+T
+w + H1,T + H2,T
+SOBOW [51]
+o(T)
+O(κg log κg)
+✗
+✗
+✗
+T
+w + VT + H2,T
+SOBBO [9]
+o(T)
+O(κg log κg)
+✓
+✓
+✗
+T
+wσ2 + VT + H2,T
+SOGD
+1
+1
+✓
+✓
+✗
+T
+1
+3 (σ2 + ∆T ) + T
+2
+3 ΨT
+ZO-SOGD
+1
+1
+✓
+✓
+✓
+(d1 + d2)
+3
+4 T
+1
+3 (ˆσ2 + ˆ∆T )
++(d1 + d2)
+3
+2 T
+2
+3 ˆΨT
+Table 1: Comparison of OBO algorithms based on regret window w, solver iterations, stochas-
+tic/constrained regrets, feedback type, and local bounds. κg denotes the condition number of the
+inner objective gt. VT , Hp,T , ∆T , ΨT , ˆ∆T , ˆΨT , σ, and ˆσ are defined in (11), (14), (30), (10), and
+(28), respectively.
+variable and ft : X × Rd2 →R as the outer function, where X is a known convex set. Similarly,
+define yt ∈Rd2 and gt : X ×Rd2 →R for the inner problem, where y∗
+t (x) = argminy∈Rd2gt(x, y).
+OBO can be seen as a single-player problem, where the player selects xt without knowing y∗
+t (x),
+using yt as an estimate based on gt. Alternatively, it can be framed as a two-player game [66], where
+the leader (xt) competes with the follower (yt), who selects y∗
+t (x) based on limited knowledge
+of gt. This framework includes online and adversarial variants of (BO), such as online actor-critic
+algorithms [73], online meta-learning [20], and online hyperparameter optimization [51]. The inner
+and outer functions may be time-varying, adversarial, unavailable a priori, and require nonstationary
+optimization.
+Our Contributions. This paper addresses stochastic OBO, introducing novel first- and zeroth-order
+methods to minimize stochastic bilevel regret. Key contributions are summarized below.
+• Stochastic regret minimization without window-smoothing. Existing OBO methods [69, 51,
+41, 9] rely on deterministic window-smoothed regret minimization, which may not accurately reflect
+system performance when functions change rapidly. We address these limitations by introducing a
+novel search direction (Section 2) and proving that both first-order and ZO methods achieve sublinear
+stochastic bilevel regret without window-smoothing (w = 1); see Theorems 2.6 and 3.2 and Table 1.
+• OBO with function value oracle feedback. In large-scale and black-box settings [12, 59], first-
+and second-order information is often unavailable or costly. Constructing accurate (hyper)-gradient
+estimators using only function value oracles is particularly challenging due to BO’s nested structure.
+Existing methods rely on gradient, Hessian, and Jacobian oracles, limiting scalability [22, 28]. We
+propose Algorithm 2, which estimates Hessians, Jacobians, and gradients using function value oracles,
+achieving sublinear local regret (Theorem 3.2).
+• OBO with one subproblem solver iteration. A major challenge in BO is solving implicit
+systems to approximate the hypergradient [44, 13]. While efficient offline BO methods exist [44, 16],
+extending them to OBO is difficult due to time-varying objectives. SOBOW [51] partially addresses
+this using a conjugate gradient (CG) algorithm with increasing iterations (Table 1). We improve upon
+SOBOW by introducing Algorithms 1 and 2, which require only a single subproblem solver iteration.
+2
+Stochastic OBO with Access to First- and Inner Second-Order Oracles
+Notation. Rd is the d-dimensional real space; Rd
++ and Rd
+++ denote its nonnegative and positive
+orthants. Bold lowercase letters (e.g., x, y) represent vectors, ⟨x, y⟩is the inner product, and ∥·∥
+is the Euclidean norm. ∇x denotes the gradient, and ∇2
+xy = ∇x∇y. A function is L-smooth if its
+gradient is L-Lipschitz. The projection onto a convex set X is ΠX (z) = argminx∈X
+1
+2∥x −z∥2. We
+use [T] for {1, . . . , T}, E[·] for expectation, and O(·) to hide problem-independent constants.
+Stochastic OBO Setting. Let T be the total rounds [69]. Define xt ∈X ⊂Rd1 as the decision
+variable and ft : X × Rd2 as the outer objective. The inner decision variable and objective are
+2

@@ -1,0 +1,99 @@
+Knowledge-Driven Feature Selection and Engineering for Genotype Data with
+Large Language Models
+Joseph Lee, BS1,∗, Shu Yang, PhD1,∗,†, Jae Young Baik, Xiaoxi Liu, PhD2, Zhen Tan, MS3,
+Dawei Li, MS3, Zixuan Wen, MA1, Bojian Hou, PhD1, Duy Duong-Tran, PhD4,
+Tianlong Chen, PhD5, Li Shen, PhD1,†
+1 Unversity of Pennsylvania, Philadelphia, USA. 2 RIKEN, Yokohama, Japan. 3 Arizona
+State University, Tempe, USA. 4 United States Naval Academy, Annapolis, USA. 5The
+University of North Carolina at Chapel Hill, Chapel Hill, USA
+Abstract
+Predicting phenotypes with complex genetic bases based on a small, interpretable set of variant features remains a
+challenging task. Conventionally, data-driven approaches are used for this task, yet the high dimensional nature of
+genotype data makes the analysis and prediction difficult. Motivated by the biomedical knowledge encoded in pre-
+trained LLMs and the emerging applications for genetics, we set to examine the ability of LLMs in feature selection
+and engineering for tabular genotype data, with a novel knowledge-driven framework. We develop FREEFORM,
+Free-flow Reasoning and Ensembling for Enhanced Feature Output and Robust Modeling, designed with chain-of-
+thought and ensembling principles, to select and engineer features with the intrinsic knowledge of LLMs. Evaluated
+on two distinct genotype-phenotype datasets, genetic ancestry and hereditary hearing loss, we find this framework
+outperforms several data-driven methods, particularly on low-data regimes. FREEFORM is available as open-source
+framework at GitHub: https://github.com/PennShenLab/FREEFORM.
+Introduction
+Predicting observable phenotypes from genotype data has proven to be a monumental task in the field of genetics, with
+diverse applications ranging from personalized medicine1 to genomic selection of crops2. Vast amounts of genetic
+variants, such as single nucleotide polymorphisms (SNPs) from high-throughput sequencing data, are often harnessed
+to make predictions on the phenotype. To deal with the sparsity of this data, linear models with regularization have
+been developed to much success in the case of polygenic risk scores1,3. Furthermore, machine learning models have
+been developed to capture the entangled epistatic relationships between genes and to predict complex traits4.
+The difficulty, however, of modeling genotype data is substantial: (1) First, the topic of interest is not merely predictive
+(e.g. discovering causal variants5) and machine learning methods are known to identify spurious features as significant
+due to multicollinearity6. Analyzing interaction terms—like epistatic relationships between variants—also introduces
+challenges such as a lack of interpretability when using complex models or multiple testing when examining higher-
+order interactions7. (2) Furthermore, a table of genotype data could contain thousands or even millions of columns.
+This ‘curse of dimensionality’ can cause severe overfitting and amplify many issues, including those we’ve named
+above8. (3) Lastly, data can be limited in real settings, exacerbating existing concerns with overfitting.
+Feature selection and feature engineering (i.e. feature construction) can be crucial steps to mitigate these concerns.
+Data-driven methods, such as Lasso regression, have demonstrated great success in selecting features9. Feature en-
+gineering improves predictive performance without resorting to complex models and can help uncover interactions
+between features10. However, these methods have their own issues: data-driven methods can struggle with small
+sample sizes and feature engineering is a laborious process that requires expertise to avoid multiple testing.
+Recent advances in large language models (LLMs) have shown promise in addressing these challenges. With their
+remarkable performance across various tasks, LLMs have established themselves as powerful tools across many do-
+mains11,12. A key strength of LLMs lies in the knowledge they acquire through pre-training, enabling them to act
+as domain experts; recent LLMs have showed extensive understanding of biomedical concepts13,14,15. Furthermore,
+LLMs can be greatly enhanced with well-designed prompting strategies16,17,18. Chain-of-thought prompting (CoT) 16
+improves the reasoning of LLMs by encouraging step-by-step problem solving. Self-consistency17 addresses the naive
+greedy decoding used in CoT prompting by selecting the most consistent outcome across multiple reasoning paths.
+∗Equal contribution by JL and SY. †Correspondence: shu.yang@pennmedicine.upenn.edu (SY) and li.shen@pennmedicine.upenn.edu (LS).
+arXiv:2410.01795v2  [cs.LG]  16 Apr 2025
+Several studies have proposed to employ such capabilities of LLMs to perform feature preprocessing. Among them,
+Choi et al.19 adopts the notion of prior knowledge in LLMs to conduct feature selection and casual discovery. Jeong
+et al.20 examines three types of selection strategies with LLMs e.g. ranking vs. scoring features. Hollmann et al.21
+has an agentic approach, using the LLM to generate Python code that creates features in an iterative fashion based on
+cross-validation feedback. Han et al.22 employs LLMs to do feature engineering, generating conditional rules for each
+class label (e.g. age > 21 increases the logits for label 0) and repeating this several times to form an ensemble.
+Due to the promising performance of LLMs, there has also been a growing exploration of LLMs’ usage in biomedical
+applications, especially genetics23,15,24,25. Despite these innovations, most genetic studies have focused on gene-level
+data, likely due to the limitations of earlier LLMs. To our knowledge, no prior work has explored LLMs on variant-
+level data, except one that used API calls on NCBI databases to retrieve SNP information26. While this approach
+compensates for LLMs’ inability to pass the GeneTuring benchmark27, we argue the benchmark is an inadequate test
+of their utility, as it evaluates gene-SNP association by randomly sampling 100 SNPs from hundreds of millions. This
+setup overlooks how well LLMs leverage their knowledge of known variants (Fig. 5), a gap we address in this study.
+Inspired by these recent explorations20,22,23,28, we propose to leverage LLMs’ knowledge, intrinsic and augmented,
+and reasoning capabilities16,29 to select the most informative genetic variants and generate novel features. We develop
+a knowledge-driven framework FREEFORM, Free-flow Reasoning and Ensembling for Enhanced Feature Output and
+Robust Modeling, designed from ground principles in ensembling (self-consistency)17 and “free-flow reasoning”30
+to best leverage the expertise of LLMs. In the LLM-enabled framework, we implement scalable feature selection
+strategies that can process a large number of variants and feature engineering approaches that focus on interaction
+terms which are more interpretable. We evaluate FREEFORM on two real genotype datasets, genetic ancestry and
+hereditary hearing loss, and compare with data-driven and LLM-enabled methods. In particular, we focus on few-shot
+(i.e. few data samples) settings where data-driven methods struggle due to limited sample size but LLMs have shown
+surprising generalizability31,32. In our study, we expect challenges when applying LLMs to tabular genotype data
+due to their limited semantics—column names are variant IDs and values indicate the number of minor allele copies
+(0,1,2). Thus, we analyze the effect of retrieval augmentation and domain-specific serialization when prompting.
+Our results highlight FREEFORM’s potential to address three challenges present in modelling genotype data: Our
+method (1) enhances prediction while upholding interpretability, (2) reduces the dimensionality of the dataset, and
+(3) excels in low-shot regimes compared to data-driven methods by grounding ours in knowledge. Furthermore, we
+challenge the notion that LLMs lack knowledge of genetic variants by novelly applying them in this domain.
+Methods
+In this section, we introduce our FREEFORM framework (Fig. 1), designed to address the challenges of training models
+on genotype data. The framework is built on two components: (1) leveraging the knowledge of LLMs to select a set
+of features and (2) leveraging the knowledge of LLMs to engineer new features from the selected features.
+Feature Selection
+The genotype dataset can be formalized as D = {(xi, yi)}N
+i=1, i.e. a table comprising of N labeled samples (i.e. rows)
+each with d variants (i.e. columns). Each entry xi
+j ∈{0, 1, 2} represents the number of minor allele copies, while the
+corresponding label yi denotes the phenotype, e.g. yi ∈{“African”, “American”, “East Asian”, “European”, “South
+Asian”}. The column names, denoted by S = {sj}d
+j=1, are text strings representing variants such as rsIDs.
+The goal of feature selection is to identify a subset S′ ⊆S with d′ ≪d variants such that a downstream model
+f, trained on DS′ = {(xi
+S′, yi)}N
+i=1, can make efficient, interpretable predictions. We use an LLM, modelled as a
+stochastic operator T parameterized by θ and given prompt p, to output a selected subset of features S′:
+S′ = T (S, p; θ),
+(1)
+Notably, the proposed selection method is model agnostic unlike model-based rankings. Furthermore, previous LLM-
+based feature selection methods have not been tested in the setting of variants-level data where hallucination can be
+more likely33 and high dimensionality is an issue. While context windows have become longer, new challenges have
+emerged34,35 in which naive usage of the context would be ineffective; to address these challenges, we design our

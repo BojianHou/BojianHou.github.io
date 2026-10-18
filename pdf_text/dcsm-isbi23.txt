@@ -1,0 +1,155 @@
+DEEP CLUSTERING SURVIVAL MACHINES WITH INTERPRETABLE EXPERT
+DISTRIBUTIONS
+Bojian Hou⋆, Hongming Li⋆, Zhicheng Jiao†, Zhen Zhou⋆, Hao Zheng⋆, Yong Fan⋆
+⋆Department of Radiology, Perelman School of Medicine, University of Pennsylvania, USA
+† Department of Diagnostic Imaging, Warren Albert Medical School, Brown University, USA
+ABSTRACT
+Conventional survival analysis methods are typically ineffec-
+tive to characterize heterogeneity in the population while such
+information can be used to assist predictive modeling. In this
+study, we propose a hybrid survival analysis method, referred
+to as deep clustering survival machines, that combines the dis-
+criminative and generative mechanisms. Similar to the mix-
+ture models, we assume that the timing information of sur-
+vival data is generatively described by a mixture of certain
+numbers of parametric distributions, i.e., expert distributions.
+We learn weights of the expert distributions for individual in-
+stances according to their features discriminatively such that
+each instance’s survival information can be characterized by
+a weighted combination of the learned constant expert distri-
+butions. This method also facilitates interpretable subgroup-
+ing/clustering of all instances according to their associated
+expert distributions. Extensive experiments on both real and
+synthetic datasets have demonstrated that the method is capa-
+ble of obtaining promising clustering results and competitive
+time-to-event predicting performance. Code is available at
+https://github.com/BojianHou/DCSM.
+Index Terms— Survival analysis, clustering, time-to-
+event prediction
+1. INTRODUCTION
+In survival analysis, it is desired to know individual subjects’
+probability of an event of interest to occur such as the oc-
+currence of a disease or even death beyond a certain time t
+according to their data /features X [1]. As a result, the proba-
+bility can be modeled as a survival function S(·|X) = P(T >
+t|X). This task is also referred to as time-to-event prediction,
+and one of its main challenges is censoring when the event
+outcomes of some instances are unobservable after a certain
+time or some instances do not experience any event during
+follow-up.
+Many methods have been proposed for time-to-event
+prediction in survival analysis. The most conventional and
+prevalent method is a semi-parametric method called the
+Cox PH model [2]. It assumes that the hazard rate for ev-
+ery instance is constant over time known as the proportional
+hazard (PH) assumption. Some nonparametric methods such
+as Kaplan-Meier [3], Nelson-Aalen [4], and Life-Table [5]
+are also widely used in survival analysis. Nevertheless, they
+suffer from the curse of dimensionality.
+Survival analysis
+also attracts the attention of the machine learning community
+and many machine learning methods [6, 7, 8, 9, 10, 11] have
+been developed to reveal the relationship between the features
+and the survival information. Particularly, a fully paramet-
+ric method, referred to as deep survival machines (DSM)
+[12], has demonstrated competitive predicting performance
+compared with state-of-the-art methods. Nevertheless, DSM
+learns different base distributions for different instances,
+which makes its inner mechanism hard to interpret [13, 14].
+In addition to the time-to-event prediction task, the task
+of clustering cohorts is also crucial in survival analysis. With
+the clustering results, clinicians can provide customized treat-
+ments [15] for groups with different risks. The methods men-
+tioned above usually cluster the cohorts in a post-hoc way,
+i.e., they will artificially stratify the cohorts according to the
+predicted risks. This usually leads to even groups, thus lack-
+ing interpretability. Lately, two studies consider both clus-
+tering and time-to-event prediction simultaneously and they
+can cluster data in an uneven manner. Particularly, survival
+clustering analysis (SCA) [16] assumes that the latent space
+is a mixture of distributions and uses the truncated Dirich-
+let process to realize the automatic identification of the clus-
+ter numbers. However, SCA cannot control the number of
+clusters and thus cannot validate its advantages compared to
+those post-hoc methods. Variational deep survival clustering
+(VaDeSC) [17], as a fully generative method, uses Gaussian
+mixture distribution to model the features in a latent space
+and uses the Weibull distribution to model the survival timing
+information. This work builds a good bridge between the fea-
+tures and survival information by jointly optimizing both like-
+lihoods. However, there is a trade-off between the discrimi-
+native and generative learning paradigms. A fully generative
+framework may not be a good fit for all kinds of data since it
+is hard to let both the features and survival information obey
+the prior assumption of distributions at the same time.
+In this study, we propose a hybrid method to leverage both
+the discriminative and generative strategies. Specifically, we
+assume that there are certain numbers of expert distributions
+arXiv:2301.11826v4  [cs.LG]  8 Apr 2024
+Fig. 1. The model structure of the proposed DCSM. Part 1 learns each instance’s survival function by a weighted combination
+of the expert distributions. Part 2 clusters instances by the learned weights allocated to each expert distribution.
+in a latent space and each expert distribution can be modeled
+by parameterized Weibull distributions in a generative way.
+The survival function for each instance is a weighted combi-
+nation of all the expert distributions and the weight for each
+instance is learned by a multi-layer perceptron (MLP) directly
+from the features in a discriminative manner. Consequently,
+we can naturally cluster all the instances according to their
+weights allocated to different expert distributions. In sum-
+mary, our contributions are threefold:
+• We propose a hybrid survival analysis method that in-
+tegrates the advantage of discriminative and generative
+ideas, and can perform both clustering and time-to-event
+prediction simultaneously.
+• We conduct extensive experiments on several real-world
+datasets and abundant synthetic datasets, and the results
+show promising clustering results as well as competitive
+time-to-event prediction performance.
+• Our method is interpretable in that the expert distributions
+are constant for all the instances. Different weight shows
+different attention to the expert distributions and thus we
+can easily tell which subgroup the instance belongs to.
+2. METHODS
+The data we tackled are right-censored, i.e., our data D is
+a set of tuples {xi, ti, δi}N
+i=1 where xi is the feature vector
+associated with the ith instance, ti is the last-followed time,
+δi is the event indicator, and N is the number of instances.
+When δi = 1 (it means the ith instance is uncensored), ti will
+be the time when the event happens whereas when δi = 0 (it
+means the ith instance is censored), ti will be the time when
+the instance quits the study or the study ends. Denote the
+DU as the uncensored subset where the corresponding event
+indicator δ = 1 and DC as the censored subset where δ = 0.
+In Part 1 of Fig. 1, the deep clustering survival machines
+are designed to learn a conditional distribution P(T|X = x)
+by optimizing the maximum likelihood estimation (MLE) of
+the time T. Similar to the mixture model learning paradigm,
+the conditional distribution P(T|X = x) is characterized
+by learning a mixture over K well-defined parametric distri-
+butions, referred to as expert distributions. In order to use
+gradient-based methods to optimize MLE, we choose the
+Weibull distributions as the expert distributions that are flexi-
+ble to fit various distributions and have closed-form solutions
+for the PDF and CDF:
+PDF(t) = µ
+σ
+ t
+σ
+µ−1
+e−( t
+σ)
+µ
+, CDF(t) = e−( t
+σ)
+µ
+,
+where µ and σ are the shape and scale parameters separately.
+In Part 1 of Fig. 1, the deep clustering survival ma-
+chines (DCSM) is designed to learn a conditional distribution
+P(T|X = x) by optimizing the maximum likelihood esti-
+mation (MLE) of the time T. Similar to the mixture model
+learning paradigm, the conditional distribution P(T|X = x)
+is characterized by learning a mixture over K well-defined
+parametric distributions, referred to as expert distributions.
+In order to use gradient-based methods to optimize MLE,

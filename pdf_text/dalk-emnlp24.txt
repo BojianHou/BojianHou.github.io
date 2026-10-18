@@ -1,0 +1,203 @@
+DALK: Dynamic Co-Augmentation of LLMs and KG to answer
+Alzheimer’s Disease Questions with Scientific Literature
+Dawei Li1*, Shu Yang2∗, Zhen Tan1, Jae Young Baik2,
+Sukwon Yun3, Joseph Lee2, Aaron Chacko2, Bojian Hou2,
+Duy Duong-Tran2,4, Ying Ding5, Huan Liu1†, Li Shen2†, Tianlong Chen3†
+1School of Computing, and Augmented Intelligence, Arizona State University
+2University of Pennsylvania Perelman School of Medicine
+3Department of Computer Science, The University of North Carolina at Chapel Hill
+4Department of Mathematics, United States Naval Academy
+5School of Information, The University of Texas at Austin, Austin
+Abstract
+Recent advancements in large language mod-
+els (LLMs) have achieved promising perfor-
+mances across various applications. Nonethe-
+less, the ongoing challenge of integrating
+long-tail knowledge continues to impede the
+seamless adoption of LLMs in specialized do-
+mains. In this work, we introduce DALK, a.k.a.
+Dynamic Co-Augmentation of LLMs and KG,
+to address this limitation and demonstrate its
+ability on studying Alzheimer’s Disease (AD),
+a specialized sub-field in biomedicine and a
+global health priority. With a synergized frame-
+work of LLM and KG mutually enhancing each
+other, we first leverage LLM to construct an
+evolving AD-specific knowledge graph (KG)
+sourced from AD-related scientific literature,
+and then we utilize a coarse-to-fine sampling
+method with a novel self-aware knowledge re-
+trieval approach to select appropriate knowl-
+edge from the KG to augment LLM infer-
+ence capabilities. The experimental results,
+conducted on our constructed AD question
+answering (ADQA) benchmark, underscore
+the efficacy of DALK. Additionally, we per-
+form a series of detailed analyses that can of-
+fer valuable insights and guidelines for the
+emerging topic of mutually enhancing KG and
+LLM. We will release the code and data at
+https://github.com/David-Li0406/DALK.
+1
+Introduction
+Alzheimer’s Disease (AD) is a neurodegenerative
+disorder characterized by progressive declines in
+cognitive and functional status over a span of
+decades (Report, 2023). However, current AD ther-
+apy developments are facing critical challenges
+due to the lack of knowledge and understanding of
+the underlying etiological mechanisms of the dis-
+ease. Although scientific literature and dedicated
+biomedical databases could supply rich sources of
+* Equal Constributions
+† Corresponding authors
+AD knowledge, manual review of relevant informa-
+tion is impossible due to the large volume.
+As large language models (LLMs) (Brown et al.,
+2020; Zhang et al., 2022; Anil et al., 2023; Touvron
+et al., 2023) with chain-of-thought (CoT)-based
+prompting (Wei et al., 2022; Wang et al., 2022;
+Tong et al., 2023; Yao et al., 2023; Besta et al.,
+2023) demonstrate strong language capabilities
+across various tasks, there have been attempts to
+leverage LLMs-based systems in general biomedi-
+cal and AD-related applications (Mao et al., 2023;
+Li et al., 2023c; Yan et al., 2024; Feng et al., 2023).
+However, while the LLMs have shown promising
+performances in many general tasks, recent studies
+revealed LLMs’ limitations in long-tail (Kandpal
+et al., 2023) and domain-specific (Li et al., 2023b,
+2024) knowledge, thereby significantly impeding
+their adaptations in vertical fields such as AD. To
+deal with this issue, the most common strategies are
+retrieval augmented generation (RAG) and domain-
+specific LLMs training.
+Nevertheless, directly applying these strategies
+in the context like AD would still suffer from sev-
+eral issues. First, Data Quality: Same as many
+biomedical fields, scientific literature composes
+the largest publicly available corpus source in AD.
+Yet, the dense and information-overloaded nature
+of scientific literature, when combined with raw
+text retrieval methods, can lead to the retrieval
+of irrelevant and noisy information. Previous re-
+search has shown that noisy and irrelevant corpora
+can significantly undermine the performance of
+LLMs (Yu et al., 2023; Chen et al., 2024; Wu et al.,
+2024). Second, Efficiency & Scale Issues: Being
+an critical field of research, the knowledge of AD
+is rapidly evolving with scientific advancements at
+a remarkable pace and scale. However, retraining
+a domain-specific LLM or updating certain knowl-
+edge in it demands substantial computational re-
+sources (Hu et al., 2021; Ovadia et al., 2023; Zhang
+et al., 2024). This efficiency issue would also limit
+arXiv:2405.04819v4  [cs.CL]  17 Oct 2024
+the sizes of domain-specific LLMs, consequently
+affecting their performances.
+To tackle these limitations, here we propose
+a Dynamic Co-Augmentation of LLMs and KG
+(DALK) framework that facilitates mutual benefits
+between LLMs and knowledge graphs (KG) for
+the AD domain. Initially, our framework addresses
+the data quality challenge by extracting more struc-
+tural and accurate knowledge from unstructured
+and dense scientific literature and constructing a
+domain-specific knowledge graph tailored to AD.
+We employ two widely utilized knowledge graph
+construction methods, namely pair-wise construc-
+tion (Carta et al., 2023; Wadhwa et al., 2023) and
+generative construction (Han et al., 2023; Bi et al.,
+2024), to comprehensively assess their impact on
+knowledge graph quality. Then, we adopt a coarse-
+to-fine sampling method with a novel self-aware
+knowledge retrieval approach to select appropri-
+ate knowledge from the knowledge graph and thus
+further address the data quality problem. Notably,
+the tuning-free nature of our framework signifi-
+cantly enhances efficiency and facilitates its ap-
+plication in large-scale and API-based language
+models (OpenAI, 2022). In the evaluation sec-
+tion, we derive an Alzheimer’s Disease question
+answering (ADQA) benchmark from existing gen-
+eral medical QA datasets with millions of sam-
+ples filtered by a curated keyword list and self-
+sampling of LLMs. Our extensive experiment on
+ADQA demonstrates the effectiveness of our frame-
+work in domain-specific applications compared
+with general biomedical LLMs and retrieval aug-
+mented models. Further evaluation and analysis
+provide valuable insights into constructing high-
+quality knowledge graphs and sampling accurate
+knowledge from them.
+In summary, our contribution in this work can
+be summarized as follows:
+• We identify the constraints of the current methods
+for LLMs in domain-specific areas like AD and
+introduce DALK, a co-augmentation framework
+of the LLM and KG to address these issues.
+• We build AD-specific KG and QA benchmark.
+Through extensive comparisons with other meth-
+ods, we showcase the effectiveness of DALK.
+• We delve into a comprehensive analysis of our
+proposed method and provide valuable insights
+and guidance on how to construct a high-quality
+KG and sample accurate knowledge from it.
+2
+Related Work
+The
+interplay
+between
+LLMs
+and
+KGs
+KGs (Miller, 1995; Speer et al., 2017; Vrandeˇci´c
+and Krötzsch, 2014; Xiong et al., 2023, 2024) serve
+as structured representations of factual knowledge,
+typically expressed as (head, relation, tail) triples.
+Their structured, factual, and interpretable nature
+renders them excellent complements to paramet-
+ric language models (Pan et al., 2024; Zhu et al.,
+2023). Recently, with the rise of large language
+models (LLMs), numerous studies have delved into
+exploring the synergy between LLMs and KGs for
+various purposes (Pan et al., 2024; Tan et al., 2024).
+There are a lot of efforts in conducting knowledge
+graph construction (Carta et al., 2023; Wadhwa
+et al., 2023; Han et al., 2023; Bi et al., 2024; Datta
+et al., 2024), completion (Wei et al., 2023; Zhang
+et al., 2023b; Li et al., 2024) with the aid of LLMs.
+Conversely, other works aim to enhance LLMs by
+integrating knowledge sampled from KGs during
+both training (Tang et al., 2023; Luo et al., 2024;
+Dernbach et al., 2024; Rangel et al., 2024) and in-
+ference (Kim et al., 2023; Wen et al., 2023; Jiang
+et al., 2023; Sun et al., 2023a) times. Our work dis-
+tinguishes itself by proposing a co-augmentation
+framework for LLMs and KGs, facilitating their
+mutual enhancement, and applying it to the domain
+of AD.
+LLMs and KGs for AD research
+LLMs and
+KGs have both been applied to Alzheimer’s Dis-
+ease research in previous studies. Pre-trained lan-
+guage models are utilized to work on AD de-
+tection and many other related tasks based on
+speech recordings and transcripts (Balagopalan
+et al., 2020; Agbavor and Liang, 2022), electronic
+health records (EHRs) (Mao et al., 2023; Li et al.,
+2023c; Yan et al., 2024), and tabular data (Feng
+et al., 2023).
+KGs have been widely used in
+biomedical research, yet only a few are specifically
+for AD research (Romano et al., 2023; Pu et al.,
+2023; Hsieh et al., 2023; Nian et al., 2022; Daluwa-
+tumulle et al., 2023). These KGs were generally
+constructed from a variety of information derived
+from heterogeneous biomedical databases (e.g. for
+genes, drugs, pathways, etc.) or scientific literature
+related to AD. Despite the aforementioned efforts
+for LLMs and KGs in AD research, no prior study
+has explored using LLM to augment AD-KG, or
+vice versa, let alone the potential for mutual en-
+hancement between the two as we propose here.

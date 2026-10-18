@@ -1,0 +1,109 @@
+Published as a conference paper at COLM 2026
+Beyond Post-Hoc Temperature Scaling: Bilevel Optimization
+for LLM Calibration
+Ruochen Jin1,∗, Zhanliang Wang2,∗, Zongyu Dai2, Jiancong Xiao3,†, and Bojian Hou2,†
+1Dartmouth College, Hanover, NH; 2University of Pennsylvania, Philadelphia, PA;
+3National University of Singapore, Singapore
+ruochen.jin.gr@dartmouth.edu, aaronwzl@upenn.edu, daizy@sas.upenn.edu
+jiancongxiao@nus.edu.sg, bojianh@upenn.edu
+Abstract
+Preference alignment often makes large language models (LLMs) overcon-
+fident and poorly calibrated. Traditional post-hoc temperature scaling is
+inherently domain-dependent: a temperature fitted on one domain does
+not generalize across domains. This motivates us to modify model pa-
+rameters during training to improve calibration. We propose maximizing
+the entropy of predictive distributions as the calibration objective, which
+directly targets overconfidence by discouraging overly concentrated pre-
+dictions. Inspired by temperature scaling, we realize this through a bilevel
+optimization formulation, where the lower level trains the model under a
+parametric loss and the upper level selects loss hyperparameters to maxi-
+mize entropy. To make the framework practical at LLM scale, we adopt an
+efficient first-order approximation that avoids explicit second-order com-
+putation. Across both multiple-choice and open-ended generative ques-
+tion answering, experiments demonstrate that our method yields well-
+calibrated LLMs with particular advantages in out-of-domain generaliza-
+tion1.
+1
+Introduction
+Large Language Models (LLMs) (OpenAI, 2023; Anthropic, 2024) have become a founda-
+tion of modern Natural Language Processing (NLP), achieving strong performance across a
+wide range of tasks (Bubeck et al., 2023; Chowdhery et al., 2023; Touvron et al., 2023; Team
+et al., 2023). Beyond task performance, practical success also requires reliability. Prefer-
+ence alignment, notably through Reinforcement Learning from Human Feedback (RLHF)
+(Ouyang et al., 2022) and Direct Preference Optimization (DPO) (Rafailov et al., 2023),
+steers models toward human-preferred behaviors but degrades calibration as a side ef-
+fect. While pre-trained LLMs are often reasonably calibrated, aligned models frequently
+become overconfident (OpenAI, 2023; He et al., 2023). This matters because confidence is
+widely used as a proxy for reliability; in high-stakes settings such as healthcare or legal
+analysis, miscalibrated confidence can lead to poor decisions and misplaced trust (Savage
+et al., 2025).
+Most existing calibration methods are post-hoc, with Temperature Scaling (TS) as the
+canonical example. TS is two-stage and test-time: the model is first trained, then a temper-
+ature is selected on a validation set to improve the calibration of predicted probabilities.
+Although simple and effective, TS is inherently dataset-dependent—a temperature fitted
+on one dataset often does not transfer to another domain—so it is difficult to find a single
+“general temperature” that calibrates well across diverse datasets.
+This motivates a training-time view of calibration.
+Instead of searching for a dataset-
+specific temperature only after training, we fine-tune the model itself so that a temperature-
+like adjustment generalizes across datasets, treating the model parameters, rather than a
+∗Equal contribution.
+†Corresponding author.
+1Code is available at https://github.com/BojianHou/calm.
+1
+arXiv:2608.07419v1  [cs.LG]  7 Aug 2026
+Published as a conference paper at COLM 2026
+purely post-hoc correction, as the target. This requires a training objective that explicitly
+encourages calibrated predictions during optimization.
+A second challenge lies in selecting an appropriate calibration-oriented objective. Our em-
+pirical observations in Figure 1, together with prior findings (Xiao et al., 2025a; Leng et al.,
+2025), suggest that overconfidence is the predominant calibration failure mode in aligned
+LLMs. This observation motivates the use of entropy maximization, which provides a con-
+trollable direction for improving calibration without prescribing a specific target solution.
+The maximum-entropy solution represents the opposite extreme of underconfidence. In-
+creasing the predictive entropy therefore moves the model continuously between these two
+regimes, potentially allowing it to reach a point at which its confidence better matches its
+predictive accuracy.
+Inspired by the two-stage nature of temperature scaling, we formulate calibration-oriented
+training as a bilevel optimization problem. Temperature scaling can be viewed as a spe-
+cial two-stage procedure: the lower level learns the model parameters, and the upper level
+selects a temperature to improve calibration. We generalize this idea from post-hoc test-
+time adjustment to training-time loss design. In our formulation, the lower level fine-tunes
+the LLM under a parametric training loss, while the upper level optimizes temperature-
+like loss hyperparameters using the entropy-based calibration objective on held-out in-
+puts. From this perspective, post-hoc TS becomes a special case of a broader training-time
+framework for calibration-oriented optimization.
+A key practical challenge, however, is that bilevel optimization is computationally expen-
+sive for LLMs. Exact hypergradient computation typically involves differentiating through
+the lower-level optimization, which requires second-order derivatives and, in implicit for-
+mulations, may further involve Hessian-inverse terms (Tarzanagh et al., 2024; Nazari et al.,
+2025). These operations are prohibitively expensive for modern LLM fine-tuning. To ad-
+dress this issue, we develop an efficient first-order bilevel optimization framework inspired
+by the algorithm introduced in Bilevel Optimization Made Easy (BOME; Liu et al. 2022)
+and propose Calibration for Large Models via Bilevel Optimization (CALM). Our method
+avoids explicit hypergradient computation and instead uses first-order updates to approx-
+imate the upper-level optimization, making calibration-oriented bilevel training practical
+at scale.
+Our contributions are as follows:
+• We identify the dataset dependence of post-hoc temperature scaling and propose
+a training-time perspective that aims to learn models admitting a more general
+calibration adjustment across datasets.
+• We formulate calibration-oriented loss design as a bilevel optimization problem,
+where the lower level trains the model and the upper level optimizes temperature-
+like loss hyperparameters using an entropy-based objective.
+• We propose an entropy-maximization upper-level objective to mitigate overconfi-
+dence in aligned LLMs without requiring additional hard labels.
+• We empirically demonstrate that our method provides strong calibration perfor-
+mance across both multiple-choice and open-ended generative question answer-
+ing, with especially clear advantages in out-of-domain settings, against strong
+training-time baselines including calibration-aware fine-tuning.
+2
+Related Work
+Calibration for LLMs. Recent work shows that calibration remains a central reliability is-
+sue for large language models, especially after instruction tuning (Jiang et al., 2021; Xiao
+et al., 2022; Chen et al., 2023) or preference alignment (Ouyang et al., 2022; Xiao et al.,
+2025b; Liu et al., 2025). Prior studies on LLM calibration have mainly followed three di-
+rections. First, several works adapt post-hoc calibration ideas to LLMs, with temperature
+scaling often emerging as a strong baseline (Jiang et al., 2021; Chen et al., 2023; Shen et al.,
+2024). Second, some methods introduce auxiliary models, additional calibration heads, or
+2

@@ -1,0 +1,230 @@
+IEEE TRANSACTIONS ON NEURAL NETWORKS AND LEARNING SYSTEMS
+1
+Prediction with Unpredictable Feature Evolution
+Bo-Jian Hou, Lijun Zhang, Member, IEEE and Zhi-Hua Zhou, Fellow, IEEE
+Abstract—Learning with feature evolution studies the scenario
+where the features of the data streams can evolve, i.e., old
+features vanish and new features emerge. Its goal is to keep the
+model always performing well even when the features happen to
+evolve. To tackle this problem, canonical methods assume that
+the old features will vanish simultaneously and the new features
+themselves will emerge simultaneously as well. They also assume
+there is an overlapping period where old and new features both
+exist when the feature space starts to change. However, in reality,
+the feature evolution could be unpredictable, which means the
+features can vanish or emerge arbitrarily, causing the overlapping
+period incomplete. In this paper, we propose a novel paradigm:
+Prediction with Unpredictable Feature Evolution (PUFE) where
+the feature evolution is unpredictable. To address this problem,
+we ﬁll the incomplete overlapping period and formulate it as a
+new matrix completion problem. We give a theoretical bound on
+the least number of observed entries to make the overlapping
+period intact. With this intact overlapping period, we leverage
+an ensemble method to take the advantage of both the old and
+new feature spaces without manually deciding which base models
+should be incorporated. Theoretical and experimental results
+validate that our method can always follow the best base models
+and thus realize the goal of learning with feature evolution.
+Index Terms—machine learning, learning with streams, online,
+feature evolving, unpredictable feature evolution.
+I. INTRODUCTION
+In the big data era, data often come in a streaming way since
+the data often have big volume and high velocity. Learning
+with data streams has been studied extensively [1], [2], [3],
+[4], where the typical methods in the literature assume a ﬁxed
+set of features. However, in a practical scenario, the features
+of the data streams often evolve, i.e., old features vanish and
+new features emerge. For example, in ecosystem protection,
+people deploy sensors in the ecosystem to collect data, where
+each sensor corresponds to a feature. Due to deterioration or
+unexpected damage, after some time, many sensors will be out
+of use, and new sensors will be deployed. This scenario also
+occurs in object recognition or indoor surveillance [5].
+When the features start to evolve, since there are only limited
+samples described by these new features, it is not sufﬁcient
+to train a strong model based on these samples. Besides, the
+samples described by the old features are ignored, which is a
+big waste of the data collection effort. To tackle this problem,
+FESL (Feature Evolvable Streaming Learning) [6] assumes
+that features do not change in an arbitrary way and instead
+there are some overlapping periods in which both old and new
+features are available. Figure 1 illustrates how the data streams
+come in FESL.
+All authors are with the National Key Laboratory for Novel Software
+Technology, Nanjing University, Nanjing 210023, China. Z.-H. Zhou is the
+corresponding author. E-mail: {houbj,zhanglj,zhouzh}@lamda.nju.edu.cn.
+This work was supported by NSFC (61921006) and Collaborative Innovation
+Center of Novel Software Technology and Industrialization.
+Feature Evolution
+Time
+𝑆1
+𝑆2
+𝑆3
+…
+data with 
+feature set 𝑆1
+data with feature set 𝑆1 and 𝑆2
+data with
+feature set 𝑆2
+data with feature set 𝑆2 and 𝑆3
+𝑇2
+First Period
+Second Period
+𝑇1
+Third Period
+Figure 1: Illustration of how data streams come in FESL. S1, S2 and
+S3 are different feature sets. T1 is the period where S1 is valid and
+T2 is the period where only S2 is valid. At the end of T1, namely
+the second period, samples are described by both S1 and S2. The
+second period is also called the overlapping period.
+From Figure 1 we can see that the features in the same feature
+set vanish at the same time. However, in reality the FESL’s
+assumption may be too strong where the feature evolution can
+be unpredictable. Back to the ecosystem protection example,
+due to the different situations of sensors, such as the difference
+on positions, temperatures, magnitudes of signal, etc., the
+sensors’ expiring time would be different. Therefore, the
+features corresponding to the sensors with short lifespans will
+vanish earlier than the others which is illustrated in Figure 2.
+On the other hand, generally it is reasonable to assume that
+new sensors are deployed simultaneously since it is much more
+efﬁcient and can save workload than employing new sensors
+one by one. Thus the new features will appear simultaneously.
+In this paper, we propose a novel paradigm: Prediction with
+Unpredictable Feature Evolution (PUFE) where old features
+vanish unpredictably and new features emerge simultaneously.
+We deﬁne the “feature space" in our paper by the feature set.
+Figure 1 shows that the three periods form a cycle and each
+cycle merely includes two feature spaces. Thus, we only need
+to focus on one cycle and it is easy to extend to the case
+with multiple cycles. Figure 2 gives the illustration of how
+data streams come in PUFE. We call the two feature spaces
+“previous” and “current” feature space with notations P and C
+respectively. Each column represents a feature. According to
+Figure 2, the process of PUFE can be summarized as follows:
+• For t = 1, . . . , T1 −b, in each round, the learner observes
+a vector xP
+t
+∈Rd1 sampled from P where d1 is the
+number of features of P, T1 is the number of total rounds
+in P and b is the number of the rounds in overlapping
+period. All observed data form matrix A.
+• For t = T1 −b + 1, . . . , T1, in each round, the learner
+observes a portion of vector xP
+t
+∈Rd1 from P that
+ﬁnally form the incomplete matrix M and the intact vector
+arXiv:1904.12171v2  [cs.LG]  12 Jun 2021
+IEEE TRANSACTIONS ON NEURAL NETWORKS AND LEARNING SYSTEMS
+2
+A
+M
+Time
+Previous Feature Space 𝓟
+Current Feature Space 𝓒
+𝑑1
+𝑑2
+𝑏
+𝑇1
+𝑇2
+N
+B
+Figure 2: Illustration of PUFE with two feature spaces. The previous
+feature space and the current feature space are denoted by P and C
+respectively. T1 is the period where P is valid, b is the overlapping
+period where both feature spaces are available, T2 is the period where
+only C is valid. d1 and d2 are the dimensions of P and C respectively.
+A, M, N, B are the matrices formed by corresponding samples, in
+which M is incomplete due to the unpredictable feature evolution.
+xC
+t ∈Rd2 from C that ﬁnally form the intact matrix N.
+d2 is the number of features of C.
+• For t = T1 + 1, . . . , T1 + T2, in each round, the learner
+observes vector xC
+t ∈Rd2 sampled from C where T2 is
+the number of rounds in C. All observed data form matrix
+B. Note that b is small, so we can omit the data from C
+on rounds T1 −b+1, . . . , T1 since they have minor effect
+on training the model in C.
+To address the problem of unpredictable missing features,
+we impute the missing value of M by reducing the original
+problem into a matrix completion problem in which the samples
+are observed without replacement. We prove a theoretical bound
+on the least number of observed entries that is far more less
+than that of the conventional methods with the help of matrix
+A. Then we use the intact overlapping period (reconstructed
+M together with N) to learn the mapping from C to P so as
+to recover the data from P when there are only data from C.
+With predictions of the old model on the recovered data, we
+propose a new ensemble method to make our model always
+comparable with the best base models that are only trained in
+the single feature space and thus solve the issue of learning
+with feature evolution: always keep the model performing well
+even when the feature evolving happens. Furthermore, this
+ensemble method do not need to manually decide which base
+models should be incorporated when newer feature spaces
+come. In summary, our major contributions are as follows:
+1) we propose a more practical setting PUFE, where the old
+features will vanish unpredictably as feature evolves;
+2) we formulate the unpredictable evolution as a new matrix
+completion problem and propose an effective method with
+much smaller observed entries than conventional ones;
+3) we propose to leverage the assistance from the previous
+feature space and theoretically guarantee that our model is
+always comparable to the best baseline and can adaptively
+tackle the situation when newer feature space appears;
+4) the experimental results show that our model is comparable
+to the best baseline and surprisingly better than them in
+most cases, which validate the effectiveness of PUFE;
+5) our algorithms are in a one-pass manner without saving
+any data, which is very valuable in learning with data
+streams since it is infeasible to keep the whole data due
+to the streaming nature.
+In the following, Section II provides the framework of
+PUFE. The proposed approach with corresponding theoretical
+guarantees are presented in Section III. Section V reports
+the experimental results. Section IV introduces related works.
+Finally, Section VI concludes our paper.
+II. FRAMEWORK
+We focus on both classiﬁcation and regression tasks. In each
+round, the predictor receives an instance and is required to do
+prediction. After the prediction has been made, the true label
+is revealed and the predictor will suffer a loss which exhibits
+the discrepancy between the prediction and the true label.
+Our goal is to always keep the model performing well even
+when there are only few data when new feature space emerges.
+It is worth noting that this goal should be implemented without
+storing the history or in a one-pass manner due to the large
+volume and high velocity of data. Speciﬁcally, we want to
+make our model obtain good performance in the current feature
+space during period T2 shown in Figure 2, no matter at the
+beginning or at any other time step. The basic idea is to establish
+relationship between the previous and current feature space by
+an overlapping period where both previous and current features
+exist. Then the well-learned model in the previous feature space
+can be utilized to assist the performance in the current feature
+space. Nevertheless, in our setting, we do not have an intact
+overlapping period. Thus we need to study whether we can
+rebuild it and this may need matrix completion techniques [7],
+[8], [9]. Since time is seasonal, it is reasonable to assume that
+two instances on the same periodic point are linearly related.
+Thus, we have a chance to rebuild the overlapping period with
+the help of observed intact instances from the previous feature
+space, i.e., the matrix A shown in Figure 2.
+So far, the framework of our approach has been clear.
+Concretely, we have mainly four steps. The ﬁrst step is to
+learn a good model in the previous feature space as a prepared
+backup. Then in order to build the relationship between the
+previous and the current feature space, we ﬁll part of the
+overlapping period, that is the matrix M shown in Figure 2,
+where the features start to vanish. In the third step, we learn a
+mapping between M and N. Finally, we make predictions in
+the current feature space, which will be boosted by the well-
+learned model from the previous feature space by utilizing
+its prediction on the data recovered by the mapping. The
+framework of our method is summarized in Algorithm 1. It
+is worthy to emphasize that all the processes can be operated
+sequentially which means we do not need to store any data,
+which is valuable in learning with data streams.
+Although it seems that there is only a small difference
+between FESL and PUFE, PUFE is indeed more practical than
