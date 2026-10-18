@@ -1,0 +1,18 @@
+[
+  {
+    "id": "sfl-ijcai17",
+    "edit": "Edit this figure. Replace the small label \"Fast Inference\" under \"Graph SSL\" with the text \"Fits the Budget\" in the same font, size, colors and rounded badge. Keep everything else exactly as it is: layout, colors, matrices, graph, arrows and all other text.",
+    "images": [
+      "edit_1.png",
+      "edit_2.png"
+    ]
+  },
+  {
+    "id": "online-bilevel-aistats24",
+    "edit": "Edit this figure. Replace the text inside the rounded label at the top right, which currently reads \"Regret \u2264 O(P_T)\", with the text \"Regret bounded by path length\" in the same font, color and rounded label (widen the label slightly if needed). Keep everything else exactly as it is: layout, colors, arrows, cards, the plot and all other text.",
+    "images": [
+      "edit_1.png",
+      "edit_2.png"
+    ]
+  }
+]
