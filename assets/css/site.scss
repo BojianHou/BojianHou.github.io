@@ -49,8 +49,31 @@
   color-scheme: light dark;
 }
 
+/* Dark tokens apply when the visitor picks dark (data-theme, set by the toggle) or when the system is dark and
+   the visitor has not picked light. */
+:root[data-theme="dark"] {
+  --bg: #0A0F1C;
+  --card: #121A2B;
+  --card-2: #182236;
+  --ink: #E9EDF5;
+  --text-2: #BAC3D4;
+  --text-3: #8D98AD;
+  --line: #233049;
+  --line-strong: #31405E;
+  --accent: #93A9FF;
+  --accent-hover: #BCCAFF;
+  --accent-tint: #1C2752;
+  --award: #F3BC6B;
+  --award-tint: #33260F;
+  --nav-bg: rgba(18, 26, 43, 0.72);
+  --glow-1: rgba(70, 100, 255, 0.30);
+  --glow-2: rgba(140, 90, 255, 0.24);
+  --glow-3: rgba(40, 190, 165, 0.12);
+  --c1: #7F98FF; --c2: #A88BFF; --c3: #4CC9B4; --c4: #F0A653; --c5: #F07BA8;
+  color-scheme: dark;
+}
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg: #0A0F1C;
     --card: #121A2B;
     --card-2: #182236;
@@ -69,8 +92,10 @@
     --glow-2: rgba(140, 90, 255, 0.24);
     --glow-3: rgba(40, 190, 165, 0.12);
     --c1: #7F98FF; --c2: #A88BFF; --c3: #4CC9B4; --c4: #F0A653; --c5: #F07BA8;
+    color-scheme: dark;
   }
 }
+:root[data-theme="light"] { color-scheme: light; }
 
 /* ---------- Base ---------- */
 /* a soft wash of the accent colors behind the top of each page */
@@ -121,12 +146,24 @@ body.rd {
   -webkit-backdrop-filter: saturate(1.6) blur(16px); backdrop-filter: saturate(1.6) blur(16px);
 }
 .nav.container { max-width: calc(var(--maxw) - 2 * var(--gutter)); padding-left: 22px; padding-right: 10px; }
-.brand { font-family: var(--display); font-weight: 700; font-size: 19px; letter-spacing: -0.02em; color: var(--ink) !important; }
+.brand { margin-right: auto; font-family: var(--display); font-weight: 700; font-size: 19px; letter-spacing: -0.02em; color: var(--ink) !important; }
 .brand:hover { text-decoration: none !important; }
 .nav-links { display: flex; gap: 2px; list-style: none; padding: 0; font-size: 15px; }
 .nav-links a { display: block; padding: 7px 13px; border-radius: 12px; color: var(--text-2); }
 .nav-links a:hover { background: var(--card-2); color: var(--ink); text-decoration: none; }
 .nav-links a[aria-current="page"] { background: var(--ink); color: var(--card); font-weight: 500; }
+/* light/dark switch; shown only with JavaScript (it needs site.js) */
+.theme-toggle { display: none; flex: none; width: 40px; height: 40px; border: 0; border-radius: 12px; background: transparent; color: var(--text-2); cursor: pointer; align-items: center; justify-content: center; padding: 0; }
+.js .theme-toggle { display: inline-flex; }
+.theme-toggle:hover { background: var(--card-2); color: var(--ink); }
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle span { display: inline-flex; }
+:root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+:root[data-theme="dark"] .theme-toggle .icon-sun { display: inline-flex; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
+  :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: inline-flex; }
+}
 .site-footer { margin-top: 72px; }
 .footer-inner { position: relative; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; padding-top: 22px; padding-bottom: 36px; font-size: 14px; color: var(--text-3); }
 .footer-inner::before { content: ""; position: absolute; top: 0; left: var(--gutter); right: var(--gutter); border-top: 1px solid var(--line); }
@@ -225,7 +262,8 @@ main.container { padding-top: 20px; }
 .interest-3 .interest-icon { background: var(--c3); }
 .interest-4 .interest-icon { background: var(--c4); }
 .interest-5 .interest-icon { background: var(--c5); }
-@media (prefers-color-scheme: dark) { .interest-icon { color: #0A0F1C; } }
+:root[data-theme="dark"] .interest-icon { color: #0A0F1C; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .interest-icon { color: #0A0F1C; } }
 .interest h3 { font-family: var(--display); font-size: 20px; font-weight: 650; letter-spacing: -0.015em; }
 .interest h3 a { color: var(--ink); }
 .interest p { font-size: 15px; color: var(--text-2); }
@@ -310,7 +348,9 @@ main.container { padding-top: 20px; }
   :root { --gutter: 12px; }
   html { scroll-padding-top: 120px; }
   .site-header { padding-top: 8px; }
-  .nav { flex-direction: column; align-items: stretch; gap: 4px; min-height: 0; padding-top: 10px; padding-bottom: 8px; border-radius: 18px; }
+  .nav { flex-wrap: wrap; gap: 2px 4px; min-height: 0; padding-top: 6px; padding-bottom: 8px; border-radius: 18px; }
+  .nav-links { order: 3; flex: 1 0 100%; }
+  .theme-toggle { width: 36px; height: 36px; }
   .nav.container { padding-left: 14px; padding-right: 8px; }
   .brand { font-size: 18px; }
   .nav-links { font-size: 13.5px; overflow-x: auto; scrollbar-width: none; margin: 0 -4px; }

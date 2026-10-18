@@ -33,7 +33,7 @@
   type: conference
   status: published
   tags:
-  - health
+  - multimodal
   selected: false
   lead: true
   award: ''
@@ -101,7 +101,7 @@
   type: journal
   status: in-press
   tags:
-  - health
+  - multimodal
   selected: false
   lead: false
   award: ''
@@ -128,8 +128,8 @@
   type: preprint
   status: published
   tags:
-  - llm
-  - health
+  - nlp
+  - interpretability
   selected: false
   lead: false
   award: ''
@@ -153,7 +153,7 @@
   status: published
   tags:
   - interpretability
-  - health
+  - survival
   selected: false
   lead: true
   award: ''
@@ -200,8 +200,7 @@
   type: conference
   status: published
   tags:
-  - llm
-  - health
+  - nlp
   selected: false
   lead: false
   award: Best Paper Award
@@ -225,7 +224,7 @@
   status: published
   tags:
   - fairness
-  - health
+  - multimodal
   selected: false
   lead: true
   award: ''
@@ -251,7 +250,7 @@
   status: published
   tags:
   - llm
-  - health
+  - nlp
   selected: true
   lead: true
   award: Oral
@@ -328,8 +327,7 @@
   type: conference
   status: published
   tags:
-  - llm
-  - health
+  - nlp
   selected: false
   lead: false
   award: ''
@@ -355,8 +353,7 @@
   type: conference
   status: published
   tags:
-  - llm
-  - health
+  - nlp
   selected: false
   lead: false
   award: ''
@@ -380,7 +377,8 @@
   type: conference
   status: published
   tags:
-  - health
+  - survival
+  - interpretability
   selected: false
   lead: false
   award: ''
@@ -403,7 +401,6 @@
   status: published
   tags:
   - interpretability
-  - health
   selected: false
   lead: false
   award: ''
@@ -429,8 +426,7 @@
   type: journal
   status: published
   tags:
-  - llm
-  - health
+  - nlp
   selected: false
   lead: true
   award: ''
@@ -455,18 +451,22 @@
   status: published
   tags:
   - fairness
-  - health
+  - multimodal
   selected: false
   lead: false
   award: ''
   links:
+  - name: Paper
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12919458/
   - name: PubMed
     url: https://pubmed.ncbi.nlm.nih.gov/41726413/
-  teaser: ''
-  teaser_alt: ''
+  teaser: /images/pubs/fair-multimodal-cca-amia25.webp
+  teaser_alt: 'Figure 1 from the paper: multi-modal CCA and fair multi-modal CCA with three data modalities'
   tldr: Fair multi-modal CCA optimizes correlation and demographic fairness jointly, improving fairness metrics on ADNI neuroimaging data with little loss in correlation.
   _sources:
     pmid: '41726413'
+    pmcid: PMC12919458
+    img: https://cdn.ncbi.nlm.nih.gov/pmc/blobs/a330/12919458/bd271839b890/AMIASYMPROC-2025-9245-f1.jpg
 - id: icafs-tai25
   title: 'ICAFS: Inter-Client-Aware Feature Selection for Vertical Federated Learning'
   authors: Ruochen Jin, Boning Tong, Shu Yang, Bojian Hou†, Li Shen†
@@ -501,8 +501,7 @@
   type: journal
   status: published
   tags:
-  - llm
-  - health
+  - nlp
   selected: false
   lead: false
   award: ''
@@ -526,7 +525,8 @@
   type: workshop
   status: published
   tags:
-  - health
+  - multimodal
+  - interpretability
   selected: false
   lead: true
   award: ''
@@ -547,8 +547,8 @@
   type: workshop
   status: published
   tags:
-  - interpretability
-  - health
+  - survival
+  - multimodal
   selected: false
   lead: false
   award: ''
@@ -572,7 +572,8 @@
   type: conference
   status: published
   tags:
-  - health
+  - survival
+  - multimodal
   selected: false
   lead: false
   award: ''
@@ -684,8 +685,7 @@
   type: conference
   status: published
   tags:
-  - llm
-  - health
+  - nlp
   selected: false
   lead: false
   award: ''
@@ -710,7 +710,7 @@
   type: conference
   status: published
   tags:
-  - health
+  - nlp
   selected: false
   lead: true
   award: ''
@@ -735,7 +735,6 @@
   status: published
   tags:
   - fairness
-  - health
   selected: false
   lead: false
   award: Distinguished Paper Award
@@ -785,7 +784,7 @@
   status: published
   tags:
   - interpretability
-  - health
+  - nlp
   selected: false
   lead: true
   award: ''
@@ -808,7 +807,6 @@
   status: published
   tags:
   - fairness
-  - health
   selected: false
   lead: true
   award: ''
@@ -832,7 +830,7 @@
   type: conference
   status: published
   tags:
-  - health
+  - survival
   selected: false
   lead: false
   award: ''
@@ -879,7 +877,7 @@
   type: journal
   status: published
   tags:
-  - health
+  - multimodal
   selected: false
   lead: false
   award: ''
@@ -904,7 +902,7 @@
   status: published
   tags:
   - interpretability
-  - health
+  - survival
   selected: false
   lead: true
   award: ''
@@ -953,7 +951,7 @@
   type: journal
   status: published
   tags:
-  - health
+  - other
   selected: false
   lead: false
   award: ''
@@ -978,6 +976,7 @@
   status: published
   tags:
   - fairness
+  - multimodal
   selected: true
   lead: true
   award: ''
@@ -1003,7 +1002,7 @@
   status: published
   tags:
   - fairness
-  - health
+  - multimodal
   selected: false
   lead: false
   award: Best Paper Award
@@ -1027,7 +1026,7 @@
   type: conference
   status: published
   tags:
-  - health
+  - robustness
   selected: false
   lead: false
   award: ''
@@ -1052,6 +1051,7 @@
   status: published
   tags:
   - fairness
+  - optimization
   selected: false
   lead: true
   award: ''
@@ -1075,7 +1075,7 @@
   status: published
   tags:
   - interpretability
-  - health
+  - survival
   selected: false
   lead: true
   award: ''
@@ -1101,7 +1101,6 @@
   status: published
   tags:
   - fairness
-  - health
   selected: false
   lead: false
   award: ''
@@ -1122,7 +1121,7 @@
   type: journal
   status: published
   tags:
-  - open-env
+  - robustness
   selected: false
   lead: false
   award: ''
@@ -1145,7 +1144,7 @@
   type: journal
   status: published
   tags:
-  - health
+  - multimodal
   selected: false
   lead: false
   award: ''
@@ -1168,7 +1167,7 @@
   type: preprint
   status: published
   tags:
-  - other
+  - multimodal
   selected: false
   lead: false
   award: ''
@@ -1189,7 +1188,7 @@
   type: conference
   status: published
   tags:
-  - open-env
+  - robustness
   selected: false
   lead: false
   award: ''
@@ -1212,7 +1211,7 @@
   type: journal
   status: published
   tags:
-  - health
+  - multimodal
   selected: false
   lead: false
   award: ''
@@ -1237,7 +1236,7 @@
   type: conference
   status: published
   tags:
-  - open-env
+  - robustness
   selected: false
   lead: true
   award: ''
@@ -1262,7 +1261,7 @@
   type: conference
   status: published
   tags:
-  - open-env
+  - robustness
   selected: false
   lead: false
   award: ''
@@ -1285,7 +1284,7 @@
   type: journal
   status: published
   tags:
-  - open-env
+  - robustness
   selected: false
   lead: true
   award: ''
@@ -1310,8 +1309,7 @@
   type: preprint
   status: published
   tags:
-  - llm
-  - health
+  - nlp
   selected: false
   lead: true
   award: ''
@@ -1359,7 +1357,7 @@
   status: published
   tags:
   - interpretability
-  - open-env
+  - robustness
   selected: false
   lead: true
   award: Outstanding Student Paper Award
@@ -1380,7 +1378,7 @@
   type: journal
   status: published
   tags:
-  - open-env
+  - robustness
   selected: false
   lead: true
   award: ''
@@ -1422,7 +1420,7 @@
   type: conference
   status: published
   tags:
-  - open-env
+  - robustness
   selected: true
   lead: true
   award: ''
@@ -1447,7 +1445,7 @@
   type: conference
   status: published
   tags:
-  - open-env
+  - robustness
   selected: false
   lead: true
   award: ''

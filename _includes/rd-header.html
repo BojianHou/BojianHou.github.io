@@ -12,5 +12,9 @@
       <li><a href="{{ item.url | relative_url }}"{% if active %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
       {%- endfor %}
     </ul>
+    <button type="button" class="theme-toggle" aria-label="Switch between light and dark mode" title="Switch between light and dark mode">
+      <span class="icon-moon">{% include icon.html name="moon" size=19 %}</span>
+      <span class="icon-sun">{% include icon.html name="sun" size=19 %}</span>
+    </button>
   </nav>
 </header>
