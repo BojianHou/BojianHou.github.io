@@ -1,7 +1,7 @@
 # Manual fixes for extract_teasers.py (chosen after reviewing out/teasers/alt/)
 # <id>: {figure: 2} | {page: 3, clip: [x0, y0, x1, y1]} | {expand: 20} | {skip: true}
-# Papers whose figures are all results or data use a drawn overview instead: {skip: true} here, image made by
-# scripts/site_tools/overview_diagrams.py.
+# Papers whose figures are all results or data use an overview drawn by PaperBanana instead: {skip: true} here,
+# inputs in scripts/site_tools/paperbanana/papers.yml.
 lisor-tnnls20: {figure: 2}          # Figure 2 shows the RNN -> clustering -> FSA pipeline
 multimodal-dcsm-iccvw25: {figure: 1}   # Figure 1: MMDCSM mechanism
 chest-xray-cbm23: {page: 3, clip: [38, 56, 379, 153]}   # Figure 1 has a side caption
@@ -9,7 +9,7 @@ glaucoma-scirep22: {figure: 2}      # GlaucomaNet architecture
 esn-topology-aimedhealth25: {figure: 1, expand: 24}   # pipeline overview; the default crop cut off side labels
 detr-pretraining-arxiv23: {figure: 2}   # overall self-supervised pre-training framework
 quadratic-autoencoder-tai24: {figure: 2}   # three heterogeneous autoencoder designs
-# drawn overviews (all figures in these papers are results, data or background)
+# PaperBanana overviews (all figures in these papers are results, data or background)
 sem-ece-neurips26: {skip: true}
 bilevel-calibration-colm26: {skip: true}
 calibration-aligned-llm-icml25: {skip: true}

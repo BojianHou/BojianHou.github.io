@@ -35,7 +35,7 @@ First redesign merged in PR #1. Visual refresh (cards layout) on branch `visual-
     - IEEE TNNLS 2024 (Manifoldron): the published paper includes Zhen Jia and Boce Zhang (Crossref spells "Boce Zhang"; arXiv spells "Boce Zhou").
     - Kunlun keeps "et al." after six authors (the paper has 28).
 2. **Kunlun now links to the ACM DL page** (doi.org/10.1145/3770855.3818438) as well as arXiv.
-3. **Thumbnails.** Each thumbnail should show what the paper does, not a result plot. Most are the paper's own method or framework figure (some are not Figure 1; see `scripts/site_tools/teaser_overrides.yml`). For 14 papers whose figures are all results, cohort or data plots, the thumbnail is a drawn overview whose labels paraphrase the abstract (`scripts/site_tools/overview_diagrams.py`). Please check those 14 read correctly.
+3. **Thumbnails.** Each thumbnail should show what the paper does, not a result plot. Most are the paper's own method or framework figure (some are not Figure 1; see `scripts/site_tools/teaser_overrides.yml`). For 14 papers whose figures are all results, cohort or data plots, the thumbnail is an overview figure generated with PaperBanana (Gemini image model) from a method summary that paraphrases the abstract (`scripts/site_tools/paperbanana/papers.yml`); each was checked against its paper. Please check those 14 read correctly.
 4. **One-sentence summaries** are paraphrased from each abstract (no numbers or claims beyond the abstract). Skim them on `/publications/`.
 5. **MLMI 2026** links to the author PDF hosted at `/files/MLMI26-3D-VLM-report.pdf`. Fair multi-modal CCA (AMIA 2025) links to its PMC full text, with Figure 1 as the thumbnail.
 6. **Chinese name.** The homepage shows "also published as Bo-Jian Hou · 侯博建" (the old sidebar already showed 侯博建). Remove it if you prefer.
@@ -54,7 +54,7 @@ First redesign merged in PR #1. Visual refresh (cards layout) on branch `visual-
 
 - `collect_metadata.py`: titles, authors and abstracts from arXiv, Europe PMC and Crossref.
 - `fetch_pdfs.py` + `extract_teasers.py`: download each paper and crop its figure into `images/pubs/<id>.webp`.
-- `overview_diagrams.py` + `render_overviews.mjs`: draw, rasterize and save the overview thumbnails for papers without a usable method figure (usage in the script's docstring).
+- `paperbanana/`: method summaries, captions and palettes for PaperBanana; push with `[figs]` in the commit message (needs the `GEMINI_API_KEY` secret with billing enabled) and review the candidates on the branch `site-figs-output`.
 - `check_links.py`: checks every publication link.
 - `screens.mjs`: screenshots at desktop and phone widths in light and dark mode, plus filter and news checks.
 
