@@ -23,6 +23,42 @@ out.mkdir(parents=True, exist_ok=True)
 S = cfg['settings']
 
 
+def caption(p):
+    c = p['caption'].strip()
+    if p.get('palette'):
+        c += f" Color palette: {p['palette']}, on a white background; avoid the default pastel blue/green/purple scheme."
+    return c + ' ' + cfg['thumbnail_note'].strip()
+
+
+def edit(e, n=2):
+    """Apply a text instruction to an existing image with the image model (n tries); save edit_<k>.png."""
+    from google import genai
+    from google.genai import types
+    client = genai.Client(api_key=os.environ['GOOGLE_API_KEY'])
+    d = out / e['id']
+    d.mkdir(parents=True, exist_ok=True)
+    src = Image.open(HERE / e['image'])
+    saved = []
+    for k in range(1, n + 1):
+        try:
+            resp = client.models.generate_content(
+                model=S['image_model'], contents=[src, e['instruction']],
+                config=types.GenerateContentConfig(response_modalities=['IMAGE'],
+                                                   image_config=types.ImageConfig(aspect_ratio=S['aspect_ratio'], image_size='2K')))
+            for part in resp.candidates[0].content.parts:
+                data = getattr(getattr(part, 'inline_data', None), 'data', None)
+                if data:
+                    from io import BytesIO
+                    im = Image.open(BytesIO(data)).convert('RGB')
+                    im.thumbnail((1800, 1800))
+                    im.save(d / f'edit_{k}.png', optimize=True)
+                    saved.append(f'edit_{k}.png')
+                    break
+        except Exception as ex:  # keep going; the error is recorded in the summary
+            saved.append(f'error: {str(ex)[:300]}')
+    return {'id': e['id'], 'edit': e['instruction'], 'images': saved}
+
+
 def generate(pid):
     p = cfg['papers'][pid]
     d = out / pid
@@ -31,7 +67,7 @@ def generate(pid):
         f.write(p['method'])
         method_path = f.name
     cmd = ['paperbanana', 'generate', '--input', method_path,
-           '--caption', p['caption'].strip() + ' ' + cfg['thumbnail_note'].strip(),
+           '--caption', caption(p),
            '--output-dir', str(d / 'runs'), '--aspect-ratio', S['aspect_ratio'],
            '--num-candidates', str(S['num_candidates']), '--budget', str(S['budget_usd']),
            '--vlm-provider', 'gemini', '--vlm-model', S['vlm_model'],
@@ -80,5 +116,6 @@ if __name__ == '__main__':
     with ThreadPoolExecutor(max_workers=S.get('parallel', 3)) as ex:
         results = list(ex.map(generate, ids))
     summary = [collect(pid, rc) for pid, rc in results]
+    summary += [edit(e) for e in cfg.get('edits') or []]
     (out / 'summary.json').write_text(json.dumps(summary, indent=2))
     print(json.dumps(summary, indent=2))

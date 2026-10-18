@@ -119,7 +119,7 @@ jobs:
               from google.genai import types
               client = genai.Client(api_key=key)
               ok = False
-              for m in dict.fromkeys([S['image_model'], 'gemini-3.1-flash-image']):
+              for m in [S['image_model']]:
                   try:
                       resp = client.models.generate_content(model=m, contents='A small blue circle on a white background.',
                           config=types.GenerateContentConfig(response_modalities=['IMAGE'],
