@@ -129,6 +129,7 @@ include:
 exclude:
   - scripts
   - README.md
+  - REVIEW.md
   - CHANGELOG.md
   - CONTRIBUTING.md
   - Gemfile.lock
