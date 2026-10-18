@@ -3,18 +3,23 @@
 # (push with [figs] in the commit message); outputs land on the branch site-figs-output.
 # Every method text paraphrases the paper's abstract or method section; nothing is added that the paper does not state.
 
-run: [calibration-aligned-llm-icml25, online-bilevel-aistats24, online-bilevel-regret-neurips25, sfl-ijcai17,
-      association-mining-psb25, clinical-modalities-amia25, pferm-amia24, mg-tcca-bcb23, mg-tcca-tcbb24, ovfm-icdm21,
-      rnn-interpretability-ccfai19]   # papers to generate on the next run
+run: []   # papers to generate on the next run (all 14 done)
 
 # targeted fixes to an image already chosen (inputs/<id>.png), done with the image model's editing
 edits:
-  - id: amyloid-subtypes-amia24
-    image: inputs/amyloid-subtypes-amia24.png
+  - id: sfl-ijcai17
+    image: inputs/sfl-ijcai17.png
     instruction: >-
-      Edit this figure. Replace the label "Superior Staging" next to the green check mark with the text
-      "Better than EMCI/LMCI" in the same font, size and color. Keep everything else exactly as it is: layout, colors,
-      icons, brains, curves and all other text.
+      Edit this figure. Replace the small label "Fast Inference" under "Graph SSL" with the text "Fits the Budget" in
+      the same font, size, colors and rounded badge. Keep everything else exactly as it is: layout, colors, matrices,
+      graph, arrows and all other text.
+  - id: online-bilevel-aistats24
+    image: inputs/online-bilevel-aistats24.png
+    instruction: >-
+      Edit this figure. Replace the text inside the rounded label at the top right, which currently reads
+      "Regret ≤ O(P_T)", with the text "Regret bounded by path length" in the same font, color and rounded label
+      (widen the label slightly if needed). Keep everything else exactly as it is: layout, colors, arrows, cards,
+      the plot and all other text.
 
 settings:
   vlm_model: gemini-3.8-flash          # planner, stylist and critic (gemini-2.5-flash is closed to new keys)
