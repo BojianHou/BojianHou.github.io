@@ -6,6 +6,8 @@
 run: [sem-ece-neurips26, bilevel-calibration-colm26, amyloid-subtypes-amia24]   # papers to generate on the next run
 
 settings:
+  vlm_model: gemini-3.8-flash          # planner, stylist and critic (gemini-2.5-flash is closed to new keys)
+  image_model: gemini-3-pro-image      # Nano Banana Pro
   aspect_ratio: "3:2"
   num_candidates: 2
   budget_usd: 2.5        # per paper; the pipeline stops early when exceeded

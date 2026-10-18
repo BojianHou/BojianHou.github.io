@@ -34,6 +34,8 @@ def generate(pid):
            '--caption', p['caption'].strip() + ' ' + cfg['thumbnail_note'].strip(),
            '--output-dir', str(d / 'runs'), '--aspect-ratio', S['aspect_ratio'],
            '--num-candidates', str(S['num_candidates']), '--budget', str(S['budget_usd']),
+           '--vlm-provider', 'gemini', '--vlm-model', S['vlm_model'],
+           '--image-provider', 'google_imagen', '--image-model', S['image_model'],
            '--format', 'png', '--verbose']
     with open(d / 'log.txt', 'w', encoding='utf-8') as log:
         rc = subprocess.run(cmd, stdout=log, stderr=subprocess.STDOUT).returncode

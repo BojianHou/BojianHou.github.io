@@ -83,7 +83,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Check the Gemini key (prints only its length and format)
+      - run: pip install "paperbanana[google]==0.3.0" pillow pyyaml
+      - name: Check the Gemini key and the configured models (prints only the key's length and format)
         run: |
           python - <<'EOF'
           import json, os, urllib.error, urllib.request
@@ -105,13 +106,18 @@ jobs:
                 f'whitespace inside: {any(c.isspace() for c in key)}')
           try:
               r = urllib.request.urlopen('https://generativelanguage.googleapis.com/v1beta/models?pageSize=1000&key=' + key, timeout=30)
-              names = [m['name'] for m in json.load(r).get('models', [])]
-              print('::notice::key accepted;', len(names), 'models; image models:', [n for n in names if 'image' in n])
+              names = [m['name'].split('/')[-1] for m in json.load(r).get('models', [])]
+              print('::notice::key accepted; models:', ', '.join(sorted(names)))
+              import yaml
+              S = yaml.safe_load(open('scripts/site_tools/paperbanana/papers.yml'))['settings']
+              missing = [m for m in (S['vlm_model'], S['image_model']) if m not in names]
+              if missing:
+                  print('::error::configured models not available to this key:', missing)
+                  raise SystemExit(1)
           except urllib.error.HTTPError as e:
               print('::error::key rejected:', e.code, json.loads(e.read() or b'{}').get('error', {}).get('message'))
               raise SystemExit(1)
           EOF
-      - run: pip install "paperbanana[google]==0.3.0" pillow pyyaml
       - name: Reference figures (PaperBananaBench)
         run: paperbanana data download
       - name: Generate
