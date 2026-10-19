@@ -24,9 +24,13 @@
     a.rel = 'noopener';
   }, true);
 
-  // ----- Visitor map (MapMyVisitors), loaded after the page so it never delays the first paint -----
+  // ----- Visitor map (MapMyVisitors), loaded after the page so it never delays the first paint. Only the live site
+  // loads it, so local builds and CI previews are not counted as visits. -----
   var vmap = document.getElementById('visitor-map');
-  if (vmap) {
+  if (vmap && !/(^|\.)bojianhou\.com$/.test(location.hostname)) {
+    vmap.classList.add('is-local');
+    vmap.textContent = 'The visitor map shows on bojianhou.com';
+  } else if (vmap) {
     var loadMap = function () {
       var s = document.createElement('script');
       s.id = 'mapmyvisitors';

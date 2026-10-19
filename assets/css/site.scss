@@ -197,6 +197,7 @@ main.container { padding-top: 20px; }
 .visitors-text p { margin: 8px 0 12px; color: var(--text-2); font-size: 15.5px; }
 .visitors-text a { font-size: 14.5px; font-weight: 500; }
 .visitors-map { min-height: 120px; border-radius: 14px; overflow: hidden; }
+.visitors-map.is-local { display: flex; align-items: center; justify-content: center; aspect-ratio: 560 / 307; border: 1px dashed var(--line); background: var(--card-2); color: var(--text-2); font-size: 14px; }
 .visitors-map img { display: block; width: 100%; height: auto; }
 
 .hero-id { display: flex; align-items: center; gap: 24px; }
@@ -229,7 +230,7 @@ main.container { padding-top: 20px; }
 .recent-cap strong { color: var(--ink); }
 
 .prose-sm { display: flex; flex-direction: column; gap: 12px; font-size: 15.5px; color: var(--text-2); }
-.hero-lead, .prose-sm p, .pub-tldr, .news-text, .section-lead, .interest p, .prose p { text-wrap: pretty; }
+.hero-lead, .prose-sm p, .pub-tldr, .news-text, .section-lead, .interest p, .prose p, .visitors-text p { text-wrap: pretty; }
 
 .venue-group { font-family: var(--sans) !important; font-size: 14px !important; font-weight: 500 !important; color: var(--text-3) !important; margin: 0 0 10px !important; }
 .venue-group + .venue-list + .venue-group { margin-top: 18px !important; }
