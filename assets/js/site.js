@@ -14,6 +14,29 @@
     a.setAttribute('rel', rel.join(' '));
   });
 
+  // Links added later (for example by the visitor map) get the same treatment when clicked.
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a || a.target) return;
+    var href = a.getAttribute('href');
+    if (href.charAt(0) === '#' || /^(mailto|tel|javascript):/i.test(href) || a.closest('.site-header')) return;
+    a.target = '_blank';
+    a.rel = 'noopener';
+  }, true);
+
+  // ----- Visitor map (MapMyVisitors), loaded after the page so it never delays the first paint -----
+  var vmap = document.getElementById('visitor-map');
+  if (vmap) {
+    var loadMap = function () {
+      var s = document.createElement('script');
+      s.id = 'mapmyvisitors';
+      s.async = true;
+      s.src = 'https://mapmyvisitors.com/map.js?d=' + vmap.getAttribute('data-id') + '&cl=3d4c72&co=1c2742&ct=ffffff&w=a';
+      vmap.appendChild(s);
+    };
+    if (document.readyState === 'complete') loadMap(); else window.addEventListener('load', loadMap);
+  }
+
   // ----- Light/dark switch (the saved choice is applied before paint by the inline script in rd-head.html) -----
   var toggle = document.querySelector('.theme-toggle');
   if (toggle) {

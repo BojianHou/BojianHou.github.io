@@ -193,6 +193,11 @@ main.container { padding-top: 20px; }
 .card-honors { grid-column: span 11; }
 .card-exp { grid-column: span 16; }
 .card-service { grid-column: span 8; }
+.card-visitors { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 560px); gap: 28px; align-items: center; }
+.visitors-text p { margin: 8px 0 12px; color: var(--text-2); font-size: 15.5px; }
+.visitors-text a { font-size: 14.5px; font-weight: 500; }
+.visitors-map { min-height: 120px; border-radius: 14px; overflow: hidden; }
+.visitors-map img { display: block; width: 100%; height: auto; }
 
 .hero-id { display: flex; align-items: center; gap: 24px; }
 .hero-photo { flex: none; width: 124px; height: 124px; object-fit: cover; border-radius: 34px; display: block; background: #FFFFFF; }
@@ -341,6 +346,7 @@ main.container { padding-top: 20px; }
 /* ---------- Medium screens ---------- */
 @media (max-width: 960px) {
   .card-hero, .card-recent, .card-about, .card-venues, .card-news, .card-honors, .card-exp, .card-service { grid-column: 1 / -1; }
+  .card-visitors { grid-template-columns: 1fr; gap: 16px; }
   .interests { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .interest, .interest:nth-child(n+4) { grid-column: span 1; }
   .interest:last-child { grid-column: 1 / -1; }
