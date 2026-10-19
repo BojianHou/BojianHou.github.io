@@ -1,4 +1,4 @@
-# Topic chips on the publications page, in display order. `id` matches publications.yml tags.
+# Leaf topics, the tags used in publications.yml. They are grouped into the first-row chips by _data/topic_groups.yml.
 # Topics name the method; the application domain (for example healthcare) is not a topic.
 - id: recsys
   label: Recommendation
@@ -7,7 +7,7 @@
 - id: nlp
   label: LLM applications & NLP
 - id: multimodal
-  label: Vision & multimodal
+  label: Vision & multi-view
 - id: fairness
   label: Fairness
 - id: interpretability

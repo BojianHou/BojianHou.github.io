@@ -1,0 +1,21 @@
+# Topic groups: the first row of filter chips on the publications page, in display order. Each research interest on the
+# homepage links to one group (`group:` in _data/research.yml). `topics` lists leaf topics from _data/topics.yml (the tags
+# used in publications.yml); a group with more than one topic gets a second row of chips to narrow down.
+- id: recsys
+  label: Recommendation
+  topics: [recsys]
+- id: language-models
+  label: LLMs
+  topics: [llm, nlp]
+- id: trustworthy
+  label: Trustworthy ML
+  topics: [fairness, interpretability, robustness]
+- id: multimodal-learning
+  label: Multimodal
+  topics: [multimodal, survival]
+- id: optimization
+  label: Optimization
+  topics: [optimization]
+- id: other
+  label: Other
+  topics: [other]

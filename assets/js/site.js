@@ -1,18 +1,48 @@
-/* New-tab links, light/dark switch, publication topic filters and the news "Show all" toggle. Without this script the site follows
+/* New-tab links, visitor map, light/dark switch, publication topic filters and the news "Show all" toggle. Without this script the site follows
    the system color scheme and every paper and news item shows. */
 (function () {
   'use strict';
 
-  // ----- Links open in a new tab, except the top navigation, the skip link, in-page anchors and email links -----
-  Array.prototype.forEach.call(document.querySelectorAll('a[href]'), function (a) {
+  // ----- Links to other sites and to files (papers, posters, slides) open in a new tab. Pages of this site, in-page anchors,
+  // the top navigation and email links stay in the same tab. -----
+  var opensNewTab = function (a) {
     var href = a.getAttribute('href');
-    if (!href || href.charAt(0) === '#' || /^(mailto|tel|javascript):/i.test(href)) return;
-    if (a.closest('.site-header') || a.classList.contains('skip-link')) return;
+    if (!href || href.charAt(0) === '#' || /^(mailto|tel|javascript):/i.test(href)) return false;
+    if (a.closest('.site-header') || a.classList.contains('skip-link')) return false;
+    if (a.hostname && a.hostname !== location.hostname) return true;
+    return /\.(pdf|png|jpe?g|gif|webp|svg|pptx?|docx?|key|zip|mp4)$/i.test(a.pathname);
+  };
+  var markNewTab = function (a) {
     a.setAttribute('target', '_blank');
     var rel = (a.getAttribute('rel') || '').split(/\s+/).filter(Boolean);
     if (rel.indexOf('noopener') === -1) rel.push('noopener');
     a.setAttribute('rel', rel.join(' '));
+  };
+  Array.prototype.forEach.call(document.querySelectorAll('a[href]'), function (a) {
+    if (opensNewTab(a)) markNewTab(a);
   });
+  // Links added later (for example by the visitor map) get the same treatment when clicked.
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a[href]') : null;
+    if (a && !a.target && opensNewTab(a)) markNewTab(a);
+  }, true);
+
+  // ----- Visitor map (MapMyVisitors), loaded after the page so it never delays the first paint. Only the live site
+  // loads it, so local builds and CI previews are not counted as visits. -----
+  var vmap = document.getElementById('visitor-map');
+  if (vmap && !/(^|\.)bojianhou\.com$/.test(location.hostname)) {
+    vmap.classList.add('is-local');
+    vmap.textContent = 'The visitor map shows on bojianhou.com';
+  } else if (vmap) {
+    var loadMap = function () {
+      var s = document.createElement('script');
+      s.id = 'mapmyvisitors';
+      s.async = true;
+      s.src = 'https://mapmyvisitors.com/map.js?d=' + vmap.getAttribute('data-id') + '&cl=3d4c72&co=1c2742&ct=ffffff&w=a';
+      vmap.appendChild(s);
+    };
+    if (document.readyState === 'complete') loadMap(); else window.addEventListener('load', loadMap);
+  }
 
   // ----- Light/dark switch (the saved choice is applied before paint by the inline script in rd-head.html) -----
   var toggle = document.querySelector('.theme-toggle');
@@ -39,51 +69,90 @@
     sync();
   }
 
-  // ----- Publication filters -----
+  // ----- Publication filters: topic groups in the first row; a group with several topics opens a second row -----
   var bar = document.querySelector('.pub-filters');
+
+  // In-page jumps (#paper-id) land below the sticky header and the sticky topic bar. The bar's height depends on the
+  // window width and on whether a second row is open, so it is measured. On phones the bar is not sticky and the
+  // stylesheet's offset applies.
+  var setOffset = function () {
+    if (!bar) return;
+    var cs = window.getComputedStyle(bar);
+    document.documentElement.style.scrollPaddingTop = cs.position === 'sticky' ?
+      Math.ceil((parseFloat(cs.top) || 0) + bar.getBoundingClientRect().height + 16) + 'px' : '';
+  };
+  var jumpToHash = function (instant) {
+    var id = location.hash.slice(1);
+    if (!id || id.indexOf('topic=') === 0) return;
+    var t = document.getElementById(decodeURIComponent(id));
+    if (t) t.scrollIntoView(instant ? { block: 'start', behavior: 'instant' } : { block: 'start' });
+  };
+
   if (bar) {
     var chips = Array.prototype.slice.call(bar.querySelectorAll('.chip'));
+    var subs = Array.prototype.slice.call(bar.querySelectorAll('.pub-sub'));
+    var rows = Array.prototype.slice.call(bar.querySelectorAll('.pub-filters-row'));
     var pubs = Array.prototype.slice.call(document.querySelectorAll('.pub--list'));
     var years = Array.prototype.slice.call(document.querySelectorAll('.pub-year'));
     var countN = document.querySelector('.pub-count-n');
     var countLabel = document.querySelector('.pub-count-label');
 
-    var matches = function (pub, key) {
+    var chipFor = function (key) {
+      for (var i = 0; i < chips.length; i += 1) if (chips[i].getAttribute('data-filter') === key) return chips[i];
+      return null;
+    };
+    var labelOf = function (c) { return c.firstChild.textContent.trim(); };
+    var matches = function (pub, chip) {
+      var key = chip.getAttribute('data-filter');
       if (key === 'all') return true;
       if (key === 'selected') return pub.getAttribute('data-selected') === 'true';
       if (key === 'lead') return pub.getAttribute('data-lead') === 'true';
-      return (' ' + pub.getAttribute('data-tags') + ' ').indexOf(' ' + key + ' ') !== -1;
+      var tags = ' ' + pub.getAttribute('data-tags') + ' ';
+      return (chip.getAttribute('data-match') || key).split(' ').some(function (t) {
+        return tags.indexOf(' ' + t + ' ') !== -1;
+      });
     };
 
     var apply = function (key, updateHash) {
-      var valid = chips.some(function (c) { return c.getAttribute('data-filter') === key; });
-      if (!valid) key = 'all';
+      var chip = chipFor(key);
+      if (!chip) { key = 'all'; chip = chipFor('all'); }
+      // the group whose second row is open: the chosen group itself, or the group of the chosen topic
+      var group = chip.getAttribute('data-group') || (chip.hasAttribute('aria-controls') ? key : '');
       var shown = 0;
       pubs.forEach(function (p) {
-        var ok = matches(p, key);
+        var ok = matches(p, chip);
         p.hidden = !ok;
         if (ok) shown += 1;
       });
       years.forEach(function (y) {
         y.hidden = !y.querySelector('.pub--list:not([hidden])');
       });
-      var label = '';
       chips.forEach(function (c) {
-        var on = c.getAttribute('data-filter') === key;
+        var on = c === chip;
         c.setAttribute('aria-pressed', on ? 'true' : 'false');
-        if (on && key !== 'all') label = ' · ' + c.firstChild.textContent.trim();
+        c.classList.toggle('is-parent', !on && group !== '' && c.getAttribute('data-filter') === group);
+        if (c.hasAttribute('aria-controls')) c.setAttribute('aria-expanded', c.getAttribute('data-filter') === group ? 'true' : 'false');
       });
-      // keep the active chip visible when the chip bar scrolls sideways (phones)
-      chips.forEach(function (c) {
-        if (c.getAttribute('aria-pressed') === 'true' && bar.scrollWidth > bar.clientWidth) {
-          bar.scrollLeft = Math.max(0, c.offsetLeft - bar.offsetLeft - 16);
-        }
+      subs.forEach(function (s) { s.hidden = s.getAttribute('data-group') !== group; });
+      // keep the active chip in view when a chip row scrolls sideways (phones); rows already showing it stay put
+      rows.forEach(function (r) {
+        var c = r.querySelector('[aria-pressed="true"], .is-parent');
+        if (!c || r.scrollWidth <= r.clientWidth) return;
+        var cr = c.getBoundingClientRect(), rr = r.getBoundingClientRect();
+        if (cr.right > rr.right) r.scrollLeft += cr.right - rr.right + 16;
+        else if (cr.left < rr.left) r.scrollLeft -= rr.left - cr.left + 16;
       });
+      var label = '';
+      if (key !== 'all') {
+        var parent = chip.getAttribute('data-group') ? chipFor(group) : null;
+        label = ' · ' + (parent ? labelOf(parent) + ' / ' : '') + labelOf(chip);
+      }
       if (countN) countN.textContent = shown;
       if (countLabel) countLabel.textContent = label;
       if (updateHash && history.replaceState) {
         history.replaceState(null, '', key === 'all' ? location.pathname : '#topic=' + key);
       }
+      setOffset();
     };
 
     var fromHash = function () {
@@ -99,10 +168,17 @@
     if (!fromHash()) {
       // A link to a single paper (#paper-id) keeps everything visible so the target is on the page.
       apply('all', false);
+      jumpToHash(true);
     }
     window.addEventListener('hashchange', function () {
-      if (!fromHash() && location.hash.length > 1) apply('all', false);
+      if (!fromHash() && location.hash.length > 1) { apply('all', false); jumpToHash(); }
     });
+    window.addEventListener('resize', setOffset);
+    // fonts and images can still move things after this script runs; correct once more unless the reader has scrolled
+    var moved = false;
+    var stop = function () { moved = true; };
+    ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach(function (ev) { window.addEventListener(ev, stop, { passive: true, once: true }); });
+    window.addEventListener('load', function () { setOffset(); if (!moved) jumpToHash(true); });
   }
 
   // ----- News "Show all" -----
