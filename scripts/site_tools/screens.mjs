@@ -46,6 +46,27 @@ for (const vp of viewports) {
       const visible = await page.evaluate(() => [...document.querySelectorAll('article.pub')].filter((a) => !a.hidden && a.offsetParent !== null).length);
       await page.screenshot({ path: path.join(out, 'screens', `publications-${vp.name}-filter-llm.png`), fullPage: false });
       report.push({ check: 'filter #topic=llm', viewport: vp.name, visible });
+      // two-level topics: a group, then one of its topics
+      for (const t of ['trustworthy', 'fairness']) {
+        await page.goto(base + '/publications/#topic=' + t, { waitUntil: 'networkidle' });
+        await page.waitForTimeout(300);
+        const n = await page.evaluate(() => [...document.querySelectorAll('article.pub')].filter((a) => !a.hidden && a.offsetParent !== null).length);
+        await page.screenshot({ path: path.join(out, 'screens', `publications-${vp.name}-filter-${t}.png`), fullPage: false });
+        report.push({ check: 'filter #topic=' + t, viewport: vp.name, visible: n });
+      }
+      // a jump to one paper must land below the sticky header and topic bar
+      await page.goto(base + '/', { waitUntil: 'networkidle' });
+      await page.goto(base + '/publications/#calibration-aligned-llm-icml25', { waitUntil: 'networkidle' });
+      await page.waitForTimeout(800);
+      const jump = await page.evaluate(() => {
+        const t = document.getElementById('calibration-aligned-llm-icml25').getBoundingClientRect().top;
+        const bar = document.querySelector('.pub-filters');
+        const hdr = document.querySelector('.site-header');
+        const cover = getComputedStyle(bar).position === 'sticky' ? bar.getBoundingClientRect().bottom : hdr.getBoundingClientRect().bottom;
+        return { targetTop: Math.round(t), coveredUntil: Math.round(cover), ok: t >= cover };
+      });
+      await page.screenshot({ path: path.join(out, 'screens', `publications-${vp.name}-jump.png`), fullPage: false });
+      report.push({ check: 'jump to #calibration-aligned-llm-icml25', viewport: vp.name, ...jump });
       await page.goto(base + '/', { waitUntil: 'networkidle' });
       const before = await page.evaluate(() => [...document.querySelectorAll('.news-item')].filter((e) => e.offsetParent !== null).length);
       const btn = await page.$('.news-toggle');

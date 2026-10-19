@@ -101,7 +101,7 @@ redirect_from:
     {%- for a in site.data.research %}
     <article class="card interest interest-{{ forloop.index }}">
       <span class="interest-icon">{% include icon.html name=a.icon size=22 %}</span>
-      <h3><a href="{{ '/publications/' | relative_url }}#topic={{ a.tag }}">{{ a.title }}</a></h3>
+      <h3><a href="{{ '/publications/' | relative_url }}#topic={{ a.group }}">{{ a.title }}</a></h3>
       <p>{{ a.topics }}</p>
       <p class="interest-reps">
         {%- for id in a.pubs -%}

@@ -1,18 +1,31 @@
 {%- comment -%}
-All publications grouped by year, with topic filter chips (assets/js/site.js). Without JavaScript the chips stay hidden
+All publications grouped by year, with two-level topic filter chips (assets/js/site.js). Without JavaScript the chips stay hidden
 and every paper is shown.
 {%- endcomment -%}
 {%- assign pubs = site.data.publications -%}
 {%- assign n_selected = pubs | where: "selected", true | size -%}
 {%- assign n_lead = pubs | where: "lead", true | size -%}
 <div class="pub-filters" role="group" aria-label="Filter publications by topic" hidden>
-  <button type="button" class="chip" data-filter="all" aria-pressed="true">All <span class="chip-n">{{ pubs.size }}</span></button>
-  <button type="button" class="chip" data-filter="selected" aria-pressed="false">Selected <span class="chip-n">{{ n_selected }}</span></button>
-  <button type="button" class="chip" data-filter="lead" aria-pressed="false">Lead-authored <span class="chip-n">{{ n_lead }}</span></button>
-  {%- for t in site.data.topics %}
-  {%- assign n = pubs | where_exp: "p", "p.tags contains t.id" | size %}
-  <button type="button" class="chip" data-filter="{{ t.id }}" aria-pressed="false">{{ t.label }} <span class="chip-n">{{ n }}</span></button>
-  {%- endfor %}
+  <div class="pub-filters-row">
+    <button type="button" class="chip" data-filter="all" aria-pressed="true">All <span class="chip-n">{{ pubs.size }}</span></button>
+    <button type="button" class="chip" data-filter="selected" aria-pressed="false">Selected <span class="chip-n">{{ n_selected }}</span></button>
+    <button type="button" class="chip" data-filter="lead" aria-pressed="false">Lead-authored <span class="chip-n">{{ n_lead }}</span></button>
+    <span class="chip-sep" aria-hidden="true"></span>
+    {%- for g in site.data.topic_groups %}
+    {%- assign gn = 0 %}{% for p in pubs %}{% for t in g.topics %}{% if p.tags contains t %}{% assign gn = gn | plus: 1 %}{% break %}{% endif %}{% endfor %}{% endfor %}
+    <button type="button" class="chip" data-filter="{{ g.id }}" data-match="{{ g.topics | join: ' ' }}"{% if g.topics.size > 1 %} aria-controls="sub-{{ g.id }}"{% endif %} aria-pressed="false">{{ g.label }} <span class="chip-n">{{ gn }}</span></button>
+    {%- endfor %}
+  </div>
+  {%- for g in site.data.topic_groups %}{% if g.topics.size > 1 %}
+  <div class="pub-filters-row pub-sub" id="sub-{{ g.id }}" data-group="{{ g.id }}" hidden>
+    <span class="pub-sub-label">{{ g.label }} &rsaquo;</span>
+    {%- for t in g.topics %}
+    {%- assign tt = site.data.topics | where: "id", t | first %}
+    {%- assign n = pubs | where_exp: "p", "p.tags contains t" | size %}
+    <button type="button" class="chip chip--sub" data-filter="{{ t }}" data-match="{{ t }}" data-group="{{ g.id }}" aria-pressed="false">{{ tt.label }} <span class="chip-n">{{ n }}</span></button>
+    {%- endfor %}
+  </div>
+  {%- endif %}{% endfor %}
 </div>
 <p class="pub-count" aria-live="polite"><span class="pub-count-n">{{ pubs.size }}</span> papers<span class="pub-count-label"></span></p>
 {%- assign groups = pubs | group_by: "year" %}
