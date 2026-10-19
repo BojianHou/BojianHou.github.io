@@ -239,6 +239,8 @@
     url: https://arxiv.org/abs/2507.09382
   - name: Code
     url: https://github.com/ZhanliangAaronWang/FR-CCA-ADNI
+  - name: Poster
+    url: /files/posters/fair-cca-adni-bcb25.pdf
   teaser: /images/pubs/fair-cca-adni-bcb25.webp
   teaser_alt: 'Figure 1 from the paper: Illustration of FR-CCA with the sensitive attribute sex as an example (female and male)'
   tldr: A fair CCA method whose projected features are independent of sensitive attributes, improving fairness in downstream classification on ADNI neuroimaging data while keeping correlation performance.
@@ -267,6 +269,10 @@
     url: https://github.com/ChiaPatricia/MentalChat16K
   - name: Dataset
     url: https://huggingface.co/datasets/ShenLab/MentalChat16K
+  - name: Slides
+    url: /files/slides/mentalchat16k-kdd25.pdf
+  - name: Poster
+    url: /files/posters/mentalchat16k-kdd25.pdf
   teaser: /images/pubs/mentalchat16k-kdd25.webp
   teaser_alt: 'Figure 1 from the paper: Overall architecture of our approach'
   tldr: A benchmark that combines synthetic counseling dialogues with anonymized coach and caregiver session transcripts, for building and evaluating conversational mental health assistants.
@@ -853,6 +859,8 @@
   links:
   - name: PMC
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC11141862/
+  - name: Slides
+    url: /files/slides/amyloid-subtypes-amia24.pdf
   teaser: /images/pubs/amyloid-subtypes-amia24.webp
   teaser_alt: 'Overview illustration: 68 cortical amyloid PET features clustered into two MCI subtypes that outperform the clinical EMCI/LMCI grouping'
   tldr: Clusters patients with mild cognitive impairment into two subtypes from 68 cortical amyloid PET features.
