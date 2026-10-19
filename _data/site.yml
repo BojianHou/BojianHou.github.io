@@ -3,7 +3,7 @@ venues:
   - group: Conferences
     names: [NeurIPS, ICML, ICLR, KDD, AAAI, IJCAI, ACM MM, EMNLP, COLM, UAI, AISTATS, ICDM, IEEE BigData, ACM BCB, AMIA, ISBI]
   - group: Journals
-    names: [IEEE TNNLS, IEEE TKDE, IEEE TAI, IEEE/ACM TCBB, Medical Image Analysis, npj Digital Medicine]
+    names: [IEEE TNNLS, IEEE TKDE, IEEE TAI, IEEE/ACM TCBB, Medical Image Analysis, npj Digital Medicine, Scientific Reports, iScience, Computers in Biology and Medicine, Innovation in Aging]
 nav:
   - title: About
     url: /

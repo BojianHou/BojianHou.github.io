@@ -189,7 +189,6 @@ main.container { padding-top: 20px; }
 .venues-more::after { content: " \2192"; }
 .venues-more:hover { text-decoration: underline; }
 .about-lead { font-size: 17px; line-height: 1.55; color: var(--ink); }
-.about-where { color: var(--ink); font-weight: 600; }
 .card-news { grid-column: span 13; }
 .card-honors { grid-column: span 11; }
 .card-exp { grid-column: span 16; }
