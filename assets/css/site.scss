@@ -224,6 +224,7 @@ main.container { padding-top: 20px; }
 .recent-cap strong { color: var(--ink); }
 
 .prose-sm { display: flex; flex-direction: column; gap: 12px; font-size: 15.5px; color: var(--text-2); }
+.hero-lead, .prose-sm p, .pub-tldr, .news-text, .section-lead, .interest p, .prose p { text-wrap: pretty; }
 
 .venue-group { font-family: var(--sans) !important; font-size: 14px !important; font-weight: 500 !important; color: var(--text-3) !important; margin: 0 0 10px !important; }
 .venue-group + .venue-list + .venue-group { margin-top: 18px !important; }
