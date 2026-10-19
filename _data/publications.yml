@@ -89,6 +89,8 @@
     url: https://doi.org/10.1145/3770855.3818438
   - name: arXiv
     url: https://arxiv.org/abs/2602.10016
+  - name: Meta blog
+    url: https://engineering.fb.com/2026/10/13/ml-applications/generative-ads-model-gem-scaling-frontier-ads-ai/
   teaser: /images/pubs/kunlun-kdd26.webp
   teaser_alt: 'Figure 1 from the paper: Overview of the Kunlun architecture'
   tldr: 'A recommendation architecture designed for predictable power-law scaling: it raises model FLOPs utilization from 17% to 37% on NVIDIA B200 GPUs, doubles scaling efficiency, and is deployed in major Meta Ads models.'
