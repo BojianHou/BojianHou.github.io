@@ -1,4 +1,4 @@
-"""Download the conference-hosted posters and slides listed in media.yml into <out>/<kind>s/<id>.<ext>.
+"""Download the conference-hosted posters and slides listed in media.yml into <out>/posters/ or slides/<id>.<ext>.
 
 Usage: python scripts/site_tools/fetch_media.py <out dir>. Prints one line per file (size, type) and writes report.json.
 """
@@ -14,7 +14,8 @@ out = sys.argv[1]
 report = []
 for m in yaml.safe_load(open(os.path.join(HERE, 'media.yml'))):
     ext = os.path.splitext(m['url'].split('?')[0])[1].lower() or '.pdf'
-    dest = os.path.join(out, m['kind'] + 's', m['id'] + ext)
+    folder = {'poster': 'posters', 'slides': 'slides'}.get(m['kind'], m['kind'])
+    dest = os.path.join(out, folder, m['id'] + ext)
     os.makedirs(os.path.dirname(dest), exist_ok=True)
     try:
         req = urllib.request.Request(m['url'], headers={'User-Agent': 'Mozilla/5.0 (site-tools; bojianhou.com)'})

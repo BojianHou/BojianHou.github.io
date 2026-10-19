@@ -2,9 +2,9 @@
 # (push with [media] in the commit message; outputs land on the branch site-media-output for review).
 - {id: online-bilevel-regret-neurips25, kind: slides, url: "https://neurips.cc/media/neurips-2025/Slides/119402_epOSQRY.pdf"}
 - {id: online-bilevel-regret-neurips25, kind: poster, url: "https://neurips.cc/media/PosterPDFs/NeurIPS%202025/119402.png"}
-- {id: calibration-aligned-llm-icml25, kind: slides, url: "https://icml.cc/media/icml-2025/Slides/46448_fNn7dS9.pdf"}
-- {id: calibration-aligned-llm-icml25, kind: poster, url: "https://icml.cc/media/PosterPDFs/ICML%202025/46448.png"}
+- {id: calibration-aligned-llm-icml25, kind: poster, url: "https://icml.cc/media/icml-2025/Slides/46448_fNn7dS9.pdf"}   # the "slides" upload is the poster as a PDF
 - {id: fair-graphical-models-neurips24, kind: poster, url: "https://neurips.cc/media/PosterPDFs/NeurIPS%202024/94807.png"}
 - {id: fair-cca-neurips23, kind: poster, url: "https://neurips.cc/media/PosterPDFs/NeurIPS%202023/71423.png"}
 - {id: attention-task-arithmetic-iclr25, kind: poster, url: "https://iclr.cc/media/PosterPDFs/ICLR%202025/28970.png"}
 - {id: online-bilevel-aistats24, kind: poster, url: "https://virtual.aistats.org/media/PosterPDFs/AISTATS%202024/6869.png"}
+# Not downloaded here: sf2el-aaai21 poster (from the author's computer); talk videos on SlidesLive are linked directly.

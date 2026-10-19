@@ -20,7 +20,7 @@
   - name: arXiv
     url: https://arxiv.org/abs/2605.08432
   teaser: /images/pubs/sem-ece-neurips26.webp
-  teaser_alt: 'Figure 2 from the paper: pooled Sem1-ECE and Sem2-ECE as functions of the per-question sample budget'
+  teaser_alt: 'Overview illustration: an LLM''s sampled answers are grouped into semantic classes whose frequencies give confidence, scored by Sem1-ECE (same samples) and Sem2-ECE (held-out samples)'
   tldr: Sem-ECE evaluates LLM calibration in open-ended QA by sampling answers, grouping them into semantic classes, and using class frequencies as confidence; two estimators are analyzed and tested on five commercial LLMs.
   _sources:
     arxiv: '2605.08432'
@@ -65,7 +65,7 @@
   - name: Code
     url: https://github.com/BojianHou/calm
   teaser: /images/pubs/bilevel-calibration-colm26.webp
-  teaser_alt: 'Figure 1 from the paper: Classwise reliability diagrams on Mistral-7B (OOD): (a) DPO baseline, (b) Temperature Scaling'
+  teaser_alt: 'Overview illustration: bilevel optimization where the upper level maximizes predictive entropy over loss hyperparameters and the lower level trains the LLM, turning an overconfident model into a calibrated one'
   tldr: Replaces post-hoc temperature scaling with a bilevel objective that maximizes predictive entropy, solved by a first-order method that scales to LLMs; calibration gains are strongest out of domain.
   _sources:
     arxiv: '2608.07419'
@@ -186,8 +186,12 @@
     url: https://proceedings.neurips.cc/paper_files/paper/2025/hash/d899eabc6c8fefd0d4064762aba407e2-Abstract-Conference.html
   - name: arXiv
     url: https://arxiv.org/abs/2511.01126
+  - name: Slides
+    url: /files/slides/online-bilevel-regret-neurips25.pdf
+  - name: Poster
+    url: /files/posters/online-bilevel-regret-neurips25.png
   teaser: /images/pubs/online-bilevel-regret-neurips25.webp
-  teaser_alt: 'Figure 1 from the paper: smoothly and rapidly changing objective functions in online bilevel optimization'
+  teaser_alt: 'Overview illustration: time-varying stochastic oracles, a new search direction with one-loop first- or zeroth-order updates, and sublinear regret without window smoothing'
   tldr: First- and zeroth-order stochastic online bilevel algorithms that achieve sublinear stochastic bilevel regret without window smoothing, using a new search direction and fewer oracle calls.
   _sources:
     arxiv: '2511.01126'
@@ -288,8 +292,10 @@
     url: https://arxiv.org/abs/2505.01997
   - name: OpenReview
     url: https://openreview.net/forum?id=51tMpvPNSm
+  - name: Poster
+    url: /files/posters/calibration-aligned-llm-icml25.pdf
   teaser: /images/pubs/calibration-aligned-llm-icml25.webp
-  teaser_alt: 'Figure 1 from the paper: Calibration performance comparison between DPO and our approach on Llama3.1-8B-Tulu (a'
+  teaser_alt: 'Overview illustration: preference alignment makes a calibrated LLM overconfident; calibration-aware fine-tuning (CFT) or an EM-based ECE regularizer (RCFT) restores calibration'
   tldr: Links post-alignment overconfidence to preference collapse and restores calibration with calibration-aware fine-tuning plus an EM-based ECE regularizer.
   _sources:
     arxiv: '2505.01997'
@@ -313,6 +319,10 @@
     url: https://openreview.net/forum?id=dj0TktJcVI
   - name: Code
     url: https://github.com/kyrie-23/linear_task_arithmetic
+  - name: Poster
+    url: /files/posters/attention-task-arithmetic-iclr25.png
+  - name: Video
+    url: https://slideslive.com/39033810/finetuning-attention-modules-only-enhancing-weight-disentanglement-in-task-arithmetic
   teaser: /images/pubs/attention-task-arithmetic-iclr25.webp
   teaser_alt: 'Figure 1 from the paper: Illustration of the concepts of task arithmetic and weight disentanglement'
   tldr: Fine-tuning only the attention modules improves weight disentanglement for model merging by task arithmetic, without the extra training cost of NTK linearization.
@@ -386,7 +396,7 @@
   - name: PMC
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12150751/
   teaser: /images/pubs/clinical-modalities-amia25.webp
-  teaser_alt: 'Figure 4 from the paper: hazard ratios of NDD types and sensitive variables'
+  teaser_alt: 'Overview illustration: survival models with medications only versus medications plus laboratory tests; the combined model removes the race disparity and raises the C-index'
   tldr: Survival analysis on EHR data from 29,045 older patients examines how medications, laboratory tests, and sensitive attributes affect fall and injury risk in neurodegenerative disorders.
   _sources:
     pmcid: PMC12150751
@@ -412,7 +422,7 @@
   - name: PMC
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC11649014/
   teaser: /images/pubs/association-mining-psb25.webp
-  teaser_alt: 'Figure 1 from the paper: Venn Diagram of Patients Diagnosed with PD, AD and OD'
+  teaser_alt: 'Overview illustration: EHRs of 70,420 patients analyzed with univariate and multivariate methods for AD, PD and other dementias, comparing rare, shared and method-specific features'
   tldr: Compares univariate and multivariate machine learning methods on EHR data from 70,420 patients to identify risk features for Alzheimer's, Parkinson's, and other dementias.
   _sources:
     pdf: https://psb.stanford.edu/psb-online/proceedings/psb25/noshin.pdf
@@ -556,7 +566,7 @@
   - name: Paper
     url: https://doi.org/10.1109/ICCVW69036.2025.00239
   teaser: /images/pubs/multimodal-dcsm-iccvw25.webp
-  teaser_alt: 'Figure 2 from the paper: Illustration of the survival information for 5 subjects'
+  teaser_alt: 'Figure 1 from the paper: the multi-modal deep clustering survival machines (MMDCSM) mechanism'
   tldr: Fuses modality-specific encoders with a mixture of Weibull experts to discover patient subtypes and predict Alzheimer's conversion risk in a cohort of 382 MCI patients.
   _sources:
     cvf_index: https://openaccess.thecvf.com/ICCV2025_workshops/VADH
@@ -604,7 +614,7 @@
   - name: arXiv
     url: https://arxiv.org/abs/2412.14999
   teaser: /images/pubs/esn-topology-aimedhealth25.webp
-  teaser_alt: 'Figure 1 from the paper: Overview of the pipeline'
+  teaser_alt: 'Figure 1 from the paper: pipeline from memory and decision-making datasets through the reservoir layer to output time series'
   tldr: A pipeline to embed brain sub-circuits derived from functional MRI into echo state networks and evaluate how the embedded topology affects processing and memorization tasks.
   _sources:
     arxiv: '2412.14999'
@@ -671,6 +681,10 @@
     url: https://proceedings.neurips.cc/paper_files/paper/2024/hash/1fd2b71226c67013756d318d70c40eee-Abstract.html
   - name: arXiv
     url: https://arxiv.org/abs/2408.17396
+  - name: Poster
+    url: /files/posters/fair-graphical-models-neurips24.png
+  - name: Video
+    url: https://slideslive.com/39025721/fairnessaware-estimation-of-graphical-models
   teaser: /images/pubs/fair-graphical-models-neurips24.webp
   teaser_alt: 'Figure 1 from the paper: Illustration of a GM and its fair variant'
   tldr: Fair estimation of Gaussian, covariance, and Ising graphical models by jointly minimizing a pairwise graph disparity error and the model loss.
@@ -769,8 +783,10 @@
     url: https://arxiv.org/abs/2207.02829
   - name: Code
     url: https://github.com/BojianHou/OAGD
+  - name: Poster
+    url: /files/posters/online-bilevel-aistats24.png
   teaser: /images/pubs/online-bilevel-aistats24.webp
-  teaser_alt: 'Figure 1 from the paper: Performance of OAGD in online hyperparameter learning over five runs'
+  teaser_alt: 'Overview illustration: a stream of time-varying bilevel problems handled by alternating inner and time-averaged outer gradient steps, with regret bounded by path length'
   tldr: Introduces online bilevel optimization, defines bilevel regret, and gives regret bounds for an online alternating time-averaged gradient method.
   _sources:
     arxiv: '2207.02829'
@@ -816,7 +832,7 @@
   - name: PMC
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC11141835/
   teaser: /images/pubs/pferm-amia24.webp
-  teaser_alt: 'Figure 1 from the paper: accuracy versus prevalence ratio for FERM on synthetic data'
+  teaser_alt: 'Overview illustration: a strict-parity classifier versus PFERM, whose fairness constraint uses the prior prevalence ratio between groups'
   tldr: Fair empirical risk minimization that builds group prevalence ratios into the fairness constraint, balancing accuracy and fairness.
   _sources:
     pmcid: PMC11141835
@@ -838,7 +854,7 @@
   - name: PMC
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC11141862/
   teaser: /images/pubs/amyloid-subtypes-amia24.webp
-  teaser_alt: 'Figure 2 from the paper: t-SNE visualization of 68 amyloid features'
+  teaser_alt: 'Overview illustration: 68 cortical amyloid PET features clustered into two MCI subtypes that outperform the clinical EMCI/LMCI grouping'
   tldr: Clusters patients with mild cognitive impairment into two subtypes from 68 cortical amyloid PET features.
   _sources:
     pmcid: PMC11141862
@@ -887,7 +903,7 @@
   - name: PMC
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC11954983/
   teaser: /images/pubs/mg-tcca-tcbb24.webp
-  teaser_alt: 'Figure from the paper: effect of the brain mask on brain image cross-sections'
+  teaser_alt: 'Overview illustration: MG-TCCA separates AV-45 and FDG PET correlations into shared and sex-specific brain patterns'
   tldr: Multi-group tensor CCA with a dual sparsity structure that jointly analyzes subgroups of brain imaging data to find shared and group-specific signals.
   _sources:
     pmcid: PMC11954983
@@ -938,7 +954,7 @@
   - name: arXiv
     url: https://arxiv.org/abs/2204.01707
   teaser: /images/pubs/quadratic-autoencoder-tai24.webp
-  teaser_alt: 'Figure 1 from the paper: Fourier transforms of a radial function and an inner-product based function'
+  teaser_alt: 'Figure 2 from the paper: three heterogeneous autoencoder designs built from quadratic neurons'
   tldr: An autoencoder that mixes conventional and quadratic neurons, motivated by an approximation result for heterogeneous networks, applied to unsupervised anomaly detection.
   _sources:
     arxiv: '2204.01707'
@@ -987,6 +1003,8 @@
     url: https://arxiv.org/abs/2309.15809
   - name: Code
     url: https://github.com/PennShenLab/Fair_CCA
+  - name: Poster
+    url: /files/posters/fair-cca-neurips23.png
   teaser: /images/pubs/fair-cca-neurips23.webp
   teaser_alt: 'Figure 1 from the paper: Illustration of CCA and F-CCA, with the sensitive attribute being sex (female and male)'
   tldr: Learns global CCA projections that close the gap in correlation across protected groups with little loss of accuracy.
@@ -1012,7 +1030,7 @@
   - name: PMC
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC10593155/
   teaser: /images/pubs/mg-tcca-bcb23.webp
-  teaser_alt: 'Figure from the paper: illustration of TCCA and MG-TCCA'
+  teaser_alt: 'Overview illustration: AV-45 and FDG PET tensors from female and male groups analyzed jointly by MG-TCCA into shared and group-specific canonical weights'
   tldr: Multi-group tensor CCA that jointly analyzes subgroups of tensor data, such as brain imaging from different sexes or races, to find consistent signals.
   _sources:
     pmcid: PMC10593155
@@ -1175,7 +1193,7 @@
   - name: arXiv
     url: https://arxiv.org/abs/2308.01300
   teaser: /images/pubs/detr-pretraining-arxiv23.webp
-  teaser_alt: 'Figure 1 from the paper: distribution of parameters and GFLOPs within Deformable-DETR'
+  teaser_alt: 'Figure 2 from the paper: the two-step self-supervised pre-training framework for DETR'
   tldr: Shows that DETReg pre-training does not help strong DETR-based detectors with full data, and that simple self-training with an improved box predictor and Objects365 does.
   _sources:
     arxiv: '2308.01300'
@@ -1247,6 +1265,8 @@
     url: https://arxiv.org/abs/2007.11280
   - name: Code
     url: https://www.lamda.nju.edu.cn/code_SF2EL.ashx
+  - name: Poster
+    url: /files/posters/sf2el-aaai21.pdf
   teaser: /images/pubs/sf2el-aaai21.webp
   teaser_alt: 'Figure 1 from the paper: Illustration of how data stream comes'
   tldr: Feature-evolvable streaming learning with rarely provided labels, using manifold regularization over a buffer that fits the device's storage budget.
@@ -1271,7 +1291,7 @@
   - name: PDF
     url: /files/OVFM.pdf
   teaser: /images/pubs/ovfm-icdm21.webp
-  teaser_alt: 'Figure 1 from the paper: illustration of the optimization process over continuous and ordinal variables'
+  teaser_alt: 'Overview illustration: Boolean, ordinal and continuous features mapped by a Gaussian copula to a latent normal space, online EM for feature correlations, and an ensemble of observed and latent learners'
   tldr: Online learning over feature spaces that change with time and mix Boolean, ordinal, and continuous variables, modeled with a Gaussian copula fitted by online EM.
   _sources:
     pdf: /files/OVFM.pdf
@@ -1365,7 +1385,7 @@
   - name: PDF
     url: /files/CCFAI19.pdf
   teaser: /images/pubs/rnn-interpretability-ccfai19.webp
-  teaser_alt: 'Figure from the paper: gated RNN cell structures'
+  teaser_alt: 'Overview illustration: RNN hidden states clustered into the states of a finite state automaton whose transitions are triggered by words'
   tldr: Learns finite state automata from RNNs when input features change, and studies how feature changes and the number of gates affect performance.
   _sources:
     pdf: /files/CCFAI19.pdf
@@ -1459,7 +1479,7 @@
   - name: Poster
     url: /files/SFL-poster.pdf
   teaser: /images/pubs/sfl-ijcai17.webp
-  teaser_alt: 'Figure 1 from the paper: comparison of methods under different storage budgets'
+  teaser_alt: 'Overview illustration: the n x n similarity matrix is replaced by a low-rank approximation sized to the storage budget and used for graph-based semi-supervised learning'
   tldr: Graph-based semi-supervised learning that adapts to a storage budget through low-rank approximation of the similarity matrix.
   _sources:
     pdf: /files/SFL.pdf

@@ -35,7 +35,11 @@ One publication. Params: pub (an entry of site.data.publications), variant ("hom
     {%- endif %}
     <p class="pub-links">
       {%- for l in pub.links %}
+      {%- if l.name == "Slides" or l.name == "Poster" or l.name == "Video" %}
+      <a href="{{ l.url | relative_url }}" target="_blank" rel="noopener">{{ l.name }}</a>
+      {%- else %}
       <a href="{{ l.url | relative_url }}">{{ l.name }}</a>
+      {%- endif %}
       {%- endfor %}
       {%- if pub.links.size == 0 %}
       <span class="muted">In press; link added on publication</span>
