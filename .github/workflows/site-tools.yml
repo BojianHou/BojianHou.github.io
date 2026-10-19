@@ -2,6 +2,7 @@
 #  - "tools": collect paper metadata, download PDFs, crop Figure 1 thumbnails, check every publication link.
 #  - "preview": build the site with the GitHub Pages gem set, take screenshots, run Lighthouse.
 #  - "figs": draw overview thumbnails with PaperBanana (needs the GEMINI_API_KEY secret).
+#  - "media": download conference-hosted posters and slides listed in scripts/site_tools/media.yml.
 # Trigger from the Actions tab (workflow_dispatch), or push to a non-master branch with [tools], [preview] or [figs]
 # in the commit message. Outputs are pushed to the branches site-tools-output / site-preview-output / site-figs-output.
 name: site-tools
@@ -10,11 +11,11 @@ on:
   workflow_dispatch:
     inputs:
       job:
-        description: "tools, preview or figs"
+        description: "tools, preview, figs or media"
         required: true
         default: preview
   push:
-    branches-ignore: [master, site-tools-output, site-preview-output, site-figs-output]
+    branches-ignore: [master, site-tools-output, site-preview-output, site-figs-output, site-media-output]
 
 permissions:
   contents: write
@@ -148,6 +149,30 @@ jobs:
           git init -q && git config user.name site-tools && git config user.email actions@users.noreply.github.com
           git checkout -q -b site-figs-output && git add -A && git commit -qm "figs output for ${GITHUB_SHA}"
           git push -qf "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git" site-figs-output
+
+  media:
+    # Conference-hosted posters and slides listed in scripts/site_tools/media.yml; outputs go to site-media-output.
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.job == 'media' || github.event_name == 'push' && contains(github.event.head_commit.message, '[media]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      OUT: ${{ github.workspace }}/_media_out
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+      - name: Download
+        run: python scripts/site_tools/fetch_media.py "$OUT"
+      - name: Publish outputs
+        if: always()
+        run: |
+          mkdir -p "$OUT" && cd "$OUT"
+          echo "${GITHUB_SHA}" > SOURCE_COMMIT
+          git init -q && git config user.name site-tools && git config user.email actions@users.noreply.github.com
+          git checkout -q -b site-media-output && git add -A && git commit -qm "media output for ${GITHUB_SHA}"
+          git push -qf "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git" site-media-output
 
   preview:
     if: github.event_name == 'workflow_dispatch' && github.event.inputs.job == 'preview' || github.event_name == 'push' && contains(github.event.head_commit.message, '[preview]')

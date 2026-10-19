@@ -37,9 +37,10 @@ First redesign merged in PR #1. Visual refresh (cards layout) on branch `visual-
 2. **Kunlun now links to the ACM DL page** (doi.org/10.1145/3770855.3818438) as well as arXiv.
 3. **Thumbnails.** Each thumbnail should show what the paper does, not a result plot. Most are the paper's own method or framework figure (some are not Figure 1; see `scripts/site_tools/teaser_overrides.yml`). For 14 papers whose figures are all results, cohort or data plots, the thumbnail is an overview figure generated with PaperBanana (Gemini image model) from a method summary that paraphrases the abstract (`scripts/site_tools/paperbanana/papers.yml`); each was checked against its paper. Please check those 14 read correctly.
 4. **One-sentence summaries** are paraphrased from each abstract (no numbers or claims beyond the abstract). Skim them on `/publications/`.
-5. **MLMI 2026** links to the author PDF hosted at `/files/MLMI26-3D-VLM-report.pdf`. Fair multi-modal CCA (AMIA 2025) links to its PMC full text, with Figure 1 as the thumbnail.
-6. **Chinese name.** The homepage shows "also published as Bo-Jian Hou · 侯博建" (the old sidebar already showed 侯博建). Remove it if you prefer.
-7. **Links that block automated checkers** (ACM, OUP, medRxiv DOIs return 403 to bots). They open normally in a browser; the link report marks them "blocked", not broken.
+5. **Posters, slides and talk videos.** Linked where a copy exists: conference-hosted posters and slides (NeurIPS 2023/2024/2025, ICML 2025, ICLR 2025, AISTATS 2024) are copied into `files/posters/` and `files/slides/` (list in `scripts/site_tools/media.yml`), the AAAI 2021 poster comes from your computer, and two SlidesLive talk recordings are linked. Slides, Poster and Video links open in a new tab.
+6. **MLMI 2026** links to the author PDF hosted at `/files/MLMI26-3D-VLM-report.pdf`. Fair multi-modal CCA (AMIA 2025) links to its PMC full text, with Figure 1 as the thumbnail.
+7. **Chinese name.** The homepage shows "also published as Bo-Jian Hou · 侯博建" (the old sidebar already showed 侯博建). Remove it if you prefer.
+8. **Links that block automated checkers** (ACM, OUP, medRxiv DOIs return 403 to bots). They open normally in a browser; the link report marks them "blocked", not broken.
 
 ## On Google Scholar itself (optional)
 
