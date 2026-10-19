@@ -184,7 +184,10 @@ main.container { padding-top: 20px; }
 .card-hero { grid-column: span 14; border-radius: var(--r-lg); padding: 34px; display: flex; flex-direction: column; gap: 22px; }
 .card-recent { grid-column: span 10; border-radius: var(--r-lg); display: flex; flex-direction: column; }
 .card-about { grid-column: span 14; }
-.card-venues { grid-column: span 10; }
+.card-venues { grid-column: span 10; display: flex; flex-direction: column; }
+.venues-more { margin-top: auto; padding-top: 18px; font-size: 14.5px; font-weight: 500; color: var(--accent); text-decoration: none; }
+.venues-more::after { content: " \2192"; }
+.venues-more:hover { text-decoration: underline; }
 .about-lead { font-size: 17px; line-height: 1.55; color: var(--ink); }
 .about-where { color: var(--ink); font-weight: 600; }
 .card-news { grid-column: span 13; }
