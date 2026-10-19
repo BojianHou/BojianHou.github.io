@@ -267,6 +267,8 @@
     url: https://github.com/ChiaPatricia/MentalChat16K
   - name: Dataset
     url: https://huggingface.co/datasets/ShenLab/MentalChat16K
+  - name: Poster
+    url: /files/posters/mentalchat16k-kdd25.pdf
   teaser: /images/pubs/mentalchat16k-kdd25.webp
   teaser_alt: 'Figure 1 from the paper: Overall architecture of our approach'
   tldr: A benchmark that combines synthetic counseling dialogues with anonymized coach and caregiver session transcripts, for building and evaluating conversational mental health assistants.
