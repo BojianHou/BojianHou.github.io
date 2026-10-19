@@ -1,7 +1,18 @@
-/* Light/dark switch, publication topic filters and the news "Show all" toggle. Without this script the site follows
+/* New-tab links, light/dark switch, publication topic filters and the news "Show all" toggle. Without this script the site follows
    the system color scheme and every paper and news item shows. */
 (function () {
   'use strict';
+
+  // ----- Links open in a new tab, except the top navigation, the skip link, in-page anchors and email links -----
+  Array.prototype.forEach.call(document.querySelectorAll('a[href]'), function (a) {
+    var href = a.getAttribute('href');
+    if (!href || href.charAt(0) === '#' || /^(mailto|tel|javascript):/i.test(href)) return;
+    if (a.closest('.site-header') || a.classList.contains('skip-link')) return;
+    a.setAttribute('target', '_blank');
+    var rel = (a.getAttribute('rel') || '').split(/\s+/).filter(Boolean);
+    if (rel.indexOf('noopener') === -1) rel.push('noopener');
+    a.setAttribute('rel', rel.join(' '));
+  });
 
   // ----- Light/dark switch (the saved choice is applied before paint by the inline script in rd-head.html) -----
   var toggle = document.querySelector('.theme-toggle');
