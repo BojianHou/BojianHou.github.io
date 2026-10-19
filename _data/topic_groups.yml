@@ -11,7 +11,7 @@
   label: Trustworthy ML
   topics: [fairness, interpretability, robustness]
 - id: multimodal-learning
-  label: Multimodal learning
+  label: Multimodal
   topics: [multimodal, survival]
 - id: optimization
   label: Optimization

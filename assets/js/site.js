@@ -134,12 +134,13 @@
         if (c.hasAttribute('aria-controls')) c.setAttribute('aria-expanded', c.getAttribute('data-filter') === group ? 'true' : 'false');
       });
       subs.forEach(function (s) { s.hidden = s.getAttribute('data-group') !== group; });
-      // keep the active chip visible when a chip row scrolls sideways (phones)
+      // keep the active chip in view when a chip row scrolls sideways (phones); rows already showing it stay put
       rows.forEach(function (r) {
         var c = r.querySelector('[aria-pressed="true"], .is-parent');
-        if (c && r.scrollWidth > r.clientWidth) {
-          r.scrollLeft += c.getBoundingClientRect().left - r.getBoundingClientRect().left - 16;
-        }
+        if (!c || r.scrollWidth <= r.clientWidth) return;
+        var cr = c.getBoundingClientRect(), rr = r.getBoundingClientRect();
+        if (cr.right > rr.right) r.scrollLeft += cr.right - rr.right + 16;
+        else if (cr.left < rr.left) r.scrollLeft -= rr.left - cr.left + 16;
       });
       var label = '';
       if (key !== 'all') {
