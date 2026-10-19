@@ -64,6 +64,8 @@
     url: https://arxiv.org/abs/2608.07419
   - name: Code
     url: https://github.com/BojianHou/calm
+  - name: Poster
+    url: /files/posters/bilevel-calibration-colm26.pdf
   teaser: /images/pubs/bilevel-calibration-colm26.webp
   teaser_alt: 'Overview illustration: bilevel optimization where the upper level maximizes predictive entropy over loss hyperparameters and the lower level trains the LLM, turning an overconfident model into a calibrated one'
   tldr: Replaces post-hoc temperature scaling with a bilevel objective that maximizes predictive entropy, solved by a first-order method that scales to LLMs; calibration gains are strongest out of domain.
