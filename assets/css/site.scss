@@ -183,8 +183,12 @@ main.container { padding-top: 20px; }
 /* ---------- Homepage ---------- */
 .card-hero { grid-column: span 14; border-radius: var(--r-lg); padding: 34px; display: flex; flex-direction: column; gap: 22px; }
 .card-recent { grid-column: span 10; border-radius: var(--r-lg); display: flex; flex-direction: column; }
-.card-about { grid-column: span 9; }
-.card-venues { grid-column: span 15; }
+.card-about { grid-column: span 14; }
+.card-venues { grid-column: span 10; display: flex; flex-direction: column; }
+.venues-more { margin-top: auto; padding-top: 18px; font-size: 14.5px; font-weight: 500; color: var(--accent); text-decoration: none; }
+.venues-more::after { content: " \2192"; }
+.venues-more:hover { text-decoration: underline; }
+.about-lead { font-size: 17px; line-height: 1.55; color: var(--ink); }
 .card-news { grid-column: span 13; }
 .card-honors { grid-column: span 11; }
 .card-exp { grid-column: span 16; }
@@ -220,12 +224,13 @@ main.container { padding-top: 20px; }
 .recent-cap strong { color: var(--ink); }
 
 .prose-sm { display: flex; flex-direction: column; gap: 12px; font-size: 15.5px; color: var(--text-2); }
+.hero-lead, .prose-sm p, .pub-tldr, .news-text, .section-lead, .interest p, .prose p { text-wrap: pretty; }
 
 .venue-group { font-family: var(--sans) !important; font-size: 14px !important; font-weight: 500 !important; color: var(--text-3) !important; margin: 0 0 10px !important; }
 .venue-group + .venue-list + .venue-group { margin-top: 18px !important; }
 .venue-list { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
 .venue-list li { font-size: 14.5px; font-weight: 500; padding: 6px 12px; border-radius: 999px; background: var(--accent-tint); color: var(--accent); }
-.card-venues .venue-list:last-child li { background: var(--card-2); color: var(--ink); }
+.card-venues .venue-list:last-of-type li { background: var(--card-2); color: var(--ink); }
 
 .news-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px; font-size: 15px; }
 .news-item { display: flex; gap: 16px; }
