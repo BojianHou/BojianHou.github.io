@@ -39,7 +39,7 @@ redirect_from:
       {%- assign p = pubs | where: "id", id | first %}
       <li>
         <a class="recent-item" href="{{ '/publications/' | relative_url }}#{{ id }}">
-          <span class="recent-fig"><img src="{{ p.teaser | relative_url }}" alt="{{ p.teaser_alt | escape }}" width="640" height="400" loading="lazy" decoding="async"></span>
+          <span class="recent-fig"><img src="{{ p.teaser | relative_url }}"{% include teaser-srcset.html src=p.teaser sizes="(max-width: 960px) calc(50vw - 40px), 200px" %} alt="{{ p.teaser_alt | escape }}" width="640" height="400"></span>
           <span class="recent-cap"><strong>{{ p.venue | remove: " (ADS)" }}</strong> <span>{{ p.title }}</span></span>
         </a>
       </li>
