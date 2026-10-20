@@ -1,0 +1,7 @@
+{%- comment -%}
+srcset and sizes for a paper thumbnail when its 480-px copy exists (scripts/site_tools/make_thumbs.py makes them).
+Params: src (the 640-px teaser path), sizes (the displayed width, as an HTML sizes value).
+{%- endcomment -%}
+{%- assign small = include.src | replace: ".webp", "-480.webp" -%}
+{%- assign small_file = site.static_files | where: "path", small | first -%}
+{%- if small_file %} srcset="{{ small | relative_url }} 480w, {{ include.src | relative_url }} 640w" sizes="{{ include.sizes }}"{% endif -%}
