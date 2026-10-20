@@ -1300,13 +1300,9 @@
   links:
   - name: Paper
     url: https://doi.org/10.1109/ICDM51629.2021.00028
-  - name: PDF
-    url: /files/OVFM.pdf
   teaser: /images/pubs/ovfm-icdm21.webp
   teaser_alt: 'Overview illustration: Boolean, ordinal and continuous features mapped by a Gaussian copula to a latent normal space, online EM for feature correlations, and an ensemble of observed and latent learners'
   tldr: Online learning over feature spaces that change with time and mix Boolean, ordinal, and continuous variables, modeled with a Gaussian copula fitted by online EM.
-  _sources:
-    pdf: /files/OVFM.pdf
 - id: pufe-tnnls21
   title: Prediction with Unpredictable Feature Evolution
   authors: Bo-Jian Hou, Lijun Zhang, Zhi-Hua Zhou
