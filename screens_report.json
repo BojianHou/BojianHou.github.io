@@ -1,0 +1,266 @@
+[
+ {
+  "page": "/",
+  "viewport": "desktop",
+  "scheme": "light",
+  "status": 200,
+  "overflowX": false,
+  "scrollWidth": 1280,
+  "height": 5433,
+  "brokenImages": [],
+  "articles": 9,
+  "title": "Bojian Hou | AI Research Scientist at Meta",
+  "errors": []
+ },
+ {
+  "page": "/publications/",
+  "viewport": "desktop",
+  "scheme": "light",
+  "status": 200,
+  "overflowX": false,
+  "scrollWidth": 1280,
+  "height": 15431,
+  "brokenImages": [],
+  "articles": 61,
+  "title": "Publications | Bojian Hou",
+  "errors": []
+ },
+ {
+  "page": "/news/",
+  "viewport": "desktop",
+  "scheme": "light",
+  "status": 200,
+  "overflowX": false,
+  "scrollWidth": 1280,
+  "height": 2021,
+  "brokenImages": [],
+  "articles": 0,
+  "title": "News | Bojian Hou",
+  "errors": []
+ },
+ {
+  "page": "/awards/",
+  "viewport": "desktop",
+  "scheme": "light",
+  "status": 200,
+  "overflowX": false,
+  "scrollWidth": 1280,
+  "height": 935,
+  "brokenImages": [],
+  "articles": 0,
+  "title": "Awards | Bojian Hou",
+  "errors": []
+ },
+ {
+  "page": "/services/",
+  "viewport": "desktop",
+  "scheme": "light",
+  "status": 200,
+  "overflowX": false,
+  "scrollWidth": 1280,
+  "height": 2002,
+  "brokenImages": [],
+  "articles": 0,
+  "title": "Service | Bojian Hou",
+  "errors": []
+ },
+ {
+  "page": "/resume/",
+  "viewport": "desktop",
+  "scheme": "light",
+  "status": 200,
+  "overflowX": false,
+  "scrollWidth": 1280,
+  "height": 1077,
+  "brokenImages": [],
+  "articles": 0,
+  "title": "Resume | Bojian Hou",
+  "errors": []
+ },
+ {
+  "check": "filter #topic=llm",
+  "viewport": "desktop",
+  "visible": 6
+ },
+ {
+  "check": "filter #topic=trustworthy",
+  "viewport": "desktop",
+  "visible": 28
+ },
+ {
+  "check": "filter #topic=fairness",
+  "viewport": "desktop",
+  "visible": 9
+ },
+ {
+  "check": "jump to #calibration-aligned-llm-icml25",
+  "viewport": "desktop",
+  "targetTop": 156,
+  "coveredUntil": 140,
+  "ok": true
+ },
+ {
+  "check": "news toggle",
+  "viewport": "desktop",
+  "before": 6,
+  "after": 6
+ },
+ {
+  "page": "/",
+  "viewport": "desktop",
+  "scheme": "dark",
+  "status": 200,
+  "overflowX": false,
+  "scrollWidth": 1280,
+  "height": 5433,
+  "brokenImages": [],
+  "articles": 9,
+  "title": "Bojian Hou | AI Research Scientist at Meta",
+  "errors": []
+ },
+ {
+  "page": "/publications/",
+  "viewport": "desktop",
+  "scheme": "dark",
+  "status": 200,
+  "overflowX": false,
+  "scrollWidth": 1280,
+  "height": 15431,
+  "brokenImages": [],
+  "articles": 61,
+  "title": "Publications | Bojian Hou",
+  "errors": []
+ },
+ {
+  "page": "/",
+  "viewport": "phone",
+  "scheme": "light",
+  "status": 200,
+  "overflowX": false,
+  "scrollWidth": 390,
+  "height": 12271,
+  "brokenImages": [],
+  "articles": 9,
+  "title": "Bojian Hou | AI Research Scientist at Meta",
+  "errors": []
+ },
+ {
+  "page": "/publications/",
+  "viewport": "phone",
+  "scheme": "light",
+  "status": 200,
+  "overflowX": false,
+  "scrollWidth": 390,
+  "height": 35890,
+  "brokenImages": [],
+  "articles": 61,
+  "title": "Publications | Bojian Hou",
+  "errors": []
+ },
+ {
+  "page": "/news/",
+  "viewport": "phone",
+  "scheme": "light",
+  "status": 200,
+  "overflowX": false,
+  "scrollWidth": 390,
+  "height": 4547,
+  "brokenImages": [],
+  "articles": 0,
+  "title": "News | Bojian Hou",
+  "errors": []
+ },
+ {
+  "page": "/awards/",
+  "viewport": "phone",
+  "scheme": "light",
+  "status": 200,
+  "overflowX": false,
+  "scrollWidth": 390,
+  "height": 1329,
+  "brokenImages": [],
+  "articles": 0,
+  "title": "Awards | Bojian Hou",
+  "errors": []
+ },
+ {
+  "page": "/services/",
+  "viewport": "phone",
+  "scheme": "light",
+  "status": 200,
+  "overflowX": false,
+  "scrollWidth": 390,
+  "height": 3696,
+  "brokenImages": [],
+  "articles": 0,
+  "title": "Service | Bojian Hou",
+  "errors": []
+ },
+ {
+  "page": "/resume/",
+  "viewport": "phone",
+  "scheme": "light",
+  "status": 200,
+  "overflowX": false,
+  "scrollWidth": 390,
+  "height": 1150,
+  "brokenImages": [],
+  "articles": 0,
+  "title": "Resume | Bojian Hou",
+  "errors": []
+ },
+ {
+  "check": "filter #topic=llm",
+  "viewport": "phone",
+  "visible": 6
+ },
+ {
+  "check": "filter #topic=trustworthy",
+  "viewport": "phone",
+  "visible": 28
+ },
+ {
+  "check": "filter #topic=fairness",
+  "viewport": "phone",
+  "visible": 9
+ },
+ {
+  "check": "jump to #calibration-aligned-llm-icml25",
+  "viewport": "phone",
+  "targetTop": 119,
+  "coveredUntil": 94,
+  "ok": true
+ },
+ {
+  "check": "news toggle",
+  "viewport": "phone",
+  "before": 6,
+  "after": 6
+ },
+ {
+  "page": "/",
+  "viewport": "phone",
+  "scheme": "dark",
+  "status": 200,
+  "overflowX": false,
+  "scrollWidth": 390,
+  "height": 12271,
+  "brokenImages": [],
+  "articles": 9,
+  "title": "Bojian Hou | AI Research Scientist at Meta",
+  "errors": []
+ },
+ {
+  "page": "/publications/",
+  "viewport": "phone",
+  "scheme": "dark",
+  "status": 200,
+  "overflowX": false,
+  "scrollWidth": 390,
+  "height": 35890,
+  "brokenImages": [],
+  "articles": 61,
+  "title": "Publications | Bojian Hou",
+  "errors": []
+ }
+]

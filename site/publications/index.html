@@ -1,0 +1,1322 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>(function(){var d=document.documentElement;d.className+=" js";try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")d.setAttribute("data-theme",t);}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Publications | Bojian Hou</title>
+<meta name="description" content="Publications by Bojian Hou on recommendation systems, reliable large language models, fairness, interpretability, optimization, learning in open environments, and AI for healthcare.">
+<meta name="author" content="Bojian Hou (侯博建)">
+<link rel="canonical" href="http://localhost:4000/publications/">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#E9EDF3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0A0F1C" media="(prefers-color-scheme: dark)">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bojian Hou">
+<meta property="og:title" content="Publications | Bojian Hou">
+<meta property="og:description" content="Publications by Bojian Hou on recommendation systems, reliable large language models, fairness, interpretability, optimization, learning in open environments, and AI for healthcare.">
+<meta property="og:url" content="http://localhost:4000/publications/">
+<meta property="og:image" content="http://localhost:4000/images/bojian-hou-800.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Publications | Bojian Hou">
+<meta name="twitter:description" content="Publications by Bojian Hou on recommendation systems, reliable large language models, fairness, interpretability, optimization, learning in open environments, and AI for healthcare.">
+
+<link rel="icon" href="/assets/favicon/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
+<link rel="manifest" href="/assets/favicon/site.webmanifest">
+<link rel="preload" href="/assets/fonts/Geist-Latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/BricolageGrotesque-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css">
+
+</head>
+<body class="rd page-publications">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <nav class="container nav" aria-label="Main">
+    <a class="brand" href="/">Bojian Hou</a>
+    <ul class="nav-links">
+      <li><a href="/">About</a></li>
+      <li><a href="/publications/" aria-current="page">Publications</a></li>
+      <li><a href="/news/">News</a></li>
+      <li><a href="/awards/">Awards</a></li>
+      <li><a href="/services/">Service</a></li>
+      <li><a href="/resume/">Resume</a></li>
+    </ul>
+    <button type="button" class="theme-toggle" aria-label="Switch between light and dark mode" title="Switch between light and dark mode">
+      <span class="icon-moon"><svg class="icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+</span>
+      <span class="icon-sun"><svg class="icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M18.7 5.3l-1.4 1.4M6.7 17.3l-1.4 1.4"/></svg>
+</span>
+    </button>
+  </nav>
+</header>
+
+<main id="main" class="container">
+<header class="page-head">
+  <h1>Publications</h1>
+  <p class="section-lead">Grouped by topic; a paper can sit under more than one. This list matches my <a href="https://scholar.google.com/citations?user=yFVd81sAAAAJ&hl=en">Google Scholar</a> profile.</p>
+  <p class="legend"><span>* equal contribution</span><span>† corresponding author</span><span>Lead-authored: first, co-first or corresponding author</span></p>
+</header>
+<div class="pub-filters" role="group" aria-label="Filter publications by topic" hidden>
+  <div class="pub-filters-row">
+    <button type="button" class="chip" data-filter="all" aria-pressed="true">All <span class="chip-n">61</span></button>
+    <button type="button" class="chip" data-filter="selected" aria-pressed="false">Selected <span class="chip-n">9</span></button>
+    <button type="button" class="chip" data-filter="lead" aria-pressed="false">Lead-authored <span class="chip-n">29</span></button>
+    <span class="chip-sep" aria-hidden="true"></span>
+    <button type="button" class="chip" data-filter="recsys" data-match="recsys" aria-pressed="false">Recommendation <span class="chip-n">1</span></button>
+    <button type="button" class="chip" data-filter="language-models" data-match="llm nlp" aria-controls="sub-language-models" aria-pressed="false">LLMs <span class="chip-n">16</span></button>
+    <button type="button" class="chip" data-filter="trustworthy" data-match="fairness interpretability robustness" aria-controls="sub-trustworthy" aria-pressed="false">Trustworthy ML <span class="chip-n">28</span></button>
+    <button type="button" class="chip" data-filter="multimodal-learning" data-match="multimodal survival" aria-controls="sub-multimodal-learning" aria-pressed="false">Multimodal <span class="chip-n">18</span></button>
+    <button type="button" class="chip" data-filter="optimization" data-match="optimization" aria-pressed="false">Optimization <span class="chip-n">4</span></button>
+    <button type="button" class="chip" data-filter="other" data-match="other" aria-pressed="false">Other <span class="chip-n">7</span></button>
+  </div>
+  <div class="pub-filters-row pub-sub" id="sub-language-models" data-group="language-models" hidden>
+    <span class="pub-sub-label">LLMs &rsaquo;</span>
+    <button type="button" class="chip chip--sub" data-filter="llm" data-match="llm" data-group="language-models" aria-pressed="false">Reliable LLMs <span class="chip-n">6</span></button>
+    <button type="button" class="chip chip--sub" data-filter="nlp" data-match="nlp" data-group="language-models" aria-pressed="false">LLM applications & NLP <span class="chip-n">11</span></button>
+  </div>
+  <div class="pub-filters-row pub-sub" id="sub-trustworthy" data-group="trustworthy" hidden>
+    <span class="pub-sub-label">Trustworthy ML &rsaquo;</span>
+    <button type="button" class="chip chip--sub" data-filter="fairness" data-match="fairness" data-group="trustworthy" aria-pressed="false">Fairness <span class="chip-n">9</span></button>
+    <button type="button" class="chip chip--sub" data-filter="interpretability" data-match="interpretability" data-group="trustworthy" aria-pressed="false">Interpretability <span class="chip-n">10</span></button>
+    <button type="button" class="chip chip--sub" data-filter="robustness" data-match="robustness" data-group="trustworthy" aria-pressed="false">Robustness <span class="chip-n">10</span></button>
+  </div>
+  <div class="pub-filters-row pub-sub" id="sub-multimodal-learning" data-group="multimodal-learning" hidden>
+    <span class="pub-sub-label">Multimodal &rsaquo;</span>
+    <button type="button" class="chip chip--sub" data-filter="multimodal" data-match="multimodal" data-group="multimodal-learning" aria-pressed="false">Vision & multi-view <span class="chip-n">13</span></button>
+    <button type="button" class="chip chip--sub" data-filter="survival" data-match="survival" data-group="multimodal-learning" aria-pressed="false">Clustering & survival analysis <span class="chip-n">7</span></button>
+  </div>
+</div>
+<p class="pub-count" aria-live="polite"><span class="pub-count-n">61</span> papers<span class="pub-count-label"></span></p>
+<section class="pub-year" aria-labelledby="y2026">
+  <h2 class="pub-year-h" id="y2026">2026</h2>
+  <article class="pub pub--list" id="sem-ece-neurips26" data-tags="llm" data-selected="true" data-lead="true">
+  <div class="pub-thumb">
+    <img src="/images/pubs/sem-ece-neurips26.webp" srcset="/images/pubs/sem-ece-neurips26-480.webp 480w, /images/pubs/sem-ece-neurips26.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Overview illustration: an LLM&#39;s sampled answers are grouped into semantic classes whose frequencies give confidence, scored by Sem1-ECE (same samples) and Sem2-ECE (held-out samples)" width="640" height="400" fetchpriority="high">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://arxiv.org/abs/2605.08432">A Semantic-Sampling Framework for Evaluating Calibration in Open-Ended Question Answering</a></h3>
+    <p class="pub-authors">Zhanliang Wang*, Jiancong Xiao*, Ruochen Jin, Shu Yang, <strong>Bojian Hou</strong>†, Li Shen†</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">NeurIPS 2026</span>
+      <span class="pub-topics">Reliable LLMs</span>
+    </p>
+    <p class="pub-tldr">Sem-ECE evaluates LLM calibration in open-ended QA by sampling answers, grouping them into semantic classes, and using class frequencies as confidence; two estimators are analyzed and tested on five commercial LLMs.</p>
+    <p class="pub-links">
+      <a href="https://arxiv.org/abs/2605.08432">arXiv</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="3d-vlm-report-mlmi26" data-tags="multimodal" data-selected="false" data-lead="true">
+  <div class="pub-thumb">
+    <img src="/images/pubs/3d-vlm-report-mlmi26.webp" srcset="/images/pubs/3d-vlm-report-mlmi26-480.webp 480w, /images/pubs/3d-vlm-report-mlmi26.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: native 3D VLM architecture, two-stage training, and comparison with existing 3D VLMs" width="640" height="400" fetchpriority="high">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="/files/MLMI26-3D-VLM-report.pdf">A Unified 3D Vision-Language Framework for Structured Multi-Study Volumetric Report Generation</a></h3>
+    <p class="pub-authors">Rahul Shukla*, Ruiming Wu*, Hongzhuo Chen, Shu Yang, Duy Duong-Tran, Duy Minh Ho Nguyen, Mathias Niepert, Cameron Beeche, James Gee, Jeffrey Duda, Rakesh Sharma, Christos Davatzikos, Walter Witschey, <strong>Bojian Hou</strong>†, Li Shen†</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">MLMI 2026</span>
+      <span class="pub-topics">Vision & multi-view</span>
+    </p>
+    <p class="pub-tldr">A native 3D vision-language framework for structured CT and MRI report generation that handles multiple studies per patient, keeps vision-text alignment with a joint generative-contrastive objective, and outperforms 2D and 3D medical VLMs on the Penn Medicine BioBank.</p>
+    <p class="pub-links">
+      <a href="/files/MLMI26-3D-VLM-report.pdf">PDF</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="bilevel-calibration-colm26" data-tags="llm optimization" data-selected="true" data-lead="true">
+  <div class="pub-thumb">
+    <img src="/images/pubs/bilevel-calibration-colm26.webp" srcset="/images/pubs/bilevel-calibration-colm26-480.webp 480w, /images/pubs/bilevel-calibration-colm26.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Overview illustration: bilevel optimization where the upper level maximizes predictive entropy over loss hyperparameters and the lower level trains the LLM, turning an overconfident model into a calibrated one" width="640" height="400" fetchpriority="high">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://arxiv.org/abs/2608.07419">Beyond Post-Hoc Temperature Scaling: Bilevel Optimization for LLM Calibration</a></h3>
+    <p class="pub-authors">Ruochen Jin*, Zhanliang Wang*, Zongyu Dai, Jiancong Xiao†, <strong>Bojian Hou</strong>†</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">COLM 2026</span>
+      <span class="pub-topics">Reliable LLMs · Optimization</span>
+    </p>
+    <p class="pub-tldr">Replaces post-hoc temperature scaling with a bilevel objective that maximizes predictive entropy, solved by a first-order method that scales to LLMs; calibration gains are strongest out of domain.</p>
+    <p class="pub-links">
+      <a href="https://arxiv.org/abs/2608.07419">arXiv</a>
+      <a href="https://github.com/BojianHou/calm">Code</a>
+      <a href="/files/posters/bilevel-calibration-colm26.pdf" target="_blank" rel="noopener">Poster</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="kunlun-kdd26" data-tags="recsys" data-selected="true" data-lead="true">
+  <div class="pub-thumb">
+    <img src="/images/pubs/kunlun-kdd26.webp" srcset="/images/pubs/kunlun-kdd26-480.webp 480w, /images/pubs/kunlun-kdd26.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: Overview of the Kunlun architecture" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://doi.org/10.1145/3770855.3818438">Kunlun: Establishing Scaling Laws for Massive-Scale Recommendation Systems through Unified Architecture Design</a></h3>
+    <p class="pub-authors"><strong>Bojian Hou</strong>, Xiaolong Liu, Xiaoyi Liu, Jiaqi Xu, Yasmine Badr, Mengyue Hang, et al.</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">KDD 2026 (ADS)</span>
+      <span class="pub-topics">Recommendation</span>
+    </p>
+    <p class="pub-tldr">A recommendation architecture designed for predictable power-law scaling: it raises model FLOPs utilization from 17% to 37% on NVIDIA B200 GPUs, doubles scaling efficiency, and is deployed in major Meta Ads models.</p>
+    <p class="pub-links">
+      <a href="https://doi.org/10.1145/3770855.3818438">Paper</a>
+      <a href="https://arxiv.org/abs/2602.10016">arXiv</a>
+      <a href="https://engineering.fb.com/2026/10/13/ml-applications/generative-ads-model-gem-scaling-frontier-ads-ai/">Meta blog</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="ct-vlm-npjdm26" data-tags="multimodal" data-selected="false" data-lead="false">
+  <div class="pub-thumb">
+    <img src="/images/pubs/ct-vlm-npjdm26.webp" srcset="/images/pubs/ct-vlm-npjdm26-480.webp 480w, /images/pubs/ct-vlm-npjdm26.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://doi.org/10.1038/s41746-026-03257-2">Generalizable CT Vision-Language Modeling for Population Health and Disease Risk</a></h3>
+    <p class="pub-authors">Cameron A. Beeche, Joonghyun Kim, Hamed Tavolinejad, Bingxin Zhao, Jessie Dong, Rakesh Sharma, Jeffrey T. Duda, James Gee, Farouk Dako, Anurag Verma, Colleen Morse, <strong>Bojian Hou</strong>, Li Shen, Hersh Sagreiya, Christos Davatzikos, Scott M. Damrauer, Rohan Shad, Marylyn D. Ritchie, Daniel Rader, Qi Long, Eric Eaton, Gengwei Zhang, Tianlong Chen, Charles E. Kahn, Julio A. Chirinos, Walter R. Witschey</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">npj Digital Medicine 2026</span>
+      <span class="pub-topics">Vision & multi-view</span>
+    </p>
+    <p class="pub-tldr">Percival, a CT vision-language model trained on over 400,000 CT-report pairs from the Penn Medicine BioBank, learns representations that track clinical, physiological, and longitudinal variation across patients.</p>
+    <p class="pub-links">
+      <a href="https://doi.org/10.1038/s41746-026-03257-2">Paper</a>
+      <a href="https://www.medrxiv.org/content/10.1101/2025.07.03.25330654v4.full">medRxiv</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="tabular-llm-multimodal-ad-arxiv26" data-tags="nlp interpretability" data-selected="false" data-lead="false">
+  <div class="pub-thumb">
+    <img src="/images/pubs/tabular-llm-multimodal-ad-arxiv26.webp" srcset="/images/pubs/tabular-llm-multimodal-ad-arxiv26-480.webp 480w, /images/pubs/tabular-llm-multimodal-ad-arxiv26.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: Overview of the TAP-GPT framework" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://arxiv.org/abs/2603.17191">Tabular LLMs for Interpretable Few-Shot Alzheimer's Disease Prediction with Multimodal Biomedical Data</a></h3>
+    <p class="pub-authors">Sophie Kearney*, Shu Yang*, Zixuan Wen, Weimin Lyu, <strong>Bojian Hou</strong>, Duy Duong-Tran, Tianlong Chen, Jason H. Moore, Marylyn D. Ritchie, Chao Chen, Li Shen†</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">arXiv 2026</span>
+      <span class="pub-topics">LLM applications & NLP · Interpretability</span>
+    </p>
+    <p class="pub-tldr">TAP-GPT fine-tunes a tabular LLM for few-shot Alzheimer's disease classification from multimodal biomarker tables, with interpretable outputs, across four ADNI-derived datasets.</p>
+    <p class="pub-links">
+      <a href="https://arxiv.org/abs/2603.17191">arXiv</a>
+      <a href="https://github.com/sophie-kearney/TAP-GPT">Code</a>
+    </p>
+  </div>
+</article>
+
+</section>
+<section class="pub-year" aria-labelledby="y2025">
+  <h2 class="pub-year-h" id="y2025">2025</h2>
+  <article class="pub pub--list" id="iris-bigdata25" data-tags="interpretability survival" data-selected="false" data-lead="true">
+  <div class="pub-thumb">
+    <img src="/images/pubs/iris-bigdata25.webp" srcset="/images/pubs/iris-bigdata25-480.webp 480w, /images/pubs/iris-bigdata25.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: illustration of the IRIS model and its modules" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://doi.org/10.1109/BigData66926.2025.11402028">IRIS: Interpretable Risk Clustering Intelligence for Survival Analysis</a></h3>
+    <p class="pub-authors">Kazi Noshin*, <strong>Bojian Hou</strong>*, Mary Regina Boland, Zixuan Wen, Boning Tong, Li Shen, Aidong Zhang</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">IEEE BigData 2025</span>
+      <span class="pub-topics">Interpretability · Clustering & survival analysis</span>
+    </p>
+    <p class="pub-tldr">IRIS learns patient risk clusters directly from data while estimating feature contributions, trading a modest loss in time-to-event accuracy for interpretable risk stratification.</p>
+    <p class="pub-links">
+      <a href="https://doi.org/10.1109/BigData66926.2025.11402028">Paper</a>
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12971063/">PMC</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="online-bilevel-regret-neurips25" data-tags="optimization" data-selected="false" data-lead="false">
+  <div class="pub-thumb">
+    <img src="/images/pubs/online-bilevel-regret-neurips25.webp" srcset="/images/pubs/online-bilevel-regret-neurips25-480.webp 480w, /images/pubs/online-bilevel-regret-neurips25.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Overview illustration: time-varying stochastic oracles, a new search direction with one-loop first- or zeroth-order updates, and sublinear regret without window smoothing" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://proceedings.neurips.cc/paper_files/paper/2025/hash/d899eabc6c8fefd0d4064762aba407e2-Abstract-Conference.html">Stochastic Regret Guarantees for Online Zeroth- and First-Order Bilevel Optimization</a></h3>
+    <p class="pub-authors">Parvin Nazari, <strong>Bojian Hou</strong>, Davoud Ataee Tarzanagh, Li Shen, George Michailidis</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">NeurIPS 2025</span>
+      <span class="pub-topics">Optimization</span>
+    </p>
+    <p class="pub-tldr">First- and zeroth-order stochastic online bilevel algorithms that achieve sublinear stochastic bilevel regret without window smoothing, using a new search direction and fewer oracle calls.</p>
+    <p class="pub-links">
+      <a href="https://proceedings.neurips.cc/paper_files/paper/2025/hash/d899eabc6c8fefd0d4064762aba407e2-Abstract-Conference.html">Paper</a>
+      <a href="https://arxiv.org/abs/2511.01126">arXiv</a>
+      <a href="/files/slides/online-bilevel-regret-neurips25.pdf" target="_blank" rel="noopener">Slides</a>
+      <a href="/files/posters/online-bilevel-regret-neurips25.png" target="_blank" rel="noopener">Poster</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="tabular-llm-ad-bcb25" data-tags="nlp" data-selected="false" data-lead="false">
+  <div class="pub-thumb">
+    <img src="/images/pubs/tabular-llm-ad-bcb25.webp" srcset="/images/pubs/tabular-llm-ad-bcb25-480.webp 480w, /images/pubs/tabular-llm-ad-bcb25.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: Overview of the TAP-GPT framework" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://doi.org/10.1145/3765612.3767229">Enabling Few-Shot Alzheimer's Disease Diagnosis on Biomarker Data with Tabular LLMs</a></h3>
+    <p class="pub-authors">Sophie Kearney, Shu Yang, Zixuan Wen, <strong>Bojian Hou</strong>, Duy Duong-Tran, Tianlong Chen, Jason Moore, Marylyn Ritchie, Li Shen</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">ACM BCB 2025</span>
+      <span class="badge badge-award">Best Paper Award</span>
+      <span class="pub-topics">LLM applications & NLP</span>
+    </p>
+    <p class="pub-tldr">Adapts TableGPT2 with few-shot tabular prompts and qLoRA fine-tuning to diagnose Alzheimer's disease from small structured biomarker datasets.</p>
+    <p class="pub-links">
+      <a href="https://doi.org/10.1145/3765612.3767229">Paper</a>
+      <a href="https://arxiv.org/abs/2507.23227">arXiv</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="fair-cca-adni-bcb25" data-tags="fairness multimodal" data-selected="false" data-lead="true">
+  <div class="pub-thumb">
+    <img src="/images/pubs/fair-cca-adni-bcb25.webp" srcset="/images/pubs/fair-cca-adni-bcb25-480.webp 480w, /images/pubs/fair-cca-adni-bcb25.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: Illustration of FR-CCA with the sensitive attribute sex as an example (female and male)" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://doi.org/10.1145/3765612.3767215">Fair CCA for Fair Representation Learning: An ADNI Study</a></h3>
+    <p class="pub-authors"><strong>Bojian Hou</strong>*, Zhanliang Wang*, Zhuoping Zhou, Boning Tong, Zexuan Wang, Jingxuan Bao, Duy Duong-Tran, Qi Long, Li Shen</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">ACM BCB 2025</span>
+      <span class="pub-topics">Fairness · Vision & multi-view</span>
+    </p>
+    <p class="pub-tldr">A fair CCA method whose projected features are independent of sensitive attributes, improving fairness in downstream classification on ADNI neuroimaging data while keeping correlation performance.</p>
+    <p class="pub-links">
+      <a href="https://doi.org/10.1145/3765612.3767215">Paper</a>
+      <a href="https://arxiv.org/abs/2507.09382">arXiv</a>
+      <a href="https://github.com/ZhanliangAaronWang/FR-CCA-ADNI">Code</a>
+      <a href="/files/posters/fair-cca-adni-bcb25.pdf" target="_blank" rel="noopener">Poster</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="mentalchat16k-kdd25" data-tags="llm nlp" data-selected="true" data-lead="true">
+  <div class="pub-thumb">
+    <img src="/images/pubs/mentalchat16k-kdd25.webp" srcset="/images/pubs/mentalchat16k-kdd25-480.webp 480w, /images/pubs/mentalchat16k-kdd25.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: Overall architecture of our approach" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://doi.org/10.1145/3711896.3737393">MentalChat16K: A Benchmark Dataset for Conversational Mental Health Assistance</a></h3>
+    <p class="pub-authors">Jia Xu*, Tianyi Wei*, <strong>Bojian Hou</strong>*, Patryk Orzechowski, Shu Yang, Ruochen Jin, Rachael Paulbeck, Joost Wagenaar, George Demiris, Li Shen</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">KDD 2025</span>
+      <span class="badge badge-award">Oral</span>
+      <span class="pub-topics">Reliable LLMs · LLM applications & NLP</span>
+    </p>
+    <p class="pub-tldr">A benchmark that combines synthetic counseling dialogues with anonymized coach and caregiver session transcripts, for building and evaluating conversational mental health assistants.</p>
+    <p class="pub-links">
+      <a href="https://doi.org/10.1145/3711896.3737393">Paper</a>
+      <a href="https://arxiv.org/abs/2503.13509">arXiv</a>
+      <a href="https://github.com/ChiaPatricia/MentalChat16K">Code</a>
+      <a href="https://huggingface.co/datasets/ShenLab/MentalChat16K">Dataset</a>
+      <a href="/files/slides/mentalchat16k-kdd25.pdf" target="_blank" rel="noopener">Slides</a>
+      <a href="/files/posters/mentalchat16k-kdd25.pdf" target="_blank" rel="noopener">Poster</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="calibration-aligned-llm-icml25" data-tags="llm" data-selected="true" data-lead="true">
+  <div class="pub-thumb">
+    <img src="/images/pubs/calibration-aligned-llm-icml25.webp" srcset="/images/pubs/calibration-aligned-llm-icml25-480.webp 480w, /images/pubs/calibration-aligned-llm-icml25.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Overview illustration: preference alignment makes a calibrated LLM overconfident; calibration-aware fine-tuning (CFT) or an EM-based ECE regularizer (RCFT) restores calibration" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://proceedings.mlr.press/v267/xiao25b.html">Restoring Calibration for Aligned Large Language Models: A Calibration-Aware Fine-Tuning Approach</a></h3>
+    <p class="pub-authors">Jiancong Xiao*, <strong>Bojian Hou</strong>*, Zhanliang Wang*, Ruochen Jin, Qi Long, Weijie J. Su, Li Shen</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">ICML 2025</span>
+      <span class="pub-topics">Reliable LLMs</span>
+    </p>
+    <p class="pub-tldr">Links post-alignment overconfidence to preference collapse and restores calibration with calibration-aware fine-tuning plus an EM-based ECE regularizer.</p>
+    <p class="pub-links">
+      <a href="https://proceedings.mlr.press/v267/xiao25b.html">Paper</a>
+      <a href="https://arxiv.org/abs/2505.01997">arXiv</a>
+      <a href="https://openreview.net/forum?id=51tMpvPNSm">OpenReview</a>
+      <a href="/files/posters/calibration-aligned-llm-icml25.pdf" target="_blank" rel="noopener">Poster</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="attention-task-arithmetic-iclr25" data-tags="llm" data-selected="true" data-lead="true">
+  <div class="pub-thumb">
+    <img src="/images/pubs/attention-task-arithmetic-iclr25.webp" srcset="/images/pubs/attention-task-arithmetic-iclr25-480.webp 480w, /images/pubs/attention-task-arithmetic-iclr25.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: Illustration of the concepts of task arithmetic and weight disentanglement" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://arxiv.org/abs/2407.07089">Fine-Tuning Attention Modules Only: Enhancing Weight Disentanglement in Task Arithmetic</a></h3>
+    <p class="pub-authors">Ruochen Jin*, <strong>Bojian Hou</strong>*, Jiancong Xiao*, Weijie Su, Li Shen</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">ICLR 2025</span>
+      <span class="pub-topics">Reliable LLMs</span>
+    </p>
+    <p class="pub-tldr">Fine-tuning only the attention modules improves weight disentanglement for model merging by task arithmetic, without the extra training cost of NTK linearization.</p>
+    <p class="pub-links">
+      <a href="https://arxiv.org/abs/2407.07089">arXiv</a>
+      <a href="https://openreview.net/forum?id=dj0TktJcVI">OpenReview</a>
+      <a href="https://github.com/kyrie-23/linear_task_arithmetic">Code</a>
+      <a href="/files/posters/attention-task-arithmetic-iclr25.png" target="_blank" rel="noopener">Poster</a>
+      <a href="https://slideslive.com/39033810/finetuning-attention-modules-only-enhancing-weight-disentanglement-in-task-arithmetic" target="_blank" rel="noopener">Video</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="genotype-feature-selection-amia25" data-tags="nlp" data-selected="false" data-lead="false">
+  <div class="pub-thumb">
+    <img src="/images/pubs/genotype-feature-selection-amia25.webp" srcset="/images/pubs/genotype-feature-selection-amia25-480.webp 480w, /images/pubs/genotype-feature-selection-amia25.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: overview of the FREEFORM framework" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://arxiv.org/abs/2410.01795">Knowledge-Driven Feature Selection and Engineering for Genotype Data with Large Language Models</a></h3>
+    <p class="pub-authors">Joseph Lee, Shu Yang, Jae Young Baik, Xiaoxi Liu, Zhen Tan, Dawei Li, Zixuan Wen, <strong>Bojian Hou</strong>, Duy Duong-Tran, Tianlong Chen, Li Shen</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">AMIA Summit 2025</span>
+      <span class="pub-topics">LLM applications & NLP</span>
+    </p>
+    <p class="pub-tldr">FREEFORM uses chain-of-thought reasoning and ensembling to let LLMs select and engineer genotype features, outperforming data-driven methods especially in low-shot settings.</p>
+    <p class="pub-links">
+      <a href="https://arxiv.org/abs/2410.01795">arXiv</a>
+      <a href="https://github.com/PennShenLab/FREEFORM">Code</a>
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12150712/">PMC</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="sdoh-kg-amia25" data-tags="nlp" data-selected="false" data-lead="false">
+  <div class="pub-thumb">
+    <img src="/images/pubs/sdoh-kg-amia25.webp" srcset="/images/pubs/sdoh-kg-amia25-480.webp 480w, /images/pubs/sdoh-kg-amia25.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: overview of the framework for building an AD-related SDoH knowledge graph" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://github.com/hwq0726/SDoHenPKG">Leveraging Social Determinants of Health in Alzheimer’s Research Using LLM-Augmented Literature Mining and Knowledge Graphs</a></h3>
+    <p class="pub-authors">Tianqi Shang, Shu Yang, Weiqing He, Tianhua Zhai, Dawei Li, <strong>Bojian Hou</strong>, Tianlong Chen, Jason H. Moore, Marylyn D. Ritchie, Li Shen</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">AMIA Summit 2025</span>
+      <span class="pub-topics">LLM applications & NLP</span>
+    </p>
+    <p class="pub-tldr">Mines social determinants of health from literature with LLMs and merges them with Alzheimer's disease entities from PrimeKG, evaluated by link prediction with graph neural networks.</p>
+    <p class="pub-links">
+      <a href="https://github.com/hwq0726/SDoHenPKG">Code</a>
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12150755/">PMC</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="clinical-modalities-amia25" data-tags="survival interpretability" data-selected="false" data-lead="false">
+  <div class="pub-thumb">
+    <img src="/images/pubs/clinical-modalities-amia25.webp" srcset="/images/pubs/clinical-modalities-amia25-480.webp 480w, /images/pubs/clinical-modalities-amia25.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Overview illustration: survival models with medications only versus medications plus laboratory tests; the combined model removes the race disparity and raises the C-index" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12150751/">Determining the Importance of Clinical Modalities for NeuroDegenerative Disorders and Risk of Patient Injury Using Machine Learning and Survival Analysis</a></h3>
+    <p class="pub-authors">Kazi Noshin, Mary Regina Boland, <strong>Bojian Hou</strong>, Weiqing He, Victoria Lu, Carol Manning, Li Shen, Aidong Zhang</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">AMIA Summit 2025</span>
+      <span class="pub-topics">Clustering & survival analysis · Interpretability</span>
+    </p>
+    <p class="pub-tldr">Survival analysis on EHR data from 29,045 older patients examines how medications, laboratory tests, and sensitive attributes affect fall and injury risk in neurodegenerative disorders.</p>
+    <p class="pub-links">
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12150751/">PMC</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="association-mining-psb25" data-tags="interpretability" data-selected="false" data-lead="false">
+  <div class="pub-thumb">
+    <img src="/images/pubs/association-mining-psb25.webp" srcset="/images/pubs/association-mining-psb25-480.webp 480w, /images/pubs/association-mining-psb25.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Overview illustration: EHRs of 70,420 patients analyzed with univariate and multivariate methods for AD, PD and other dementias, comparing rare, shared and method-specific features" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://doi.org/10.1142/9789819807024_0045">Uncovering Important Diagnostic Features for Alzheimer’s, Parkinson’s and Other Dementias Using Interpretable Association Mining Methods</a></h3>
+    <p class="pub-authors">Kazi Noshin*, Mary Regina Boland*, <strong>Bojian Hou</strong>, Victoria Lu, Carol Manning, Li Shen, Aidong Zhang</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">PSB 2025</span>
+      <span class="pub-topics">Interpretability</span>
+    </p>
+    <p class="pub-tldr">Compares univariate and multivariate machine learning methods on EHR data from 70,420 patients to identify risk features for Alzheimer's, Parkinson's, and other dementias.</p>
+    <p class="pub-links">
+      <a href="https://doi.org/10.1142/9789819807024_0045">Paper</a>
+      <a href="https://psb.stanford.edu/psb-online/proceedings/psb25/noshin.pdf">PDF</a>
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11649014/">PMC</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="llm-topic-modeling-innovaging25" data-tags="nlp" data-selected="false" data-lead="true">
+  <div class="pub-thumb">
+    <img src="/images/pubs/llm-topic-modeling-innovaging25.webp" srcset="/images/pubs/llm-topic-modeling-innovaging25-480.webp 480w, /images/pubs/llm-topic-modeling-innovaging25.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: illustration of the two-stage topic modeling framework" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://doi.org/10.1093/geroni/igaf120">Advanced Topic Modeling with Large Language Models: Analyzing Social Media Content from Dementia Caregivers</a></h3>
+    <p class="pub-authors">Weiqing He*, <strong>Bojian Hou</strong>*, Amy Zheng, Yanbo Feng, Ari Klein, Karen O'Connor, Shu Yang, Tianqi Shang, George Demiris, Graciela Gonzalez-Hernandez, Li Shen</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">Innovation in Aging 2025</span>
+      <span class="pub-topics">LLM applications & NLP</span>
+    </p>
+    <p class="pub-tldr">A two-stage LLM topic modeling approach for 231,870 dementia caregiver tweets, compared against 11 baselines including LDA, GSDMM, and BERTopic.</p>
+    <p class="pub-links">
+      <a href="https://doi.org/10.1093/geroni/igaf120">Paper</a>
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12742845/">PMC</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="fair-multimodal-cca-amia25" data-tags="fairness multimodal" data-selected="false" data-lead="false">
+  <div class="pub-thumb">
+    <img src="/images/pubs/fair-multimodal-cca-amia25.webp" srcset="/images/pubs/fair-multimodal-cca-amia25-480.webp 480w, /images/pubs/fair-multimodal-cca-amia25.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: multi-modal CCA and fair multi-modal CCA with three data modalities" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12919458/">Fair Multi-modal Canonical Correlation Analysis: A Neuroimaging Study of Alzheimer's Disease</a></h3>
+    <p class="pub-authors">Zhuoping Zhou, Boning Tong, <strong>Bojian Hou</strong>, Christos Davatzikos, Qi Long, Li Shen</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">AMIA 2025</span>
+      <span class="pub-topics">Fairness · Vision & multi-view</span>
+    </p>
+    <p class="pub-tldr">Fair multi-modal CCA optimizes correlation and demographic fairness jointly, improving fairness metrics on ADNI neuroimaging data with little loss in correlation.</p>
+    <p class="pub-links">
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12919458/">Paper</a>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/41726413/">PubMed</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="icafs-tai25" data-tags="other" data-selected="false" data-lead="true">
+  <div class="pub-thumb">
+    <img src="/images/pubs/icafs-tai25.webp" srcset="/images/pubs/icafs-tai25-480.webp 480w, /images/pubs/icafs-tai25.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: VFL feature selection architecture comparison between Intra-Client FS and Inter-Client FS" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://doi.org/10.1109/TAI.2025.3647596">ICAFS: Inter-Client-Aware Feature Selection for Vertical Federated Learning</a></h3>
+    <p class="pub-authors">Ruochen Jin, Boning Tong, Shu Yang, <strong>Bojian Hou</strong>†, Li Shen†</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">IEEE TAI 2025</span>
+      <span class="pub-topics">Other</span>
+    </p>
+    <p class="pub-tldr">A multi-stage ensemble feature selection method for vertical federated learning that accounts for feature interactions across clients using conditional feature synthesis.</p>
+    <p class="pub-links">
+      <a href="https://doi.org/10.1109/TAI.2025.3647596">Paper</a>
+      <a href="https://arxiv.org/abs/2504.10851">arXiv</a>
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12893625/">PMC</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="sdoh-ehr-kg-innovaging25" data-tags="nlp" data-selected="false" data-lead="false">
+  <div class="pub-thumb">
+    <img src="/images/pubs/sdoh-ehr-kg-innovaging25.webp" srcset="/images/pubs/sdoh-ehr-kg-innovaging25-480.webp 480w, /images/pubs/sdoh-ehr-kg-innovaging25.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://doi.org/10.1093/geroni/igaf102">A Novel Computational Analysis Integrating Social Determinants Information from EHR and Literature with Alzheimer's Disease Biological Knowledge through Large Language Models and Knowledge Graphs</a></h3>
+    <p class="pub-authors">Tianqi Shang, Shu Yang, Tianhua Zhai, Weiqing He, Elizabeth Mamourian, Jiayu Zhang, <strong>Bojian Hou</strong>, Joseph Lee, Duy Duong-Tran, Jason H. Moore, Marylyn D. Ritchie, Li Shen</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">Innovation in Aging 2025</span>
+      <span class="pub-topics">LLM applications & NLP</span>
+    </p>
+    <p class="pub-tldr">Builds a knowledge graph of about 92k triplets linking social determinants from literature and EHR to Alzheimer's disease biology, evaluated by link prediction and validated with multimodal biological data.</p>
+    <p class="pub-links">
+      <a href="https://doi.org/10.1093/geroni/igaf102">Paper</a>
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12742847/">PMC</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="pmbb-vlm-iccvw25" data-tags="multimodal interpretability" data-selected="false" data-lead="true">
+  <div class="pub-thumb">
+    <img src="/images/pubs/pmbb-vlm-iccvw25.webp" srcset="/images/pubs/pmbb-vlm-iccvw25-480.webp 480w, /images/pubs/pmbb-vlm-iccvw25.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: Architecture pipeline for adapting 2D vision-language models to 3D medical scans" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://openaccess.thecvf.com/content/ICCV2025W/VADH/html/Chen_Adapting_Vision-Language_Models_for_3D_CTMRI_Understanding_on_PMBB_via_ICCVW_2025_paper.html">Adapting Vision-Language Models for 3D CT/MRI Understanding on PMBB via Slice Selection and Explanation Analysis</a></h3>
+    <p class="pub-authors">Hongzhuo Chen*, Rahul Shukla*, Ruiming Wu, Shu Yang, Duy Duong-Tran, Duy Minh Ho Nguyen, Mathias Niepert, Cameron Beeche, James Gee, Jeffrey Duda, Rakesh Sharma, Christos Davatzikos, Walter Witschey, <strong>Bojian Hou</strong>†, Li Shen†</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">ICCV 2025 Workshop (VADH)</span>
+      <span class="pub-topics">Vision & multi-view · Interpretability</span>
+    </p>
+    <p class="pub-tldr">Adapts 2D medical vision-language models to 3D CT and MRI through slice selection and instruction tuning; selecting about half of the slices gave the best accuracy while cutting training cost by over 40%.</p>
+    <p class="pub-links">
+      <a href="https://openaccess.thecvf.com/content/ICCV2025W/VADH/html/Chen_Adapting_Vision-Language_Models_for_3D_CTMRI_Understanding_on_PMBB_via_ICCVW_2025_paper.html">Paper</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="multimodal-dcsm-iccvw25" data-tags="survival multimodal" data-selected="false" data-lead="false">
+  <div class="pub-thumb">
+    <img src="/images/pubs/multimodal-dcsm-iccvw25.webp" srcset="/images/pubs/multimodal-dcsm-iccvw25-480.webp 480w, /images/pubs/multimodal-dcsm-iccvw25.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: the multi-modal deep clustering survival machines (MMDCSM) mechanism" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://doi.org/10.1109/ICCVW69036.2025.00239">Multi-Modal Deep Clustering Survival Machines for Alzheimer's Disease Subtype Discovery</a></h3>
+    <p class="pub-authors">Zixuan Wen, <strong>Bojian Hou</strong>, Weiqing He, Shu Yang, Jason H. Moore, Andrew J. Saykin, Heng Huang, Paul M. Thompson, Marylyn D. Ritchie, Christos Davatzikos, Li Shen</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">ICCV 2025 Workshop (VADH)</span>
+      <span class="pub-topics">Clustering & survival analysis · Vision & multi-view</span>
+    </p>
+    <p class="pub-tldr">Fuses modality-specific encoders with a mixture of Weibull experts to discover patient subtypes and predict Alzheimer's conversion risk in a cohort of 382 MCI patients.</p>
+    <p class="pub-links">
+      <a href="https://doi.org/10.1109/ICCVW69036.2025.00239">Paper</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="sdoh-dcsm-aimedhealth25" data-tags="survival multimodal" data-selected="false" data-lead="false">
+  <div class="pub-thumb">
+    <img src="/images/pubs/sdoh-dcsm-aimedhealth25.webp" srcset="/images/pubs/sdoh-dcsm-aimedhealth25-480.webp 480w, /images/pubs/sdoh-dcsm-aimedhealth25.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: DeepCox roll-out and SHAP-DeepExplainer Intersection" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://proceedings.mlr.press/v281/noshin25a.html">Integrating Social Determinants of Health in a Multi-Modal Deep Clustering Survival Model for Injury-Risk in Alzheimer's and Related Dementia Patients</a></h3>
+    <p class="pub-authors">Kazi Noshin, Mary Regina Boland, <strong>Bojian Hou</strong>, Weiqing He, Victoria Lu, Li Shen, Aidong Zhang</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">AIMedHealth 2025 (PMLR 281)</span>
+      <span class="pub-topics">Clustering & survival analysis · Vision & multi-view</span>
+    </p>
+    <p class="pub-tldr">Adding social determinants of health to multi-modal deep clustering survival models improved injury and fall risk prediction for patients with Alzheimer's and related dementias.</p>
+    <p class="pub-links">
+      <a href="https://proceedings.mlr.press/v281/noshin25a.html">Paper</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="esn-topology-aimedhealth25" data-tags="other" data-selected="false" data-lead="false">
+  <div class="pub-thumb">
+    <img src="/images/pubs/esn-topology-aimedhealth25.webp" srcset="/images/pubs/esn-topology-aimedhealth25-480.webp 480w, /images/pubs/esn-topology-aimedhealth25.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: pipeline from memory and decision-making datasets through the reservoir layer to output time series" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://proceedings.mlr.press/v281/nguyen25a.html">Evaluating Topological Fitness of Human Brain-Inspired Sub-Circuits in Echo State Networks</a></h3>
+    <p class="pub-authors">Bach Nguyen, Tianlong Chen, Shu Yang, <strong>Bojian Hou</strong>, Li Shen, Duy Duong-Tran†</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">AIMedHealth 2025 (PMLR 281)</span>
+      <span class="pub-topics">Other</span>
+    </p>
+    <p class="pub-tldr">A pipeline to embed brain sub-circuits derived from functional MRI into echo state networks and evaluate how the embedded topology affects processing and memorization tasks.</p>
+    <p class="pub-links">
+      <a href="https://proceedings.mlr.press/v281/nguyen25a.html">Paper</a>
+      <a href="https://arxiv.org/abs/2412.14999">arXiv</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="rna-structure-survey-arxiv25" data-tags="other" data-selected="false" data-lead="false">
+  <div class="pub-thumb">
+    <img src="/images/pubs/rna-structure-survey-arxiv25.webp" srcset="/images/pubs/rna-structure-survey-arxiv25-480.webp 480w, /images/pubs/rna-structure-survey-arxiv25.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: An example of RNA secondary structures" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://arxiv.org/abs/2501.04056">Advances in RNA Secondary Structure Prediction and RNA Modifications: Methods, Data, and Applications</a></h3>
+    <p class="pub-authors">Shu Yang*, Nhat Truong Pham*, Ziyang Li*, Jae Young Baik*, Joseph Lee, Tianhua Zhai, Weicheng Yu, <strong>Bojian Hou</strong>, Tianqi Shang, Weiqing He, Duy Duong-Tran†, Mayur Naik†, Li Shen†</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">arXiv 2025</span>
+      <span class="pub-topics">Other</span>
+    </p>
+    <p class="pub-tldr">A review of computational RNA secondary structure prediction, RNA modification identification, how the two interact, and the data sources available.</p>
+    <p class="pub-links">
+      <a href="https://arxiv.org/abs/2501.04056">arXiv</a>
+    </p>
+  </div>
+</article>
+
+</section>
+<section class="pub-year" aria-labelledby="y2024">
+  <h2 class="pub-year-h" id="y2024">2024</h2>
+  <article class="pub pub--list" id="sefd-bigdata24" data-tags="llm" data-selected="false" data-lead="true">
+  <div class="pub-thumb">
+    <img src="/images/pubs/sefd-bigdata24.webp" srcset="/images/pubs/sefd-bigdata24-480.webp 480w, /images/pubs/sefd-bigdata24.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: A brief version of SEFD structure" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://doi.org/10.1109/BigData62323.2024.10825110">SEFD: Semantic-Enhanced Framework for Detecting LLM-Generated Text</a></h3>
+    <p class="pub-authors">Weiqing He*, <strong>Bojian Hou</strong>*, Tianqi Shang*, Davoud Ataee Tarzanagh, Qi Long, Li Shen</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">IEEE BigData 2024</span>
+      <span class="pub-topics">Reliable LLMs</span>
+    </p>
+    <p class="pub-tldr">Combines retrieval with existing detectors to detect LLM-generated text more reliably when it has been paraphrased.</p>
+    <p class="pub-links">
+      <a href="https://doi.org/10.1109/BigData62323.2024.10825110">Paper</a>
+      <a href="https://arxiv.org/abs/2411.12764">arXiv</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="fair-graphical-models-neurips24" data-tags="fairness" data-selected="true" data-lead="true">
+  <div class="pub-thumb">
+    <img src="/images/pubs/fair-graphical-models-neurips24.webp" srcset="/images/pubs/fair-graphical-models-neurips24-480.webp 480w, /images/pubs/fair-graphical-models-neurips24.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: Illustration of a GM and its fair variant" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/1fd2b71226c67013756d318d70c40eee-Abstract.html">Fairness-Aware Estimation of Graphical Models</a></h3>
+    <p class="pub-authors">Zhuoping Zhou*, Davoud Ataee Tarzanagh*, <strong>Bojian Hou</strong>*, Qi Long, Li Shen</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">NeurIPS 2024</span>
+      <span class="pub-topics">Fairness</span>
+    </p>
+    <p class="pub-tldr">Fair estimation of Gaussian, covariance, and Ising graphical models by jointly minimizing a pairwise graph disparity error and the model loss.</p>
+    <p class="pub-links">
+      <a href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/1fd2b71226c67013756d318d70c40eee-Abstract.html">Paper</a>
+      <a href="https://arxiv.org/abs/2408.17396">arXiv</a>
+      <a href="/files/posters/fair-graphical-models-neurips24.png" target="_blank" rel="noopener">Poster</a>
+      <a href="https://slideslive.com/39025721/fairnessaware-estimation-of-graphical-models" target="_blank" rel="noopener">Video</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="dalk-emnlp24" data-tags="nlp" data-selected="false" data-lead="false">
+  <div class="pub-thumb">
+    <img src="/images/pubs/dalk-emnlp24.webp" srcset="/images/pubs/dalk-emnlp24-480.webp 480w, /images/pubs/dalk-emnlp24.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: The overview pipeline of DALK" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://aclanthology.org/2024.findings-emnlp.119/">DALK: Dynamic Co-Augmentation of LLMs and KG to answer Alzheimer’s Disease Questions with Scientific Literature</a></h3>
+    <p class="pub-authors">Dawei Li, Shu Yang, Zhen Tan, Jae Young Baik, Sukwon Yun, Joseph Lee, Aaron Chacko, <strong>Bojian Hou</strong>, Duy Duong-Tran, Ying Ding, Huan Liu, Li Shen, Tianlong Chen</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">EMNLP 2024 Findings</span>
+      <span class="pub-topics">LLM applications & NLP</span>
+    </p>
+    <p class="pub-tldr">Co-augments an LLM and a knowledge graph built from Alzheimer's disease literature, retrieving knowledge from the graph to improve question answering on a new ADQA benchmark.</p>
+    <p class="pub-links">
+      <a href="https://aclanthology.org/2024.findings-emnlp.119/">Paper</a>
+      <a href="https://arxiv.org/abs/2405.04819">arXiv</a>
+      <a href="https://github.com/David-Li0406/DALK">Code</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="caregivers-twitter-amia24" data-tags="nlp" data-selected="false" data-lead="true">
+  <div class="pub-thumb">
+    <img src="/images/pubs/caregivers-twitter-amia24.webp" srcset="/images/pubs/caregivers-twitter-amia24-480.webp 480w, /images/pubs/caregivers-twitter-amia24.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: overview of the work, from tweet collection to topic analysis" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12099380/">Analyzing Dementia Caregivers' Experiences on Twitter: A Term-Weighted Topic Modeling Approach</a></h3>
+    <p class="pub-authors">Yanbo Feng*, <strong>Bojian Hou</strong>*, Ari Klein, Karen O'Connor, Jiong Chen, Andrés Mondragón, Shu Yang, Graciela Gonzalez-Hernandez, Li Shen</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">AMIA 2024</span>
+      <span class="pub-topics">LLM applications & NLP</span>
+    </p>
+    <p class="pub-tldr">Term-weighted GSDMM topic modeling of tweets from dementia caregivers, with topics interpreted using ChatGPT 4 and two human experts.</p>
+    <p class="pub-links">
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12099380/">PMC</a>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/40417464/">PubMed</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="fair-mci-mri-amia24" data-tags="fairness" data-selected="false" data-lead="false">
+  <div class="pub-thumb">
+    <img src="/images/pubs/fair-mci-mri-amia24.webp" srcset="/images/pubs/fair-mci-mri-amia24-480.webp 480w, /images/pubs/fair-mci-mri-amia24.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: flowchart of the study process" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12099326/">Ensuring Fairness in Detecting Mild Cognitive Impairment with MRI</a></h3>
+    <p class="pub-authors">Boning Tong, Travyse Edwards, Shu Yang, <strong>Bojian Hou</strong>, Davoud Ataee Tarzanagh, Ryan J. Urbanowicz, Jason H. Moore, Marylyn D. Ritchie, Christos Davatzikos, Li Shen</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">AMIA 2024</span>
+      <span class="badge badge-award">Distinguished Paper Award</span>
+      <span class="pub-topics">Fairness</span>
+    </p>
+    <p class="pub-tldr">A fairness-aware method for label-imbalanced MRI classification of mild cognitive impairment, built on FACIMS and evaluated across five sensitive attributes.</p>
+    <p class="pub-links">
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12099326/">PMC</a>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/40417489/">PubMed</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="online-bilevel-aistats24" data-tags="optimization" data-selected="false" data-lead="false">
+  <div class="pub-thumb">
+    <img src="/images/pubs/online-bilevel-aistats24.webp" srcset="/images/pubs/online-bilevel-aistats24-480.webp 480w, /images/pubs/online-bilevel-aistats24.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Overview illustration: a stream of time-varying bilevel problems handled by alternating inner and time-averaged outer gradient steps, with regret bounded by path length" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://proceedings.mlr.press/v238/ataee-tarzanagh24a.html">Online Bilevel Optimization: Regret Analysis of Online Alternating Gradient Methods</a></h3>
+    <p class="pub-authors">Davoud Ataee Tarzanagh, Parvin Nazari, <strong>Bojian Hou</strong>, Li Shen, Laura Balzano</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">AISTATS 2024</span>
+      <span class="pub-topics">Optimization</span>
+    </p>
+    <p class="pub-tldr">Introduces online bilevel optimization, defines bilevel regret, and gives regret bounds for an online alternating time-averaged gradient method.</p>
+    <p class="pub-links">
+      <a href="https://proceedings.mlr.press/v238/ataee-tarzanagh24a.html">Paper</a>
+      <a href="https://arxiv.org/abs/2207.02829">arXiv</a>
+      <a href="https://github.com/BojianHou/OAGD">Code</a>
+      <a href="/files/posters/online-bilevel-aistats24.png" target="_blank" rel="noopener">Poster</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="interview-interpretability-amia24" data-tags="interpretability nlp" data-selected="false" data-lead="true">
+  <div class="pub-thumb">
+    <img src="/images/pubs/interview-interpretability-amia24.webp" srcset="/images/pubs/interview-interpretability-amia24-480.webp 480w, /images/pubs/interview-interpretability-amia24.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: illustration of the framework" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11141819/">Interpretability Study for Long Interview Transcripts from Behavior Intervention Sessions for Family Caregivers of Dementia Patients</a></h3>
+    <p class="pub-authors">Weiqing He*, <strong>Bojian Hou</strong>*, George Demiris, Li Shen</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">AMIA Summit 2024</span>
+      <span class="pub-topics">Interpretability · LLM applications & NLP</span>
+    </p>
+    <p class="pub-tldr">Classifies long therapist-caregiver interview transcripts and uses Shapley values to find the sentences that drive the predictions.</p>
+    <p class="pub-links">
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11141819/">PMC</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="pferm-amia24" data-tags="fairness" data-selected="false" data-lead="true">
+  <div class="pub-thumb">
+    <img src="/images/pubs/pferm-amia24.webp" srcset="/images/pubs/pferm-amia24-480.webp 480w, /images/pubs/pferm-amia24.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Overview illustration: a strict-parity classifier versus PFERM, whose fairness constraint uses the prior prevalence ratio between groups" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://github.com/BojianHou/PFERM">PFERM: A Fair Empirical Risk Minimization Approach with Prior Knowledge</a></h3>
+    <p class="pub-authors"><strong>Bojian Hou</strong>, Andrés Mondragón, Davoud Ataee Tarzanagh, Zhuoping Zhou, Andrew J Saykin, Jason H Moore, Marylyn D Ritchie, Qi Long, Li Shen</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">AMIA Summit 2024</span>
+      <span class="pub-topics">Fairness</span>
+    </p>
+    <p class="pub-tldr">Fair empirical risk minimization that builds group prevalence ratios into the fairness constraint, balancing accuracy and fairness.</p>
+    <p class="pub-links">
+      <a href="https://github.com/BojianHou/PFERM">Code</a>
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11141835/">PMC</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="amyloid-subtypes-amia24" data-tags="survival" data-selected="false" data-lead="false">
+  <div class="pub-thumb">
+    <img src="/images/pubs/amyloid-subtypes-amia24.webp" srcset="/images/pubs/amyloid-subtypes-amia24-480.webp 480w, /images/pubs/amyloid-subtypes-amia24.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Overview illustration: 68 cortical amyloid PET features clustered into two MCI subtypes that outperform the clinical EMCI/LMCI grouping" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11141862/">Cluster Analysis of Cortical Amyloid Burden for Identifying Imaging-driven Subtypes in Mild Cognitive Impairment</a></h3>
+    <p class="pub-authors">Ruiming Wu, Bing He, <strong>Bojian Hou</strong>, Andrew J Saykin, Jingwen Yan, Li Shen</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">AMIA Summit 2024</span>
+      <span class="pub-topics">Clustering & survival analysis</span>
+    </p>
+    <p class="pub-tldr">Clusters patients with mild cognitive impairment into two subtypes from 68 cortical amyloid PET features.</p>
+    <p class="pub-links">
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11141862/">PMC</a>
+      <a href="/files/slides/amyloid-subtypes-amia24.pdf" target="_blank" rel="noopener">Slides</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="manifoldron-tnnls24" data-tags="other" data-selected="false" data-lead="false">
+  <div class="pub-thumb">
+    <img src="/images/pubs/manifoldron-tnnls24.webp" srcset="/images/pubs/manifoldron-tnnls24-480.webp 480w, /images/pubs/manifoldron-tnnls24.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: The pipeline of the proposed Manifoldron" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://doi.org/10.1109/TNNLS.2024.3486252">Manifoldron: Direct Space Partition via Manifold Discovery</a></h3>
+    <p class="pub-authors">Dayang Wang, Feng-Lei Fan, <strong>Bo-Jian Hou</strong>, Hao Zhang, Zhen Jia, Boce Zhang, Rongjie Lai, Hengyong Yu, Fei Wang</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">IEEE TNNLS 2024</span>
+      <span class="pub-topics">Other</span>
+    </p>
+    <p class="pub-tldr">A model that derives decision boundaries directly from data by discovering its manifold structure, instead of a parameterized partition of the sample space.</p>
+    <p class="pub-links">
+      <a href="https://doi.org/10.1109/TNNLS.2024.3486252">Paper</a>
+      <a href="https://arxiv.org/abs/2201.05279">arXiv</a>
+      <a href="https://github.com/wdayang/Manifoldron">Code</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="mg-tcca-tcbb24" data-tags="multimodal" data-selected="false" data-lead="false">
+  <div class="pub-thumb">
+    <img src="/images/pubs/mg-tcca-tcbb24.webp" srcset="/images/pubs/mg-tcca-tcbb24-480.webp 480w, /images/pubs/mg-tcca-tcbb24.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Overview illustration: MG-TCCA separates AV-45 and FDG PET correlations into shared and sex-specific brain patterns" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://doi.org/10.1109/TCBB.2024.3471930">MG-TCCA: Tensor Canonical Correlation Analysis across Multiple Groups</a></h3>
+    <p class="pub-authors">Zhuoping Zhou, Boning Tong, Davoud Ataee Tarzanagh, <strong>Bojian Hou</strong>, Andrew J. Saykin, Qi Long, Li Shen</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">IEEE/ACM TCBB 2024</span>
+      <span class="pub-topics">Vision & multi-view</span>
+    </p>
+    <p class="pub-tldr">Multi-group tensor CCA with a dual sparsity structure that jointly analyzes subgroups of brain imaging data to find shared and group-specific signals.</p>
+    <p class="pub-links">
+      <a href="https://doi.org/10.1109/TCBB.2024.3471930">Paper</a>
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11954983/">PMC</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="interpretable-dcsm-media24" data-tags="interpretability survival" data-selected="false" data-lead="true">
+  <div class="pub-thumb">
+    <img src="/images/pubs/interpretable-dcsm-media24.webp" srcset="/images/pubs/interpretable-dcsm-media24-480.webp 480w, /images/pubs/interpretable-dcsm-media24.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure from the paper: mechanism of Deep Clustering Survival Machines" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://doi.org/10.1016/j.media.2024.103231">Interpretable Deep Clustering Survival Machines for Alzheimer's Disease Subtype Discovery</a></h3>
+    <p class="pub-authors"><strong>Bojian Hou</strong>*, Zixuan Wen*, Jingxuan Bao, Richard Zhang, Boning Tong, Shu Yang, Junhao Wen, Yuhan Cui, Jason H Moore, Andrew J. Saykin, Heng Huang, Paul M. Thompson, Marylyn D. Ritchie, Christos Davatzikos, Li Shen</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">Medical Image Analysis 2024</span>
+      <span class="pub-topics">Interpretability · Clustering & survival analysis</span>
+    </p>
+    <p class="pub-tldr">Deep Clustering Survival Machines model survival times as a mixture of expert distributions weighted per patient, used to cluster MCI patients into subgroups with different risks of converting to Alzheimer's disease.</p>
+    <p class="pub-links">
+      <a href="https://doi.org/10.1016/j.media.2024.103231">Paper</a>
+      <a href="https://github.com/PennShenLab/DCSM/">Code</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="quadratic-autoencoder-tai24" data-tags="other" data-selected="false" data-lead="false">
+  <div class="pub-thumb">
+    <img src="/images/pubs/quadratic-autoencoder-tai24.webp" srcset="/images/pubs/quadratic-autoencoder-tai24-480.webp 480w, /images/pubs/quadratic-autoencoder-tai24.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 2 from the paper: three heterogeneous autoencoder designs built from quadratic neurons" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://doi.org/10.1109/TAI.2024.3394795">Quadratic Neuron-empowered Heterogeneous Autoencoder for Unsupervised Anomaly Detection</a></h3>
+    <p class="pub-authors">Jing-Xiao Liao, <strong>Bo-Jian Hou</strong>, Hang-Cheng Dong, Hao Zhang, Xiaoge Zhang, Jinwei Sun, Shiping Zhang, Feng-Lei Fan</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">IEEE TAI 2024</span>
+      <span class="pub-topics">Other</span>
+    </p>
+    <p class="pub-tldr">An autoencoder that mixes conventional and quadratic neurons, motivated by an approximation result for heterogeneous networks, applied to unsupervised anomaly detection.</p>
+    <p class="pub-links">
+      <a href="https://doi.org/10.1109/TAI.2024.3394795">Paper</a>
+      <a href="https://arxiv.org/abs/2204.01707">arXiv</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="sinkhorn-iscience24" data-tags="other" data-selected="false" data-lead="false">
+  <div class="pub-thumb">
+    <img src="/images/pubs/sinkhorn-iscience24.webp" srcset="/images/pubs/sinkhorn-iscience24-480.webp 480w, /images/pubs/sinkhorn-iscience24.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: schematic of the distance-weighted Sinkhorn loss" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://doi.org/10.1016/j.isci.2024.109212">Distance-weighted Sinkhorn loss for Alzheimer's disease classification</a></h3>
+    <p class="pub-authors">Zexuan Wang, Qipeng Zhan, Boning Tong, Shu Yang, <strong>Bojian Hou</strong>, Heng Huang, Andrew J. Saykin, Paul M. Thompson, Christos Davatzikos, Li Shen</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">iScience 2024</span>
+      <span class="pub-topics">Other</span>
+    </p>
+    <p class="pub-tldr">A distance-weighted Sinkhorn loss that penalizes misclassified samples by their distance to the true class distribution, applied to Alzheimer's disease stage classification.</p>
+    <p class="pub-links">
+      <a href="https://doi.org/10.1016/j.isci.2024.109212">Paper</a>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/38433927/">PubMed</a>
+    </p>
+  </div>
+</article>
+
+</section>
+<section class="pub-year" aria-labelledby="y2023">
+  <h2 class="pub-year-h" id="y2023">2023</h2>
+  <article class="pub pub--list" id="fair-cca-neurips23" data-tags="fairness multimodal" data-selected="true" data-lead="true">
+  <div class="pub-thumb">
+    <img src="/images/pubs/fair-cca-neurips23.webp" srcset="/images/pubs/fair-cca-neurips23-480.webp 480w, /images/pubs/fair-cca-neurips23.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: Illustration of CCA and F-CCA, with the sensitive attribute being sex (female and male)" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://proceedings.neurips.cc/paper_files/paper/2023/file/0b8e4c8468273ee3bafb288229c0acbc-Paper-Conference.pdf">Fair Canonical Correlation Analysis</a></h3>
+    <p class="pub-authors">Zhuoping Zhou*, Davoud Ataee Tarzanagh*, <strong>Bojian Hou</strong>*, Boning Tong, Jia Xu, Yanbo Feng, Qi Long, Li Shen</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">NeurIPS 2023</span>
+      <span class="pub-topics">Fairness · Vision & multi-view</span>
+    </p>
+    <p class="pub-tldr">Learns global CCA projections that close the gap in correlation across protected groups with little loss of accuracy.</p>
+    <p class="pub-links">
+      <a href="https://proceedings.neurips.cc/paper_files/paper/2023/file/0b8e4c8468273ee3bafb288229c0acbc-Paper-Conference.pdf">Paper</a>
+      <a href="https://arxiv.org/abs/2309.15809">arXiv</a>
+      <a href="https://github.com/PennShenLab/Fair_CCA">Code</a>
+      <a href="/files/posters/fair-cca-neurips23.png" target="_blank" rel="noopener">Poster</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="mg-tcca-bcb23" data-tags="fairness multimodal" data-selected="false" data-lead="false">
+  <div class="pub-thumb">
+    <img src="/images/pubs/mg-tcca-bcb23.webp" srcset="/images/pubs/mg-tcca-bcb23-480.webp 480w, /images/pubs/mg-tcca-bcb23.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Overview illustration: AV-45 and FDG PET tensors from female and male groups analyzed jointly by MG-TCCA into shared and group-specific canonical weights" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://doi.org/10.1145/3584371.3612962">Multi-Group Tensor Canonical Correlation Analysis</a></h3>
+    <p class="pub-authors">Zhuoping Zhou, Boning Tong, Davoud Ataee Tarzanagh, <strong>Bojian Hou</strong>, Andrew J. Saykin, Qi Long, Li Shen</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">ACM BCB 2023</span>
+      <span class="badge badge-award">Best Paper Award</span>
+      <span class="pub-topics">Fairness · Vision & multi-view</span>
+    </p>
+    <p class="pub-tldr">Multi-group tensor CCA that jointly analyzes subgroups of tensor data, such as brain imaging from different sexes or races, to find consistent signals.</p>
+    <p class="pub-links">
+      <a href="https://doi.org/10.1145/3584371.3612962">Paper</a>
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10593155/">PMC</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="avs-loss-mlmi23" data-tags="robustness" data-selected="false" data-lead="false">
+  <div class="pub-thumb">
+    <img src="/images/pubs/avs-loss-mlmi23.webp" srcset="/images/pubs/avs-loss-mlmi23-480.webp 480w, /images/pubs/avs-loss-mlmi23.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: VS-Opt-Net integrates the VS loss into the STREAMLINE pipeline" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://doi.org/10.1007/978-3-031-45676-3_15">Class-Balanced Deep Learning with Adaptive Vector Scaling Loss for Dementia Stage Detection</a></h3>
+    <p class="pub-authors">Boning Tong, Zhuoping Zhou, Davoud Ataee Tarzanagh, <strong>Bojian Hou</strong>, Andrew J. Saykin, Jason Moore, Marylyn Ritchie, Li Shen</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">MLMI 2023</span>
+      <span class="pub-topics">Robustness</span>
+    </p>
+    <p class="pub-tldr">VS-Opt-Net adds the vector-scaling loss and Bayesian hyperparameter optimization to the STREAMLINE pipeline to improve balanced accuracy when classifying dementia stages from MRI features.</p>
+    <p class="pub-links">
+      <a href="https://doi.org/10.1007/978-3-031-45676-3_15">Paper</a>
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10924683/">PMC</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="facims-uai23" data-tags="fairness optimization" data-selected="false" data-lead="true">
+  <div class="pub-thumb">
+    <img src="/images/pubs/facims-uai23.webp" srcset="/images/pubs/facims-uai23-480.webp 480w, /images/pubs/facims-uai23.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: An illustration of the FACIMS model defined in (7)" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://proceedings.mlr.press/v216/tarzanagh23a.html">Fairness-Aware Class Imbalanced Learning on Multiple Subgroups</a></h3>
+    <p class="pub-authors">Davoud Ataee Tarzanagh*, <strong>Bojian Hou</strong>*, Boning Tong*, Qi Long, Li Shen</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">UAI 2023</span>
+      <span class="pub-topics">Fairness · Optimization</span>
+    </p>
+    <p class="pub-tldr">A tri-level optimization framework with sharpness-aware minimization for fair and class-balanced learning when subgroups are imbalanced and small.</p>
+    <p class="pub-links">
+      <a href="https://proceedings.mlr.press/v216/tarzanagh23a.html">Paper</a>
+      <a href="https://github.com/PennShenLab/FACIMS">Code</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="dcsm-isbi23" data-tags="interpretability survival" data-selected="false" data-lead="true">
+  <div class="pub-thumb">
+    <img src="/images/pubs/dcsm-isbi23.webp" srcset="/images/pubs/dcsm-isbi23-480.webp 480w, /images/pubs/dcsm-isbi23.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: The model structure of the proposed DCSM" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://doi.org/10.1109/ISBI53787.2023.10230844">Deep Clustering Survival Machines with Interpretable Expert Distributions</a></h3>
+    <p class="pub-authors"><strong>Bojian Hou</strong>, Hongming Li, Zhicheng Jiao, Zhen Zhou, Hao Zheng, Yong Fan</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">ISBI 2023</span>
+      <span class="pub-topics">Interpretability · Clustering & survival analysis</span>
+    </p>
+    <p class="pub-tldr">Models survival times as a mixture of expert distributions whose weights are learned per instance, yielding interpretable subgroups alongside predictions.</p>
+    <p class="pub-links">
+      <a href="https://doi.org/10.1109/ISBI53787.2023.10230844">Paper</a>
+      <a href="https://arxiv.org/abs/2301.11826">arXiv</a>
+      <a href="https://github.com/BojianHou/DCSM">Code</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="glaucoma-bias-amia23" data-tags="fairness" data-selected="false" data-lead="false">
+  <div class="pub-thumb">
+    <img src="/images/pubs/glaucoma-bias-amia23.webp" srcset="/images/pubs/glaucoma-bias-amia23-480.webp 480w, /images/pubs/glaucoma-bias-amia23.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: The experimental design" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="/files/glaucoma_bias.pdf">Evaluate Underdiagnosis and Overdiagnosis Bias of Deep Learning Model on Primary Open-Angle Glaucoma Diagnosis in Under-Served Populations</a></h3>
+    <p class="pub-authors">Mingquan Lin, Yuyun Xiao, <strong>Bojian Hou</strong>, Tingyi Wanyan, Mohit Manoj Sharma, Zhangyang Wang, Fei Wang, Sarah Van Tassel, Yifan Peng</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">AMIA Summit 2023</span>
+      <span class="pub-topics">Fairness</span>
+    </p>
+    <p class="pub-tldr">Measures how a widely used deep learning model underdiagnoses or overdiagnoses glaucoma across demographic groups in the OHTS study.</p>
+    <p class="pub-links">
+      <a href="/files/glaucoma_bias.pdf">PDF</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="old3s-tkde23" data-tags="robustness" data-selected="false" data-lead="false">
+  <div class="pub-thumb">
+    <img src="/images/pubs/old3s-tkde23.webp" srcset="/images/pubs/old3s-tkde23-480.webp 480w, /images/pubs/old3s-tkde23.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: Illustration of doubly-streaming data" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://doi.org/10.1109/TKDE.2023.3326365">Online Learning from Evolving Feature Spaces with Deep Variational Models</a></h3>
+    <p class="pub-authors">Heng Lian, Di Wu, <strong>Bo-Jian Hou</strong>, Jian Wu, Yi He</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">IEEE TKDE 2023</span>
+      <span class="pub-topics">Robustness</span>
+    </p>
+    <p class="pub-tldr">Online learning from doubly-streaming data, where new features emerge and old ones fade, using deep variational models to relate the two feature spaces.</p>
+    <p class="pub-links">
+      <a href="https://doi.org/10.1109/TKDE.2023.3326365">Paper</a>
+      <a href="/files/OLD3S.pdf">PDF</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="chest-xray-cbm23" data-tags="multimodal" data-selected="false" data-lead="false">
+  <div class="pub-thumb">
+    <img src="/images/pubs/chest-xray-cbm23.webp" srcset="/images/pubs/chest-xray-cbm23-480.webp 480w, /images/pubs/chest-xray-cbm23.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: pipeline for collecting chest X-rays from PubMed Central" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://doi.org/10.1016/j.compbiomed.2023.106962">Enhancing thoracic disease detection using chest X-rays from PubMed Central Open Access</a></h3>
+    <p class="pub-authors">Mingquan Lin, <strong>Bojian Hou</strong>, Swati Mishra, Tianyuan Yao, Yuankai Huo, Qian Yang, Fei Wang, George Shih, Yifan Peng</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">Computers in Biology and Medicine 2023</span>
+      <span class="pub-topics">Vision & multi-view</span>
+    </p>
+    <p class="pub-tldr">Builds a weakly labeled chest X-ray database from PubMed Central articles and shows that adding it to training improves detection of several thoracic diseases.</p>
+    <p class="pub-links">
+      <a href="https://doi.org/10.1016/j.compbiomed.2023.106962">Paper</a>
+      <a href="/files/pubmed.pdf">PDF</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="detr-pretraining-arxiv23" data-tags="multimodal" data-selected="false" data-lead="false">
+  <div class="pub-thumb">
+    <img src="/images/pubs/detr-pretraining-arxiv23.webp" srcset="/images/pubs/detr-pretraining-arxiv23-480.webp 480w, /images/pubs/detr-pretraining-arxiv23.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 2 from the paper: the two-step self-supervised pre-training framework for DETR" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://arxiv.org/abs/2308.01300">Revisiting DETR Pre-training for Object Detection</a></h3>
+    <p class="pub-authors">Yan Ma, Weicong Liang, Bohan Chen, Yiduo Hao, <strong>Bojian Hou</strong>, Xiangyu Yue, Chao Zhang, Yuhui Yuan</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">arXiv 2023</span>
+      <span class="pub-topics">Vision & multi-view</span>
+    </p>
+    <p class="pub-tldr">Shows that DETReg pre-training does not help strong DETR-based detectors with full data, and that simple self-training with an improved box predictor and Objects365 does.</p>
+    <p class="pub-links">
+      <a href="https://arxiv.org/abs/2308.01300">arXiv</a>
+    </p>
+  </div>
+</article>
+
+</section>
+<section class="pub-year" aria-labelledby="y2022">
+  <h2 class="pub-year-h" id="y2022">2022</h2>
+  <article class="pub pub--list" id="doubly-streaming-mm22" data-tags="robustness" data-selected="false" data-lead="false">
+  <div class="pub-thumb">
+    <img src="/images/pubs/doubly-streaming-mm22.webp" srcset="/images/pubs/doubly-streaming-mm22-480.webp 480w, /images/pubs/doubly-streaming-mm22.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: Illustration of doubly-streaming data" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://doi.org/10.1145/3503161.3548355">Online Deep Learning from Doubly-Streaming Data</a></h3>
+    <p class="pub-authors">Heng Lian, John S. Atwood, <strong>Bo-Jian Hou</strong>, Jian Wu, Yi He</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">ACM MM 2022</span>
+      <span class="pub-topics">Robustness</span>
+    </p>
+    <p class="pub-tldr">OLD³S learns a shared latent space linking old and new features in doubly-streaming data and adapts model depth and size online to the data.</p>
+    <p class="pub-links">
+      <a href="https://doi.org/10.1145/3503161.3548355">Paper</a>
+      <a href="https://arxiv.org/abs/2204.11793">arXiv</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="glaucoma-scirep22" data-tags="multimodal" data-selected="false" data-lead="false">
+  <div class="pub-thumb">
+    <img src="/images/pubs/glaucoma-scirep22.webp" srcset="/images/pubs/glaucoma-scirep22-480.webp 480w, /images/pubs/glaucoma-scirep22.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 2 from the paper: The architecture of the proposed GlaucomaNet" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://doi.org/10.1038/s41598-022-17753-4">Automated diagnosing primary open-angle glaucoma from fundus image by simulating human’s grading with deep learning</a></h3>
+    <p class="pub-authors">Mingquan Lin, <strong>Bojian Hou</strong>, Lei Liu, Mae Gordon, Michael Kass, Fei Wang, Sarah H. Van Tassel, Yifan Peng</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">Scientific Reports 2022</span>
+      <span class="pub-topics">Vision & multi-view</span>
+    </p>
+    <p class="pub-tldr">GlaucomaNet uses two CNNs that mimic human grading to diagnose glaucoma from fundus photographs, evaluated on OHTS and LAG.</p>
+    <p class="pub-links">
+      <a href="https://doi.org/10.1038/s41598-022-17753-4">Paper</a>
+      <a href="/files/glaucoma.pdf">PDF</a>
+      <a href="https://github.com/bionlplab/GlaucomaNet">Code</a>
+    </p>
+  </div>
+</article>
+
+</section>
+<section class="pub-year" aria-labelledby="y2021">
+  <h2 class="pub-year-h" id="y2021">2021</h2>
+  <article class="pub pub--list" id="sf2el-aaai21" data-tags="robustness" data-selected="false" data-lead="true">
+  <div class="pub-thumb">
+    <img src="/images/pubs/sf2el-aaai21.webp" srcset="/images/pubs/sf2el-aaai21-480.webp 480w, /images/pubs/sf2el-aaai21.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: Illustration of how data stream comes" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://doi.org/10.1609/aaai.v35i9.16944">Storage Fit Learning with Feature Evolvable Streams</a></h3>
+    <p class="pub-authors"><strong>Bo-Jian Hou</strong>, Yu-Hu Yan, Peng Zhao, Zhi-Hua Zhou</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">AAAI 2021</span>
+      <span class="pub-topics">Robustness</span>
+    </p>
+    <p class="pub-tldr">Feature-evolvable streaming learning with rarely provided labels, using manifold regularization over a buffer that fits the device's storage budget.</p>
+    <p class="pub-links">
+      <a href="https://doi.org/10.1609/aaai.v35i9.16944">Paper</a>
+      <a href="https://arxiv.org/abs/2007.11280">arXiv</a>
+      <a href="https://www.lamda.nju.edu.cn/code_SF2EL.ashx">Code</a>
+      <a href="/files/posters/sf2el-aaai21.pdf" target="_blank" rel="noopener">Poster</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="ovfm-icdm21" data-tags="robustness" data-selected="false" data-lead="false">
+  <div class="pub-thumb">
+    <img src="/images/pubs/ovfm-icdm21.webp" srcset="/images/pubs/ovfm-icdm21-480.webp 480w, /images/pubs/ovfm-icdm21.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Overview illustration: Boolean, ordinal and continuous features mapped by a Gaussian copula to a latent normal space, online EM for feature correlations, and an ensemble of observed and latent learners" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://doi.org/10.1109/ICDM51629.2021.00028">Online Learning in Variable Feature Spaces with Mixed Data</a></h3>
+    <p class="pub-authors">Yi He, Jiaxian Dong, <strong>Bo-Jian Hou</strong>, Yu Wang, Fei Wang</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">ICDM 2021</span>
+      <span class="pub-topics">Robustness</span>
+    </p>
+    <p class="pub-tldr">Online learning over feature spaces that change with time and mix Boolean, ordinal, and continuous variables, modeled with a Gaussian copula fitted by online EM.</p>
+    <p class="pub-links">
+      <a href="https://doi.org/10.1109/ICDM51629.2021.00028">Paper</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="pufe-tnnls21" data-tags="robustness" data-selected="false" data-lead="true">
+  <div class="pub-thumb">
+    <img src="/images/pubs/pufe-tnnls21.webp" srcset="/images/pubs/pufe-tnnls21-480.webp 480w, /images/pubs/pufe-tnnls21.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: Illustration of how data streams come in FESL" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://doi.org/10.1109/TNNLS.2021.3071311">Prediction with Unpredictable Feature Evolution</a></h3>
+    <p class="pub-authors"><strong>Bo-Jian Hou</strong>, Lijun Zhang, Zhi-Hua Zhou</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">IEEE TNNLS 2021</span>
+      <span class="pub-topics">Robustness</span>
+    </p>
+    <p class="pub-tldr">Learning when features vanish or emerge unpredictably: the incomplete overlap period is filled by matrix completion, with a bound on the observations needed.</p>
+    <p class="pub-links">
+      <a href="https://doi.org/10.1109/TNNLS.2021.3071311">Paper</a>
+      <a href="https://arxiv.org/abs/1904.12171">arXiv</a>
+      <a href="https://www.lamda.nju.edu.cn/code_PUFE.ashx">Code</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="clinical-evidence-engine-arxiv21" data-tags="nlp" data-selected="false" data-lead="true">
+  <div class="pub-thumb">
+    <img src="/images/pubs/clinical-evidence-engine-arxiv21.webp" srcset="/images/pubs/clinical-evidence-engine-arxiv21-480.webp 480w, /images/pubs/clinical-evidence-engine-arxiv21.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: Clinical Evidence Engine system architecture" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://arxiv.org/abs/2111.00621">Clinical Evidence Engine: Proof-of-Concept For a Clinical-Domain-Agnostic Decision Support Infrastructure</a></h3>
+    <p class="pub-authors"><strong>Bojian Hou</strong>, Hao Zhang, Gur Ladizhinsky, Ali Kayyal, Stephen Yang, Volodymyr Kuleshov, Fei Wang, Qian Yang</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">arXiv 2021</span>
+      <span class="pub-topics">LLM applications & NLP</span>
+    </p>
+    <p class="pub-tldr">A proof-of-concept system that uses Clinical BioBERT to retrieve clinical trial reports relevant to long clinical questions, across three medical domains.</p>
+    <p class="pub-links">
+      <a href="https://arxiv.org/abs/2111.00621">arXiv</a>
+    </p>
+  </div>
+</article>
+
+</section>
+<section class="pub-year" aria-labelledby="y2020">
+  <h2 class="pub-year-h" id="y2020">2020</h2>
+  <article class="pub pub--list" id="lisor-tnnls20" data-tags="interpretability" data-selected="false" data-lead="true">
+  <div class="pub-thumb">
+    <img src="/images/pubs/lisor-tnnls20.webp" srcset="/images/pubs/lisor-tnnls20-480.webp 480w, /images/pubs/lisor-tnnls20.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 2 from the paper: The illustration of the framework of the proposed algorithm" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://doi.org/10.1109/TNNLS.2020.2967051">Learning with Interpretable Structure from Gated RNN</a></h3>
+    <p class="pub-authors"><strong>Bo-Jian Hou</strong>, Zhi-Hua Zhou</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">IEEE TNNLS 2020</span>
+      <span class="pub-topics">Interpretability</span>
+    </p>
+    <p class="pub-tldr">Learns finite state automata from gated RNNs as an interpretable structure and studies how the number of gates affects performance.</p>
+    <p class="pub-links">
+      <a href="https://doi.org/10.1109/TNNLS.2020.2967051">Paper</a>
+      <a href="/files/LISOR.pdf">PDF</a>
+      <a href="https://www.lamda.nju.edu.cn/code_LISOR.ashx">Code</a>
+    </p>
+  </div>
+</article>
+
+</section>
+<section class="pub-year" aria-labelledby="y2019">
+  <h2 class="pub-year-h" id="y2019">2019</h2>
+  <article class="pub pub--list" id="rnn-interpretability-ccfai19" data-tags="interpretability robustness" data-selected="false" data-lead="true">
+  <div class="pub-thumb">
+    <img src="/images/pubs/rnn-interpretability-ccfai19.webp" srcset="/images/pubs/rnn-interpretability-ccfai19-480.webp 480w, /images/pubs/rnn-interpretability-ccfai19.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Overview illustration: RNN hidden states clustered into the states of a finite state automaton whose transitions are triggered by words" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="/files/CCFAI19.pdf">Learning Interpretability from RNN with Feature Changing</a></h3>
+    <p class="pub-authors"><strong>Bo-Jian Hou</strong>, Yuan Jiang</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">CCFAI 2019</span>
+      <span class="badge badge-award">Outstanding Student Paper Award</span>
+      <span class="pub-topics">Interpretability · Robustness</span>
+    </p>
+    <p class="pub-tldr">Learns finite state automata from RNNs when input features change, and studies how feature changes and the number of gates affect performance.</p>
+    <p class="pub-links">
+      <a href="/files/CCFAI19.pdf">PDF</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="fesl-tkde19" data-tags="robustness" data-selected="false" data-lead="true">
+  <div class="pub-thumb">
+    <img src="/images/pubs/fesl-tkde19.webp" srcset="/images/pubs/fesl-tkde19-480.webp 480w, /images/pubs/fesl-tkde19.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: Illustration that how data stream comes" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="/files/FESL-tkde.pdf">Learning with Feature Evolvable Streams</a></h3>
+    <p class="pub-authors"><strong>Bo-Jian Hou</strong>, Lijun Zhang, Zhi-Hua Zhou</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">IEEE TKDE 2019</span>
+      <span class="pub-topics">Robustness</span>
+    </p>
+    <p class="pub-tldr">Journal version of feature evolvable streaming learning: recovers vanished features from the overlap period and combines models with theoretical guarantees.</p>
+    <p class="pub-links">
+      <a href="/files/FESL-tkde.pdf">PDF</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="deep-forest-mil-jcrd19" data-tags="other" data-selected="false" data-lead="false">
+  <div class="pub-thumb">
+    <img src="/images/pubs/deep-forest-mil-jcrd19.webp" srcset="/images/pubs/deep-forest-mil-jcrd19-480.webp 480w, /images/pubs/deep-forest-mil-jcrd19.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: illustration of class vector generation" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="/files/MIDF.pdf">Deep Forest for Multiple Instance Learning</a></h3>
+    <p class="pub-authors">Jie Ren, <strong>Bojian Hou</strong>, Yuan Jiang</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">J. Computer Research and Development 2019</span>
+      <span class="pub-topics">Other</span>
+    </p>
+    <p class="pub-tldr">Multiple instance deep forest (MIDF), a deep forest structure adapted to multi-instance learning.</p>
+    <p class="pub-links">
+      <a href="/files/MIDF.pdf">PDF</a>
+    </p>
+  </div>
+</article>
+
+</section>
+<section class="pub-year" aria-labelledby="y2017">
+  <h2 class="pub-year-h" id="y2017">2017</h2>
+  <article class="pub pub--list" id="fesl-nips17" data-tags="robustness" data-selected="true" data-lead="true">
+  <div class="pub-thumb">
+    <img src="/images/pubs/fesl-nips17.webp" srcset="/images/pubs/fesl-nips17-480.webp 480w, /images/pubs/fesl-nips17.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Figure 1 from the paper: Illustration that how data stream comes" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="/files/FESL.pdf">Learning with Feature Evolvable Streams</a></h3>
+    <p class="pub-authors"><strong>Bo-Jian Hou</strong>, Lijun Zhang, Zhi-Hua Zhou</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">NIPS 2017</span>
+      <span class="pub-topics">Robustness</span>
+    </p>
+    <p class="pub-tldr">Introduces learning when old features vanish and new ones appear, using an overlap period to keep reusing the old model, with theoretical guarantees.</p>
+    <p class="pub-links">
+      <a href="/files/FESL.pdf">PDF</a>
+      <a href="https://www.lamda.nju.edu.cn/code_FESL.ashx">Code</a>
+      <a href="/files/FESL-poster.pdf" target="_blank" rel="noopener">Poster</a>
+    </p>
+  </div>
+</article>
+
+  <article class="pub pub--list" id="sfl-ijcai17" data-tags="robustness" data-selected="false" data-lead="true">
+  <div class="pub-thumb">
+    <img src="/images/pubs/sfl-ijcai17.webp" srcset="/images/pubs/sfl-ijcai17-480.webp 480w, /images/pubs/sfl-ijcai17.webp 640w" sizes="(max-width: 640px) calc(100vw - 58px), 210px" alt="Overview illustration: the n x n similarity matrix is replaced by a low-rank approximation sized to the storage budget and used for graph-based semi-supervised learning" width="640" height="400" loading="lazy" decoding="async">
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title"><a href="https://doi.org/10.24963/ijcai.2017/256">Storage Fit Learning with Unlabeled Data</a></h3>
+    <p class="pub-authors"><strong>Bo-Jian Hou</strong>, Lijun Zhang, Zhi-Hua Zhou</p>
+    <p class="pub-meta">
+      <span class="badge badge-venue">IJCAI 2017</span>
+      <span class="pub-topics">Robustness</span>
+    </p>
+    <p class="pub-tldr">Graph-based semi-supervised learning that adapts to a storage budget through low-rank approximation of the similarity matrix.</p>
+    <p class="pub-links">
+      <a href="https://doi.org/10.24963/ijcai.2017/256">Paper</a>
+      <a href="/files/SFL.pdf">PDF</a>
+      <a href="https://www.lamda.nju.edu.cn/code_SFL.ashx">Code</a>
+      <a href="/files/SFL-poster.pdf" target="_blank" rel="noopener">Poster</a>
+    </p>
+  </div>
+</article>
+
+</section>
+
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span>&copy; 2026 Bojian Hou</span>
+    <span class="footer-links">
+      <a href="mailto:hobo.hbj@gmail.com">Email</a>
+      <a href="https://scholar.google.com/citations?user=yFVd81sAAAAJ&hl=en">Google Scholar</a>
+      <a href="https://github.com/BojianHou">GitHub</a>
+      <a href="https://www.linkedin.com/in/bojian-hou-62406a155/">LinkedIn</a>
+    </span>
+    <span>Last updated October 2026</span>
+  </div>
+</footer>
+
+<script src="/assets/js/site.js" defer></script>
+</body>
+</html>

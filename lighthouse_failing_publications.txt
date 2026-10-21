@@ -1,0 +1,2 @@
+largest-contentful-paint 0.88 Largest Contentful Paint
+network-dependency-tree-insight 0 Network dependency tree
