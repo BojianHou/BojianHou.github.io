@@ -7,7 +7,7 @@
   pubs: [kunlun-kdd26]
 - title: Large Language Models
   icon: spark
-  topics: Calibration and uncertainty estimation, preference alignment, evaluation, fine-tuning, and LLMs with knowledge graphs.
+  topics: Post-training (preference alignment and calibration-aware fine-tuning), calibration and uncertainty estimation, evaluation, and LLMs with knowledge graphs.
   group: language-models
   pubs: [calibration-aligned-llm-icml25, attention-task-arithmetic-iclr25, bilevel-calibration-colm26, sem-ece-neurips26]
 - title: Trustworthy Machine Learning
