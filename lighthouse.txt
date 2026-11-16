@@ -1,0 +1,2 @@
+home {'performance': 99, 'accessibility': 100, 'best-practices': 100, 'seo': 100}
+publications {'performance': 97, 'accessibility': 100, 'best-practices': 100, 'seo': 100}
